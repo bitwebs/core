@@ -176,14 +176,14 @@ Once you have `iqd` installed, you will need to set up your node to be part of t
 
 ### Join the mainnet
 
-The following requirements are recommended for running a `columbus-5` mainnet node:
+The following requirements are recommended for running a `swartz-1` mainnet node:
 
 - **4 or more** CPU cores
 - At least **2TB** of disk storage
 - At least **100mbps** network bandwidth
 - An Linux distribution
 
-For configuration and migration instructions for setting up a Columbus-5 mainnet node, visit [The mainnet repo](https://github.com/bitwebs/mainnet).
+For configuration and migration instructions for setting up a Swartz-1 mainnet node, visit [The mainnet repo](https://github.com/bitwebs/mainnet).
 
 **IQ Node Quick Start**
 ```
