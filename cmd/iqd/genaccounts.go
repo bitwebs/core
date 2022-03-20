@@ -22,7 +22,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/x/genutil"
 	genutiltypes "github.com/cosmos/cosmos-sdk/x/genutil/types"
 
-	vestingtypes "github.com/terra-money/core/x/vesting/types"
+	vestingtypes "github.com/bitwebs/iq-core/x/vesting/types"
 )
 
 const (
@@ -44,14 +44,14 @@ It supports adding LazyGradedVestingAccount with args.
 'start' and 'end' must be specified with number of days from the genesis
 
 Example:
-$ terrad add-genesis-account acc1 '10000000000uluna,1000000ukrw' \
-  --vesting-amount '10000000000uluna,1000000ukrw' \
-  --vesting-schedules 'uluna|30|60|0.1,ukrw|0|30|1'
+$ iqd add-genesis-account acc1 '10000000000ubiq,1000000ubitd' \
+  --vesting-amount '10000000000ubiq,1000000ubitd' \
+  --vesting-schedules 'ubiq|30|60|0.1,ubitd|0|30|1'
   
 Or add normal account
 
 Example:
-$ terrad add-genesis-account acc1 '10000000000uluna,1000000ukrw'
+$ iqd add-genesis-account acc1 '10000000000ubiq,1000000ubitd'
 
 `,
 		Args: cobra.RangeArgs(2, 3),

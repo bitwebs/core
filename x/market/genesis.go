@@ -5,8 +5,8 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/terra-money/core/x/market/keeper"
-	"github.com/terra-money/core/x/market/types"
+	"github.com/bitwebs/iq-core/x/market/keeper"
+	"github.com/bitwebs/iq-core/x/market/types"
 )
 
 // InitGenesis initialize default parameters

@@ -7,7 +7,7 @@ LEDGER_ENABLED ?= true
 BINDIR ?= $(GOPATH)/bin
 BUILDDIR ?= $(CURDIR)/build
 SIMAPP = ./app
-HTTPS_GIT := https://github.com/terra-money/core.git
+HTTPS_GIT := https://github.com/bitwebs/iq-core.git
 DOCKER := $(shell which docker)
 DOCKER_BUF := $(DOCKER) run --rm -v $(CURDIR):/workspace --workdir /workspace bufbuild/buf
 
@@ -62,8 +62,8 @@ build_tags_comma_sep := $(subst $(whitespace),$(comma),$(build_tags))
 
 # process linker flags
 
-ldflags = -X github.com/cosmos/cosmos-sdk/version.Name=terra \
-		  -X github.com/cosmos/cosmos-sdk/version.AppName=terrad \
+ldflags = -X github.com/cosmos/cosmos-sdk/version.Name=iq \
+		  -X github.com/cosmos/cosmos-sdk/version.AppName=iqd \
 		  -X github.com/cosmos/cosmos-sdk/version.Version=$(VERSION) \
 		  -X github.com/cosmos/cosmos-sdk/version.Commit=$(COMMIT) \
 		  -X "github.com/cosmos/cosmos-sdk/version.BuildTags=$(build_tags_comma_sep)"
@@ -110,26 +110,26 @@ build: go.sum
 ifeq ($(OS),Windows_NT)
 	exit 1
 else
-	go build -mod=readonly $(BUILD_FLAGS) -o build/terrad ./cmd/terrad
+	go build -mod=readonly $(BUILD_FLAGS) -o build/iqd ./cmd/iqd
 endif
 
 build-linux:
 	mkdir -p $(BUILDDIR)
-	docker build --no-cache --tag terramoney/core ./
-	docker create --name temp terramoney/core:latest
-	docker cp temp:/usr/local/bin/terrad $(BUILDDIR)/
+	docker build --no-cache --tag bitwebs/iq-core ./
+	docker create --name temp bitwebs/iq-core:latest
+	docker cp temp:/usr/local/bin/iqd $(BUILDDIR)/
 	docker rm temp
 
 build-linux-with-shared-library:
 	mkdir -p $(BUILDDIR)
-	docker build --tag terramoney/core-shared ./ -f ./shared.Dockerfile
-	docker create --name temp terramoney/core-shared:latest
-	docker cp temp:/usr/local/bin/terrad $(BUILDDIR)/
+	docker build --tag bitwebs/iq-core-shared ./ -f ./shared.Dockerfile
+	docker create --name temp bitwebs/iq-core-shared:latest
+	docker cp temp:/usr/local/bin/iqd $(BUILDDIR)/
 	docker cp temp:/lib/libwasmvm.so $(BUILDDIR)/
 	docker rm temp
 
 install: go.sum 
-	go install -mod=readonly $(BUILD_FLAGS) ./cmd/terrad
+	go install -mod=readonly $(BUILD_FLAGS) ./cmd/iqd
 
 update-swagger-docs: statik
 	$(BINDIR)/statik -src=client/docs/swagger-ui -dest=client/docs -f -m
@@ -156,7 +156,7 @@ go.sum: go.mod
 draw-deps:
 	@# requires brew install graphviz or apt-get install graphviz
 	go get github.com/RobotsAndPencils/goviz
-	@goviz -i ./cmd/terrad -d 2 | dot -Tpng -o dependency-graph.png
+	@goviz -i ./cmd/iqd -d 2 | dot -Tpng -o dependency-graph.png
 
 distclean: clean tools-clean
 clean:
@@ -230,7 +230,7 @@ proto-swagger-gen:
 proto-lint:
 	@$(DOCKER_BUF) lint --error-format=json
 
-## TODO - change branch release/v0.5.x to master after columbus-5 merged
+## TODO - change branch release/v0.0.1 to master after swartz-1 merged
 proto-check-breaking:
 	@$(DOCKER_BUF) breaking --against $(HTTPS_GIT)#branch=master
 
@@ -242,14 +242,14 @@ proto-check-breaking:
 
 # Run a 4-node testnet locally
 localnet-start: build-linux localnet-stop
-	$(if $(shell $(DOCKER) inspect -f '{{ .Id }}' terramoney/terrad-env 2>/dev/null),$(info found image terramoney/terrad-env),$(MAKE) -C contrib/images terrad-env)
-	if ! [ -f build/node0/terrad/config/genesis.json ]; then $(DOCKER) run --rm \
+	$(if $(shell $(DOCKER) inspect -f '{{ .Id }}' bitwebs/iqd-env 2>/dev/null),$(info found image bitwebs/iqd-env),$(MAKE) -C contrib/images iqd-env)
+	if ! [ -f build/node0/iqd/config/genesis.json ]; then $(DOCKER) run --rm \
 		--user $(shell id -u):$(shell id -g) \
-		-v $(BUILDDIR):/terrad:Z \
+		-v $(BUILDDIR):/iqd:Z \
 		-v /etc/group:/etc/group:ro \
 		-v /etc/passwd:/etc/passwd:ro \
 		-v /etc/shadow:/etc/shadow:ro \
-		terramoney/terrad-env testnet --v 4 -o . --starting-ip-address 192.168.10.2 --keyring-backend=test ; fi
+		bitwebs/iqd-env testnet --v 4 -o . --starting-ip-address 192.168.10.2 --keyring-backend=test ; fi
 	docker-compose up -d
 
 localnet-stop:

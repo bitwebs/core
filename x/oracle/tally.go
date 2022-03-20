@@ -3,9 +3,9 @@ package oracle
 import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	core "github.com/terra-money/core/types"
-	"github.com/terra-money/core/x/oracle/keeper"
-	"github.com/terra-money/core/x/oracle/types"
+	core "github.com/bitwebs/iq-core/types"
+	"github.com/bitwebs/iq-core/x/oracle/keeper"
+	"github.com/bitwebs/iq-core/x/oracle/types"
 )
 
 // Tally calculates the median and returns it. Sets the set of voters to be rewarded, i.e. voted within

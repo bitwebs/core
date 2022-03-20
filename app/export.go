@@ -12,12 +12,12 @@ import (
 	"github.com/cosmos/cosmos-sdk/x/staking"
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 
-	oracletypes "github.com/terra-money/core/x/oracle/types"
+	oracletypes "github.com/bitwebs/iq-core/x/oracle/types"
 )
 
 // ExportAppStateAndValidators exports the state of the application for a genesis
 // file.
-func (app *TerraApp) ExportAppStateAndValidators(
+func (app *IqApp) ExportAppStateAndValidators(
 	forZeroHeight bool, jailAllowedAddrs []string,
 ) (servertypes.ExportedApp, error) {
 	// as if they could withdraw from the start of the next block
@@ -49,7 +49,7 @@ func (app *TerraApp) ExportAppStateAndValidators(
 // prepare for fresh start at zero height
 // NOTE zero height genesis is a temporary feature which will be deprecated
 //      in favour of export at a block height
-func (app *TerraApp) prepForZeroHeightGenesis(ctx sdk.Context, jailAllowedAddrs []string) {
+func (app *IqApp) prepForZeroHeightGenesis(ctx sdk.Context, jailAllowedAddrs []string) {
 	applyAllowedAddrs := false
 
 	// check if there is a allowed address list
@@ -196,8 +196,8 @@ func (app *TerraApp) prepForZeroHeightGenesis(ctx sdk.Context, jailAllowedAddrs 
 	/* Handle oracle state. */
 
 	// Clear all prices
-	app.OracleKeeper.IterateLunaExchangeRates(ctx, func(denom string, _ sdk.Dec) bool {
-		app.OracleKeeper.DeleteLunaExchangeRate(ctx, denom)
+	app.OracleKeeper.IterateBiqExchangeRates(ctx, func(denom string, _ sdk.Dec) bool {
+		app.OracleKeeper.DeleteBiqExchangeRate(ctx, denom)
 		return false
 	})
 
@@ -219,5 +219,5 @@ func (app *TerraApp) prepForZeroHeightGenesis(ctx sdk.Context, jailAllowedAddrs 
 	/* Handle market state. */
 
 	// clear all market pools
-	app.MarketKeeper.SetTerraPoolDelta(ctx, sdk.ZeroDec())
+	app.MarketKeeper.SetIqPoolDelta(ctx, sdk.ZeroDec())
 }

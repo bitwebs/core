@@ -10,10 +10,10 @@ import (
 	"github.com/cosmos/cosmos-sdk/client"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/terra-money/core/app"
-	core "github.com/terra-money/core/types"
-	v04treasury "github.com/terra-money/core/x/treasury/legacy/v04"
-	v05treasury "github.com/terra-money/core/x/treasury/legacy/v05"
+	"github.com/bitwebs/iq-core/app"
+	core "github.com/bitwebs/iq-core/types"
+	v04treasury "github.com/bitwebs/iq-core/x/treasury/legacy/v04"
+	v05treasury "github.com/bitwebs/iq-core/x/treasury/legacy/v05"
 )
 
 func TestMigrate(t *testing.T) {

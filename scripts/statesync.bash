@@ -5,10 +5,10 @@ set -uxe
 # set environment variables
 #export GOPATH=~/go
 #export PATH=$PATH:~/go/bin
-export NODE=65.21.202.37:2161
-export ENVNAME=TERRAD
-export APPNAME=terrad
-export $(echo $ENVNAME)$(echo "_HOME")=/plotting/terradata
+export NODE=swartz2.iqchain.network:2161
+export ENVNAME=IQD
+export APPNAME=iqd
+export $(echo $ENVNAME)$(echo "_HOME")=/plotting/iqdata
 export GENESIS=QmZAMcdu85Qr8saFuNpL9VaxVqqLGWNAs72RVFhchL9jWs
 
 # Install Gaia
@@ -17,7 +17,7 @@ export GENESIS=QmZAMcdu85Qr8saFuNpL9VaxVqqLGWNAs72RVFhchL9jWs
 
 # MAKE HOME FOLDER AND GET GENESIS
 $APPNAME init test 
-wget -O $TERRAD_HOME/config/genesis.json https://ipfs.io/ipfs/$GENESIS
+wget -O $IQD_HOME/config/genesis.json https://ipfs.io/ipfs/$GENESIS
 
 INTERVAL=1000
 
@@ -38,9 +38,9 @@ echo "HOME: $HOMEDIR"
 # export state sync ars
 export $(echo $ENVNAME)_STATESYNC_ENABLE=true
 export $(echo $ENVNAME)_P2P_MAX_NUM_OUTBOUND_PEERS=200
-export $(echo $ENVNAME)_STATESYNC_RPC_SERVERS="$NODE,https://columbus-5.technofractal.com:443"
+export $(echo $ENVNAME)_STATESYNC_RPC_SERVERS="$NODE,https://swartz1.iqchain.network:443"
 export $(echo $ENVNAME)_STATESYNC_TRUST_HEIGHT=$BLOCK_HEIGHT
 export $(echo $ENVNAME)_STATESYNC_TRUST_HASH=$TRUST_HASH
 export $(echo $ENVNAME)_P2P_PERSISTENT_PEERS="$NODE_ID@$NODE"
 
-terrad start
+iqd start

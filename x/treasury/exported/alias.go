@@ -3,7 +3,7 @@
 package exported
 
 import (
-	"github.com/terra-money/core/x/treasury/types"
+	"github.com/bitwebs/iq-core/x/treasury/types"
 )
 
 var (

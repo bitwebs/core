@@ -44,15 +44,15 @@ def main(argument_parser, process_genesis_func):
 
     genesis = process_genesis_func(genesis=genesis, parsed_args=args,)
 
-    # update terra1n2kzv00yjanjpjplqtwucug45lurr8tzgrvj2p => terra1pnnruerze80znqdcl5ka6y3ntpzyu2e4j4yeev
-    # update terra1f0gxt604sn3py38u4pecf2ha3x66640cvndpv7 => terra1pln09kv8s7k3ssw0p6ymdwjn7aya3h6mj5mp2x
+    # update iq1n2kzv00yjanjpjplqtwucug45lurr8tzgrvj2p => iq1pnnruerze80znqdcl5ka6y3ntpzyu2e4j4yeev
+    # update iq1f0gxt604sn3py38u4pecf2ha3x66640cvndpv7 => iq1pln09kv8s7k3ssw0p6ymdwjn7aya3h6mj5mp2x
     raw_genesis = json.dumps(genesis, indent=4, sort_keys=True)
     raw_genesis = raw_genesis.replace(
-        'terra1n2kzv00yjanjpjplqtwucug45lurr8tzgrvj2p', 
-        'terra1pnnruerze80znqdcl5ka6y3ntpzyu2e4j4yeev')
+        'iq1n2kzv00yjanjpjplqtwucug45lurr8tzgrvj2p', 
+        'iq1pnnruerze80znqdcl5ka6y3ntpzyu2e4j4yeev')
     raw_genesis = raw_genesis.replace(
-        'terra1f0gxt604sn3py38u4pecf2ha3x66640cvndpv7',
-        'terra1pln09kv8s7k3ssw0p6ymdwjn7aya3h6mj5mp2x')
+        'iq1f0gxt604sn3py38u4pecf2ha3x66640cvndpv7',
+        'iq1pln09kv8s7k3ssw0p6ymdwjn7aya3h6mj5mp2x')
 
     print(raw_genesis)
 
@@ -111,19 +111,19 @@ def process_raw_genesis(genesis, parsed_args):
             'vesting_schedules': acc['lazy_vesting_schedules']
         }
 
-        if acc['address'] == 'terra1fs7mmpducjf25j70sk3sz6k5phz2fllmyr5gwz':
+        if acc['address'] == 'iq1fs7mmpducjf25j70sk3sz6k5phz2fllmyr5gwz':
             update_vesting_schedule(newAcc)
-        if acc['address'] == 'terra1dp0taj85ruc299rkdvzp4z5pfg6z6swaed74e6':
+        if acc['address'] == 'iq1dp0taj85ruc299rkdvzp4z5pfg6z6swaed74e6':
             # (Foundation) sub 978,260 LUNA to give new vesting account
             for coin in newAcc['coins']:
-              if coin['denom'] == 'uluna':
+              if coin['denom'] == 'ubiq':
                 coin['amount'] = str(int(coin['amount']) - 978260000000)
-        if acc['address'] == 'terra1nl2vrxr0qzzy4pd9m2mw0q0tvwcxe2mg8shaad':
+        if acc['address'] == 'iq1nl2vrxr0qzzy4pd9m2mw0q0tvwcxe2mg8shaad':
             update_seed_to_private_vesting_schedule(newAcc)
-        if acc['address'] == 'terra10y5usrnwk2ltddm5kenhznl5uj6w3yfga5al4a':
+        if acc['address'] == 'iq10y5usrnwk2ltddm5kenhznl5uj6w3yfga5al4a':
             # 978,260 LUNA 1M, 2M, 3M, 12M 10% 10% 10% 70%
             coin = {
-              'denom': 'uluna',
+              'denom': 'ubiq',
               'amount': '978260000000'
             }
 
@@ -137,7 +137,7 @@ def process_raw_genesis(genesis, parsed_args):
     newAccounts.append(
         create_module_account(
             'fee_collector', 
-            'terra17xpfvakm2amg962yls6f84z3kell8c5lkaeqfa', 
+            'iq17xpfvakm2amg962yls6f84z3kell8c5lkaeqfa', 
             genesis['app_state']['auth']['collected_fees'], 
             ['basic']
         )
@@ -147,7 +147,7 @@ def process_raw_genesis(genesis, parsed_args):
     newAccounts.append(
         create_module_account(
             'gov', 
-            'terra10d07y265gmmuvt4z0w9aw880jnsr700juxf95n', 
+            'iq10d07y265gmmuvt4z0w9aw880jnsr700juxf95n', 
             [], 
             ['burner']
         )
@@ -166,7 +166,7 @@ def process_raw_genesis(genesis, parsed_args):
     newAccounts.append(
         create_module_account(
             'distribution', 
-            'terra1jv65s3grqf6v6jl3dp4t6c9t9rk99cd8pm7utl', 
+            'iq1jv65s3grqf6v6jl3dp4t6c9t9rk99cd8pm7utl', 
             communityPoolCoins, 
             ['basic']
         )
@@ -176,8 +176,8 @@ def process_raw_genesis(genesis, parsed_args):
     newAccounts.append(
         create_module_account(
             'bonded_tokens_pool', 
-            'terra1fl48vsnmsdzcv85q5d2q4z5ajdha8yu3nln0mh', 
-            [{'amount': str(bondedAmt), 'denom': 'uluna'}], 
+            'iq1fl48vsnmsdzcv85q5d2q4z5ajdha8yu3nln0mh', 
+            [{'amount': str(bondedAmt), 'denom': 'ubiq'}], 
             ['burner', 'staking']
         )
     )
@@ -186,8 +186,8 @@ def process_raw_genesis(genesis, parsed_args):
     newAccounts.append(
         create_module_account(
             'not_bonded_tokens_pool', 
-            'terra1tygms3xhhs3yv487phx3dw4a95jn7t7l8l07dr', 
-            [{'amount': str(notBondedAmt), 'denom': 'uluna'}], 
+            'iq1tygms3xhhs3yv487phx3dw4a95jn7t7l8l07dr', 
+            [{'amount': str(notBondedAmt), 'denom': 'ubiq'}], 
             ['burner', 'staking']
         )
     )
@@ -196,7 +196,7 @@ def process_raw_genesis(genesis, parsed_args):
     newAccounts.append(
         create_module_account(
             'oracle', 
-            'terra1jgp27m8fykex4e4jtt0l7ze8q528ux2lh4zh0f', 
+            'iq1jgp27m8fykex4e4jtt0l7ze8q528ux2lh4zh0f', 
             [], 
             ['basic']
         )
@@ -206,7 +206,7 @@ def process_raw_genesis(genesis, parsed_args):
     newAccounts.append(
         create_module_account(
             'market', 
-            'terra1untf85jwv3kt0puyyc39myxjvplagr3wstgs5s', 
+            'iq1untf85jwv3kt0puyyc39myxjvplagr3wstgs5s', 
             [], 
             ['minter', 'burner']
         )
@@ -216,7 +216,7 @@ def process_raw_genesis(genesis, parsed_args):
     newAccounts.append(
         create_module_account(
             'treasury', 
-            'terra1vmafl8f3s6uuzwnxkqz0eza47v6ecn0t0yeca7', 
+            'iq1vmafl8f3s6uuzwnxkqz0eza47v6ecn0t0yeca7', 
             [], 
             ['minter']
         )
@@ -240,7 +240,7 @@ def process_raw_genesis(genesis, parsed_args):
             'max_deposit_period': '1209600000000000',
             'min_deposit': [{
                 'amount': '512000000',
-                'denom': 'uluna'
+                'denom': 'ubiq'
             }]
         },
         'voting_params': {
@@ -284,7 +284,7 @@ def process_raw_genesis(genesis, parsed_args):
 
     # Migrate market module
     genesis['app_state']['market'] = {
-        'terra_pool_delta': '0',
+        'iq_pool_delta': '0',
         'params': {
             'base_pool': '250000000000',          # 250,000 sdr = 250,000,000,000 usdr
             'pool_recovery_period': '14400',      # blocks per day
@@ -355,8 +355,8 @@ def update_vesting_schedule(account):
     vesting_schedules = []
 
     # Luna Schedule Update
-    luna_vesting_schedule = {
-        'denom': 'uluna',
+    biq_vesting_schedule = {
+        'denom': 'ubiq',
         'schedules': [
             {
                 'start_time': str(get_time_after_n_month(genesis_date, 4)),
@@ -382,31 +382,31 @@ def update_vesting_schedule(account):
     }
 
     # Terra Schedule Update
-    terra_schedules = []
+    iq_schedules = []
     cumulated_ratio = 0
     for i in range(17):
         ratio = correct_decimal(1/18)
         cumulated_ratio += ratio
-        terra_schedules.append({
+        iq_schedules.append({
             'start_time': str(get_time_after_n_month(genesis_date, 4 + i)),
             'end_time': str(get_time_after_n_month(genesis_date, 5 + i)),
             'ratio': str(ratio),
         })
     
 
-    terra_schedules.append({
+    iq_schedules.append({
         'start_time': str(get_time_after_n_month(genesis_date, 4 + 17)),
         'end_time': str(get_time_after_n_month(genesis_date, 5 + 17)),
         'ratio': str(1 - cumulated_ratio),
     })
 
-    terra_vesting_schedule = {
+    iq_vesting_schedule = {
         'denom': 'usdr',
-        'schedules': terra_schedules
+        'schedules': iq_schedules
     }
 
-    vesting_schedules.append(luna_vesting_schedule)
-    vesting_schedules.append(terra_vesting_schedule)
+    vesting_schedules.append(biq_vesting_schedule)
+    vesting_schedules.append(iq_vesting_schedule)
     account['vesting_schedules'] = vesting_schedules
 
 def update_seed_to_private_vesting_schedule(account):
@@ -417,8 +417,8 @@ def update_seed_to_private_vesting_schedule(account):
     vesting_schedules = []
 
     # Luna Schedule Update
-    luna_vesting_schedule = {
-        'denom': 'uluna',
+    biq_vesting_schedule = {
+        'denom': 'ubiq',
         'schedules': [
             {
                 'start_time': str(get_time_after_n_month(genesis_date, 4)),
@@ -455,18 +455,18 @@ def update_seed_to_private_vesting_schedule(account):
 
 
     # Terra vesting has no need to be updated
-    terra_vesting_schedule = {
+    iq_vesting_schedule = {
         'denom': 'usdr'
     }
 
-    # Find origin terra vesting schedule and use it to new vesting schedule
+    # Find origin iq vesting schedule and use it to new vesting schedule
     for vesting_schedule in account['vesting_schedules']:
         if vesting_schedule['denom'] == 'usdr':
-            terra_vesting_schedule['schedules'] = vesting_schedule['schedules']
+            iq_vesting_schedule['schedules'] = vesting_schedule['schedules']
             break
 
-    vesting_schedules.append(luna_vesting_schedule)
-    vesting_schedules.append(terra_vesting_schedule)
+    vesting_schedules.append(biq_vesting_schedule)
+    vesting_schedules.append(iq_vesting_schedule)
     account['vesting_schedules'] = vesting_schedules
 
 def update_seed2_vesting_schedule(account):
@@ -477,8 +477,8 @@ def update_seed2_vesting_schedule(account):
     vesting_schedules = []
 
     # Luna Schedule Update
-    luna_vesting_schedule = {
-        'denom': 'uluna',
+    biq_vesting_schedule = {
+        'denom': 'ubiq',
         'schedules': [
             {
                 'start_time': str(get_time_after_n_month(genesis_date, 1)),
@@ -503,7 +503,7 @@ def update_seed2_vesting_schedule(account):
         ]
     }
 
-    vesting_schedules.append(luna_vesting_schedule)
+    vesting_schedules.append(biq_vesting_schedule)
     account['vesting_schedules'] = vesting_schedules
 
 

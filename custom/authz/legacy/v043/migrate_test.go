@@ -9,10 +9,10 @@ import (
 	"github.com/cosmos/cosmos-sdk/client"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/terra-money/core/app"
-	v043authz "github.com/terra-money/core/custom/authz/legacy/v043"
-	core "github.com/terra-money/core/types"
-	v04msgauth "github.com/terra-money/core/x/msgauth/legacy/v04"
+	"github.com/bitwebs/iq-core/app"
+	v043authz "github.com/bitwebs/iq-core/custom/authz/legacy/v043"
+	core "github.com/bitwebs/iq-core/types"
+	v04msgauth "github.com/bitwebs/iq-core/x/msgauth/legacy/v04"
 )
 
 func TestMigrate(t *testing.T) {
@@ -25,10 +25,10 @@ func TestMigrate(t *testing.T) {
 		WithLegacyAmino(encodingConfig.Amino).
 		WithCodec(encodingConfig.Marshaler)
 
-	granter, err := sdk.AccAddressFromBech32("terra13vs2znvhdcy948ejsh7p8p22j8l4n4y07062qq")
+	granter, err := sdk.AccAddressFromBech32("iq13vs2znvhdcy948ejsh7p8p22j8l4n4y07062qq")
 	require.NoError(t, err)
 
-	grantee, err := sdk.AccAddressFromBech32("terra1mx72uukvzqtzhc6gde7shrjqfu5srk22v7gmww")
+	grantee, err := sdk.AccAddressFromBech32("iq1mx72uukvzqtzhc6gde7shrjqfu5srk22v7gmww")
 	require.NoError(t, err)
 
 	msgauthGenState := v04msgauth.GenesisState{
@@ -78,8 +78,8 @@ func TestMigrate(t *testing.T) {
 				"msg": "/cosmos.gov.v1beta1.MsgVote"
 			},
 			"expiration": "0001-01-01T00:00:00Z",
-			"grantee": "terra1mx72uukvzqtzhc6gde7shrjqfu5srk22v7gmww",
-			"granter": "terra13vs2znvhdcy948ejsh7p8p22j8l4n4y07062qq"
+			"grantee": "iq1mx72uukvzqtzhc6gde7shrjqfu5srk22v7gmww",
+			"granter": "iq13vs2znvhdcy948ejsh7p8p22j8l4n4y07062qq"
 		},
 		{
 			"authorization": {
@@ -87,13 +87,13 @@ func TestMigrate(t *testing.T) {
 				"spend_limit": [
 					{
 						"amount": "100",
-						"denom": "uusd"
+						"denom": "usbit"
 					}
 				]
 			},
 			"expiration": "0001-01-01T00:00:00Z",
-			"grantee": "terra1mx72uukvzqtzhc6gde7shrjqfu5srk22v7gmww",
-			"granter": "terra13vs2znvhdcy948ejsh7p8p22j8l4n4y07062qq"
+			"grantee": "iq1mx72uukvzqtzhc6gde7shrjqfu5srk22v7gmww",
+			"granter": "iq13vs2znvhdcy948ejsh7p8p22j8l4n4y07062qq"
 		}
 	]
 }`

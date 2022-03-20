@@ -24,7 +24,7 @@ import (
 
 	wasmvmtypes "github.com/CosmWasm/wasmvm/types"
 
-	core "github.com/terra-money/core/types"
+	core "github.com/bitwebs/iq-core/types"
 )
 
 type StakingInitMsg struct {

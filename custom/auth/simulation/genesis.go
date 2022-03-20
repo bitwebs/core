@@ -12,8 +12,8 @@ import (
 	"github.com/cosmos/cosmos-sdk/types/simulation"
 	"github.com/cosmos/cosmos-sdk/x/auth/types"
 
-	core "github.com/terra-money/core/types"
-	customvestingtypes "github.com/terra-money/core/x/vesting/types"
+	core "github.com/bitwebs/iq-core/types"
+	customvestingtypes "github.com/bitwebs/iq-core/x/vesting/types"
 )
 
 // Simulation parameter constants
@@ -38,7 +38,7 @@ func RandomGenesisAccounts(simState *module.SimulationState) types.GenesisAccoun
 			continue
 		}
 
-		initialVesting := sdk.NewCoins(sdk.NewInt64Coin(core.MicroLunaDenom, simState.Rand.Int63n(simState.InitialStake)))
+		initialVesting := sdk.NewCoins(sdk.NewInt64Coin(core.MicroBiqDenom, simState.Rand.Int63n(simState.InitialStake)))
 
 		var gacc types.GenesisAccount = bacc
 
@@ -69,7 +69,7 @@ func RandomGenesisAccounts(simState *module.SimulationState) types.GenesisAccoun
 			}
 
 			gacc = customvestingtypes.NewLazyGradedVestingAccount(bacc, initialVesting, customvestingtypes.VestingSchedules{
-				customvestingtypes.NewVestingSchedule(core.MicroLunaDenom, lazySchedules),
+				customvestingtypes.NewVestingSchedule(core.MicroBiqDenom, lazySchedules),
 			})
 		}
 		genesisAccs[i] = gacc

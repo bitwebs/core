@@ -1,6 +1,6 @@
-all: terrad-env
+all: iqd-env
 
-terrad-env:
-	docker build --build-arg UID=$(shell id -u) --build-arg GID=$(shell id -g) --tag terramoney/terrad-env terrad-env
+iqd-env:
+	docker build --build-arg UID=$(shell id -u) --build-arg GID=$(shell id -g) --tag bitwebs/iqd-env iqd-env
 
-.PHONY: all terrad-env
+.PHONY: all iqd-env

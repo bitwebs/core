@@ -9,7 +9,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/client/flags"
 	authclient "github.com/cosmos/cosmos-sdk/x/auth/client"
 
-	feeutils "github.com/terra-money/core/custom/auth/client/utils"
+	feeutils "github.com/bitwebs/iq-core/custom/auth/client/utils"
 )
 
 // GetTxFeesEstimateCommand will create a send tx and sign it with the given key.
@@ -21,7 +21,7 @@ func GetTxFeesEstimateCommand() *cobra.Command {
 		Long: strings.TrimSpace(`
 Estimate fees for the given stdTx
 
-$ terrad tx estimate-fee [file] --gas-adjustment 1.4 --gas-prices 0.015uluna
+$ terrad tx estimate-fee [file] --gas-adjustment 1.4 --gas-prices 0.015ubiq
 `),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			clientCtx, err := client.GetClientTxContext(cmd)

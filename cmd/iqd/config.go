@@ -1,13 +1,13 @@
 package main
 
 import (
-	wasmconfig "github.com/terra-money/core/x/wasm/config"
+	wasmconfig "github.com/iq-money/core/x/wasm/config"
 
 	serverconfig "github.com/cosmos/cosmos-sdk/server/config"
 )
 
-// TerraAppConfig terra specify app config
-type TerraAppConfig struct {
+// IqAppConfig iq specify app config
+type IqAppConfig struct {
 	serverconfig.Config
 
 	WASMConfig wasmconfig.Config `mapstructure:"wasm"`
@@ -32,14 +32,14 @@ func initAppConfig() (string, interface{}) {
 	//   own app.toml to override, or use this default value.
 	//
 	// In simapp, we set the min gas prices to 0.
-	srvCfg.MinGasPrices = "0uluna"
+	srvCfg.MinGasPrices = "0ubiq"
 
-	terraAppConfig := TerraAppConfig{
+	iqAppConfig := IqAppConfig{
 		Config:     *srvCfg,
 		WASMConfig: *wasmconfig.DefaultConfig(),
 	}
 
-	terraAppTemplate := serverconfig.DefaultConfigTemplate + wasmconfig.DefaultConfigTemplate
+	iqAppTemplate := serverconfig.DefaultConfigTemplate + wasmconfig.DefaultConfigTemplate
 
-	return terraAppTemplate, terraAppConfig
+	return iqAppTemplate, iqAppConfig
 }

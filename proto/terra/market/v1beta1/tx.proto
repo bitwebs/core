@@ -1,10 +1,10 @@
 syntax = "proto3";
-package terra.market.v1beta1;
+package iq.market.v1beta1;
 
 import "gogoproto/gogo.proto";
 import "cosmos/base/v1beta1/coin.proto";
 
-option go_package = "github.com/terra-money/core/x/market/types";
+option go_package = "github.com/bitwebs/iq-core/x/market/types";
 
 // Msg defines the market Msg service.
 service Msg {

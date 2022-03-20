@@ -12,11 +12,11 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	core "github.com/terra-money/core/types"
-	marketwasm "github.com/terra-money/core/x/market/wasm"
-	oraclewasm "github.com/terra-money/core/x/oracle/wasm"
-	treasurywasm "github.com/terra-money/core/x/treasury/wasm"
-	"github.com/terra-money/core/x/wasm/types"
+	core "github.com/bitwebs/iq-core/types"
+	marketwasm "github.com/bitwebs/iq-core/x/market/wasm"
+	oraclewasm "github.com/bitwebs/iq-core/x/oracle/wasm"
+	treasurywasm "github.com/bitwebs/iq-core/x/treasury/wasm"
+	"github.com/bitwebs/iq-core/x/wasm/types"
 )
 
 // MakerInitMsg nolint

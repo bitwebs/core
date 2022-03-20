@@ -6,13 +6,13 @@ import (
 	"github.com/cosmos/cosmos-sdk/server"
 	svrcmd "github.com/cosmos/cosmos-sdk/server/cmd"
 
-	terraapp "github.com/terra-money/core/app"
+	terraapp "github.com/bitwebs/iq-core/app"
 )
 
 func main() {
 	rootCmd, _ := NewRootCmd()
 
-	if err := svrcmd.Execute(rootCmd, terraapp.DefaultNodeHome); err != nil {
+	if err := svrcmd.Execute(rootCmd, iqapp.DefaultNodeHome); err != nil {
 		switch e := err.(type) {
 		case server.ErrorCode:
 			os.Exit(e.Code)

@@ -9,8 +9,8 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	core "github.com/terra-money/core/types"
-	"github.com/terra-money/core/x/oracle/types"
+	core "github.com/bitwebs/iq-core/types"
+	"github.com/bitwebs/iq-core/x/oracle/types"
 )
 
 func TestQueryParams(t *testing.T) {

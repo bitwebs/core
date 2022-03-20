@@ -5,7 +5,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/types/module"
 	feegrant "github.com/cosmos/cosmos-sdk/x/feegrant/module"
 
-	customtypes "github.com/terra-money/core/custom/feegrant/types"
+	customtypes "github.com/bitwebs/iq-core/custom/feegrant/types"
 )
 
 var (

@@ -10,8 +10,8 @@ import (
 	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
 	authvesttypes "github.com/cosmos/cosmos-sdk/x/auth/vesting/types"
 
-	core "github.com/terra-money/core/types"
-	"github.com/terra-money/core/x/vesting/types"
+	core "github.com/bitwebs/iq-core/types"
+	"github.com/bitwebs/iq-core/x/vesting/types"
 )
 
 var (

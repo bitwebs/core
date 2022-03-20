@@ -13,8 +13,8 @@ import (
 	paramstypes "github.com/cosmos/cosmos-sdk/x/params/types"
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 
-	core "github.com/terra-money/core/types"
-	"github.com/terra-money/core/x/oracle/types"
+	core "github.com/bitwebs/iq-core/types"
+	"github.com/bitwebs/iq-core/x/oracle/types"
 )
 
 // Keeper of the oracle store

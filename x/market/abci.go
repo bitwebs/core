@@ -3,7 +3,7 @@ package market
 import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/terra-money/core/x/market/keeper"
+	"github.com/bitwebs/iq-core/x/market/keeper"
 )
 
 // EndBlocker is called at the end of every block

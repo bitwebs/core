@@ -8,8 +8,8 @@ import (
 	"github.com/cosmos/cosmos-sdk/x/staking"
 	"github.com/cosmos/cosmos-sdk/x/staking/types"
 
-	customtypes "github.com/terra-money/core/custom/staking/types"
-	core "github.com/terra-money/core/types"
+	customtypes "github.com/bitwebs/iq-core/custom/staking/types"
+	core "github.com/bitwebs/iq-core/types"
 )
 
 var (
@@ -30,7 +30,7 @@ func (AppModuleBasic) RegisterLegacyAminoCodec(cdc *codec.LegacyAmino) {
 // DefaultGenesis returns default genesis state as raw bytes for the gov
 // module.
 func (am AppModuleBasic) DefaultGenesis(cdc codec.JSONCodec) json.RawMessage {
-	// customize to set default genesis state deposit denom to uluna
+	// customize to set default genesis state deposit denom to ubit
 	defaultGenesisState := types.DefaultGenesisState()
 	defaultGenesisState.Params.BondDenom = core.MicroLunaDenom
 

@@ -7,10 +7,10 @@ import (
 	authz "github.com/cosmos/cosmos-sdk/x/authz"
 	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
 
-	"github.com/terra-money/core/custom/auth/ante"
-	core "github.com/terra-money/core/types"
-	markettypes "github.com/terra-money/core/x/market/types"
-	wasmtypes "github.com/terra-money/core/x/wasm/types"
+	"github.com/bitwebs/iq-core/custom/auth/ante"
+	core "github.com/bitwebs/iq-core/types"
+	markettypes "github.com/bitwebs/iq-core/x/market/types"
+	wasmtypes "github.com/bitwebs/iq-core/x/wasm/types"
 )
 
 func (suite *AnteTestSuite) TestEnsureMempoolFeesGas() {

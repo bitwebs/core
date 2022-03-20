@@ -8,8 +8,8 @@ import (
 	"github.com/cosmos/cosmos-sdk/x/crisis"
 	"github.com/cosmos/cosmos-sdk/x/crisis/types"
 
-	customtypes "github.com/terra-money/core/custom/crisis/types"
-	core "github.com/terra-money/core/types"
+	customtypes "github.com/bitwebs/iq-core/custom/crisis/types"
+	core "github.com/bitwebs/iq-core/types"
 )
 
 var (

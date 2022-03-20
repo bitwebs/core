@@ -13,8 +13,8 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	core "github.com/terra-money/core/types"
-	"github.com/terra-money/core/x/wasm/types"
+	core "github.com/bitwebs/iq-core/types"
+	"github.com/bitwebs/iq-core/x/wasm/types"
 )
 
 func TestStoreCode(t *testing.T) {

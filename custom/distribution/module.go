@@ -6,7 +6,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/x/distribution"
 	"github.com/cosmos/cosmos-sdk/x/distribution/types"
 
-	customtypes "github.com/terra-money/core/custom/distribution/types"
+	customtypes "github.com/bitwebs/iq-core/custom/distribution/types"
 )
 
 var (

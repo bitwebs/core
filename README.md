@@ -6,45 +6,45 @@
 </p>
 
 <p align="center">
-Full-node software implementing the Terra protocol<br/><br/>
+Full-node software implementing the IQ protocol<br/><br/>
 
-<a href="https://codecov.io/gh/terra-money/core">
-    <img src="https://codecov.io/gh/terra-money/core/branch/develop/graph/badge.svg">
+<a href="https://codecov.io/gh/bitwebs/core">
+    <img src="https://codecov.io/gh/bitwebs/core/branch/develop/graph/badge.svg">
 </a>
-<a href="https://goreportcard.com/report/github.com/terra-money/core">
-    <img src="https://goreportcard.com/badge/github.com/terra-money/core">
+<a href="https://goreportcard.com/report/github.com/bitwebs/core">
+    <img src="https://goreportcard.com/badge/github.com/bitwebs/core">
 </a>
 
 </p>
 
 <p align="center">
-  <a href="https://docs.terra.money/"><strong>Explore the Docs »</strong></a>
+  <a href="https://docs.iqchain.network/"><strong>Explore the Docs »</strong></a>
   <br />
   <br/>
-  <a href="https://docs.terra.money/docs/develop/module-specifications/README.html">Terra Core reference</a>
+  <a href="https://docs.iqchain.network/docs/develop/module-specifications/README.html">IQ Core reference</a>
   ·
-  <a href="https://pkg.go.dev/github.com/terra-money/core?tab=subdirectories">Go API</a>
+  <a href="https://pkg.go.dev/github.com/bitwebs/core?tab=subdirectories">Go API</a>
   ·
-  <a href="https://lcd.terra.dev/swagger/#/">Rest API</a>
+  <a href="https://api.iqchain.network/swagger/#/">Rest API</a>
   ·
-  <a href="https://github.com/terra-money/terra.py">Python SDK</a>
+  <a href="https://github.com/bitwebs/iq.py">Python SDK</a>
   ·
-  <a href="https://terra-money.github.io/terra.js/">Terra.js</a>
+  <a href="https://bitwebs.github.io/iq.js/">IQChain.js</a>
   ·
-  <a href="https://finder.terra.money/">Finder</a>
+  <a href="https://finder.iqchain.network/">Finder</a>
   ·
-  <a href="https://station.terra.money/">Station</a>
+  <a href="https://station.iqchain.network/">Station</a>
 </p>
 
 <br/>
 
 ## Table of Contents <!-- omit in toc -->
 
-- [What is Terra?](#what-is-terra)
+- [What is IQ Chain?](#what-is-iq-chain)
 - [Installation](#installation)
   - [Binaries](#binaries)
   - [From Source](#from-source)
-- [`terrad`](#terrad)
+- [`IQd`](#iqd)
 - [Node Setup](#node-setup)
   - [Join the mainnet](#join-the-mainnet)
   - [Join a testnet](#join-a-testnet)
@@ -55,7 +55,7 @@ Full-node software implementing the Terra protocol<br/><br/>
   - [Create a dedicated user](#create-a-dedicated-user)
   - [Port configuration](#port-configuration)
   - [Run the server as a daemon](#run-the-server-as-a-daemon)
-  - [Register terrad as a service](#register-terrad-as-a-service)
+  - [Register iqd as a service](#register-iqd-as-a-service)
   - [Start, stop, or restart service](#start-stop-or-restart-service)
   - [Access logs](#access-logs)
 - [Resources](#resources)
@@ -63,41 +63,41 @@ Full-node software implementing the Terra protocol<br/><br/>
 - [Contributing](#contributing)
 - [License](#license)
 
-## What is Terra?
+## What is IQ Chain?
 
-**[Terra](https://terra.money)** is a public, open-source blockchain protocol that provides fundamental infrastructure for a decentralized economy and enables open participation in the creation of new financial primitives to power the innovation of money.
+**[IQ Chain](https://iqchain.network)** is a public, open-source blockchain protocol that provides fundamental infrastructure for a decentralized economy and enables open participation in the creation of new financial primitives to power the innovation of money.
 
-The Terra blockchain is secured by distributed consensus on staked asset Luna and natively supports the issuance of [price-tracking stablecoins](https://docs.terra.money/docs/learn/glossary.html#algorithmic-stablecoin) that are algorithmically pegged to major world currencies, such as UST, KRT, and SDT. Smart contracts on Terra run on WebAssembly and take advantage of core modules, such as on-chain swaps, price oracle, and staking rewards, to power modern [DeFi](https://docs.terra.money/docs/learn/glossary.html#defi) apps. Through dynamic fiscal policy managed by community governance, Terra is an evolving, democratized economy directed by its users.
+The IQ blockchain is secured by distributed consensus on staked asset BIQ and natively supports the issuance of [price-tracking stablecoins](https://docs.iqchain.network/docs/learn/glossary.html#algorithmic-stablecoin) that are algorithmically pegged to major world currencies, such as UST, KRT, and SDT. Smart contracts on IQChain run on WebAssembly and take advantage of core modules, such as on-chain swaps, price oracle, and staking rewards, to power modern [DeFi](https://docs.iqchain.network/docs/learn/glossary.html#defi) apps. Through dynamic fiscal policy managed by community governance, IQ is an evolving, democratized economy directed by its users.
 
-**Terra Core** is the reference implementation of the Terra protocol, written in Golang. Terra Core is built atop [Cosmos SDK](https://github.com/cosmos/cosmos-sdk) and uses [Tendermint](https://github.com/tendermint/tendermint) BFT consensus. If you intend to work on Terra Core source, it is recommended that you familiarize yourself with the concepts in those projects.
+**IQ Core** is the reference implementation of the IQ protocol, written in Golang. IQ Core is built atop [Cosmos SDK](https://github.com/cosmos/cosmos-sdk) and uses [Tendermint](https://github.com/tendermint/tendermint) BFT consensus. If you intend to work on IQ Core source, it is recommended that you familiarize yourself with the concepts in those projects.
 
 ## Installation
 
 ### Binaries
 
-The easiest way to get started is by downloading a pre-built binary for your operating system. You can find the latest binaries on the [releases](https://github.com/terra-money/core/releases) page.
+The easiest way to get started is by downloading a pre-built binary for your operating system. You can find the latest binaries on the [releases](https://github.com/bitwebs/core/releases) page.
 
 ### From Source
 
 **Step 1. Install Golang**
 
-Go v1.17+ or higher is required for Terra Core.
+Go v1.17+ or higher is required for IQ Core.
 
 If you haven't already, install Golang by following the [official docs](https://golang.org/doc/install). Make sure that your `GOPATH` and `GOBIN` environment variables are properly set up.
 
-**Step 2: Get Terra Core source code**
+**Step 2: Get IQ Core source code**
 
-Use `git` to retrieve Terra Core from the [official repo](https://github.com/terra-money/core/) and checkout the `main` branch. This branch contains the latest stable release, which will install the `terrad` binary.
+Use `git` to retrieve IQ Core from the [official repo](https://github.com/bitwebs/core/) and checkout the `main` branch. This branch contains the latest stable release, which will install the `iqd` binary.
 
 ```bash
-git clone https://github.com/terra-money/core/
+git clone https://github.com/bitwebs/core/
 cd core
 git checkout main
 ```
 
-**Step 3: Build Terra core**
+**Step 3: Build IQ core**
 
-Run the following command to install the executable `terrad` to your `GOPATH` and build Terra Core. `terrad` is the node daemon and CLI for interacting with a Terra node.
+Run the following command to install the executable `iqd` to your `GOPATH` and build IQ Core. `iqd` is the node daemon and CLI for interacting with a IQ node.
 
 ```bash
 # COSMOS_BUILD_OPTIONS=rocksdb make install
@@ -106,37 +106,37 @@ make install
 
 **Step 4: Verify your installation**
 
-Verify that you've installed terrad successfully by running the following command:
+Verify that you've installed iqd successfully by running the following command:
 
 ```bash
-terrad version --long
+iqd version --long
 ```
 
-If terrad is installed correctly, the following information is returned:
+If iqd is installed correctly, the following information is returned:
 
 ```bash
-name: terra
-server_name: terrad
+name: iq
+server_name: iqd
 version: 0.5.0-rc0-9-g640fd0ed
 commit: 640fd0ed921d029f4d1c3d88435bd5dbd67d14cd
 build_tags: netgo,ledger
 go: go version go1.17.2 darwin/amd64
 ```
 
-## `terrad`
+## `iqd`
 
-**NOTE:** `terracli` has been deprecated and all of its functionalities have been merged into `terrad`.
+**NOTE:** `iqcli` has been deprecated and all of its functionalities have been merged into `iqd`.
 
-`terrad` is the all-in-one command for operating and interacting with a running Terra node. For comprehensive coverage on each of the available functions, see [the terrad reference information](https://docs.terra.money/docs/develop/how-to/terrad/README.html). To view various subcommands and their expected arguments, use the `$ terrad --help` command:
+`iqd` is the all-in-one command for operating and interacting with a running IQ node. For comprehensive coverage on each of the available functions, see [the iqd reference information](https://docs.iqchain.network/docs/develop/how-to/iqd/README.html). To view various subcommands and their expected arguments, use the `$ iqd --help` command:
 
 <pre>
         <div align="left">
-        <b>$ terrad --help</b>
+        <b>$ iqd --help</b>
 
-        Stargate Terra App
+        Stargate IQ App
 
         Usage:
-          terrad [command]
+          iqd [command]
 
         Available Commands:
           add-genesis-account Add a genesis account to genesis.json
@@ -153,26 +153,26 @@ go: go version go1.17.2 darwin/amd64
           start               Run the full node
           status              Query remote node for status
           tendermint          Tendermint subcommands
-          testnet             Initialize files for a terrad testnet
+          testnet             Initialize files for a iqd testnet
           tx                  Transactions subcommands
           unsafe-reset-all    Resets the blockchain database, removes address book files, and resets data/priv_validator_state.json to the genesis state
           validate-genesis    validates the genesis file at the default location or at the location passed as an arg
           version             Print the application binary version information
 
         Flags:
-          -h, --help                help for terrad
-              --home string         directory for config and data (default "/Users/$HOME/.terra")
+          -h, --help                help for iqd
+              --home string         directory for config and data (default "/Users/$HOME/.iq")
               --log_format string   The logging format (json|plain) (default "plain")
               --log_level string    The logging level (trace|debug|info|warn|error|fatal|panic) (default "info")
               --trace               print out full stack trace on errors
 
-        <b>Use "terrad [command] --help" for more information about a command.</b>
+        <b>Use "iqd [command] --help" for more information about a command.</b>
         </div>
 </pre>
 
 ## Node Setup
 
-Once you have `terrad` installed, you will need to set up your node to be part of the network.
+Once you have `iqd` installed, you will need to set up your node to be part of the network.
 
 ### Join the mainnet
 
@@ -183,25 +183,25 @@ The following requirements are recommended for running a `columbus-5` mainnet no
 - At least **100mbps** network bandwidth
 - An Linux distribution
 
-For configuration and migration instructions for setting up a Columbus-5 mainnet node, visit [The mainnet repo](https://github.com/terra-money/mainnet).
+For configuration and migration instructions for setting up a Columbus-5 mainnet node, visit [The mainnet repo](https://github.com/bitwebs/mainnet).
 
-**Terra Node Quick Start**
+**IQ Node Quick Start**
 ```
-terrad init nodename
-wget -O ~/.terra/config/genesis.json https://cloudflare-ipfs.com/ipfs/QmZAMcdu85Qr8saFuNpL9VaxVqqLGWNAs72RVFhchL9jWs
-curl https://network.terra.dev/addrbook.json > ~/.terrad/config/addrbook.json
-terrad start
+iqd init nodename
+wget -O ~/.iq/config/genesis.json https://cloudflare-ipfs.com/ipfs/QmZAMcdu85Qr8saFuNpL9VaxVqqLGWNAs72RVFhchL9jWs
+curl https://iqchain.network/addrbook.json > ~/.iqd/config/addrbook.json
+iqd start
 ```
 
 ### Join a testnet
 
-Several testnets might exist simultaneously. Ensure that your version of `terrad` is compatible with the network you want to join.
+Several testnets might exist simultaneously. Ensure that your version of `iqd` is compatible with the network you want to join.
 
-To set up a node on the latest testnet, visit [the testnet repo](https://github.com/terra-money/testnet).
+To set up a node on the latest testnet, visit [the testnet repo](https://github.com/bitwebs/testnet).
 
 ### Run a local testnet
 
-The easiest way to set up a local testing environment is to run [LocalTerra](https://github.com/terra-money/LocalTerra), which automatically orchestrates a complete testing environment suited for development with zero configuration.
+The easiest way to set up a local testing environment is to run [LocalIQ](https://github.com/bitwebs/LocalIQ), which automatically orchestrates a complete testing environment suited for development with zero configuration.
 
 ### Run a single node testnet
 
@@ -213,13 +213,13 @@ You can also run a local testnet using a single node. On a local testnet, you wi
 First, initialize your genesis file to bootstrap your network. Create a name for your local testnet and provide a moniker to refer to your node:
 
 ```bash
-terrad init --chain-id=<testnet_name> <node_moniker>
+iqd init --chain-id=<testnet_name> <node_moniker>
 ```
 
-Next, create a Terra account by running the following command:
+Next, create a IQ account by running the following command:
 
 ```bash
-terrad keys add <account_name>
+iqd keys add <account_name>
 ```
 
 **Step 2. Add account to genesis**
@@ -227,32 +227,32 @@ terrad keys add <account_name>
 Next, add your account to genesis and set an initial balance to start. Run the following commands to add your account and set the initial balance:
 
 ```bash
-terrad add-genesis-account $(terrad keys show <account_name> -a) 100000000uluna,1000usd
-terrad gentx <account_name> 10000000uluna --chain-id=<testnet_name>
-terrad collect-gentxs
+iqd add-genesis-account $(iqd keys show <account_name> -a) 100000000ubiq,1000busd
+iqd gentx <account_name> 10000000ubiq --chain-id=<testnet_name>
+iqd collect-gentxs
 ```
 
-**Step 3. Run Terra daemon**
+**Step 3. Run IQ daemon**
 
-Now you can start your private Terra network:
+Now you can start your private IQ network:
 
 ```bash
-terrad start
+iqd start
 ```
 
-Your `terrad` node will be running a node on `tcp://localhost:26656`, listening for incoming transactions and signing blocks.
+Your `iqd` node will be running a node on `tcp://localhost:26656`, listening for incoming transactions and signing blocks.
 
-Congratulations, you've successfully set up your local Terra network!
+Congratulations, you've successfully set up your local IQ network!
 
 ## Set up a production environment
 
-**NOTE**: This guide only covers general settings for a production-level full node. You can find further details on considerations for operating a validator node by visiting the [Terra validator guide](https://docs.terra.money/docs/full-node/manage-a-terra-validator/README.html).
+**NOTE**: This guide only covers general settings for a production-level full node. You can find further details on considerations for operating a validator node by visiting the [IQ validator guide](https://docs.iqchain.network/docs/full-node/manage-a-iq-validator/README.html).
 
 This guide has been tested against Linux distributions only. To ensure you successfully set up your production environment, consider setting it up on an Linux system.
 
 ### Increase maximum open files
 
-`terrad` can't open more than 1024 files (the default maximum) concurrently.
+`iqd` can't open more than 1024 files (the default maximum) concurrently.
 
 You can increase this limit by modifying `/etc/security/limits.conf` and raising the `nofile` capability.
 
@@ -263,17 +263,17 @@ You can increase this limit by modifying `/etc/security/limits.conf` and raising
 
 ### Create a dedicated user
 
-It is recommended that you run `terrad` as a normal user. Super-user accounts are only recommended during setup to create and modify files.
+It is recommended that you run `iqd` as a normal user. Super-user accounts are only recommended during setup to create and modify files.
 
 ### Port configuration
 
-`terrad` uses several TCP ports for different purposes.
+`iqd` uses several TCP ports for different purposes.
 
 - `26656`: The default port for the P2P protocol. Use this port to communicate with other nodes. While this port must be open to join a network, it does not have to be open to the public. Validator nodes should configure `persistent_peers` and close this port to the public.
 
-- `26657`: The default port for the RPC protocol. This port is used for querying / sending transactions and must be open to serve queries from `terrad`. **DO NOT** open this port to the public unless you are planning to run a public node.
+- `26657`: The default port for the RPC protocol. This port is used for querying / sending transactions and must be open to serve queries from `iqd`. **DO NOT** open this port to the public unless you are planning to run a public node.
 
-- `1317`: The default port for [Lite Client Daemon](https://docs.terra.money/docs/develop/how-to/start-lcd.html) (LCD), which can be enabled in `~/.terra/config/app.toml`. The LCD provides an HTTP RESTful API layer to allow applications and services to interact with your `terrad` instance through RPC. Check the [Terra REST API](https://lcd.terra.dev/swagger/#/) for usage examples. Don't open this port unless you need to use the LCD.
+- `1317`: The default port for [Lite Client Daemon](https://docs.iqchain.network/docs/develop/how-to/start-lcd.html) (LCD), which can be enabled in `~/.iq/config/app.toml`. The LCD provides an HTTP RESTful API layer to allow applications and services to interact with your `iqd` instance through RPC. Check the [IQ REST API](https:/api.iqchain.network/swagger/#/) for usage examples. Don't open this port unless you need to use the LCD.
 
 - `26660`: The default port for interacting with the [Prometheus](https://prometheus.io) database. You can use Promethues to monitor an environment. This port is closed by default.
 
@@ -281,24 +281,24 @@ It is recommended that you run `terrad` as a normal user. Super-user accounts ar
 
 **Important**:
 
-Keep `terrad` running at all times. The simplest solution is to register `terrad` as a `systemd` service so that it automatically starts after system reboots and other events.
+Keep `iqd` running at all times. The simplest solution is to register `iqd` as a `systemd` service so that it automatically starts after system reboots and other events.
 
 
-### Register terrad as a service
+### Register iqd as a service
 
 First, create a service definition file in `/etc/systemd/system`.
 
-**Sample file: `/etc/systemd/system/terrad.service`**
+**Sample file: `/etc/systemd/system/iqd.service`**
 
 ```
 [Unit]
-Description=Terra Daemon
+Description=IQ Daemon
 After=network.target
 
 [Service]
 Type=simple
-User=terra
-ExecStart=/data/terra/go/bin/terrad start
+User=iq
+ExecStart=/data/iq/go/bin/iqd start
 Restart=on-abort
 
 [Install]
@@ -319,78 +319,66 @@ Use `systemctl` to control (start, stop, restart)
 
 ```bash
 # Start
-systemctl start terrad
+systemctl start iqd
 # Stop
-systemctl stop terrad
+systemctl stop iqd
 # Restart
-systemctl restart terrad
+systemctl restart iqd
 ```
 
 ### Access logs
 
 ```bash
 # Entire log
-journalctl -t terrad
+journalctl -t iqd
 # Entire log reversed
-journalctl -t terrad -r
+journalctl -t iqd -r
 # Latest and continuous
-journalctl -t terrad -f
+journalctl -t iqd -f
 ```
 
 ## Resources
 
 - Developer Tools
 
-  - Terra developer documentation(https://docs.terra.money)
+  - IQ developer documentation(https://docs.iqchain.network)
   - SDKs
-    - [Terra.js](https://www.github.com/terra-money/terra.js) for JavaScript
-    - [terra-sdk-python](https://www.github.com/terra-money/terra-sdk-python) for Python
-  - [Faucet](https://faucet.terra.money) can be used to get tokens for testnets
-  - [LocalTerra](https://www.github.com/terra-money/LocalTerra) can be used to set up a private local testnet with configurable world state
+    - [IQ.js](https://www.github.com/bitwebs/iq.js) for JavaScript
+    - [iq-sdk-python](https://www.github.com/bitwebs/iq-sdk-python) for Python
+  - [Faucet](https://faucet.iqchain.network) can be used to get tokens for testnets
+  - [LocalIQ](https://www.github.com/bitwebs/LocalIQ) can be used to set up a private local testnet with configurable world state
 
 - Block Explorers
 
-  - [Terra Finder](https://finder.terra.money) - Terra's basic block explorer.
-  - [Extraterrestrial Finder](https://finder.extraterrestrial.money) - A community-run fork of Finder with extra features.
-  - [Stake ID](https://terra.stake.id) - A block explorer made by Staking Fund
-  - [Hubble](https://hubble.figment.network/terra/chains/columbus-5) - by Figment
+  - [IQ Finder](https://finder.iqchain.network) - IQ's basic block explorer.
 
 - Wallets
 
-  - [Terra Station](https://station.terra.money) - The official Terra wallet.
-  - Terra Station Mobile
-    - [iOS](https://apps.apple.com/us/app/terra-station/id1548434735)
-    - [Android](https://play.google.com/store/apps/details?id=money.terra.station&hl=en_US&gl=US)
-
-- Research
-
-  - [Agora](https://agora.terra.money) - Research forum
-  - [White Paper](https://assets.website-files.com/611153e7af981472d8da199c/618b02d13e938ae1f8ad1e45_Terra_White_paper.pdf)
+  - [IQ Station](https://station.iqchain.network) - The official IQ wallet.
+  - IQ Station Mobile
+    - [iOS](https://apps.apple.com/us/app)
+    - [Android](https://play.google.com/store/apps/details)
 
 ## Community
 
-- [Offical Website](https://terra.money)
-- [Discord](https://discord.gg/e29HWwC2Mz)
-- [Telegram](https://t.me/terra_announcements)
-- [Twitter](https://twitter.com/terra_money)
+- [Offical Website](https://iqchain.network)
+- [Telegram](https://t.me/iq_announcements)
+- [Twitter](https://twitter.com/iqchain)
 - [YouTube](https://goo.gl/3G4T1z)
 
 ## Contributing
 
-If you are interested in contributing to Terra Core source, please review our [code of conduct](./CODE_OF_CONDUCT.md).
+If you are interested in contributing to IQ Core source, please review our [code of conduct](./CODE_OF_CONDUCT.md).
 
 ## License
 
 This software is licensed under the Apache 2.0 license. Read more about it [here](LICENSE).
 
-© 2021 Terraform Labs, PTE LTD
+© 2021 BitWeb Labs, PTE LTD
 
 <hr/>
 
 <p>&nbsp;</p>
-<p align="center">
-    <a href="https://terra.money/"><img src="https://assets.website-files.com/611153e7af981472d8da199c/61794f2b6b1c7a1cb9444489_symbol-terra-blue.svg" align="center" width=200/></a>
-</p>
 <div align="center">
   <sub><em>Powering the innovation of money.</em></sub>
 </div>

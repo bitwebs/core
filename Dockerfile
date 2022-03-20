@@ -25,7 +25,7 @@ FROM alpine:3.12
 
 WORKDIR /root
 
-COPY --from=go-builder /code/build/terrad /usr/local/bin/terrad
+COPY --from=go-builder /code/build/iqd /usr/local/bin/iqd
 
 # rest server
 EXPOSE 1317
@@ -36,4 +36,4 @@ EXPOSE 26656
 # tendermint rpc
 EXPOSE 26657
 
-CMD ["/usr/local/bin/terrad", "version"]
+CMD ["/usr/local/bin/iqd", "version"]

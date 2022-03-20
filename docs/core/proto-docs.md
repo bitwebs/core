@@ -812,170 +812,170 @@
     - [Header](#ibc.lightclients.tendermint.v1.Header)
     - [Misbehaviour](#ibc.lightclients.tendermint.v1.Misbehaviour)
   
-- [terra/market/v1beta1/market.proto](#terra/market/v1beta1/market.proto)
-    - [Params](#terra.market.v1beta1.Params)
+- [iq/market/v1beta1/market.proto](#iq/market/v1beta1/market.proto)
+    - [Params](#iq.market.v1beta1.Params)
   
-- [terra/market/v1beta1/genesis.proto](#terra/market/v1beta1/genesis.proto)
-    - [GenesisState](#terra.market.v1beta1.GenesisState)
+- [iq/market/v1beta1/genesis.proto](#iq/market/v1beta1/genesis.proto)
+    - [GenesisState](#iq.market.v1beta1.GenesisState)
   
-- [terra/market/v1beta1/query.proto](#terra/market/v1beta1/query.proto)
-    - [QueryParamsRequest](#terra.market.v1beta1.QueryParamsRequest)
-    - [QueryParamsResponse](#terra.market.v1beta1.QueryParamsResponse)
-    - [QuerySwapRequest](#terra.market.v1beta1.QuerySwapRequest)
-    - [QuerySwapResponse](#terra.market.v1beta1.QuerySwapResponse)
-    - [QueryTerraPoolDeltaRequest](#terra.market.v1beta1.QueryTerraPoolDeltaRequest)
-    - [QueryTerraPoolDeltaResponse](#terra.market.v1beta1.QueryTerraPoolDeltaResponse)
+- [iq/market/v1beta1/query.proto](#iq/market/v1beta1/query.proto)
+    - [QueryParamsRequest](#iq.market.v1beta1.QueryParamsRequest)
+    - [QueryParamsResponse](#iq.market.v1beta1.QueryParamsResponse)
+    - [QuerySwapRequest](#iq.market.v1beta1.QuerySwapRequest)
+    - [QuerySwapResponse](#iq.market.v1beta1.QuerySwapResponse)
+    - [QueryIqPoolDeltaRequest](#iq.market.v1beta1.QueryIqPoolDeltaRequest)
+    - [QueryIqPoolDeltaResponse](#iq.market.v1beta1.QueryIqPoolDeltaResponse)
   
-    - [Query](#terra.market.v1beta1.Query)
+    - [Query](#iq.market.v1beta1.Query)
   
-- [terra/market/v1beta1/tx.proto](#terra/market/v1beta1/tx.proto)
-    - [MsgSwap](#terra.market.v1beta1.MsgSwap)
-    - [MsgSwapResponse](#terra.market.v1beta1.MsgSwapResponse)
-    - [MsgSwapSend](#terra.market.v1beta1.MsgSwapSend)
-    - [MsgSwapSendResponse](#terra.market.v1beta1.MsgSwapSendResponse)
+- [iq/market/v1beta1/tx.proto](#iq/market/v1beta1/tx.proto)
+    - [MsgSwap](#iq.market.v1beta1.MsgSwap)
+    - [MsgSwapResponse](#iq.market.v1beta1.MsgSwapResponse)
+    - [MsgSwapSend](#iq.market.v1beta1.MsgSwapSend)
+    - [MsgSwapSendResponse](#iq.market.v1beta1.MsgSwapSendResponse)
   
-    - [Msg](#terra.market.v1beta1.Msg)
+    - [Msg](#iq.market.v1beta1.Msg)
   
-- [terra/oracle/v1beta1/oracle.proto](#terra/oracle/v1beta1/oracle.proto)
-    - [AggregateExchangeRatePrevote](#terra.oracle.v1beta1.AggregateExchangeRatePrevote)
-    - [AggregateExchangeRateVote](#terra.oracle.v1beta1.AggregateExchangeRateVote)
-    - [Denom](#terra.oracle.v1beta1.Denom)
-    - [ExchangeRateTuple](#terra.oracle.v1beta1.ExchangeRateTuple)
-    - [Params](#terra.oracle.v1beta1.Params)
+- [iq/oracle/v1beta1/oracle.proto](#iq/oracle/v1beta1/oracle.proto)
+    - [AggregateExchangeRatePrevote](#iq.oracle.v1beta1.AggregateExchangeRatePrevote)
+    - [AggregateExchangeRateVote](#iq.oracle.v1beta1.AggregateExchangeRateVote)
+    - [Denom](#iq.oracle.v1beta1.Denom)
+    - [ExchangeRateTuple](#iq.oracle.v1beta1.ExchangeRateTuple)
+    - [Params](#iq.oracle.v1beta1.Params)
   
-- [terra/oracle/v1beta1/genesis.proto](#terra/oracle/v1beta1/genesis.proto)
-    - [FeederDelegation](#terra.oracle.v1beta1.FeederDelegation)
-    - [GenesisState](#terra.oracle.v1beta1.GenesisState)
-    - [MissCounter](#terra.oracle.v1beta1.MissCounter)
-    - [TobinTax](#terra.oracle.v1beta1.TobinTax)
+- [iq/oracle/v1beta1/genesis.proto](#iq/oracle/v1beta1/genesis.proto)
+    - [FeederDelegation](#iq.oracle.v1beta1.FeederDelegation)
+    - [GenesisState](#iq.oracle.v1beta1.GenesisState)
+    - [MissCounter](#iq.oracle.v1beta1.MissCounter)
+    - [TobinTax](#iq.oracle.v1beta1.TobinTax)
   
-- [terra/oracle/v1beta1/query.proto](#terra/oracle/v1beta1/query.proto)
-    - [QueryActivesRequest](#terra.oracle.v1beta1.QueryActivesRequest)
-    - [QueryActivesResponse](#terra.oracle.v1beta1.QueryActivesResponse)
-    - [QueryAggregatePrevoteRequest](#terra.oracle.v1beta1.QueryAggregatePrevoteRequest)
-    - [QueryAggregatePrevoteResponse](#terra.oracle.v1beta1.QueryAggregatePrevoteResponse)
-    - [QueryAggregatePrevotesRequest](#terra.oracle.v1beta1.QueryAggregatePrevotesRequest)
-    - [QueryAggregatePrevotesResponse](#terra.oracle.v1beta1.QueryAggregatePrevotesResponse)
-    - [QueryAggregateVoteRequest](#terra.oracle.v1beta1.QueryAggregateVoteRequest)
-    - [QueryAggregateVoteResponse](#terra.oracle.v1beta1.QueryAggregateVoteResponse)
-    - [QueryAggregateVotesRequest](#terra.oracle.v1beta1.QueryAggregateVotesRequest)
-    - [QueryAggregateVotesResponse](#terra.oracle.v1beta1.QueryAggregateVotesResponse)
-    - [QueryExchangeRateRequest](#terra.oracle.v1beta1.QueryExchangeRateRequest)
-    - [QueryExchangeRateResponse](#terra.oracle.v1beta1.QueryExchangeRateResponse)
-    - [QueryExchangeRatesRequest](#terra.oracle.v1beta1.QueryExchangeRatesRequest)
-    - [QueryExchangeRatesResponse](#terra.oracle.v1beta1.QueryExchangeRatesResponse)
-    - [QueryFeederDelegationRequest](#terra.oracle.v1beta1.QueryFeederDelegationRequest)
-    - [QueryFeederDelegationResponse](#terra.oracle.v1beta1.QueryFeederDelegationResponse)
-    - [QueryMissCounterRequest](#terra.oracle.v1beta1.QueryMissCounterRequest)
-    - [QueryMissCounterResponse](#terra.oracle.v1beta1.QueryMissCounterResponse)
-    - [QueryParamsRequest](#terra.oracle.v1beta1.QueryParamsRequest)
-    - [QueryParamsResponse](#terra.oracle.v1beta1.QueryParamsResponse)
-    - [QueryTobinTaxRequest](#terra.oracle.v1beta1.QueryTobinTaxRequest)
-    - [QueryTobinTaxResponse](#terra.oracle.v1beta1.QueryTobinTaxResponse)
-    - [QueryTobinTaxesRequest](#terra.oracle.v1beta1.QueryTobinTaxesRequest)
-    - [QueryTobinTaxesResponse](#terra.oracle.v1beta1.QueryTobinTaxesResponse)
-    - [QueryVoteTargetsRequest](#terra.oracle.v1beta1.QueryVoteTargetsRequest)
-    - [QueryVoteTargetsResponse](#terra.oracle.v1beta1.QueryVoteTargetsResponse)
+- [iq/oracle/v1beta1/query.proto](#iq/oracle/v1beta1/query.proto)
+    - [QueryActivesRequest](#iq.oracle.v1beta1.QueryActivesRequest)
+    - [QueryActivesResponse](#iq.oracle.v1beta1.QueryActivesResponse)
+    - [QueryAggregatePrevoteRequest](#iq.oracle.v1beta1.QueryAggregatePrevoteRequest)
+    - [QueryAggregatePrevoteResponse](#iq.oracle.v1beta1.QueryAggregatePrevoteResponse)
+    - [QueryAggregatePrevotesRequest](#iq.oracle.v1beta1.QueryAggregatePrevotesRequest)
+    - [QueryAggregatePrevotesResponse](#iq.oracle.v1beta1.QueryAggregatePrevotesResponse)
+    - [QueryAggregateVoteRequest](#iq.oracle.v1beta1.QueryAggregateVoteRequest)
+    - [QueryAggregateVoteResponse](#iq.oracle.v1beta1.QueryAggregateVoteResponse)
+    - [QueryAggregateVotesRequest](#iq.oracle.v1beta1.QueryAggregateVotesRequest)
+    - [QueryAggregateVotesResponse](#iq.oracle.v1beta1.QueryAggregateVotesResponse)
+    - [QueryExchangeRateRequest](#iq.oracle.v1beta1.QueryExchangeRateRequest)
+    - [QueryExchangeRateResponse](#iq.oracle.v1beta1.QueryExchangeRateResponse)
+    - [QueryExchangeRatesRequest](#iq.oracle.v1beta1.QueryExchangeRatesRequest)
+    - [QueryExchangeRatesResponse](#iq.oracle.v1beta1.QueryExchangeRatesResponse)
+    - [QueryFeederDelegationRequest](#iq.oracle.v1beta1.QueryFeederDelegationRequest)
+    - [QueryFeederDelegationResponse](#iq.oracle.v1beta1.QueryFeederDelegationResponse)
+    - [QueryMissCounterRequest](#iq.oracle.v1beta1.QueryMissCounterRequest)
+    - [QueryMissCounterResponse](#iq.oracle.v1beta1.QueryMissCounterResponse)
+    - [QueryParamsRequest](#iq.oracle.v1beta1.QueryParamsRequest)
+    - [QueryParamsResponse](#iq.oracle.v1beta1.QueryParamsResponse)
+    - [QueryTobinTaxRequest](#iq.oracle.v1beta1.QueryTobinTaxRequest)
+    - [QueryTobinTaxResponse](#iq.oracle.v1beta1.QueryTobinTaxResponse)
+    - [QueryTobinTaxesRequest](#iq.oracle.v1beta1.QueryTobinTaxesRequest)
+    - [QueryTobinTaxesResponse](#iq.oracle.v1beta1.QueryTobinTaxesResponse)
+    - [QueryVoteTargetsRequest](#iq.oracle.v1beta1.QueryVoteTargetsRequest)
+    - [QueryVoteTargetsResponse](#iq.oracle.v1beta1.QueryVoteTargetsResponse)
   
-    - [Query](#terra.oracle.v1beta1.Query)
+    - [Query](#iq.oracle.v1beta1.Query)
   
-- [terra/oracle/v1beta1/tx.proto](#terra/oracle/v1beta1/tx.proto)
-    - [MsgAggregateExchangeRatePrevote](#terra.oracle.v1beta1.MsgAggregateExchangeRatePrevote)
-    - [MsgAggregateExchangeRatePrevoteResponse](#terra.oracle.v1beta1.MsgAggregateExchangeRatePrevoteResponse)
-    - [MsgAggregateExchangeRateVote](#terra.oracle.v1beta1.MsgAggregateExchangeRateVote)
-    - [MsgAggregateExchangeRateVoteResponse](#terra.oracle.v1beta1.MsgAggregateExchangeRateVoteResponse)
-    - [MsgDelegateFeedConsent](#terra.oracle.v1beta1.MsgDelegateFeedConsent)
-    - [MsgDelegateFeedConsentResponse](#terra.oracle.v1beta1.MsgDelegateFeedConsentResponse)
+- [iq/oracle/v1beta1/tx.proto](#iq/oracle/v1beta1/tx.proto)
+    - [MsgAggregateExchangeRatePrevote](#iq.oracle.v1beta1.MsgAggregateExchangeRatePrevote)
+    - [MsgAggregateExchangeRatePrevoteResponse](#iq.oracle.v1beta1.MsgAggregateExchangeRatePrevoteResponse)
+    - [MsgAggregateExchangeRateVote](#iq.oracle.v1beta1.MsgAggregateExchangeRateVote)
+    - [MsgAggregateExchangeRateVoteResponse](#iq.oracle.v1beta1.MsgAggregateExchangeRateVoteResponse)
+    - [MsgDelegateFeedConsent](#iq.oracle.v1beta1.MsgDelegateFeedConsent)
+    - [MsgDelegateFeedConsentResponse](#iq.oracle.v1beta1.MsgDelegateFeedConsentResponse)
   
-    - [Msg](#terra.oracle.v1beta1.Msg)
+    - [Msg](#iq.oracle.v1beta1.Msg)
   
-- [terra/treasury/v1beta1/treasury.proto](#terra/treasury/v1beta1/treasury.proto)
-    - [EpochInitialIssuance](#terra.treasury.v1beta1.EpochInitialIssuance)
-    - [EpochTaxProceeds](#terra.treasury.v1beta1.EpochTaxProceeds)
-    - [Params](#terra.treasury.v1beta1.Params)
-    - [PolicyConstraints](#terra.treasury.v1beta1.PolicyConstraints)
+- [iq/treasury/v1beta1/treasury.proto](#iq/treasury/v1beta1/treasury.proto)
+    - [EpochInitialIssuance](#iq.treasury.v1beta1.EpochInitialIssuance)
+    - [EpochTaxProceeds](#iq.treasury.v1beta1.EpochTaxProceeds)
+    - [Params](#iq.treasury.v1beta1.Params)
+    - [PolicyConstraints](#iq.treasury.v1beta1.PolicyConstraints)
   
-- [terra/treasury/v1beta1/genesis.proto](#terra/treasury/v1beta1/genesis.proto)
-    - [EpochState](#terra.treasury.v1beta1.EpochState)
-    - [GenesisState](#terra.treasury.v1beta1.GenesisState)
-    - [TaxCap](#terra.treasury.v1beta1.TaxCap)
+- [iq/treasury/v1beta1/genesis.proto](#iq/treasury/v1beta1/genesis.proto)
+    - [EpochState](#iq.treasury.v1beta1.EpochState)
+    - [GenesisState](#iq.treasury.v1beta1.GenesisState)
+    - [TaxCap](#iq.treasury.v1beta1.TaxCap)
   
-- [terra/treasury/v1beta1/query.proto](#terra/treasury/v1beta1/query.proto)
-    - [QueryIndicatorsRequest](#terra.treasury.v1beta1.QueryIndicatorsRequest)
-    - [QueryIndicatorsResponse](#terra.treasury.v1beta1.QueryIndicatorsResponse)
-    - [QueryParamsRequest](#terra.treasury.v1beta1.QueryParamsRequest)
-    - [QueryParamsResponse](#terra.treasury.v1beta1.QueryParamsResponse)
-    - [QueryRewardWeightRequest](#terra.treasury.v1beta1.QueryRewardWeightRequest)
-    - [QueryRewardWeightResponse](#terra.treasury.v1beta1.QueryRewardWeightResponse)
-    - [QuerySeigniorageProceedsRequest](#terra.treasury.v1beta1.QuerySeigniorageProceedsRequest)
-    - [QuerySeigniorageProceedsResponse](#terra.treasury.v1beta1.QuerySeigniorageProceedsResponse)
-    - [QueryTaxCapRequest](#terra.treasury.v1beta1.QueryTaxCapRequest)
-    - [QueryTaxCapResponse](#terra.treasury.v1beta1.QueryTaxCapResponse)
-    - [QueryTaxCapsRequest](#terra.treasury.v1beta1.QueryTaxCapsRequest)
-    - [QueryTaxCapsResponse](#terra.treasury.v1beta1.QueryTaxCapsResponse)
-    - [QueryTaxCapsResponseItem](#terra.treasury.v1beta1.QueryTaxCapsResponseItem)
-    - [QueryTaxProceedsRequest](#terra.treasury.v1beta1.QueryTaxProceedsRequest)
-    - [QueryTaxProceedsResponse](#terra.treasury.v1beta1.QueryTaxProceedsResponse)
-    - [QueryTaxRateRequest](#terra.treasury.v1beta1.QueryTaxRateRequest)
-    - [QueryTaxRateResponse](#terra.treasury.v1beta1.QueryTaxRateResponse)
+- [iq/treasury/v1beta1/query.proto](#iq/treasury/v1beta1/query.proto)
+    - [QueryIndicatorsRequest](#iq.treasury.v1beta1.QueryIndicatorsRequest)
+    - [QueryIndicatorsResponse](#iq.treasury.v1beta1.QueryIndicatorsResponse)
+    - [QueryParamsRequest](#iq.treasury.v1beta1.QueryParamsRequest)
+    - [QueryParamsResponse](#iq.treasury.v1beta1.QueryParamsResponse)
+    - [QueryRewardWeightRequest](#iq.treasury.v1beta1.QueryRewardWeightRequest)
+    - [QueryRewardWeightResponse](#iq.treasury.v1beta1.QueryRewardWeightResponse)
+    - [QuerySeigniorageProceedsRequest](#iq.treasury.v1beta1.QuerySeigniorageProceedsRequest)
+    - [QuerySeigniorageProceedsResponse](#iq.treasury.v1beta1.QuerySeigniorageProceedsResponse)
+    - [QueryTaxCapRequest](#iq.treasury.v1beta1.QueryTaxCapRequest)
+    - [QueryTaxCapResponse](#iq.treasury.v1beta1.QueryTaxCapResponse)
+    - [QueryTaxCapsRequest](#iq.treasury.v1beta1.QueryTaxCapsRequest)
+    - [QueryTaxCapsResponse](#iq.treasury.v1beta1.QueryTaxCapsResponse)
+    - [QueryTaxCapsResponseItem](#iq.treasury.v1beta1.QueryTaxCapsResponseItem)
+    - [QueryTaxProceedsRequest](#iq.treasury.v1beta1.QueryTaxProceedsRequest)
+    - [QueryTaxProceedsResponse](#iq.treasury.v1beta1.QueryTaxProceedsResponse)
+    - [QueryTaxRateRequest](#iq.treasury.v1beta1.QueryTaxRateRequest)
+    - [QueryTaxRateResponse](#iq.treasury.v1beta1.QueryTaxRateResponse)
   
-    - [Query](#terra.treasury.v1beta1.Query)
+    - [Query](#iq.treasury.v1beta1.Query)
   
-- [terra/tx/v1beta1/service.proto](#terra/tx/v1beta1/service.proto)
-    - [ComputeTaxRequest](#terra.tx.v1beta1.ComputeTaxRequest)
-    - [ComputeTaxResponse](#terra.tx.v1beta1.ComputeTaxResponse)
+- [iq/tx/v1beta1/service.proto](#iq/tx/v1beta1/service.proto)
+    - [ComputeTaxRequest](#iq.tx.v1beta1.ComputeTaxRequest)
+    - [ComputeTaxResponse](#iq.tx.v1beta1.ComputeTaxResponse)
   
-    - [Service](#terra.tx.v1beta1.Service)
+    - [Service](#iq.tx.v1beta1.Service)
   
-- [terra/vesting/v1beta1/vesting.proto](#terra/vesting/v1beta1/vesting.proto)
-    - [LazyGradedVestingAccount](#terra.vesting.v1beta1.LazyGradedVestingAccount)
-    - [Schedule](#terra.vesting.v1beta1.Schedule)
-    - [VestingSchedule](#terra.vesting.v1beta1.VestingSchedule)
+- [iq/vesting/v1beta1/vesting.proto](#iq/vesting/v1beta1/vesting.proto)
+    - [LazyGradedVestingAccount](#iq.vesting.v1beta1.LazyGradedVestingAccount)
+    - [Schedule](#iq.vesting.v1beta1.Schedule)
+    - [VestingSchedule](#iq.vesting.v1beta1.VestingSchedule)
   
-- [terra/wasm/v1beta1/wasm.proto](#terra/wasm/v1beta1/wasm.proto)
-    - [CodeInfo](#terra.wasm.v1beta1.CodeInfo)
-    - [ContractInfo](#terra.wasm.v1beta1.ContractInfo)
-    - [Params](#terra.wasm.v1beta1.Params)
+- [iq/wasm/v1beta1/wasm.proto](#iq/wasm/v1beta1/wasm.proto)
+    - [CodeInfo](#iq.wasm.v1beta1.CodeInfo)
+    - [ContractInfo](#iq.wasm.v1beta1.ContractInfo)
+    - [Params](#iq.wasm.v1beta1.Params)
   
-- [terra/wasm/v1beta1/genesis.proto](#terra/wasm/v1beta1/genesis.proto)
-    - [Code](#terra.wasm.v1beta1.Code)
-    - [Contract](#terra.wasm.v1beta1.Contract)
-    - [GenesisState](#terra.wasm.v1beta1.GenesisState)
-    - [Model](#terra.wasm.v1beta1.Model)
+- [iq/wasm/v1beta1/genesis.proto](#iq/wasm/v1beta1/genesis.proto)
+    - [Code](#iq.wasm.v1beta1.Code)
+    - [Contract](#iq.wasm.v1beta1.Contract)
+    - [GenesisState](#iq.wasm.v1beta1.GenesisState)
+    - [Model](#iq.wasm.v1beta1.Model)
   
-- [terra/wasm/v1beta1/query.proto](#terra/wasm/v1beta1/query.proto)
-    - [QueryByteCodeRequest](#terra.wasm.v1beta1.QueryByteCodeRequest)
-    - [QueryByteCodeResponse](#terra.wasm.v1beta1.QueryByteCodeResponse)
-    - [QueryCodeInfoRequest](#terra.wasm.v1beta1.QueryCodeInfoRequest)
-    - [QueryCodeInfoResponse](#terra.wasm.v1beta1.QueryCodeInfoResponse)
-    - [QueryContractInfoRequest](#terra.wasm.v1beta1.QueryContractInfoRequest)
-    - [QueryContractInfoResponse](#terra.wasm.v1beta1.QueryContractInfoResponse)
-    - [QueryContractStoreRequest](#terra.wasm.v1beta1.QueryContractStoreRequest)
-    - [QueryContractStoreResponse](#terra.wasm.v1beta1.QueryContractStoreResponse)
-    - [QueryParamsRequest](#terra.wasm.v1beta1.QueryParamsRequest)
-    - [QueryParamsResponse](#terra.wasm.v1beta1.QueryParamsResponse)
-    - [QueryRawStoreRequest](#terra.wasm.v1beta1.QueryRawStoreRequest)
-    - [QueryRawStoreResponse](#terra.wasm.v1beta1.QueryRawStoreResponse)
+- [iq/wasm/v1beta1/query.proto](#iq/wasm/v1beta1/query.proto)
+    - [QueryByteCodeRequest](#iq.wasm.v1beta1.QueryByteCodeRequest)
+    - [QueryByteCodeResponse](#iq.wasm.v1beta1.QueryByteCodeResponse)
+    - [QueryCodeInfoRequest](#iq.wasm.v1beta1.QueryCodeInfoRequest)
+    - [QueryCodeInfoResponse](#iq.wasm.v1beta1.QueryCodeInfoResponse)
+    - [QueryContractInfoRequest](#iq.wasm.v1beta1.QueryContractInfoRequest)
+    - [QueryContractInfoResponse](#iq.wasm.v1beta1.QueryContractInfoResponse)
+    - [QueryContractStoreRequest](#iq.wasm.v1beta1.QueryContractStoreRequest)
+    - [QueryContractStoreResponse](#iq.wasm.v1beta1.QueryContractStoreResponse)
+    - [QueryParamsRequest](#iq.wasm.v1beta1.QueryParamsRequest)
+    - [QueryParamsResponse](#iq.wasm.v1beta1.QueryParamsResponse)
+    - [QueryRawStoreRequest](#iq.wasm.v1beta1.QueryRawStoreRequest)
+    - [QueryRawStoreResponse](#iq.wasm.v1beta1.QueryRawStoreResponse)
   
-    - [Query](#terra.wasm.v1beta1.Query)
+    - [Query](#iq.wasm.v1beta1.Query)
   
-- [terra/wasm/v1beta1/tx.proto](#terra/wasm/v1beta1/tx.proto)
-    - [MsgClearContractAdmin](#terra.wasm.v1beta1.MsgClearContractAdmin)
-    - [MsgClearContractAdminResponse](#terra.wasm.v1beta1.MsgClearContractAdminResponse)
-    - [MsgExecuteContract](#terra.wasm.v1beta1.MsgExecuteContract)
-    - [MsgExecuteContractResponse](#terra.wasm.v1beta1.MsgExecuteContractResponse)
-    - [MsgInstantiateContract](#terra.wasm.v1beta1.MsgInstantiateContract)
-    - [MsgInstantiateContractResponse](#terra.wasm.v1beta1.MsgInstantiateContractResponse)
-    - [MsgMigrateCode](#terra.wasm.v1beta1.MsgMigrateCode)
-    - [MsgMigrateCodeResponse](#terra.wasm.v1beta1.MsgMigrateCodeResponse)
-    - [MsgMigrateContract](#terra.wasm.v1beta1.MsgMigrateContract)
-    - [MsgMigrateContractResponse](#terra.wasm.v1beta1.MsgMigrateContractResponse)
-    - [MsgStoreCode](#terra.wasm.v1beta1.MsgStoreCode)
-    - [MsgStoreCodeResponse](#terra.wasm.v1beta1.MsgStoreCodeResponse)
-    - [MsgUpdateContractAdmin](#terra.wasm.v1beta1.MsgUpdateContractAdmin)
-    - [MsgUpdateContractAdminResponse](#terra.wasm.v1beta1.MsgUpdateContractAdminResponse)
+- [iq/wasm/v1beta1/tx.proto](#iq/wasm/v1beta1/tx.proto)
+    - [MsgClearContractAdmin](#iq.wasm.v1beta1.MsgClearContractAdmin)
+    - [MsgClearContractAdminResponse](#iq.wasm.v1beta1.MsgClearContractAdminResponse)
+    - [MsgExecuteContract](#iq.wasm.v1beta1.MsgExecuteContract)
+    - [MsgExecuteContractResponse](#iq.wasm.v1beta1.MsgExecuteContractResponse)
+    - [MsgInstantiateContract](#iq.wasm.v1beta1.MsgInstantiateContract)
+    - [MsgInstantiateContractResponse](#iq.wasm.v1beta1.MsgInstantiateContractResponse)
+    - [MsgMigrateCode](#iq.wasm.v1beta1.MsgMigrateCode)
+    - [MsgMigrateCodeResponse](#iq.wasm.v1beta1.MsgMigrateCodeResponse)
+    - [MsgMigrateContract](#iq.wasm.v1beta1.MsgMigrateContract)
+    - [MsgMigrateContractResponse](#iq.wasm.v1beta1.MsgMigrateContractResponse)
+    - [MsgStoreCode](#iq.wasm.v1beta1.MsgStoreCode)
+    - [MsgStoreCodeResponse](#iq.wasm.v1beta1.MsgStoreCodeResponse)
+    - [MsgUpdateContractAdmin](#iq.wasm.v1beta1.MsgUpdateContractAdmin)
+    - [MsgUpdateContractAdminResponse](#iq.wasm.v1beta1.MsgUpdateContractAdminResponse)
   
-    - [Msg](#terra.wasm.v1beta1.Msg)
+    - [Msg](#iq.wasm.v1beta1.Msg)
   
 - [Scalar Value Types](#scalar-value-types)
 
@@ -11988,14 +11988,14 @@ that implements Misbehaviour interface expected by ICS-02
 
 
 
-<a name="terra/market/v1beta1/market.proto"></a>
+<a name="iq/market/v1beta1/market.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## terra/market/v1beta1/market.proto
+## iq/market/v1beta1/market.proto
 
 
 
-<a name="terra.market.v1beta1.Params"></a>
+<a name="iq.market.v1beta1.Params"></a>
 
 ### Params
 Params defines the parameters for the market module.
@@ -12021,14 +12021,14 @@ Params defines the parameters for the market module.
 
 
 
-<a name="terra/market/v1beta1/genesis.proto"></a>
+<a name="iq/market/v1beta1/genesis.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## terra/market/v1beta1/genesis.proto
+## iq/market/v1beta1/genesis.proto
 
 
 
-<a name="terra.market.v1beta1.GenesisState"></a>
+<a name="iq.market.v1beta1.GenesisState"></a>
 
 ### GenesisState
 GenesisState defines the market module's genesis state.
@@ -12036,8 +12036,8 @@ GenesisState defines the market module's genesis state.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `params` | [Params](#terra.market.v1beta1.Params) |  | params defines all the paramaters of the module. |
-| `terra_pool_delta` | [bytes](#bytes) |  | the gap between the TerraPool and the BasePool |
+| `params` | [Params](#iq.market.v1beta1.Params) |  | params defines all the paramaters of the module. |
+| `iq_pool_delta` | [bytes](#bytes) |  | the gap between the IqPool and the BasePool |
 
 
 
@@ -12053,14 +12053,14 @@ GenesisState defines the market module's genesis state.
 
 
 
-<a name="terra/market/v1beta1/query.proto"></a>
+<a name="iq/market/v1beta1/query.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## terra/market/v1beta1/query.proto
+## iq/market/v1beta1/query.proto
 
 
 
-<a name="terra.market.v1beta1.QueryParamsRequest"></a>
+<a name="iq.market.v1beta1.QueryParamsRequest"></a>
 
 ### QueryParamsRequest
 QueryParamsRequest is the request type for the Query/Params RPC method.
@@ -12070,7 +12070,7 @@ QueryParamsRequest is the request type for the Query/Params RPC method.
 
 
 
-<a name="terra.market.v1beta1.QueryParamsResponse"></a>
+<a name="iq.market.v1beta1.QueryParamsResponse"></a>
 
 ### QueryParamsResponse
 QueryParamsResponse is the response type for the Query/Params RPC method.
@@ -12078,14 +12078,14 @@ QueryParamsResponse is the response type for the Query/Params RPC method.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `params` | [Params](#terra.market.v1beta1.Params) |  | params defines the parameters of the module. |
+| `params` | [Params](#iq.market.v1beta1.Params) |  | params defines the parameters of the module. |
 
 
 
 
 
 
-<a name="terra.market.v1beta1.QuerySwapRequest"></a>
+<a name="iq.market.v1beta1.QuerySwapRequest"></a>
 
 ### QuerySwapRequest
 QuerySwapRequest is the request type for the Query/Swap RPC method.
@@ -12093,7 +12093,7 @@ QuerySwapRequest is the request type for the Query/Swap RPC method.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `offer_coin` | [string](#string) |  | offer_coin defines the coin being offered (i.e. 1000000uluna) |
+| `offer_coin` | [string](#string) |  | offer_coin defines the coin being offered (i.e. 1000000ubiq) |
 | `ask_denom` | [string](#string) |  | ask_denom defines the denom of the coin to swap to |
 
 
@@ -12101,7 +12101,7 @@ QuerySwapRequest is the request type for the Query/Swap RPC method.
 
 
 
-<a name="terra.market.v1beta1.QuerySwapResponse"></a>
+<a name="iq.market.v1beta1.QuerySwapResponse"></a>
 
 ### QuerySwapResponse
 QuerySwapResponse is the response type for the Query/Swap RPC method.
@@ -12116,25 +12116,25 @@ QuerySwapResponse is the response type for the Query/Swap RPC method.
 
 
 
-<a name="terra.market.v1beta1.QueryTerraPoolDeltaRequest"></a>
+<a name="iq.market.v1beta1.QueryIqPoolDeltaRequest"></a>
 
-### QueryTerraPoolDeltaRequest
-QueryTerraPoolDeltaRequest is the request type for the Query/TerraPoolDelta RPC method.
-
-
+### QueryIqPoolDeltaRequest
+QueryIqPoolDeltaRequest is the request type for the Query/IqPoolDelta RPC method.
 
 
 
 
-<a name="terra.market.v1beta1.QueryTerraPoolDeltaResponse"></a>
 
-### QueryTerraPoolDeltaResponse
-QueryTerraPoolDeltaResponse is the response type for the Query/TerraPoolDelta RPC method.
+
+<a name="iq.market.v1beta1.QueryIqPoolDeltaResponse"></a>
+
+### QueryIqPoolDeltaResponse
+QueryIqPoolDeltaResponse is the response type for the Query/IqPoolDelta RPC method.
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `terra_pool_delta` | [bytes](#bytes) |  | terra_pool_delta defines the gap between the TerraPool and the TerraBasePool |
+| `iq_pool_delta` | [bytes](#bytes) |  | iq_pool_delta defines the gap between the IqPool and the IqBasePool |
 
 
 
@@ -12147,29 +12147,29 @@ QueryTerraPoolDeltaResponse is the response type for the Query/TerraPoolDelta RP
  <!-- end HasExtensions -->
 
 
-<a name="terra.market.v1beta1.Query"></a>
+<a name="iq.market.v1beta1.Query"></a>
 
 ### Query
 Query defines the gRPC querier service.
 
 | Method Name | Request Type | Response Type | Description | HTTP Verb | Endpoint |
 | ----------- | ------------ | ------------- | ------------| ------- | -------- |
-| `Swap` | [QuerySwapRequest](#terra.market.v1beta1.QuerySwapRequest) | [QuerySwapResponse](#terra.market.v1beta1.QuerySwapResponse) | Swap returns simulated swap amount. | GET|/terra/market/v1beta1/swap|
-| `TerraPoolDelta` | [QueryTerraPoolDeltaRequest](#terra.market.v1beta1.QueryTerraPoolDeltaRequest) | [QueryTerraPoolDeltaResponse](#terra.market.v1beta1.QueryTerraPoolDeltaResponse) | TerraPoolDelta returns terra_pool_delta amount. | GET|/terra/market/v1beta1/terra_pool_delta|
-| `Params` | [QueryParamsRequest](#terra.market.v1beta1.QueryParamsRequest) | [QueryParamsResponse](#terra.market.v1beta1.QueryParamsResponse) | Params queries all parameters. | GET|/terra/market/v1beta1/params|
+| `Swap` | [QuerySwapRequest](#iq.market.v1beta1.QuerySwapRequest) | [QuerySwapResponse](#iq.market.v1beta1.QuerySwapResponse) | Swap returns simulated swap amount. | GET|/iq/market/v1beta1/swap|
+| `IqPoolDelta` | [QueryIqPoolDeltaRequest](#iq.market.v1beta1.QueryIqPoolDeltaRequest) | [QueryIqPoolDeltaResponse](#iq.market.v1beta1.QueryIqPoolDeltaResponse) | IqPoolDelta returns iq_pool_delta amount. | GET|/iq/market/v1beta1/iq_pool_delta|
+| `Params` | [QueryParamsRequest](#iq.market.v1beta1.QueryParamsRequest) | [QueryParamsResponse](#iq.market.v1beta1.QueryParamsResponse) | Params queries all parameters. | GET|/iq/market/v1beta1/params|
 
  <!-- end services -->
 
 
 
-<a name="terra/market/v1beta1/tx.proto"></a>
+<a name="iq/market/v1beta1/tx.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## terra/market/v1beta1/tx.proto
+## iq/market/v1beta1/tx.proto
 
 
 
-<a name="terra.market.v1beta1.MsgSwap"></a>
+<a name="iq.market.v1beta1.MsgSwap"></a>
 
 ### MsgSwap
 MsgSwap represents a message to swap coin to another denom.
@@ -12186,7 +12186,7 @@ MsgSwap represents a message to swap coin to another denom.
 
 
 
-<a name="terra.market.v1beta1.MsgSwapResponse"></a>
+<a name="iq.market.v1beta1.MsgSwapResponse"></a>
 
 ### MsgSwapResponse
 MsgSwapResponse defines the Msg/Swap response type.
@@ -12202,7 +12202,7 @@ MsgSwapResponse defines the Msg/Swap response type.
 
 
 
-<a name="terra.market.v1beta1.MsgSwapSend"></a>
+<a name="iq.market.v1beta1.MsgSwapSend"></a>
 
 ### MsgSwapSend
 MsgSwapSend represents a message to swap coin and send all result coin to recipient
@@ -12220,7 +12220,7 @@ MsgSwapSend represents a message to swap coin and send all result coin to recipi
 
 
 
-<a name="terra.market.v1beta1.MsgSwapSendResponse"></a>
+<a name="iq.market.v1beta1.MsgSwapSendResponse"></a>
 
 ### MsgSwapSendResponse
 MsgSwapSendResponse defines the Msg/SwapSend response type.
@@ -12242,28 +12242,28 @@ MsgSwapSendResponse defines the Msg/SwapSend response type.
  <!-- end HasExtensions -->
 
 
-<a name="terra.market.v1beta1.Msg"></a>
+<a name="iq.market.v1beta1.Msg"></a>
 
 ### Msg
 Msg defines the market Msg service.
 
 | Method Name | Request Type | Response Type | Description | HTTP Verb | Endpoint |
 | ----------- | ------------ | ------------- | ------------| ------- | -------- |
-| `Swap` | [MsgSwap](#terra.market.v1beta1.MsgSwap) | [MsgSwapResponse](#terra.market.v1beta1.MsgSwapResponse) | Swap defines a method for swapping coin from one denom to another denom. | |
-| `SwapSend` | [MsgSwapSend](#terra.market.v1beta1.MsgSwapSend) | [MsgSwapSendResponse](#terra.market.v1beta1.MsgSwapSendResponse) | SwapSend defines a method for swapping and sending coin from a account to other account. | |
+| `Swap` | [MsgSwap](#iq.market.v1beta1.MsgSwap) | [MsgSwapResponse](#iq.market.v1beta1.MsgSwapResponse) | Swap defines a method for swapping coin from one denom to another denom. | |
+| `SwapSend` | [MsgSwapSend](#iq.market.v1beta1.MsgSwapSend) | [MsgSwapSendResponse](#iq.market.v1beta1.MsgSwapSendResponse) | SwapSend defines a method for swapping and sending coin from a account to other account. | |
 
  <!-- end services -->
 
 
 
-<a name="terra/oracle/v1beta1/oracle.proto"></a>
+<a name="iq/oracle/v1beta1/oracle.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## terra/oracle/v1beta1/oracle.proto
+## iq/oracle/v1beta1/oracle.proto
 
 
 
-<a name="terra.oracle.v1beta1.AggregateExchangeRatePrevote"></a>
+<a name="iq.oracle.v1beta1.AggregateExchangeRatePrevote"></a>
 
 ### AggregateExchangeRatePrevote
 struct for aggregate prevoting on the ExchangeRateVote.
@@ -12282,16 +12282,16 @@ which is formatted as hex string in SHA256("{salt}:{exchange rate}{denom},...,{e
 
 
 
-<a name="terra.oracle.v1beta1.AggregateExchangeRateVote"></a>
+<a name="iq.oracle.v1beta1.AggregateExchangeRateVote"></a>
 
 ### AggregateExchangeRateVote
 MsgAggregateExchangeRateVote - struct for voting on
-the exchange rates of Luna denominated in various Terra assets.
+the exchange rates of BIQ denominated in various IQ assets.
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `exchange_rate_tuples` | [ExchangeRateTuple](#terra.oracle.v1beta1.ExchangeRateTuple) | repeated |  |
+| `exchange_rate_tuples` | [ExchangeRateTuple](#iq.oracle.v1beta1.ExchangeRateTuple) | repeated |  |
 | `voter` | [string](#string) |  |  |
 
 
@@ -12299,7 +12299,7 @@ the exchange rates of Luna denominated in various Terra assets.
 
 
 
-<a name="terra.oracle.v1beta1.Denom"></a>
+<a name="iq.oracle.v1beta1.Denom"></a>
 
 ### Denom
 Denom - the object to hold configurations of each denom
@@ -12315,7 +12315,7 @@ Denom - the object to hold configurations of each denom
 
 
 
-<a name="terra.oracle.v1beta1.ExchangeRateTuple"></a>
+<a name="iq.oracle.v1beta1.ExchangeRateTuple"></a>
 
 ### ExchangeRateTuple
 ExchangeRateTuple - struct to store interpreted exchange rates data to store
@@ -12331,7 +12331,7 @@ ExchangeRateTuple - struct to store interpreted exchange rates data to store
 
 
 
-<a name="terra.oracle.v1beta1.Params"></a>
+<a name="iq.oracle.v1beta1.Params"></a>
 
 ### Params
 Params defines the parameters for the oracle module.
@@ -12343,7 +12343,7 @@ Params defines the parameters for the oracle module.
 | `vote_threshold` | [string](#string) |  |  |
 | `reward_band` | [string](#string) |  |  |
 | `reward_distribution_window` | [uint64](#uint64) |  |  |
-| `whitelist` | [Denom](#terra.oracle.v1beta1.Denom) | repeated |  |
+| `whitelist` | [Denom](#iq.oracle.v1beta1.Denom) | repeated |  |
 | `slash_fraction` | [string](#string) |  |  |
 | `slash_window` | [uint64](#uint64) |  |  |
 | `min_valid_per_window` | [string](#string) |  |  |
@@ -12362,14 +12362,14 @@ Params defines the parameters for the oracle module.
 
 
 
-<a name="terra/oracle/v1beta1/genesis.proto"></a>
+<a name="iq/oracle/v1beta1/genesis.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## terra/oracle/v1beta1/genesis.proto
+## iq/oracle/v1beta1/genesis.proto
 
 
 
-<a name="terra.oracle.v1beta1.FeederDelegation"></a>
+<a name="iq.oracle.v1beta1.FeederDelegation"></a>
 
 ### FeederDelegation
 FeederDelegation is the address for where oracle feeder authority are
@@ -12387,7 +12387,7 @@ default feeder addresses.
 
 
 
-<a name="terra.oracle.v1beta1.GenesisState"></a>
+<a name="iq.oracle.v1beta1.GenesisState"></a>
 
 ### GenesisState
 GenesisState defines the oracle module's genesis state.
@@ -12395,20 +12395,20 @@ GenesisState defines the oracle module's genesis state.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `params` | [Params](#terra.oracle.v1beta1.Params) |  |  |
-| `feeder_delegations` | [FeederDelegation](#terra.oracle.v1beta1.FeederDelegation) | repeated |  |
-| `exchange_rates` | [ExchangeRateTuple](#terra.oracle.v1beta1.ExchangeRateTuple) | repeated |  |
-| `miss_counters` | [MissCounter](#terra.oracle.v1beta1.MissCounter) | repeated |  |
-| `aggregate_exchange_rate_prevotes` | [AggregateExchangeRatePrevote](#terra.oracle.v1beta1.AggregateExchangeRatePrevote) | repeated |  |
-| `aggregate_exchange_rate_votes` | [AggregateExchangeRateVote](#terra.oracle.v1beta1.AggregateExchangeRateVote) | repeated |  |
-| `tobin_taxes` | [TobinTax](#terra.oracle.v1beta1.TobinTax) | repeated |  |
+| `params` | [Params](#iq.oracle.v1beta1.Params) |  |  |
+| `feeder_delegations` | [FeederDelegation](#iq.oracle.v1beta1.FeederDelegation) | repeated |  |
+| `exchange_rates` | [ExchangeRateTuple](#iq.oracle.v1beta1.ExchangeRateTuple) | repeated |  |
+| `miss_counters` | [MissCounter](#iq.oracle.v1beta1.MissCounter) | repeated |  |
+| `aggregate_exchange_rate_prevotes` | [AggregateExchangeRatePrevote](#iq.oracle.v1beta1.AggregateExchangeRatePrevote) | repeated |  |
+| `aggregate_exchange_rate_votes` | [AggregateExchangeRateVote](#iq.oracle.v1beta1.AggregateExchangeRateVote) | repeated |  |
+| `tobin_taxes` | [TobinTax](#iq.oracle.v1beta1.TobinTax) | repeated |  |
 
 
 
 
 
 
-<a name="terra.oracle.v1beta1.MissCounter"></a>
+<a name="iq.oracle.v1beta1.MissCounter"></a>
 
 ### MissCounter
 MissCounter defines an miss counter and validator address pair used in
@@ -12425,7 +12425,7 @@ oracle module's genesis state
 
 
 
-<a name="terra.oracle.v1beta1.TobinTax"></a>
+<a name="iq.oracle.v1beta1.TobinTax"></a>
 
 ### TobinTax
 TobinTax defines an denom and tobin_tax pair used in
@@ -12451,14 +12451,14 @@ oracle module's genesis state
 
 
 
-<a name="terra/oracle/v1beta1/query.proto"></a>
+<a name="iq/oracle/v1beta1/query.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## terra/oracle/v1beta1/query.proto
+## iq/oracle/v1beta1/query.proto
 
 
 
-<a name="terra.oracle.v1beta1.QueryActivesRequest"></a>
+<a name="iq.oracle.v1beta1.QueryActivesRequest"></a>
 
 ### QueryActivesRequest
 QueryActivesRequest is the request type for the Query/Actives RPC method.
@@ -12468,7 +12468,7 @@ QueryActivesRequest is the request type for the Query/Actives RPC method.
 
 
 
-<a name="terra.oracle.v1beta1.QueryActivesResponse"></a>
+<a name="iq.oracle.v1beta1.QueryActivesResponse"></a>
 
 ### QueryActivesResponse
 QueryActivesResponse is response type for the
@@ -12484,7 +12484,7 @@ Query/Actives RPC method.
 
 
 
-<a name="terra.oracle.v1beta1.QueryAggregatePrevoteRequest"></a>
+<a name="iq.oracle.v1beta1.QueryAggregatePrevoteRequest"></a>
 
 ### QueryAggregatePrevoteRequest
 QueryAggregatePrevoteRequest is the request type for the Query/AggregatePrevote RPC method.
@@ -12499,7 +12499,7 @@ QueryAggregatePrevoteRequest is the request type for the Query/AggregatePrevote 
 
 
 
-<a name="terra.oracle.v1beta1.QueryAggregatePrevoteResponse"></a>
+<a name="iq.oracle.v1beta1.QueryAggregatePrevoteResponse"></a>
 
 ### QueryAggregatePrevoteResponse
 QueryAggregatePrevoteResponse is response type for the
@@ -12508,14 +12508,14 @@ Query/AggregatePrevote RPC method.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `aggregate_prevote` | [AggregateExchangeRatePrevote](#terra.oracle.v1beta1.AggregateExchangeRatePrevote) |  | aggregate_prevote defines oracle aggregate prevote submitted by a validator in the current vote period |
+| `aggregate_prevote` | [AggregateExchangeRatePrevote](#iq.oracle.v1beta1.AggregateExchangeRatePrevote) |  | aggregate_prevote defines oracle aggregate prevote submitted by a validator in the current vote period |
 
 
 
 
 
 
-<a name="terra.oracle.v1beta1.QueryAggregatePrevotesRequest"></a>
+<a name="iq.oracle.v1beta1.QueryAggregatePrevotesRequest"></a>
 
 ### QueryAggregatePrevotesRequest
 QueryAggregatePrevotesRequest is the request type for the Query/AggregatePrevotes RPC method.
@@ -12525,7 +12525,7 @@ QueryAggregatePrevotesRequest is the request type for the Query/AggregatePrevote
 
 
 
-<a name="terra.oracle.v1beta1.QueryAggregatePrevotesResponse"></a>
+<a name="iq.oracle.v1beta1.QueryAggregatePrevotesResponse"></a>
 
 ### QueryAggregatePrevotesResponse
 QueryAggregatePrevotesResponse is response type for the
@@ -12534,14 +12534,14 @@ Query/AggregatePrevotes RPC method.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `aggregate_prevotes` | [AggregateExchangeRatePrevote](#terra.oracle.v1beta1.AggregateExchangeRatePrevote) | repeated | aggregate_prevotes defines all oracle aggregate prevotes submitted in the current vote period |
+| `aggregate_prevotes` | [AggregateExchangeRatePrevote](#iq.oracle.v1beta1.AggregateExchangeRatePrevote) | repeated | aggregate_prevotes defines all oracle aggregate prevotes submitted in the current vote period |
 
 
 
 
 
 
-<a name="terra.oracle.v1beta1.QueryAggregateVoteRequest"></a>
+<a name="iq.oracle.v1beta1.QueryAggregateVoteRequest"></a>
 
 ### QueryAggregateVoteRequest
 QueryAggregateVoteRequest is the request type for the Query/AggregateVote RPC method.
@@ -12556,7 +12556,7 @@ QueryAggregateVoteRequest is the request type for the Query/AggregateVote RPC me
 
 
 
-<a name="terra.oracle.v1beta1.QueryAggregateVoteResponse"></a>
+<a name="iq.oracle.v1beta1.QueryAggregateVoteResponse"></a>
 
 ### QueryAggregateVoteResponse
 QueryAggregateVoteResponse is response type for the
@@ -12565,14 +12565,14 @@ Query/AggregateVote RPC method.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `aggregate_vote` | [AggregateExchangeRateVote](#terra.oracle.v1beta1.AggregateExchangeRateVote) |  | aggregate_vote defines oracle aggregate vote submitted by a validator in the current vote period |
+| `aggregate_vote` | [AggregateExchangeRateVote](#iq.oracle.v1beta1.AggregateExchangeRateVote) |  | aggregate_vote defines oracle aggregate vote submitted by a validator in the current vote period |
 
 
 
 
 
 
-<a name="terra.oracle.v1beta1.QueryAggregateVotesRequest"></a>
+<a name="iq.oracle.v1beta1.QueryAggregateVotesRequest"></a>
 
 ### QueryAggregateVotesRequest
 QueryAggregateVotesRequest is the request type for the Query/AggregateVotes RPC method.
@@ -12582,7 +12582,7 @@ QueryAggregateVotesRequest is the request type for the Query/AggregateVotes RPC 
 
 
 
-<a name="terra.oracle.v1beta1.QueryAggregateVotesResponse"></a>
+<a name="iq.oracle.v1beta1.QueryAggregateVotesResponse"></a>
 
 ### QueryAggregateVotesResponse
 QueryAggregateVotesResponse is response type for the
@@ -12591,14 +12591,14 @@ Query/AggregateVotes RPC method.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `aggregate_votes` | [AggregateExchangeRateVote](#terra.oracle.v1beta1.AggregateExchangeRateVote) | repeated | aggregate_votes defines all oracle aggregate votes submitted in the current vote period |
+| `aggregate_votes` | [AggregateExchangeRateVote](#iq.oracle.v1beta1.AggregateExchangeRateVote) | repeated | aggregate_votes defines all oracle aggregate votes submitted in the current vote period |
 
 
 
 
 
 
-<a name="terra.oracle.v1beta1.QueryExchangeRateRequest"></a>
+<a name="iq.oracle.v1beta1.QueryExchangeRateRequest"></a>
 
 ### QueryExchangeRateRequest
 QueryExchangeRateRequest is the request type for the Query/ExchangeRate RPC method.
@@ -12613,7 +12613,7 @@ QueryExchangeRateRequest is the request type for the Query/ExchangeRate RPC meth
 
 
 
-<a name="terra.oracle.v1beta1.QueryExchangeRateResponse"></a>
+<a name="iq.oracle.v1beta1.QueryExchangeRateResponse"></a>
 
 ### QueryExchangeRateResponse
 QueryExchangeRateResponse is response type for the
@@ -12622,14 +12622,14 @@ Query/ExchangeRate RPC method.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `exchange_rate` | [string](#string) |  | exchange_rate defines the exchange rate of Luna denominated in various Terra |
+| `exchange_rate` | [string](#string) |  | exchange_rate defines the exchange rate of BIQ denominated in various IQ assets |
 
 
 
 
 
 
-<a name="terra.oracle.v1beta1.QueryExchangeRatesRequest"></a>
+<a name="iq.oracle.v1beta1.QueryExchangeRatesRequest"></a>
 
 ### QueryExchangeRatesRequest
 QueryExchangeRatesRequest is the request type for the Query/ExchangeRates RPC method.
@@ -12639,7 +12639,7 @@ QueryExchangeRatesRequest is the request type for the Query/ExchangeRates RPC me
 
 
 
-<a name="terra.oracle.v1beta1.QueryExchangeRatesResponse"></a>
+<a name="iq.oracle.v1beta1.QueryExchangeRatesResponse"></a>
 
 ### QueryExchangeRatesResponse
 QueryExchangeRatesResponse is response type for the
@@ -12655,7 +12655,7 @@ Query/ExchangeRates RPC method.
 
 
 
-<a name="terra.oracle.v1beta1.QueryFeederDelegationRequest"></a>
+<a name="iq.oracle.v1beta1.QueryFeederDelegationRequest"></a>
 
 ### QueryFeederDelegationRequest
 QueryFeederDelegationRequest is the request type for the Query/FeederDelegation RPC method.
@@ -12670,7 +12670,7 @@ QueryFeederDelegationRequest is the request type for the Query/FeederDelegation 
 
 
 
-<a name="terra.oracle.v1beta1.QueryFeederDelegationResponse"></a>
+<a name="iq.oracle.v1beta1.QueryFeederDelegationResponse"></a>
 
 ### QueryFeederDelegationResponse
 QueryFeederDelegationResponse is response type for the
@@ -12686,7 +12686,7 @@ Query/FeederDelegation RPC method.
 
 
 
-<a name="terra.oracle.v1beta1.QueryMissCounterRequest"></a>
+<a name="iq.oracle.v1beta1.QueryMissCounterRequest"></a>
 
 ### QueryMissCounterRequest
 QueryMissCounterRequest is the request type for the Query/MissCounter RPC method.
@@ -12701,7 +12701,7 @@ QueryMissCounterRequest is the request type for the Query/MissCounter RPC method
 
 
 
-<a name="terra.oracle.v1beta1.QueryMissCounterResponse"></a>
+<a name="iq.oracle.v1beta1.QueryMissCounterResponse"></a>
 
 ### QueryMissCounterResponse
 QueryMissCounterResponse is response type for the
@@ -12717,7 +12717,7 @@ Query/MissCounter RPC method.
 
 
 
-<a name="terra.oracle.v1beta1.QueryParamsRequest"></a>
+<a name="iq.oracle.v1beta1.QueryParamsRequest"></a>
 
 ### QueryParamsRequest
 QueryParamsRequest is the request type for the Query/Params RPC method.
@@ -12727,7 +12727,7 @@ QueryParamsRequest is the request type for the Query/Params RPC method.
 
 
 
-<a name="terra.oracle.v1beta1.QueryParamsResponse"></a>
+<a name="iq.oracle.v1beta1.QueryParamsResponse"></a>
 
 ### QueryParamsResponse
 QueryParamsResponse is the response type for the Query/Params RPC method.
@@ -12735,14 +12735,14 @@ QueryParamsResponse is the response type for the Query/Params RPC method.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `params` | [Params](#terra.oracle.v1beta1.Params) |  | params defines the parameters of the module. |
+| `params` | [Params](#iq.oracle.v1beta1.Params) |  | params defines the parameters of the module. |
 
 
 
 
 
 
-<a name="terra.oracle.v1beta1.QueryTobinTaxRequest"></a>
+<a name="iq.oracle.v1beta1.QueryTobinTaxRequest"></a>
 
 ### QueryTobinTaxRequest
 QueryTobinTaxRequest is the request type for the Query/TobinTax RPC method.
@@ -12757,7 +12757,7 @@ QueryTobinTaxRequest is the request type for the Query/TobinTax RPC method.
 
 
 
-<a name="terra.oracle.v1beta1.QueryTobinTaxResponse"></a>
+<a name="iq.oracle.v1beta1.QueryTobinTaxResponse"></a>
 
 ### QueryTobinTaxResponse
 QueryTobinTaxResponse is response type for the
@@ -12773,7 +12773,7 @@ Query/TobinTax RPC method.
 
 
 
-<a name="terra.oracle.v1beta1.QueryTobinTaxesRequest"></a>
+<a name="iq.oracle.v1beta1.QueryTobinTaxesRequest"></a>
 
 ### QueryTobinTaxesRequest
 QueryTobinTaxesRequest is the request type for the Query/TobinTaxes RPC method.
@@ -12783,7 +12783,7 @@ QueryTobinTaxesRequest is the request type for the Query/TobinTaxes RPC method.
 
 
 
-<a name="terra.oracle.v1beta1.QueryTobinTaxesResponse"></a>
+<a name="iq.oracle.v1beta1.QueryTobinTaxesResponse"></a>
 
 ### QueryTobinTaxesResponse
 QueryTobinTaxesResponse is response type for the
@@ -12792,14 +12792,14 @@ Query/TobinTaxes RPC method.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `tobin_taxes` | [Denom](#terra.oracle.v1beta1.Denom) | repeated | tobin_taxes defines a list of the tobin tax of all whitelisted denoms |
+| `tobin_taxes` | [Denom](#iq.oracle.v1beta1.Denom) | repeated | tobin_taxes defines a list of the tobin tax of all whitelisted denoms |
 
 
 
 
 
 
-<a name="terra.oracle.v1beta1.QueryVoteTargetsRequest"></a>
+<a name="iq.oracle.v1beta1.QueryVoteTargetsRequest"></a>
 
 ### QueryVoteTargetsRequest
 QueryVoteTargetsRequest is the request type for the Query/VoteTargets RPC method.
@@ -12809,7 +12809,7 @@ QueryVoteTargetsRequest is the request type for the Query/VoteTargets RPC method
 
 
 
-<a name="terra.oracle.v1beta1.QueryVoteTargetsResponse"></a>
+<a name="iq.oracle.v1beta1.QueryVoteTargetsResponse"></a>
 
 ### QueryVoteTargetsResponse
 QueryVoteTargetsResponse is response type for the
@@ -12831,39 +12831,39 @@ Query/VoteTargets RPC method.
  <!-- end HasExtensions -->
 
 
-<a name="terra.oracle.v1beta1.Query"></a>
+<a name="iq.oracle.v1beta1.Query"></a>
 
 ### Query
 Query defines the gRPC querier service.
 
 | Method Name | Request Type | Response Type | Description | HTTP Verb | Endpoint |
 | ----------- | ------------ | ------------- | ------------| ------- | -------- |
-| `ExchangeRate` | [QueryExchangeRateRequest](#terra.oracle.v1beta1.QueryExchangeRateRequest) | [QueryExchangeRateResponse](#terra.oracle.v1beta1.QueryExchangeRateResponse) | ExchangeRate returns exchange rate of a denom | GET|/terra/oracle/v1beta1/denoms/{denom}/exchange_rate|
-| `ExchangeRates` | [QueryExchangeRatesRequest](#terra.oracle.v1beta1.QueryExchangeRatesRequest) | [QueryExchangeRatesResponse](#terra.oracle.v1beta1.QueryExchangeRatesResponse) | ExchangeRates returns exchange rates of all denoms | GET|/terra/oracle/v1beta1/denoms/exchange_rates|
-| `TobinTax` | [QueryTobinTaxRequest](#terra.oracle.v1beta1.QueryTobinTaxRequest) | [QueryTobinTaxResponse](#terra.oracle.v1beta1.QueryTobinTaxResponse) | TobinTax returns tobin tax of a denom | GET|/terra/oracle/v1beta1/denoms/{denom}/tobin_tax|
-| `TobinTaxes` | [QueryTobinTaxesRequest](#terra.oracle.v1beta1.QueryTobinTaxesRequest) | [QueryTobinTaxesResponse](#terra.oracle.v1beta1.QueryTobinTaxesResponse) | TobinTaxes returns tobin taxes of all denoms | GET|/terra/oracle/v1beta1/denoms/tobin_taxes|
-| `Actives` | [QueryActivesRequest](#terra.oracle.v1beta1.QueryActivesRequest) | [QueryActivesResponse](#terra.oracle.v1beta1.QueryActivesResponse) | Actives returns all active denoms | GET|/terra/oracle/v1beta1/denoms/actives|
-| `VoteTargets` | [QueryVoteTargetsRequest](#terra.oracle.v1beta1.QueryVoteTargetsRequest) | [QueryVoteTargetsResponse](#terra.oracle.v1beta1.QueryVoteTargetsResponse) | VoteTargets returns all vote target denoms | GET|/terra/oracle/v1beta1/denoms/vote_targets|
-| `FeederDelegation` | [QueryFeederDelegationRequest](#terra.oracle.v1beta1.QueryFeederDelegationRequest) | [QueryFeederDelegationResponse](#terra.oracle.v1beta1.QueryFeederDelegationResponse) | FeederDelegation returns feeder delegation of a validator | GET|/terra/oracle/v1beta1/validators/{validator_addr}/feeder|
-| `MissCounter` | [QueryMissCounterRequest](#terra.oracle.v1beta1.QueryMissCounterRequest) | [QueryMissCounterResponse](#terra.oracle.v1beta1.QueryMissCounterResponse) | MissCounter returns oracle miss counter of a validator | GET|/terra/oracle/v1beta1/validators/{validator_addr}/miss|
-| `AggregatePrevote` | [QueryAggregatePrevoteRequest](#terra.oracle.v1beta1.QueryAggregatePrevoteRequest) | [QueryAggregatePrevoteResponse](#terra.oracle.v1beta1.QueryAggregatePrevoteResponse) | AggregatePrevote returns an aggregate prevote of a validator | GET|/terra/oracle/v1beta1/validators/{validator_addr}/aggregate_prevote|
-| `AggregatePrevotes` | [QueryAggregatePrevotesRequest](#terra.oracle.v1beta1.QueryAggregatePrevotesRequest) | [QueryAggregatePrevotesResponse](#terra.oracle.v1beta1.QueryAggregatePrevotesResponse) | AggregatePrevotes returns aggregate prevotes of all validators | GET|/terra/oracle/v1beta1/validators/aggregate_prevotes|
-| `AggregateVote` | [QueryAggregateVoteRequest](#terra.oracle.v1beta1.QueryAggregateVoteRequest) | [QueryAggregateVoteResponse](#terra.oracle.v1beta1.QueryAggregateVoteResponse) | AggregateVote returns an aggregate vote of a validator | GET|/terra/oracle/v1beta1/valdiators/{validator_addr}/aggregate_vote|
-| `AggregateVotes` | [QueryAggregateVotesRequest](#terra.oracle.v1beta1.QueryAggregateVotesRequest) | [QueryAggregateVotesResponse](#terra.oracle.v1beta1.QueryAggregateVotesResponse) | AggregateVotes returns aggregate votes of all validators | GET|/terra/oracle/v1beta1/validators/aggregate_votes|
-| `Params` | [QueryParamsRequest](#terra.oracle.v1beta1.QueryParamsRequest) | [QueryParamsResponse](#terra.oracle.v1beta1.QueryParamsResponse) | Params queries all parameters. | GET|/terra/oracle/v1beta1/params|
+| `ExchangeRate` | [QueryExchangeRateRequest](#iq.oracle.v1beta1.QueryExchangeRateRequest) | [QueryExchangeRateResponse](#iq.oracle.v1beta1.QueryExchangeRateResponse) | ExchangeRate returns exchange rate of a denom | GET|/iq/oracle/v1beta1/denoms/{denom}/exchange_rate|
+| `ExchangeRates` | [QueryExchangeRatesRequest](#iq.oracle.v1beta1.QueryExchangeRatesRequest) | [QueryExchangeRatesResponse](#iq.oracle.v1beta1.QueryExchangeRatesResponse) | ExchangeRates returns exchange rates of all denoms | GET|/iq/oracle/v1beta1/denoms/exchange_rates|
+| `TobinTax` | [QueryTobinTaxRequest](#iq.oracle.v1beta1.QueryTobinTaxRequest) | [QueryTobinTaxResponse](#iq.oracle.v1beta1.QueryTobinTaxResponse) | TobinTax returns tobin tax of a denom | GET|/iq/oracle/v1beta1/denoms/{denom}/tobin_tax|
+| `TobinTaxes` | [QueryTobinTaxesRequest](#iq.oracle.v1beta1.QueryTobinTaxesRequest) | [QueryTobinTaxesResponse](#iq.oracle.v1beta1.QueryTobinTaxesResponse) | TobinTaxes returns tobin taxes of all denoms | GET|/iq/oracle/v1beta1/denoms/tobin_taxes|
+| `Actives` | [QueryActivesRequest](#iq.oracle.v1beta1.QueryActivesRequest) | [QueryActivesResponse](#iq.oracle.v1beta1.QueryActivesResponse) | Actives returns all active denoms | GET|/iq/oracle/v1beta1/denoms/actives|
+| `VoteTargets` | [QueryVoteTargetsRequest](#iq.oracle.v1beta1.QueryVoteTargetsRequest) | [QueryVoteTargetsResponse](#iq.oracle.v1beta1.QueryVoteTargetsResponse) | VoteTargets returns all vote target denoms | GET|/iq/oracle/v1beta1/denoms/vote_targets|
+| `FeederDelegation` | [QueryFeederDelegationRequest](#iq.oracle.v1beta1.QueryFeederDelegationRequest) | [QueryFeederDelegationResponse](#iq.oracle.v1beta1.QueryFeederDelegationResponse) | FeederDelegation returns feeder delegation of a validator | GET|/iq/oracle/v1beta1/validators/{validator_addr}/feeder|
+| `MissCounter` | [QueryMissCounterRequest](#iq.oracle.v1beta1.QueryMissCounterRequest) | [QueryMissCounterResponse](#iq.oracle.v1beta1.QueryMissCounterResponse) | MissCounter returns oracle miss counter of a validator | GET|/iq/oracle/v1beta1/validators/{validator_addr}/miss|
+| `AggregatePrevote` | [QueryAggregatePrevoteRequest](#iq.oracle.v1beta1.QueryAggregatePrevoteRequest) | [QueryAggregatePrevoteResponse](#iq.oracle.v1beta1.QueryAggregatePrevoteResponse) | AggregatePrevote returns an aggregate prevote of a validator | GET|/iq/oracle/v1beta1/validators/{validator_addr}/aggregate_prevote|
+| `AggregatePrevotes` | [QueryAggregatePrevotesRequest](#iq.oracle.v1beta1.QueryAggregatePrevotesRequest) | [QueryAggregatePrevotesResponse](#iq.oracle.v1beta1.QueryAggregatePrevotesResponse) | AggregatePrevotes returns aggregate prevotes of all validators | GET|/iq/oracle/v1beta1/validators/aggregate_prevotes|
+| `AggregateVote` | [QueryAggregateVoteRequest](#iq.oracle.v1beta1.QueryAggregateVoteRequest) | [QueryAggregateVoteResponse](#iq.oracle.v1beta1.QueryAggregateVoteResponse) | AggregateVote returns an aggregate vote of a validator | GET|/iq/oracle/v1beta1/valdiators/{validator_addr}/aggregate_vote|
+| `AggregateVotes` | [QueryAggregateVotesRequest](#iq.oracle.v1beta1.QueryAggregateVotesRequest) | [QueryAggregateVotesResponse](#iq.oracle.v1beta1.QueryAggregateVotesResponse) | AggregateVotes returns aggregate votes of all validators | GET|/iq/oracle/v1beta1/validators/aggregate_votes|
+| `Params` | [QueryParamsRequest](#iq.oracle.v1beta1.QueryParamsRequest) | [QueryParamsResponse](#iq.oracle.v1beta1.QueryParamsResponse) | Params queries all parameters. | GET|/iq/oracle/v1beta1/params|
 
  <!-- end services -->
 
 
 
-<a name="terra/oracle/v1beta1/tx.proto"></a>
+<a name="iq/oracle/v1beta1/tx.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## terra/oracle/v1beta1/tx.proto
+## iq/oracle/v1beta1/tx.proto
 
 
 
-<a name="terra.oracle.v1beta1.MsgAggregateExchangeRatePrevote"></a>
+<a name="iq.oracle.v1beta1.MsgAggregateExchangeRatePrevote"></a>
 
 ### MsgAggregateExchangeRatePrevote
 MsgAggregateExchangeRatePrevote represents a message to submit
@@ -12881,7 +12881,7 @@ aggregate exchange rate prevote.
 
 
 
-<a name="terra.oracle.v1beta1.MsgAggregateExchangeRatePrevoteResponse"></a>
+<a name="iq.oracle.v1beta1.MsgAggregateExchangeRatePrevoteResponse"></a>
 
 ### MsgAggregateExchangeRatePrevoteResponse
 MsgAggregateExchangeRatePrevoteResponse defines the Msg/AggregateExchangeRatePrevote response type.
@@ -12891,7 +12891,7 @@ MsgAggregateExchangeRatePrevoteResponse defines the Msg/AggregateExchangeRatePre
 
 
 
-<a name="terra.oracle.v1beta1.MsgAggregateExchangeRateVote"></a>
+<a name="iq.oracle.v1beta1.MsgAggregateExchangeRateVote"></a>
 
 ### MsgAggregateExchangeRateVote
 MsgAggregateExchangeRateVote represents a message to submit
@@ -12910,7 +12910,7 @@ aggregate exchange rate vote.
 
 
 
-<a name="terra.oracle.v1beta1.MsgAggregateExchangeRateVoteResponse"></a>
+<a name="iq.oracle.v1beta1.MsgAggregateExchangeRateVoteResponse"></a>
 
 ### MsgAggregateExchangeRateVoteResponse
 MsgAggregateExchangeRateVoteResponse defines the Msg/AggregateExchangeRateVote response type.
@@ -12920,7 +12920,7 @@ MsgAggregateExchangeRateVoteResponse defines the Msg/AggregateExchangeRateVote r
 
 
 
-<a name="terra.oracle.v1beta1.MsgDelegateFeedConsent"></a>
+<a name="iq.oracle.v1beta1.MsgDelegateFeedConsent"></a>
 
 ### MsgDelegateFeedConsent
 MsgDelegateFeedConsent represents a message to
@@ -12937,7 +12937,7 @@ delegate oracle voting rights to another address.
 
 
 
-<a name="terra.oracle.v1beta1.MsgDelegateFeedConsentResponse"></a>
+<a name="iq.oracle.v1beta1.MsgDelegateFeedConsentResponse"></a>
 
 ### MsgDelegateFeedConsentResponse
 MsgDelegateFeedConsentResponse defines the Msg/DelegateFeedConsent response type.
@@ -12953,29 +12953,29 @@ MsgDelegateFeedConsentResponse defines the Msg/DelegateFeedConsent response type
  <!-- end HasExtensions -->
 
 
-<a name="terra.oracle.v1beta1.Msg"></a>
+<a name="iq.oracle.v1beta1.Msg"></a>
 
 ### Msg
 Msg defines the oracle Msg service.
 
 | Method Name | Request Type | Response Type | Description | HTTP Verb | Endpoint |
 | ----------- | ------------ | ------------- | ------------| ------- | -------- |
-| `AggregateExchangeRatePrevote` | [MsgAggregateExchangeRatePrevote](#terra.oracle.v1beta1.MsgAggregateExchangeRatePrevote) | [MsgAggregateExchangeRatePrevoteResponse](#terra.oracle.v1beta1.MsgAggregateExchangeRatePrevoteResponse) | AggregateExchangeRatePrevote defines a method for submitting aggregate exchange rate prevote | |
-| `AggregateExchangeRateVote` | [MsgAggregateExchangeRateVote](#terra.oracle.v1beta1.MsgAggregateExchangeRateVote) | [MsgAggregateExchangeRateVoteResponse](#terra.oracle.v1beta1.MsgAggregateExchangeRateVoteResponse) | AggregateExchangeRateVote defines a method for submitting aggregate exchange rate vote | |
-| `DelegateFeedConsent` | [MsgDelegateFeedConsent](#terra.oracle.v1beta1.MsgDelegateFeedConsent) | [MsgDelegateFeedConsentResponse](#terra.oracle.v1beta1.MsgDelegateFeedConsentResponse) | DelegateFeedConsent defines a method for setting the feeder delegation | |
+| `AggregateExchangeRatePrevote` | [MsgAggregateExchangeRatePrevote](#iq.oracle.v1beta1.MsgAggregateExchangeRatePrevote) | [MsgAggregateExchangeRatePrevoteResponse](#iq.oracle.v1beta1.MsgAggregateExchangeRatePrevoteResponse) | AggregateExchangeRatePrevote defines a method for submitting aggregate exchange rate prevote | |
+| `AggregateExchangeRateVote` | [MsgAggregateExchangeRateVote](#iq.oracle.v1beta1.MsgAggregateExchangeRateVote) | [MsgAggregateExchangeRateVoteResponse](#iq.oracle.v1beta1.MsgAggregateExchangeRateVoteResponse) | AggregateExchangeRateVote defines a method for submitting aggregate exchange rate vote | |
+| `DelegateFeedConsent` | [MsgDelegateFeedConsent](#iq.oracle.v1beta1.MsgDelegateFeedConsent) | [MsgDelegateFeedConsentResponse](#iq.oracle.v1beta1.MsgDelegateFeedConsentResponse) | DelegateFeedConsent defines a method for setting the feeder delegation | |
 
  <!-- end services -->
 
 
 
-<a name="terra/treasury/v1beta1/treasury.proto"></a>
+<a name="iq/treasury/v1beta1/treasury.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## terra/treasury/v1beta1/treasury.proto
+## iq/treasury/v1beta1/treasury.proto
 
 
 
-<a name="terra.treasury.v1beta1.EpochInitialIssuance"></a>
+<a name="iq.treasury.v1beta1.EpochInitialIssuance"></a>
 
 ### EpochInitialIssuance
 EpochInitialIssuance represents initial issuance
@@ -12991,7 +12991,7 @@ of the currrent epoch
 
 
 
-<a name="terra.treasury.v1beta1.EpochTaxProceeds"></a>
+<a name="iq.treasury.v1beta1.EpochTaxProceeds"></a>
 
 ### EpochTaxProceeds
 EpochTaxProceeds represents the tax amount
@@ -13007,7 +13007,7 @@ collected at the current epoch
 
 
 
-<a name="terra.treasury.v1beta1.Params"></a>
+<a name="iq.treasury.v1beta1.Params"></a>
 
 ### Params
 Params defines the parameters for the oracle module.
@@ -13015,8 +13015,8 @@ Params defines the parameters for the oracle module.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `tax_policy` | [PolicyConstraints](#terra.treasury.v1beta1.PolicyConstraints) |  |  |
-| `reward_policy` | [PolicyConstraints](#terra.treasury.v1beta1.PolicyConstraints) |  |  |
+| `tax_policy` | [PolicyConstraints](#iq.treasury.v1beta1.PolicyConstraints) |  |  |
+| `reward_policy` | [PolicyConstraints](#iq.treasury.v1beta1.PolicyConstraints) |  |  |
 | `seigniorage_burden_target` | [string](#string) |  |  |
 | `mining_increment` | [string](#string) |  |  |
 | `window_short` | [uint64](#uint64) |  |  |
@@ -13028,7 +13028,7 @@ Params defines the parameters for the oracle module.
 
 
 
-<a name="terra.treasury.v1beta1.PolicyConstraints"></a>
+<a name="iq.treasury.v1beta1.PolicyConstraints"></a>
 
 ### PolicyConstraints
 PolicyConstraints - defines policy constraints can be applied in tax & reward policies
@@ -13055,14 +13055,14 @@ PolicyConstraints - defines policy constraints can be applied in tax & reward po
 
 
 
-<a name="terra/treasury/v1beta1/genesis.proto"></a>
+<a name="iq/treasury/v1beta1/genesis.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## terra/treasury/v1beta1/genesis.proto
+## iq/treasury/v1beta1/genesis.proto
 
 
 
-<a name="terra.treasury.v1beta1.EpochState"></a>
+<a name="iq.treasury.v1beta1.EpochState"></a>
 
 ### EpochState
 EpochState is the record for each epoch state
@@ -13073,14 +13073,14 @@ EpochState is the record for each epoch state
 | `epoch` | [uint64](#uint64) |  |  |
 | `tax_reward` | [string](#string) |  |  |
 | `seigniorage_reward` | [string](#string) |  |  |
-| `total_staked_luna` | [string](#string) |  |  |
+| `total_staked_biq` | [string](#string) |  |  |
 
 
 
 
 
 
-<a name="terra.treasury.v1beta1.GenesisState"></a>
+<a name="iq.treasury.v1beta1.GenesisState"></a>
 
 ### GenesisState
 GenesisState defines the oracle module's genesis state.
@@ -13088,20 +13088,20 @@ GenesisState defines the oracle module's genesis state.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `params` | [Params](#terra.treasury.v1beta1.Params) |  |  |
+| `params` | [Params](#iq.treasury.v1beta1.Params) |  |  |
 | `tax_rate` | [string](#string) |  |  |
 | `reward_weight` | [string](#string) |  |  |
-| `tax_caps` | [TaxCap](#terra.treasury.v1beta1.TaxCap) | repeated |  |
+| `tax_caps` | [TaxCap](#iq.treasury.v1beta1.TaxCap) | repeated |  |
 | `tax_proceeds` | [cosmos.base.v1beta1.Coin](#cosmos.base.v1beta1.Coin) | repeated |  |
 | `epoch_initial_issuance` | [cosmos.base.v1beta1.Coin](#cosmos.base.v1beta1.Coin) | repeated |  |
-| `epoch_states` | [EpochState](#terra.treasury.v1beta1.EpochState) | repeated |  |
+| `epoch_states` | [EpochState](#iq.treasury.v1beta1.EpochState) | repeated |  |
 
 
 
 
 
 
-<a name="terra.treasury.v1beta1.TaxCap"></a>
+<a name="iq.treasury.v1beta1.TaxCap"></a>
 
 ### TaxCap
 TaxCap is the max tax amount can be charged for the given denom
@@ -13126,14 +13126,14 @@ TaxCap is the max tax amount can be charged for the given denom
 
 
 
-<a name="terra/treasury/v1beta1/query.proto"></a>
+<a name="iq/treasury/v1beta1/query.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## terra/treasury/v1beta1/query.proto
+## iq/treasury/v1beta1/query.proto
 
 
 
-<a name="terra.treasury.v1beta1.QueryIndicatorsRequest"></a>
+<a name="iq.treasury.v1beta1.QueryIndicatorsRequest"></a>
 
 ### QueryIndicatorsRequest
 QueryIndicatorsRequest is the request type for the Query/Indicators RPC method.
@@ -13143,7 +13143,7 @@ QueryIndicatorsRequest is the request type for the Query/Indicators RPC method.
 
 
 
-<a name="terra.treasury.v1beta1.QueryIndicatorsResponse"></a>
+<a name="iq.treasury.v1beta1.QueryIndicatorsResponse"></a>
 
 ### QueryIndicatorsResponse
 QueryIndicatorsResponse is response type for the
@@ -13160,7 +13160,7 @@ Query/Indicators RPC method.
 
 
 
-<a name="terra.treasury.v1beta1.QueryParamsRequest"></a>
+<a name="iq.treasury.v1beta1.QueryParamsRequest"></a>
 
 ### QueryParamsRequest
 QueryParamsRequest is the request type for the Query/Params RPC method.
@@ -13170,7 +13170,7 @@ QueryParamsRequest is the request type for the Query/Params RPC method.
 
 
 
-<a name="terra.treasury.v1beta1.QueryParamsResponse"></a>
+<a name="iq.treasury.v1beta1.QueryParamsResponse"></a>
 
 ### QueryParamsResponse
 QueryParamsResponse is the response type for the Query/Params RPC method.
@@ -13178,14 +13178,14 @@ QueryParamsResponse is the response type for the Query/Params RPC method.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `params` | [Params](#terra.treasury.v1beta1.Params) |  | params defines the parameters of the module. |
+| `params` | [Params](#iq.treasury.v1beta1.Params) |  | params defines the parameters of the module. |
 
 
 
 
 
 
-<a name="terra.treasury.v1beta1.QueryRewardWeightRequest"></a>
+<a name="iq.treasury.v1beta1.QueryRewardWeightRequest"></a>
 
 ### QueryRewardWeightRequest
 QueryRewardWeightRequest is the request type for the Query/RewardWeight RPC method.
@@ -13195,7 +13195,7 @@ QueryRewardWeightRequest is the request type for the Query/RewardWeight RPC meth
 
 
 
-<a name="terra.treasury.v1beta1.QueryRewardWeightResponse"></a>
+<a name="iq.treasury.v1beta1.QueryRewardWeightResponse"></a>
 
 ### QueryRewardWeightResponse
 QueryRewardWeightResponse is response type for the
@@ -13211,7 +13211,7 @@ Query/RewardWeight RPC method.
 
 
 
-<a name="terra.treasury.v1beta1.QuerySeigniorageProceedsRequest"></a>
+<a name="iq.treasury.v1beta1.QuerySeigniorageProceedsRequest"></a>
 
 ### QuerySeigniorageProceedsRequest
 QuerySeigniorageProceedsRequest is the request type for the Query/SeigniorageProceeds RPC method.
@@ -13221,7 +13221,7 @@ QuerySeigniorageProceedsRequest is the request type for the Query/SeignioragePro
 
 
 
-<a name="terra.treasury.v1beta1.QuerySeigniorageProceedsResponse"></a>
+<a name="iq.treasury.v1beta1.QuerySeigniorageProceedsResponse"></a>
 
 ### QuerySeigniorageProceedsResponse
 QuerySeigniorageProceedsResponse is response type for the
@@ -13237,7 +13237,7 @@ Query/SeigniorageProceeds RPC method.
 
 
 
-<a name="terra.treasury.v1beta1.QueryTaxCapRequest"></a>
+<a name="iq.treasury.v1beta1.QueryTaxCapRequest"></a>
 
 ### QueryTaxCapRequest
 QueryTaxCapRequest is the request type for the Query/TaxCap RPC method.
@@ -13252,7 +13252,7 @@ QueryTaxCapRequest is the request type for the Query/TaxCap RPC method.
 
 
 
-<a name="terra.treasury.v1beta1.QueryTaxCapResponse"></a>
+<a name="iq.treasury.v1beta1.QueryTaxCapResponse"></a>
 
 ### QueryTaxCapResponse
 QueryTaxCapResponse is response type for the
@@ -13268,7 +13268,7 @@ Query/TaxCap RPC method.
 
 
 
-<a name="terra.treasury.v1beta1.QueryTaxCapsRequest"></a>
+<a name="iq.treasury.v1beta1.QueryTaxCapsRequest"></a>
 
 ### QueryTaxCapsRequest
 QueryTaxCapsRequest is the request type for the Query/TaxCaps RPC method.
@@ -13278,7 +13278,7 @@ QueryTaxCapsRequest is the request type for the Query/TaxCaps RPC method.
 
 
 
-<a name="terra.treasury.v1beta1.QueryTaxCapsResponse"></a>
+<a name="iq.treasury.v1beta1.QueryTaxCapsResponse"></a>
 
 ### QueryTaxCapsResponse
 QueryTaxCapsResponse is response type for the
@@ -13287,14 +13287,14 @@ Query/TaxCaps RPC method.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `tax_caps` | [QueryTaxCapsResponseItem](#terra.treasury.v1beta1.QueryTaxCapsResponseItem) | repeated |  |
+| `tax_caps` | [QueryTaxCapsResponseItem](#iq.treasury.v1beta1.QueryTaxCapsResponseItem) | repeated |  |
 
 
 
 
 
 
-<a name="terra.treasury.v1beta1.QueryTaxCapsResponseItem"></a>
+<a name="iq.treasury.v1beta1.QueryTaxCapsResponseItem"></a>
 
 ### QueryTaxCapsResponseItem
 QueryTaxCapsResponseItem is response item type for the
@@ -13311,7 +13311,7 @@ Query/TaxCaps RPC method.
 
 
 
-<a name="terra.treasury.v1beta1.QueryTaxProceedsRequest"></a>
+<a name="iq.treasury.v1beta1.QueryTaxProceedsRequest"></a>
 
 ### QueryTaxProceedsRequest
 QueryTaxProceedsRequest is the request type for the Query/TaxProceeds RPC method.
@@ -13321,7 +13321,7 @@ QueryTaxProceedsRequest is the request type for the Query/TaxProceeds RPC method
 
 
 
-<a name="terra.treasury.v1beta1.QueryTaxProceedsResponse"></a>
+<a name="iq.treasury.v1beta1.QueryTaxProceedsResponse"></a>
 
 ### QueryTaxProceedsResponse
 QueryTaxProceedsResponse is response type for the
@@ -13337,7 +13337,7 @@ Query/TaxProceeds RPC method.
 
 
 
-<a name="terra.treasury.v1beta1.QueryTaxRateRequest"></a>
+<a name="iq.treasury.v1beta1.QueryTaxRateRequest"></a>
 
 ### QueryTaxRateRequest
 QueryTaxRateRequest is the request type for the Query/TaxRate RPC method.
@@ -13347,7 +13347,7 @@ QueryTaxRateRequest is the request type for the Query/TaxRate RPC method.
 
 
 
-<a name="terra.treasury.v1beta1.QueryTaxRateResponse"></a>
+<a name="iq.treasury.v1beta1.QueryTaxRateResponse"></a>
 
 ### QueryTaxRateResponse
 QueryTaxRateResponse is response type for the
@@ -13369,34 +13369,34 @@ Query/TaxRate RPC method.
  <!-- end HasExtensions -->
 
 
-<a name="terra.treasury.v1beta1.Query"></a>
+<a name="iq.treasury.v1beta1.Query"></a>
 
 ### Query
 Query defines the gRPC querier service.
 
 | Method Name | Request Type | Response Type | Description | HTTP Verb | Endpoint |
 | ----------- | ------------ | ------------- | ------------| ------- | -------- |
-| `TaxRate` | [QueryTaxRateRequest](#terra.treasury.v1beta1.QueryTaxRateRequest) | [QueryTaxRateResponse](#terra.treasury.v1beta1.QueryTaxRateResponse) | TaxRate return the current tax rate | GET|/terra/treasury/v1beta1/tax_rate|
-| `TaxCap` | [QueryTaxCapRequest](#terra.treasury.v1beta1.QueryTaxCapRequest) | [QueryTaxCapResponse](#terra.treasury.v1beta1.QueryTaxCapResponse) | TaxCap returns the tax cap of a denom | GET|/terra/treasury/v1beta1/tax_caps/{denom}|
-| `TaxCaps` | [QueryTaxCapsRequest](#terra.treasury.v1beta1.QueryTaxCapsRequest) | [QueryTaxCapsResponse](#terra.treasury.v1beta1.QueryTaxCapsResponse) | TaxCaps returns the all tax caps | GET|/terra/treasury/v1beta1/tax_caps|
-| `RewardWeight` | [QueryRewardWeightRequest](#terra.treasury.v1beta1.QueryRewardWeightRequest) | [QueryRewardWeightResponse](#terra.treasury.v1beta1.QueryRewardWeightResponse) | RewardWeight return the current reward weight | GET|/terra/treasury/v1beta1/reward_weight|
-| `SeigniorageProceeds` | [QuerySeigniorageProceedsRequest](#terra.treasury.v1beta1.QuerySeigniorageProceedsRequest) | [QuerySeigniorageProceedsResponse](#terra.treasury.v1beta1.QuerySeigniorageProceedsResponse) | SeigniorageProceeds return the current seigniorage proceeds | GET|/terra/treasury/v1beta1/seigniorage_proceeds|
-| `TaxProceeds` | [QueryTaxProceedsRequest](#terra.treasury.v1beta1.QueryTaxProceedsRequest) | [QueryTaxProceedsResponse](#terra.treasury.v1beta1.QueryTaxProceedsResponse) | TaxProceeds return the current tax proceeds | GET|/terra/treasury/v1beta1/tax_proceeds|
-| `Indicators` | [QueryIndicatorsRequest](#terra.treasury.v1beta1.QueryIndicatorsRequest) | [QueryIndicatorsResponse](#terra.treasury.v1beta1.QueryIndicatorsResponse) | Indicators return the current trl informations | GET|/terra/treasury/v1beta1/indicators|
-| `Params` | [QueryParamsRequest](#terra.treasury.v1beta1.QueryParamsRequest) | [QueryParamsResponse](#terra.treasury.v1beta1.QueryParamsResponse) | Params queries all parameters. | GET|/terra/treasury/v1beta1/params|
+| `TaxRate` | [QueryTaxRateRequest](#iq.treasury.v1beta1.QueryTaxRateRequest) | [QueryTaxRateResponse](#iq.treasury.v1beta1.QueryTaxRateResponse) | TaxRate return the current tax rate | GET|/iq/treasury/v1beta1/tax_rate|
+| `TaxCap` | [QueryTaxCapRequest](#iq.treasury.v1beta1.QueryTaxCapRequest) | [QueryTaxCapResponse](#iq.treasury.v1beta1.QueryTaxCapResponse) | TaxCap returns the tax cap of a denom | GET|/iq/treasury/v1beta1/tax_caps/{denom}|
+| `TaxCaps` | [QueryTaxCapsRequest](#iq.treasury.v1beta1.QueryTaxCapsRequest) | [QueryTaxCapsResponse](#iq.treasury.v1beta1.QueryTaxCapsResponse) | TaxCaps returns the all tax caps | GET|/iq/treasury/v1beta1/tax_caps|
+| `RewardWeight` | [QueryRewardWeightRequest](#iq.treasury.v1beta1.QueryRewardWeightRequest) | [QueryRewardWeightResponse](#iq.treasury.v1beta1.QueryRewardWeightResponse) | RewardWeight return the current reward weight | GET|/iq/treasury/v1beta1/reward_weight|
+| `SeigniorageProceeds` | [QuerySeigniorageProceedsRequest](#iq.treasury.v1beta1.QuerySeigniorageProceedsRequest) | [QuerySeigniorageProceedsResponse](#iq.treasury.v1beta1.QuerySeigniorageProceedsResponse) | SeigniorageProceeds return the current seigniorage proceeds | GET|/iq/treasury/v1beta1/seigniorage_proceeds|
+| `TaxProceeds` | [QueryTaxProceedsRequest](#iq.treasury.v1beta1.QueryTaxProceedsRequest) | [QueryTaxProceedsResponse](#iq.treasury.v1beta1.QueryTaxProceedsResponse) | TaxProceeds return the current tax proceeds | GET|/iq/treasury/v1beta1/tax_proceeds|
+| `Indicators` | [QueryIndicatorsRequest](#iq.treasury.v1beta1.QueryIndicatorsRequest) | [QueryIndicatorsResponse](#iq.treasury.v1beta1.QueryIndicatorsResponse) | Indicators return the current trl informations | GET|/iq/treasury/v1beta1/indicators|
+| `Params` | [QueryParamsRequest](#iq.treasury.v1beta1.QueryParamsRequest) | [QueryParamsResponse](#iq.treasury.v1beta1.QueryParamsResponse) | Params queries all parameters. | GET|/iq/treasury/v1beta1/params|
 
  <!-- end services -->
 
 
 
-<a name="terra/tx/v1beta1/service.proto"></a>
+<a name="iq/tx/v1beta1/service.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## terra/tx/v1beta1/service.proto
+## iq/tx/v1beta1/service.proto
 
 
 
-<a name="terra.tx.v1beta1.ComputeTaxRequest"></a>
+<a name="iq.tx.v1beta1.ComputeTaxRequest"></a>
 
 ### ComputeTaxRequest
 ComputeTaxRequest is the request type for the Service.ComputeTax
@@ -13413,7 +13413,7 @@ RPC method.
 
 
 
-<a name="terra.tx.v1beta1.ComputeTaxResponse"></a>
+<a name="iq.tx.v1beta1.ComputeTaxResponse"></a>
 
 ### ComputeTaxResponse
 ComputeTaxResponse is the response type for the Service.ComputeTax
@@ -13435,27 +13435,27 @@ RPC method.
  <!-- end HasExtensions -->
 
 
-<a name="terra.tx.v1beta1.Service"></a>
+<a name="iq.tx.v1beta1.Service"></a>
 
 ### Service
 Service defines a gRPC service for interacting with transactions.
 
 | Method Name | Request Type | Response Type | Description | HTTP Verb | Endpoint |
 | ----------- | ------------ | ------------- | ------------| ------- | -------- |
-| `ComputeTax` | [ComputeTaxRequest](#terra.tx.v1beta1.ComputeTaxRequest) | [ComputeTaxResponse](#terra.tx.v1beta1.ComputeTaxResponse) | EstimateFee simulates executing a transaction for estimating gas usage. | POST|/terra/tx/v1beta1/compute_tax|
+| `ComputeTax` | [ComputeTaxRequest](#iq.tx.v1beta1.ComputeTaxRequest) | [ComputeTaxResponse](#iq.tx.v1beta1.ComputeTaxResponse) | EstimateFee simulates executing a transaction for estimating gas usage. | POST|/iq/tx/v1beta1/compute_tax|
 
  <!-- end services -->
 
 
 
-<a name="terra/vesting/v1beta1/vesting.proto"></a>
+<a name="iq/vesting/v1beta1/vesting.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## terra/vesting/v1beta1/vesting.proto
+## iq/vesting/v1beta1/vesting.proto
 
 
 
-<a name="terra.vesting.v1beta1.LazyGradedVestingAccount"></a>
+<a name="iq.vesting.v1beta1.LazyGradedVestingAccount"></a>
 
 ### LazyGradedVestingAccount
 LazyGradedVestingAccount implements the LazyGradedVestingAccount interface. It vests all
@@ -13465,14 +13465,14 @@ coins according to a predefined schedule.
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | `base_vesting_account` | [cosmos.vesting.v1beta1.BaseVestingAccount](#cosmos.vesting.v1beta1.BaseVestingAccount) |  |  |
-| `vesting_schedules` | [VestingSchedule](#terra.vesting.v1beta1.VestingSchedule) | repeated |  |
+| `vesting_schedules` | [VestingSchedule](#iq.vesting.v1beta1.VestingSchedule) | repeated |  |
 
 
 
 
 
 
-<a name="terra.vesting.v1beta1.Schedule"></a>
+<a name="iq.vesting.v1beta1.Schedule"></a>
 
 ### Schedule
 Schedule - represent single schedule data for a vesting schedule
@@ -13489,7 +13489,7 @@ Schedule - represent single schedule data for a vesting schedule
 
 
 
-<a name="terra.vesting.v1beta1.VestingSchedule"></a>
+<a name="iq.vesting.v1beta1.VestingSchedule"></a>
 
 ### VestingSchedule
 VestingSchedule defines vesting schedule for a denom
@@ -13498,7 +13498,7 @@ VestingSchedule defines vesting schedule for a denom
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | `denom` | [string](#string) |  |  |
-| `schedules` | [Schedule](#terra.vesting.v1beta1.Schedule) | repeated |  |
+| `schedules` | [Schedule](#iq.vesting.v1beta1.Schedule) | repeated |  |
 
 
 
@@ -13514,14 +13514,14 @@ VestingSchedule defines vesting schedule for a denom
 
 
 
-<a name="terra/wasm/v1beta1/wasm.proto"></a>
+<a name="iq/wasm/v1beta1/wasm.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## terra/wasm/v1beta1/wasm.proto
+## iq/wasm/v1beta1/wasm.proto
 
 
 
-<a name="terra.wasm.v1beta1.CodeInfo"></a>
+<a name="iq.wasm.v1beta1.CodeInfo"></a>
 
 ### CodeInfo
 CodeInfo is data for the uploaded contract WASM code
@@ -13538,7 +13538,7 @@ CodeInfo is data for the uploaded contract WASM code
 
 
 
-<a name="terra.wasm.v1beta1.ContractInfo"></a>
+<a name="iq.wasm.v1beta1.ContractInfo"></a>
 
 ### ContractInfo
 ContractInfo stores a WASM contract instance
@@ -13557,7 +13557,7 @@ ContractInfo stores a WASM contract instance
 
 
 
-<a name="terra.wasm.v1beta1.Params"></a>
+<a name="iq.wasm.v1beta1.Params"></a>
 
 ### Params
 Params defines the parameters for the wasm module.
@@ -13583,14 +13583,14 @@ Params defines the parameters for the wasm module.
 
 
 
-<a name="terra/wasm/v1beta1/genesis.proto"></a>
+<a name="iq/wasm/v1beta1/genesis.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## terra/wasm/v1beta1/genesis.proto
+## iq/wasm/v1beta1/genesis.proto
 
 
 
-<a name="terra.wasm.v1beta1.Code"></a>
+<a name="iq.wasm.v1beta1.Code"></a>
 
 ### Code
 Code struct encompasses CodeInfo and CodeBytes
@@ -13598,7 +13598,7 @@ Code struct encompasses CodeInfo and CodeBytes
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `code_info` | [CodeInfo](#terra.wasm.v1beta1.CodeInfo) |  |  |
+| `code_info` | [CodeInfo](#iq.wasm.v1beta1.CodeInfo) |  |  |
 | `code_bytes` | [bytes](#bytes) |  |  |
 
 
@@ -13606,7 +13606,7 @@ Code struct encompasses CodeInfo and CodeBytes
 
 
 
-<a name="terra.wasm.v1beta1.Contract"></a>
+<a name="iq.wasm.v1beta1.Contract"></a>
 
 ### Contract
 Contract struct encompasses ContractAddress, ContractInfo, and ContractState
@@ -13614,15 +13614,15 @@ Contract struct encompasses ContractAddress, ContractInfo, and ContractState
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `contract_info` | [ContractInfo](#terra.wasm.v1beta1.ContractInfo) |  |  |
-| `contract_store` | [Model](#terra.wasm.v1beta1.Model) | repeated |  |
+| `contract_info` | [ContractInfo](#iq.wasm.v1beta1.ContractInfo) |  |  |
+| `contract_store` | [Model](#iq.wasm.v1beta1.Model) | repeated |  |
 
 
 
 
 
 
-<a name="terra.wasm.v1beta1.GenesisState"></a>
+<a name="iq.wasm.v1beta1.GenesisState"></a>
 
 ### GenesisState
 GenesisState defines the oracle module's genesis state.
@@ -13630,18 +13630,18 @@ GenesisState defines the oracle module's genesis state.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `params` | [Params](#terra.wasm.v1beta1.Params) |  |  |
+| `params` | [Params](#iq.wasm.v1beta1.Params) |  |  |
 | `last_code_id` | [uint64](#uint64) |  |  |
 | `last_instance_id` | [uint64](#uint64) |  |  |
-| `codes` | [Code](#terra.wasm.v1beta1.Code) | repeated |  |
-| `contracts` | [Contract](#terra.wasm.v1beta1.Contract) | repeated |  |
+| `codes` | [Code](#iq.wasm.v1beta1.Code) | repeated |  |
+| `contracts` | [Contract](#iq.wasm.v1beta1.Contract) | repeated |  |
 
 
 
 
 
 
-<a name="terra.wasm.v1beta1.Model"></a>
+<a name="iq.wasm.v1beta1.Model"></a>
 
 ### Model
 Model is a struct that holds a KV pair
@@ -13666,14 +13666,14 @@ Model is a struct that holds a KV pair
 
 
 
-<a name="terra/wasm/v1beta1/query.proto"></a>
+<a name="iq/wasm/v1beta1/query.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## terra/wasm/v1beta1/query.proto
+## iq/wasm/v1beta1/query.proto
 
 
 
-<a name="terra.wasm.v1beta1.QueryByteCodeRequest"></a>
+<a name="iq.wasm.v1beta1.QueryByteCodeRequest"></a>
 
 ### QueryByteCodeRequest
 QueryByteCodeRequest is the request type for the QueryyByteCode RPC method.
@@ -13688,7 +13688,7 @@ QueryByteCodeRequest is the request type for the QueryyByteCode RPC method.
 
 
 
-<a name="terra.wasm.v1beta1.QueryByteCodeResponse"></a>
+<a name="iq.wasm.v1beta1.QueryByteCodeResponse"></a>
 
 ### QueryByteCodeResponse
 QueryByteCodeResponse is response type for the
@@ -13704,7 +13704,7 @@ QueryyByteCode RPC method.
 
 
 
-<a name="terra.wasm.v1beta1.QueryCodeInfoRequest"></a>
+<a name="iq.wasm.v1beta1.QueryCodeInfoRequest"></a>
 
 ### QueryCodeInfoRequest
 QueryCodeInfoRequest is the request type for the QueryyCodeInfo RPC method.
@@ -13719,7 +13719,7 @@ QueryCodeInfoRequest is the request type for the QueryyCodeInfo RPC method.
 
 
 
-<a name="terra.wasm.v1beta1.QueryCodeInfoResponse"></a>
+<a name="iq.wasm.v1beta1.QueryCodeInfoResponse"></a>
 
 ### QueryCodeInfoResponse
 QueryCodeInfoResponse is response type for the
@@ -13728,14 +13728,14 @@ QueryyCodeInfo RPC method.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `code_info` | [CodeInfo](#terra.wasm.v1beta1.CodeInfo) |  |  |
+| `code_info` | [CodeInfo](#iq.wasm.v1beta1.CodeInfo) |  |  |
 
 
 
 
 
 
-<a name="terra.wasm.v1beta1.QueryContractInfoRequest"></a>
+<a name="iq.wasm.v1beta1.QueryContractInfoRequest"></a>
 
 ### QueryContractInfoRequest
 QueryContractInfoRequest is the request type for the Query/ContractInfo RPC method.
@@ -13750,7 +13750,7 @@ QueryContractInfoRequest is the request type for the Query/ContractInfo RPC meth
 
 
 
-<a name="terra.wasm.v1beta1.QueryContractInfoResponse"></a>
+<a name="iq.wasm.v1beta1.QueryContractInfoResponse"></a>
 
 ### QueryContractInfoResponse
 QueryContractInfoResponse is response type for the
@@ -13759,14 +13759,14 @@ Query/ContractInfo RPC method.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `contract_info` | [ContractInfo](#terra.wasm.v1beta1.ContractInfo) |  |  |
+| `contract_info` | [ContractInfo](#iq.wasm.v1beta1.ContractInfo) |  |  |
 
 
 
 
 
 
-<a name="terra.wasm.v1beta1.QueryContractStoreRequest"></a>
+<a name="iq.wasm.v1beta1.QueryContractStoreRequest"></a>
 
 ### QueryContractStoreRequest
 QueryContractStoreRequest is the request type for the Query/ContractStore RPC method.
@@ -13782,7 +13782,7 @@ QueryContractStoreRequest is the request type for the Query/ContractStore RPC me
 
 
 
-<a name="terra.wasm.v1beta1.QueryContractStoreResponse"></a>
+<a name="iq.wasm.v1beta1.QueryContractStoreResponse"></a>
 
 ### QueryContractStoreResponse
 QueryContractStoreResponse is response type for the
@@ -13798,7 +13798,7 @@ Query/ContractStore RPC method.
 
 
 
-<a name="terra.wasm.v1beta1.QueryParamsRequest"></a>
+<a name="iq.wasm.v1beta1.QueryParamsRequest"></a>
 
 ### QueryParamsRequest
 QueryParamsRequest is the request type for the Query/Params RPC method.
@@ -13808,7 +13808,7 @@ QueryParamsRequest is the request type for the Query/Params RPC method.
 
 
 
-<a name="terra.wasm.v1beta1.QueryParamsResponse"></a>
+<a name="iq.wasm.v1beta1.QueryParamsResponse"></a>
 
 ### QueryParamsResponse
 QueryParamsResponse is the response type for the Query/Params RPC method.
@@ -13816,14 +13816,14 @@ QueryParamsResponse is the response type for the Query/Params RPC method.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `params` | [Params](#terra.wasm.v1beta1.Params) |  | params defines the parameters of the module. |
+| `params` | [Params](#iq.wasm.v1beta1.Params) |  | params defines the parameters of the module. |
 
 
 
 
 
 
-<a name="terra.wasm.v1beta1.QueryRawStoreRequest"></a>
+<a name="iq.wasm.v1beta1.QueryRawStoreRequest"></a>
 
 ### QueryRawStoreRequest
 QueryRawStoreRequest is the request type for the Query/RawStore RPC method.
@@ -13839,7 +13839,7 @@ QueryRawStoreRequest is the request type for the Query/RawStore RPC method.
 
 
 
-<a name="terra.wasm.v1beta1.QueryRawStoreResponse"></a>
+<a name="iq.wasm.v1beta1.QueryRawStoreResponse"></a>
 
 ### QueryRawStoreResponse
 QueryRawStoreResponse is response type for the
@@ -13861,32 +13861,32 @@ Query/RawStore RPC method.
  <!-- end HasExtensions -->
 
 
-<a name="terra.wasm.v1beta1.Query"></a>
+<a name="iq.wasm.v1beta1.Query"></a>
 
 ### Query
 Query defines the gRPC querier service.
 
 | Method Name | Request Type | Response Type | Description | HTTP Verb | Endpoint |
 | ----------- | ------------ | ------------- | ------------| ------- | -------- |
-| `CodeInfo` | [QueryCodeInfoRequest](#terra.wasm.v1beta1.QueryCodeInfoRequest) | [QueryCodeInfoResponse](#terra.wasm.v1beta1.QueryCodeInfoResponse) | CodeInfo returns the stored code info | GET|/terra/wasm/v1beta1/codes/{code_id}|
-| `ByteCode` | [QueryByteCodeRequest](#terra.wasm.v1beta1.QueryByteCodeRequest) | [QueryByteCodeResponse](#terra.wasm.v1beta1.QueryByteCodeResponse) | ByteCode returns the stored byte code | GET|/terra/wasm/v1beta1/codes/{code_id}/byte_code|
-| `ContractInfo` | [QueryContractInfoRequest](#terra.wasm.v1beta1.QueryContractInfoRequest) | [QueryContractInfoResponse](#terra.wasm.v1beta1.QueryContractInfoResponse) | ContractInfo returns the stored contract info | GET|/terra/wasm/v1beta1/contracts/{contract_address}|
-| `ContractStore` | [QueryContractStoreRequest](#terra.wasm.v1beta1.QueryContractStoreRequest) | [QueryContractStoreResponse](#terra.wasm.v1beta1.QueryContractStoreResponse) | ContractStore return smart query result from the contract | GET|/terra/wasm/v1beta1/contracts/{contract_address}/store|
-| `RawStore` | [QueryRawStoreRequest](#terra.wasm.v1beta1.QueryRawStoreRequest) | [QueryRawStoreResponse](#terra.wasm.v1beta1.QueryRawStoreResponse) | RawStore return single key from the raw store data of a contract | GET|/terra/wasm/v1beta1/contracts/{contract_address}/store/raw|
-| `Params` | [QueryParamsRequest](#terra.wasm.v1beta1.QueryParamsRequest) | [QueryParamsResponse](#terra.wasm.v1beta1.QueryParamsResponse) | Params queries all parameters. | GET|/terra/wasm/v1beta1/params|
+| `CodeInfo` | [QueryCodeInfoRequest](#iq.wasm.v1beta1.QueryCodeInfoRequest) | [QueryCodeInfoResponse](#iq.wasm.v1beta1.QueryCodeInfoResponse) | CodeInfo returns the stored code info | GET|/iq/wasm/v1beta1/codes/{code_id}|
+| `ByteCode` | [QueryByteCodeRequest](#iq.wasm.v1beta1.QueryByteCodeRequest) | [QueryByteCodeResponse](#iq.wasm.v1beta1.QueryByteCodeResponse) | ByteCode returns the stored byte code | GET|/iq/wasm/v1beta1/codes/{code_id}/byte_code|
+| `ContractInfo` | [QueryContractInfoRequest](#iq.wasm.v1beta1.QueryContractInfoRequest) | [QueryContractInfoResponse](#iq.wasm.v1beta1.QueryContractInfoResponse) | ContractInfo returns the stored contract info | GET|/iq/wasm/v1beta1/contracts/{contract_address}|
+| `ContractStore` | [QueryContractStoreRequest](#iq.wasm.v1beta1.QueryContractStoreRequest) | [QueryContractStoreResponse](#iq.wasm.v1beta1.QueryContractStoreResponse) | ContractStore return smart query result from the contract | GET|/iq/wasm/v1beta1/contracts/{contract_address}/store|
+| `RawStore` | [QueryRawStoreRequest](#iq.wasm.v1beta1.QueryRawStoreRequest) | [QueryRawStoreResponse](#iq.wasm.v1beta1.QueryRawStoreResponse) | RawStore return single key from the raw store data of a contract | GET|/iq/wasm/v1beta1/contracts/{contract_address}/store/raw|
+| `Params` | [QueryParamsRequest](#iq.wasm.v1beta1.QueryParamsRequest) | [QueryParamsResponse](#iq.wasm.v1beta1.QueryParamsResponse) | Params queries all parameters. | GET|/iq/wasm/v1beta1/params|
 
  <!-- end services -->
 
 
 
-<a name="terra/wasm/v1beta1/tx.proto"></a>
+<a name="iq/wasm/v1beta1/tx.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## terra/wasm/v1beta1/tx.proto
+## iq/wasm/v1beta1/tx.proto
 
 
 
-<a name="terra.wasm.v1beta1.MsgClearContractAdmin"></a>
+<a name="iq.wasm.v1beta1.MsgClearContractAdmin"></a>
 
 ### MsgClearContractAdmin
 MsgClearContractAdmin represents a message to
@@ -13903,7 +13903,7 @@ clear admin address from a smart contract
 
 
 
-<a name="terra.wasm.v1beta1.MsgClearContractAdminResponse"></a>
+<a name="iq.wasm.v1beta1.MsgClearContractAdminResponse"></a>
 
 ### MsgClearContractAdminResponse
 MsgClearContractAdminResponse defines the Msg/ClearContractAdmin response type.
@@ -13913,7 +13913,7 @@ MsgClearContractAdminResponse defines the Msg/ClearContractAdmin response type.
 
 
 
-<a name="terra.wasm.v1beta1.MsgExecuteContract"></a>
+<a name="iq.wasm.v1beta1.MsgExecuteContract"></a>
 
 ### MsgExecuteContract
 MsgExecuteContract represents a message to
@@ -13932,7 +13932,7 @@ submits the given message data to a smart contract.
 
 
 
-<a name="terra.wasm.v1beta1.MsgExecuteContractResponse"></a>
+<a name="iq.wasm.v1beta1.MsgExecuteContractResponse"></a>
 
 ### MsgExecuteContractResponse
 MsgExecuteContractResponse defines the Msg/ExecuteContract response type.
@@ -13947,7 +13947,7 @@ MsgExecuteContractResponse defines the Msg/ExecuteContract response type.
 
 
 
-<a name="terra.wasm.v1beta1.MsgInstantiateContract"></a>
+<a name="iq.wasm.v1beta1.MsgInstantiateContract"></a>
 
 ### MsgInstantiateContract
 MsgInstantiateContract represents a message to create
@@ -13968,7 +13968,7 @@ code id.
 
 
 
-<a name="terra.wasm.v1beta1.MsgInstantiateContractResponse"></a>
+<a name="iq.wasm.v1beta1.MsgInstantiateContractResponse"></a>
 
 ### MsgInstantiateContractResponse
 MsgInstantiateContractResponse defines the Msg/InstantiateContract response type.
@@ -13984,7 +13984,7 @@ MsgInstantiateContractResponse defines the Msg/InstantiateContract response type
 
 
 
-<a name="terra.wasm.v1beta1.MsgMigrateCode"></a>
+<a name="iq.wasm.v1beta1.MsgMigrateCode"></a>
 
 ### MsgMigrateCode
 MsgMigrateCode represents a message to submit
@@ -14002,7 +14002,7 @@ Wasm code to the system
 
 
 
-<a name="terra.wasm.v1beta1.MsgMigrateCodeResponse"></a>
+<a name="iq.wasm.v1beta1.MsgMigrateCodeResponse"></a>
 
 ### MsgMigrateCodeResponse
 MsgMigrateCodeResponse defines the Msg/MigrateCode response type.
@@ -14012,7 +14012,7 @@ MsgMigrateCodeResponse defines the Msg/MigrateCode response type.
 
 
 
-<a name="terra.wasm.v1beta1.MsgMigrateContract"></a>
+<a name="iq.wasm.v1beta1.MsgMigrateContract"></a>
 
 ### MsgMigrateContract
 MsgMigrateContract represents a message to
@@ -14031,7 +14031,7 @@ runs a code upgrade/ downgrade for a smart contract
 
 
 
-<a name="terra.wasm.v1beta1.MsgMigrateContractResponse"></a>
+<a name="iq.wasm.v1beta1.MsgMigrateContractResponse"></a>
 
 ### MsgMigrateContractResponse
 MsgMigrateContractResponse defines the Msg/MigrateContract response type.
@@ -14046,7 +14046,7 @@ MsgMigrateContractResponse defines the Msg/MigrateContract response type.
 
 
 
-<a name="terra.wasm.v1beta1.MsgStoreCode"></a>
+<a name="iq.wasm.v1beta1.MsgStoreCode"></a>
 
 ### MsgStoreCode
 MsgStoreCode represents a message to submit
@@ -14063,7 +14063,7 @@ Wasm code to the system
 
 
 
-<a name="terra.wasm.v1beta1.MsgStoreCodeResponse"></a>
+<a name="iq.wasm.v1beta1.MsgStoreCodeResponse"></a>
 
 ### MsgStoreCodeResponse
 MsgStoreCodeResponse defines the Msg/StoreCode response type.
@@ -14078,7 +14078,7 @@ MsgStoreCodeResponse defines the Msg/StoreCode response type.
 
 
 
-<a name="terra.wasm.v1beta1.MsgUpdateContractAdmin"></a>
+<a name="iq.wasm.v1beta1.MsgUpdateContractAdmin"></a>
 
 ### MsgUpdateContractAdmin
 MsgUpdateContractAdmin represents a message to
@@ -14096,7 +14096,7 @@ sets a new admin for a smart contract
 
 
 
-<a name="terra.wasm.v1beta1.MsgUpdateContractAdminResponse"></a>
+<a name="iq.wasm.v1beta1.MsgUpdateContractAdminResponse"></a>
 
 ### MsgUpdateContractAdminResponse
 MsgUpdateContractAdminResponse defines the Msg/UpdateContractAdmin response type.
@@ -14112,20 +14112,20 @@ MsgUpdateContractAdminResponse defines the Msg/UpdateContractAdmin response type
  <!-- end HasExtensions -->
 
 
-<a name="terra.wasm.v1beta1.Msg"></a>
+<a name="iq.wasm.v1beta1.Msg"></a>
 
 ### Msg
 Msg defines the oracle Msg service.
 
 | Method Name | Request Type | Response Type | Description | HTTP Verb | Endpoint |
 | ----------- | ------------ | ------------- | ------------| ------- | -------- |
-| `StoreCode` | [MsgStoreCode](#terra.wasm.v1beta1.MsgStoreCode) | [MsgStoreCodeResponse](#terra.wasm.v1beta1.MsgStoreCodeResponse) | StoreCode to submit Wasm code to the system | |
-| `MigrateCode` | [MsgMigrateCode](#terra.wasm.v1beta1.MsgMigrateCode) | [MsgMigrateCodeResponse](#terra.wasm.v1beta1.MsgMigrateCodeResponse) | MigrateCode to submit new version Wasm code to the system | |
-| `InstantiateContract` | [MsgInstantiateContract](#terra.wasm.v1beta1.MsgInstantiateContract) | [MsgInstantiateContractResponse](#terra.wasm.v1beta1.MsgInstantiateContractResponse) | Instantiate creates a new smart contract instance for the given code id. | |
-| `ExecuteContract` | [MsgExecuteContract](#terra.wasm.v1beta1.MsgExecuteContract) | [MsgExecuteContractResponse](#terra.wasm.v1beta1.MsgExecuteContractResponse) | Execute submits the given message data to a smart contract | |
-| `MigrateContract` | [MsgMigrateContract](#terra.wasm.v1beta1.MsgMigrateContract) | [MsgMigrateContractResponse](#terra.wasm.v1beta1.MsgMigrateContractResponse) | Migrate runs a code upgrade/ downgrade for a smart contract | |
-| `UpdateContractAdmin` | [MsgUpdateContractAdmin](#terra.wasm.v1beta1.MsgUpdateContractAdmin) | [MsgUpdateContractAdminResponse](#terra.wasm.v1beta1.MsgUpdateContractAdminResponse) | UpdateContractAdmin sets a new admin for a smart contract | |
-| `ClearContractAdmin` | [MsgClearContractAdmin](#terra.wasm.v1beta1.MsgClearContractAdmin) | [MsgClearContractAdminResponse](#terra.wasm.v1beta1.MsgClearContractAdminResponse) | ClearContractAdmin remove admin flag from a smart contract | |
+| `StoreCode` | [MsgStoreCode](#iq.wasm.v1beta1.MsgStoreCode) | [MsgStoreCodeResponse](#iq.wasm.v1beta1.MsgStoreCodeResponse) | StoreCode to submit Wasm code to the system | |
+| `MigrateCode` | [MsgMigrateCode](#iq.wasm.v1beta1.MsgMigrateCode) | [MsgMigrateCodeResponse](#iq.wasm.v1beta1.MsgMigrateCodeResponse) | MigrateCode to submit new version Wasm code to the system | |
+| `InstantiateContract` | [MsgInstantiateContract](#iq.wasm.v1beta1.MsgInstantiateContract) | [MsgInstantiateContractResponse](#iq.wasm.v1beta1.MsgInstantiateContractResponse) | Instantiate creates a new smart contract instance for the given code id. | |
+| `ExecuteContract` | [MsgExecuteContract](#iq.wasm.v1beta1.MsgExecuteContract) | [MsgExecuteContractResponse](#iq.wasm.v1beta1.MsgExecuteContractResponse) | Execute submits the given message data to a smart contract | |
+| `MigrateContract` | [MsgMigrateContract](#iq.wasm.v1beta1.MsgMigrateContract) | [MsgMigrateContractResponse](#iq.wasm.v1beta1.MsgMigrateContractResponse) | Migrate runs a code upgrade/ downgrade for a smart contract | |
+| `UpdateContractAdmin` | [MsgUpdateContractAdmin](#iq.wasm.v1beta1.MsgUpdateContractAdmin) | [MsgUpdateContractAdminResponse](#iq.wasm.v1beta1.MsgUpdateContractAdminResponse) | UpdateContractAdmin sets a new admin for a smart contract | |
+| `ClearContractAdmin` | [MsgClearContractAdmin](#iq.wasm.v1beta1.MsgClearContractAdmin) | [MsgClearContractAdminResponse](#iq.wasm.v1beta1.MsgClearContractAdminResponse) | ClearContractAdmin remove admin flag from a smart contract | |
 
  <!-- end services -->
 

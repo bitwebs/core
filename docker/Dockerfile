@@ -1,27 +1,27 @@
-ARG version=v0.5.9-oracle
+ARG version=v0.0.1-boom
 
-FROM terramoney/core:${version}
+FROM bitwebs/iq-core:${version}
 
-ARG chainid=columbus-5
+ARG chainid=swartz-1
 
 ENV CHAINID ${chainid}
 
 # Moniker will be updated by entrypoint.
-RUN terrad init --chain-id $chainid moniker
+RUN iqd init --chain-id $chainid moniker
 
 # Backup for templating
-RUN mv ~/.terra/config/config.toml ~/config.toml
-RUN mv ~/.terra/config/app.toml ~/app.toml
+RUN mv ~/.iq/config/config.toml ~/config.toml
+RUN mv ~/.iq/config/app.toml ~/app.toml
 
-RUN if [ "$chainid" = "columbus-5" ] ; then wget -O ~/.terra/config/genesis.json https://columbus-genesis.s3.ap-northeast-1.amazonaws.com/columbus-5-genesis.json; fi
-RUN if [ "$chainid" = "columbus-5" ] ; then wget -O ~/.terra/config/addrbook.json https://network.terra.dev/addrbook.json; fi
+RUN if [ "$chainid" = "swartz-1" ] ; then wget -O ~/.iq/config/genesis.json https://iqchain.network/swartz-1-genesis.json; fi
+RUN if [ "$chainid" = "swartz-1" ] ; then wget -O ~/.iq/config/addrbook.json https://iqchain.network/addrbook.json; fi
 
-RUN if [ "$chainid" = "bombay-12" ] ; then wget -O ~/.terra/config/genesis.json https://raw.githubusercontent.com/terra-money/testnet/master/bombay-12/genesis.json; fi
-RUN if [ "$chainid" = "bombay-12" ] ; then wget -O ~/.terra/config/addrbook.json https://raw.githubusercontent.com/terra-money/testnet/master/bombay-12/addrbook.json; fi
+RUN if [ "$chainid" = "mcafee-1" ] ; then wget -O ~/.iq/config/genesis.json https://raw.githubusercontent.com/bitwebs/iq-testnets/master/mcafee-1/genesis.json; fi
+RUN if [ "$chainid" = "mcafee-1" ] ; then wget -O ~/.iq/config/addrbook.json https://raw.githubusercontent.com/bitwebs/iq-testnets/master/mcafee-1/addrbook.json; fi
 
 RUN apk update && apk add wget lz4 aria2 curl jq gawk coreutils
 
 COPY ./entrypoint.sh /entrypoint.sh
 ENTRYPOINT [ "/entrypoint.sh" ]
 
-CMD ["/usr/local/bin/terrad", "start"]
+CMD ["/usr/local/bin/iqd", "start"]

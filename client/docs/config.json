@@ -114,13 +114,13 @@
       }
     },
     {
-      "url": "./tmp-swagger-gen/terra/tx/v1beta1/service.swagger.json",
+      "url": "./tmp-swagger-gen/iq/tx/v1beta1/service.swagger.json",
       "dereference": {
         "circular": "ignore"
       }
     },
     {
-      "url": "./tmp-swagger-gen/terra/market/v1beta1/query.swagger.json",
+      "url": "./tmp-swagger-gen/iq/market/v1beta1/query.swagger.json",
       "operationIds": {
         "rename": {
           "Params": "MarketParams"
@@ -128,7 +128,7 @@
       }
     },
     {
-      "url": "./tmp-swagger-gen/terra/oracle/v1beta1/query.swagger.json",
+      "url": "./tmp-swagger-gen/iq/oracle/v1beta1/query.swagger.json",
       "operationIds": {
         "rename": {
           "Params": "OracleParams"
@@ -136,7 +136,7 @@
       }
     },
     {
-      "url": "./tmp-swagger-gen/terra/treasury/v1beta1/query.swagger.json",
+      "url": "./tmp-swagger-gen/iq/treasury/v1beta1/query.swagger.json",
       "operationIds": {
         "rename": {
           "Params": "TreasuryParams"
@@ -144,7 +144,7 @@
       }
     },
     {
-      "url": "./tmp-swagger-gen/terra/wasm/v1beta1/query.swagger.json",
+      "url": "./tmp-swagger-gen/iq/wasm/v1beta1/query.swagger.json",
       "operationIds": {
         "rename": {
           "Params": "WasmParams"

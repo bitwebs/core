@@ -10,7 +10,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/client/flags"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/terra-money/core/x/market/types"
+	"github.com/bitwebs/iq-core/x/market/types"
 )
 
 // GetQueryCmd returns the cli query commands for this module
@@ -25,7 +25,7 @@ func GetQueryCmd() *cobra.Command {
 
 	marketQueryCmd.AddCommand(
 		GetCmdQuerySwap(),
-		GetCmdQueryTerraPoolDelta(),
+		GetCmdQueryIqPoolDelta(),
 		GetCmdQueryParams(),
 	)
 
@@ -41,7 +41,7 @@ func GetCmdQuerySwap() *cobra.Command {
 		Long: strings.TrimSpace(`
 Query a quote for how many coins can be received in a swap operation. Note; rates are dynamic and can quickly change.
 
-$ terrad query swap 5000000uluna usdr
+$ iqd query swap 5000000ubiq ubusd
 `),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			clientCtx, err := client.GetClientQueryContext(cmd)
@@ -74,16 +74,16 @@ $ terrad query swap 5000000uluna usdr
 	return cmd
 }
 
-// GetCmdQueryTerraPoolDelta implements the query mint pool delta command.
-func GetCmdQueryTerraPoolDelta() *cobra.Command {
+// GetCmdQueryIqPoolDelta implements the query mint pool delta command.
+func GetCmdQueryIqPoolDelta() *cobra.Command {
 	cmd := &cobra.Command{
-		Use:   "terra-pool-delta",
+		Use:   "iq-pool-delta",
 		Args:  cobra.NoArgs,
-		Short: "Query terra pool delta",
-		Long: `Query terra pool delta, which is usdr amount used for swap operation from the TerraPool.
-It can be negative if the market wants more Terra than Luna, and vice versa if the market wants more Luna.
+		Short: "Query iq pool delta",
+		Long: `Query iq pool delta, which is ubusd amount used for swap operation from the IqPool.
+It can be negative if the market wants more Iq than Biq, and vice versa if the market wants more Biq.
 
-$ terrad query market terra-pool-delta
+$ iqd query market iq-pool-delta
 	`,
 		RunE: func(cmd *cobra.Command, args []string) error {
 			clientCtx, err := client.GetClientQueryContext(cmd)
@@ -92,8 +92,8 @@ $ terrad query market terra-pool-delta
 			}
 			queryClient := types.NewQueryClient(clientCtx)
 
-			res, err := queryClient.TerraPoolDelta(context.Background(),
-				&types.QueryTerraPoolDeltaRequest{},
+			res, err := queryClient.IqPoolDelta(context.Background(),
+				&types.QueryIqPoolDeltaRequest{},
 			)
 			if err != nil {
 				return err

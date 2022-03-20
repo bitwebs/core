@@ -7,8 +7,8 @@ import (
 	"github.com/cosmos/cosmos-sdk/types/module"
 	authz "github.com/cosmos/cosmos-sdk/x/authz/module"
 
-	customcli "github.com/terra-money/core/custom/authz/client/cli"
-	customtypes "github.com/terra-money/core/custom/authz/types"
+	customcli "github.com/bitwebs/iq-core/custom/authz/client/cli"
+	customtypes "github.com/bitwebs/iq-core/custom/authz/types"
 )
 
 var (

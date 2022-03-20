@@ -147,7 +147,7 @@ def process_raw_genesis(genesis, parsed_args):
             'annual_provisions': '0.0',
         },
         'params': {
-            'mint_denom': 'uluna',
+            'mint_denom': 'ubiq',
             'inflation_rate_change': '0.0',
             'inflation_max': '0.0',
             'inflation_min': '0.0',

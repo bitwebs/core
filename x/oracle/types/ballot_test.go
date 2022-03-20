@@ -15,7 +15,7 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	core "github.com/terra-money/core/types"
+	core "github.com/bitwebs/iq-core/types"
 )
 
 func TestToMap(t *testing.T) {

@@ -7,11 +7,11 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	paramstypes "github.com/cosmos/cosmos-sdk/x/params/types"
 
-	core "github.com/terra-money/core/types"
+	core "github.com/bitwebs/iq-core/types"
 
 	"github.com/tendermint/tendermint/libs/log"
 
-	"github.com/terra-money/core/x/treasury/types"
+	"github.com/bitwebs/iq-core/x/treasury/types"
 )
 
 // Keeper of the treasury store

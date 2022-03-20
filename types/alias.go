@@ -11,15 +11,15 @@ import (
 )
 
 const (
-	MicroLunaDenom       = assets.MicroLunaDenom
-	MicroUSDDenom        = assets.MicroUSDDenom
-	MicroKRWDenom        = assets.MicroKRWDenom
-	MicroSDRDenom        = assets.MicroSDRDenom
-	MicroCNYDenom        = assets.MicroCNYDenom
-	MicroJPYDenom        = assets.MicroJPYDenom
-	MicroEURDenom        = assets.MicroEURDenom
-	MicroGBPDenom        = assets.MicroGBPDenom
-	MicroMNTDenom        = assets.MicroMNTDenom
+	MicroBiqDenom       = assets.MicroBiqDenom
+	MicroBUSDDenom        = assets.MicroBUSDDenom
+	MicroBKRWDenom        = assets.MicroBKRWDenom
+	MicroBSDRDenom        = assets.MicroBSDRDenom
+	MicroBCNYDenom        = assets.MicroBCNYDenom
+	MicroBJPYDenom        = assets.MicroBJPYDenom
+	MicroBEURDenom        = assets.MicroEURDenom
+	MicroBGBPDenom        = assets.MicroBGBPDenom
+	MicroBMNTDenom        = assets.MicroBMNTDenom
 	MicroUnit            = assets.MicroUnit
 	BlocksPerMinute      = util.BlocksPerMinute
 	BlocksPerHour        = util.BlocksPerHour
@@ -35,8 +35,8 @@ const (
 	Bech32PrefixValPub   = util.Bech32PrefixValPub
 	Bech32PrefixConsAddr = util.Bech32PrefixConsAddr
 	Bech32PrefixConsPub  = util.Bech32PrefixConsPub
-	ColumbusChainID      = "columbus-5"
-	BombayChainID        = "bombay-12"
+	SwartzChainID      = "swartz-1"
+	McAfeeChainID        = "mcafee-1"
 )
 
 // functions aliases

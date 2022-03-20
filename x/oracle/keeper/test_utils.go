@@ -5,13 +5,13 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/require"
-	customauth "github.com/terra-money/core/custom/auth"
-	custombank "github.com/terra-money/core/custom/bank"
-	customdistr "github.com/terra-money/core/custom/distribution"
-	customparams "github.com/terra-money/core/custom/params"
-	customstaking "github.com/terra-money/core/custom/staking"
-	core "github.com/terra-money/core/types"
-	"github.com/terra-money/core/x/oracle/types"
+	customauth "github.com/bitwebs/iq-core/custom/auth"
+	custombank "github.com/bitwebs/iq-core/custom/bank"
+	customdistr "github.com/bitwebs/iq-core/custom/distribution"
+	customparams "github.com/bitwebs/iq-core/custom/params"
+	customstaking "github.com/bitwebs/iq-core/custom/staking"
+	core "github.com/bitwebs/iq-core/types"
+	"github.com/bitwebs/iq-core/x/oracle/types"
 
 	"time"
 

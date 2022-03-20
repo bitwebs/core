@@ -19,16 +19,16 @@ import (
 	xauthsigning "github.com/cosmos/cosmos-sdk/x/auth/signing"
 	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
 
-	terraapp "github.com/terra-money/core/app"
-	treasurytypes "github.com/terra-money/core/x/treasury/types"
-	wasmconfig "github.com/terra-money/core/x/wasm/config"
+	iqapp "github.com/bitwebs/iq-core/app"
+	treasurytypes "github.com/bitwebs/iq-core/x/treasury/types"
+	wasmconfig "github.com/bitwebs/iq-core/x/wasm/config"
 )
 
 // AnteTestSuite is a test suite to be used with ante handler tests.
 type AnteTestSuite struct {
 	suite.Suite
 
-	app         *terraapp.TerraApp
+	app         *iqapp.IqApp
 	anteHandler sdk.AnteHandler
 	ctx         sdk.Context
 	clientCtx   client.Context
@@ -36,10 +36,10 @@ type AnteTestSuite struct {
 }
 
 // returns context and app with params set on account keeper
-func createTestApp(isCheckTx bool, tempDir string) (*terraapp.TerraApp, sdk.Context) {
-	app := terraapp.NewTerraApp(
+func createTestApp(isCheckTx bool, tempDir string) (*iqapp.IqApp, sdk.Context) {
+	app := iqapp.NewIqApp(
 		log.NewNopLogger(), dbm.NewMemDB(), nil, true, map[int64]bool{},
-		tempDir, simapp.FlagPeriodValue, terraapp.MakeEncodingConfig(),
+		tempDir, simapp.FlagPeriodValue, iqapp.MakeEncodingConfig(),
 		simapp.EmptyAppOptions{}, wasmconfig.DefaultConfig(),
 	)
 	ctx := app.BaseApp.NewContext(isCheckTx, tmproto.Header{})

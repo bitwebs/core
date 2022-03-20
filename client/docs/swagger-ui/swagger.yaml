@@ -9,7 +9,7 @@ paths:
       description: Information about the connected node
       summary: The properties of the connected node
       tags:
-        - Terra REST
+        - IQ REST
       produces:
         - application/json
       responses:
@@ -1292,7 +1292,7 @@ paths:
                     description: Sender address or Keybase name to generate a transaction
                   memo:
                     type: string
-                    example: "Sent via Terra Station \U0001F680"
+                    example: "Sent via IQ Station \U0001F680"
                   chain_id:
                     type: string
                     example: Columbus-5
@@ -1416,7 +1416,7 @@ paths:
                     description: Sender address or Keybase name to generate a transaction
                   memo:
                     type: string
-                    example: "Sent via Terra Station \U0001F680"
+                    example: "Sent via IQ Station \U0001F680"
                   chain_id:
                     type: string
                     example: Columbus-5
@@ -1750,7 +1750,7 @@ paths:
                     description: Sender address or Keybase name to generate a transaction
                   memo:
                     type: string
-                    example: "Sent via Terra Station \U0001F680"
+                    example: "Sent via IQ Station \U0001F680"
                   chain_id:
                     type: string
                     example: Columbus-5
@@ -1974,7 +1974,7 @@ paths:
                     description: Sender address or Keybase name to generate a transaction
                   memo:
                     type: string
-                    example: "Sent via Terra Station \U0001F680"
+                    example: "Sent via IQ Station \U0001F680"
                   chain_id:
                     type: string
                     example: Columbus-5
@@ -2216,7 +2216,7 @@ paths:
                     description: Sender address or Keybase name to generate a transaction
                   memo:
                     type: string
-                    example: "Sent via Terra Station \U0001F680"
+                    example: "Sent via IQ Station \U0001F680"
                   chain_id:
                     type: string
                     example: Columbus-5
@@ -3051,7 +3051,7 @@ paths:
                     description: Sender address or Keybase name to generate a transaction
                   memo:
                     type: string
-                    example: "Sent via Terra Station \U0001F680"
+                    example: "Sent via IQ Station \U0001F680"
                   chain_id:
                     type: string
                     example: Columbus-5
@@ -3280,7 +3280,7 @@ paths:
                     description: Sender address or Keybase name to generate a transaction
                   memo:
                     type: string
-                    example: "Sent via Terra Station \U0001F680"
+                    example: "Sent via IQ Station \U0001F680"
                   chain_id:
                     type: string
                     example: Columbus-5
@@ -3587,7 +3587,7 @@ paths:
                     description: Sender address or Keybase name to generate a transaction
                   memo:
                     type: string
-                    example: "Sent via Terra Station \U0001F680"
+                    example: "Sent via IQ Station \U0001F680"
                   chain_id:
                     type: string
                     example: Columbus-5
@@ -3837,7 +3837,7 @@ paths:
                     description: Sender address or Keybase name to generate a transaction
                   memo:
                     type: string
-                    example: "Sent via Terra Station \U0001F680"
+                    example: "Sent via IQ Station \U0001F680"
                   chain_id:
                     type: string
                     example: Columbus-5
@@ -4214,7 +4214,7 @@ paths:
                     description: Sender address or Keybase name to generate a transaction
                   memo:
                     type: string
-                    example: "Sent via Terra Station \U0001F680"
+                    example: "Sent via IQ Station \U0001F680"
                   chain_id:
                     type: string
                     example: Columbus-5
@@ -4367,7 +4367,7 @@ paths:
                     description: Sender address or Keybase name to generate a transaction
                   memo:
                     type: string
-                    example: "Sent via Terra Station \U0001F680"
+                    example: "Sent via IQ Station \U0001F680"
                   chain_id:
                     type: string
                     example: Columbus-5
@@ -4509,7 +4509,7 @@ paths:
                     description: Sender address or Keybase name to generate a transaction
                   memo:
                     type: string
-                    example: "Sent via Terra Station \U0001F680"
+                    example: "Sent via IQ Station \U0001F680"
                   chain_id:
                     type: string
                     example: Columbus-5
@@ -4749,7 +4749,7 @@ paths:
                     description: Sender address or Keybase name to generate a transaction
                   memo:
                     type: string
-                    example: "Sent via Terra Station \U0001F680"
+                    example: "Sent via IQ Station \U0001F680"
                   chain_id:
                     type: string
                     example: Columbus-5
@@ -4967,7 +4967,7 @@ paths:
                     description: Sender address or Keybase name to generate a transaction
                   memo:
                     type: string
-                    example: "Sent via Terra Station \U0001F680"
+                    example: "Sent via IQ Station \U0001F680"
                   chain_id:
                     type: string
                     example: Columbus-5
@@ -5109,7 +5109,7 @@ paths:
       deprecated: true
       summary: >-
         Get terra pool delta, is usdr amount used for swap operation from the
-        TerraPool.
+        IQPool.
       tags:
         - Market
       produces:
@@ -5155,7 +5155,7 @@ paths:
   '/oracle/denoms/{denom}/exchange_rate':
     get:
       deprecated: true
-      summary: Get the current effective exchange rate in Luna for the asset
+      summary: Get the current effective exchange rate in BIQ for the asset
       tags:
         - Oracle
       produces:
@@ -5252,7 +5252,7 @@ paths:
                     description: Sender address or Keybase name to generate a transaction
                   memo:
                     type: string
-                    example: "Sent via Terra Station \U0001F680"
+                    example: "Sent via IQ Station \U0001F680"
                   chain_id:
                     type: string
                     example: Columbus-5
@@ -5422,7 +5422,7 @@ paths:
                     description: Sender address or Keybase name to generate a transaction
                   memo:
                     type: string
-                    example: "Sent via Terra Station \U0001F680"
+                    example: "Sent via IQ Station \U0001F680"
                   chain_id:
                     type: string
                     example: Columbus-5
@@ -5459,7 +5459,7 @@ paths:
                 type: string
                 example: '1000.0ukrw,1.2uusd,0.99usdr'
                 description: >-
-                  exchange rates of Luna in denom currencies are to make
+                  exchange rates of BIQ in denom currencies are to make
                   aggregate prevote hash; this field is required to submit
                   prevote in case absence of hash
               salt:
@@ -5591,7 +5591,7 @@ paths:
                     description: Sender address or Keybase name to generate a transaction
                   memo:
                     type: string
-                    example: "Sent via Terra Station \U0001F680"
+                    example: "Sent via IQ Station \U0001F680"
                   chain_id:
                     type: string
                     example: Columbus-5
@@ -5628,7 +5628,7 @@ paths:
                 type: string
                 example: '1000.0ukrw,1.2uusd,0.99usdr'
                 description: >-
-                  proof exchange rates of Luna in denom currency were used to
+                  proof exchange rates of BIQ in denom currency were used to
                   make aggregate prevote hash
               salt:
                 type: string
@@ -5984,11 +5984,11 @@ paths:
             properties:
               trl_year:
                 type: string
-                description: Tax Rewards per staked Luna over a year of rolling average
+                description: Tax Rewards per staked BIQ over a year of rolling average
                 example: '0.000407428004800011'
               trl_month:
                 type: string
-                description: Tax Rewards per staked Luna over a month of rolling average
+                description: Tax Rewards per staked BIQ over a month of rolling average
                 example: '0.000366833881714302'
   /wasm/codes:
     post:
@@ -6013,7 +6013,7 @@ paths:
                     description: Sender address or Keybase name to generate a transaction
                   memo:
                     type: string
-                    example: "Sent via Terra Station \U0001F680"
+                    example: "Sent via IQ Station \U0001F680"
                   chain_id:
                     type: string
                     example: Columbus-5
@@ -6131,7 +6131,7 @@ paths:
                     description: Sender address or Keybase name to generate a transaction
                   memo:
                     type: string
-                    example: "Sent via Terra Station \U0001F680"
+                    example: "Sent via IQ Station \U0001F680"
                   chain_id:
                     type: string
                     example: Columbus-5
@@ -6288,7 +6288,7 @@ paths:
                     description: Sender address or Keybase name to generate a transaction
                   memo:
                     type: string
-                    example: "Sent via Terra Station \U0001F680"
+                    example: "Sent via IQ Station \U0001F680"
                   chain_id:
                     type: string
                     example: Columbus-5
@@ -6406,7 +6406,7 @@ paths:
                     description: Sender address or Keybase name to generate a transaction
                   memo:
                     type: string
-                    example: "Sent via Terra Station \U0001F680"
+                    example: "Sent via IQ Station \U0001F680"
                   chain_id:
                     type: string
                     example: Columbus-5
@@ -6570,7 +6570,7 @@ paths:
                     description: Sender address or Keybase name to generate a transaction
                   memo:
                     type: string
-                    example: "Sent via Terra Station \U0001F680"
+                    example: "Sent via IQ Station \U0001F680"
                   chain_id:
                     type: string
                     example: Columbus-5
@@ -6692,7 +6692,7 @@ paths:
                     description: Sender address or Keybase name to generate a transaction
                   memo:
                     type: string
-                    example: "Sent via Terra Station \U0001F680"
+                    example: "Sent via IQ Station \U0001F680"
                   chain_id:
                     type: string
                     example: Columbus-5
@@ -6811,7 +6811,7 @@ paths:
                     description: Sender address or Keybase name to generate a transaction
                   memo:
                     type: string
-                    example: "Sent via Terra Station \U0001F680"
+                    example: "Sent via IQ Station \U0001F680"
                   chain_id:
                     type: string
                     example: Columbus-5
@@ -26105,8 +26105,8 @@ paths:
         - Query
   /terra/market/v1beta1/terra_pool_delta:
     get:
-      summary: TerraPoolDelta returns terra_pool_delta amount.
-      operationId: TerraPoolDelta
+      summary: IQPoolDelta returns terra_pool_delta amount.
+      operationId: IQPoolDelta
       responses:
         '200':
           description: A successful response.
@@ -26117,11 +26117,11 @@ paths:
                 type: string
                 format: byte
                 title: >-
-                  terra_pool_delta defines the gap between the TerraPool and the
-                  TerraBasePool
+                  terra_pool_delta defines the gap between the IQPool and the
+                  IQBasePool
             description: >-
-              QueryTerraPoolDeltaResponse is the response type for the
-              Query/TerraPoolDelta RPC method.
+              QueryIQPoolDeltaResponse is the response type for the
+              Query/IQPoolDelta RPC method.
         default:
           description: An unexpected error response
           schema:
@@ -26357,8 +26357,8 @@ paths:
               exchange_rate:
                 type: string
                 title: >-
-                  exchange_rate defines the exchange rate of Luna denominated in
-                  various Terra
+                  exchange_rate defines the exchange rate of BIQ denominated in
+                  various IQ denominations.
             description: |-
               QueryExchangeRateResponse is response type for the
               Query/ExchangeRate RPC method.
@@ -26539,7 +26539,7 @@ paths:
                 description: >-
                   MsgAggregateExchangeRateVote - struct for voting on
 
-                  the exchange rates of Luna denominated in various Terra
+                  the exchange rates of BIQ denominated in various IQ
                   assets.
             description: |-
               QueryAggregateVoteResponse is response type for the
@@ -26666,7 +26666,7 @@ paths:
                   description: >-
                     MsgAggregateExchangeRateVote - struct for voting on
 
-                    the exchange rates of Luna denominated in various Terra
+                    the exchange rates of BIQ denominated in various IQ
                     assets.
                 title: >-
                   aggregate_votes defines all oracle aggregate votes submitted
@@ -37990,7 +37990,7 @@ definitions:
         description: Sender address or Keybase name to generate a transaction
       memo:
         type: string
-        example: "Sent via Terra Station \U0001F680"
+        example: "Sent via IQ Station \U0001F680"
       chain_id:
         type: string
         example: Columbus-5
@@ -38687,7 +38687,7 @@ definitions:
             description: Sender address or Keybase name to generate a transaction
           memo:
             type: string
-            example: "Sent via Terra Station \U0001F680"
+            example: "Sent via IQ Station \U0001F680"
           chain_id:
             type: string
             example: Columbus-5
@@ -38760,7 +38760,7 @@ definitions:
             description: Sender address or Keybase name to generate a transaction
           memo:
             type: string
-            example: "Sent via Terra Station \U0001F680"
+            example: "Sent via IQ Station \U0001F680"
           chain_id:
             type: string
             example: Columbus-5
@@ -38797,7 +38797,7 @@ definitions:
         type: number
         example: '1000.0'
         description: >-
-          exchange rate of Luna in denom currency is to make prevote hash; this
+          exchange rate of BIQ in denom currency is to make prevote hash; this
           field is required to submit prevote in case absence of hash
       salt:
         type: string
@@ -38825,7 +38825,7 @@ definitions:
             description: Sender address or Keybase name to generate a transaction
           memo:
             type: string
-            example: "Sent via Terra Station \U0001F680"
+            example: "Sent via IQ Station \U0001F680"
           chain_id:
             type: string
             example: Columbus-5
@@ -38862,7 +38862,7 @@ definitions:
         type: number
         example: '1000.0'
         description: >-
-          proof exchange rate of Luna in denom currency was used to make prevote
+          proof exchange rate of BIQ in denom currency was used to make prevote
           hash; initial prevote does not require this field
       salt:
         type: string
@@ -38886,7 +38886,7 @@ definitions:
             description: Sender address or Keybase name to generate a transaction
           memo:
             type: string
-            example: "Sent via Terra Station \U0001F680"
+            example: "Sent via IQ Station \U0001F680"
           chain_id:
             type: string
             example: Columbus-5
@@ -38923,7 +38923,7 @@ definitions:
         type: string
         example: '1000.0ukrw,1.2uusd,0.99usdr'
         description: >-
-          exchange rates of Luna in denom currencies are to make aggregate
+          exchange rates of BIQ in denom currencies are to make aggregate
           prevote hash; this field is required to submit prevote in case absence
           of hash
       salt:
@@ -38948,7 +38948,7 @@ definitions:
             description: Sender address or Keybase name to generate a transaction
           memo:
             type: string
-            example: "Sent via Terra Station \U0001F680"
+            example: "Sent via IQ Station \U0001F680"
           chain_id:
             type: string
             example: Columbus-5
@@ -38985,7 +38985,7 @@ definitions:
         type: string
         example: '1000.0ukrw,1.2uusd,0.99usdr'
         description: >-
-          proof exchange rates of Luna in denom currency were used to make
+          proof exchange rates of BIQ in denom currency were used to make
           aggregate prevote hash
       salt:
         type: string
@@ -39005,7 +39005,7 @@ definitions:
             description: Sender address or Keybase name to generate a transaction
           memo:
             type: string
-            example: "Sent via Terra Station \U0001F680"
+            example: "Sent via IQ Station \U0001F680"
           chain_id:
             type: string
             example: Columbus-5
@@ -39342,7 +39342,7 @@ definitions:
             description: Sender address or Keybase name to generate a transaction
           memo:
             type: string
-            example: "Sent via Terra Station \U0001F680"
+            example: "Sent via IQ Station \U0001F680"
           chain_id:
             type: string
             example: Columbus-5
@@ -39390,7 +39390,7 @@ definitions:
             description: Sender address or Keybase name to generate a transaction
           memo:
             type: string
-            example: "Sent via Terra Station \U0001F680"
+            example: "Sent via IQ Station \U0001F680"
           chain_id:
             type: string
             example: Columbus-5
@@ -39438,7 +39438,7 @@ definitions:
             description: Sender address or Keybase name to generate a transaction
           memo:
             type: string
-            example: "Sent via Terra Station \U0001F680"
+            example: "Sent via IQ Station \U0001F680"
           chain_id:
             type: string
             example: Columbus-5
@@ -39502,7 +39502,7 @@ definitions:
             description: Sender address or Keybase name to generate a transaction
           memo:
             type: string
-            example: "Sent via Terra Station \U0001F680"
+            example: "Sent via IQ Station \U0001F680"
           chain_id:
             type: string
             example: Columbus-5
@@ -39561,7 +39561,7 @@ definitions:
             description: Sender address or Keybase name to generate a transaction
           memo:
             type: string
-            example: "Sent via Terra Station \U0001F680"
+            example: "Sent via IQ Station \U0001F680"
           chain_id:
             type: string
             example: Columbus-5
@@ -39613,7 +39613,7 @@ definitions:
             description: Sender address or Keybase name to generate a transaction
           memo:
             type: string
-            example: "Sent via Terra Station \U0001F680"
+            example: "Sent via IQ Station \U0001F680"
           chain_id:
             type: string
             example: Columbus-5
@@ -39662,7 +39662,7 @@ definitions:
             description: Sender address or Keybase name to generate a transaction
           memo:
             type: string
-            example: "Sent via Terra Station \U0001F680"
+            example: "Sent via IQ Station \U0001F680"
           chain_id:
             type: string
             example: Columbus-5
@@ -39786,7 +39786,7 @@ definitions:
             description: Sender address or Keybase name to generate a transaction
           memo:
             type: string
-            example: "Sent via Terra Station \U0001F680"
+            example: "Sent via IQ Station \U0001F680"
           chain_id:
             type: string
             example: Columbus-5
@@ -39849,7 +39849,7 @@ definitions:
             description: Sender address or Keybase name to generate a transaction
           memo:
             type: string
-            example: "Sent via Terra Station \U0001F680"
+            example: "Sent via IQ Station \U0001F680"
           chain_id:
             type: string
             example: Columbus-5
@@ -39897,7 +39897,7 @@ definitions:
             description: Sender address or Keybase name to generate a transaction
           memo:
             type: string
-            example: "Sent via Terra Station \U0001F680"
+            example: "Sent via IQ Station \U0001F680"
           chain_id:
             type: string
             example: Columbus-5
@@ -55391,18 +55391,18 @@ definitions:
           amount:
             type: string
     description: QuerySwapResponse is the response type for the Query/Swap RPC method.
-  terra.market.v1beta1.QueryTerraPoolDeltaResponse:
+  terra.market.v1beta1.QueryIQPoolDeltaResponse:
     type: object
     properties:
       terra_pool_delta:
         type: string
         format: byte
         title: >-
-          terra_pool_delta defines the gap between the TerraPool and the
-          TerraBasePool
+          terra_pool_delta defines the gap between the IQPool and the
+          IQBasePool
     description: >-
-      QueryTerraPoolDeltaResponse is the response type for the
-      Query/TerraPoolDelta RPC method.
+      QueryIQPoolDeltaResponse is the response type for the
+      Query/IQPoolDelta RPC method.
   terra.oracle.v1beta1.AggregateExchangeRatePrevote:
     type: object
     properties:
@@ -55439,7 +55439,7 @@ definitions:
         type: string
     description: |-
       MsgAggregateExchangeRateVote - struct for voting on
-      the exchange rates of Luna denominated in various Terra assets.
+      the exchange rates of BIQ denominated in various IQ assets.
   terra.oracle.v1beta1.Denom:
     type: object
     properties:
@@ -55580,7 +55580,7 @@ definitions:
             type: string
         description: |-
           MsgAggregateExchangeRateVote - struct for voting on
-          the exchange rates of Luna denominated in various Terra assets.
+          the exchange rates of BIQ denominated in various IQ assets.
     description: |-
       QueryAggregateVoteResponse is response type for the
       Query/AggregateVote RPC method.
@@ -55608,7 +55608,7 @@ definitions:
               type: string
           description: |-
             MsgAggregateExchangeRateVote - struct for voting on
-            the exchange rates of Luna denominated in various Terra assets.
+            the exchange rates of BIQ denominated in various IQ assets.
         title: >-
           aggregate_votes defines all oracle aggregate votes submitted in the
           current vote period
@@ -55621,8 +55621,8 @@ definitions:
       exchange_rate:
         type: string
         title: >-
-          exchange_rate defines the exchange rate of Luna denominated in various
-          Terra
+          exchange_rate defines the exchange rate of BIQ denominated in various
+          IQ
     description: |-
       QueryExchangeRateResponse is response type for the
       Query/ExchangeRate RPC method.

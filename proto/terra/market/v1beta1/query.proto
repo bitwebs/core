@@ -1,28 +1,28 @@
 syntax = "proto3";
-package terra.market.v1beta1;
+package iq.market.v1beta1;
 
 import "gogoproto/gogo.proto";
 import "google/api/annotations.proto";
-import "terra/market/v1beta1/market.proto";
+import "iq/market/v1beta1/market.proto";
 import "cosmos/base/v1beta1/coin.proto";
 
-option go_package = "github.com/terra-money/core/x/market/types";
+option go_package = "github.com/bitwebs/iq-core/x/market/types";
 
 // Query defines the gRPC querier service.
 service Query {
   // Swap returns simulated swap amount.
   rpc Swap(QuerySwapRequest) returns (QuerySwapResponse) {
-    option (google.api.http).get = "/terra/market/v1beta1/swap";
+    option (google.api.http).get = "/iq/market/v1beta1/swap";
   }
 
-  // TerraPoolDelta returns terra_pool_delta amount.
-  rpc TerraPoolDelta(QueryTerraPoolDeltaRequest) returns (QueryTerraPoolDeltaResponse) {
-    option (google.api.http).get = "/terra/market/v1beta1/terra_pool_delta";
+  // IqPoolDelta returns iq_pool_delta amount.
+  rpc IqPoolDelta(QueryIqPoolDeltaRequest) returns (QueryIqPoolDeltaResponse) {
+    option (google.api.http).get = "/iq/market/v1beta1/iq_pool_delta";
   }
 
   // Params queries all parameters.
   rpc Params(QueryParamsRequest) returns (QueryParamsResponse) {
-    option (google.api.http).get = "/terra/market/v1beta1/params";
+    option (google.api.http).get = "/iq/market/v1beta1/params";
   }
 }
 
@@ -43,13 +43,13 @@ message QuerySwapResponse {
   cosmos.base.v1beta1.Coin return_coin = 1 [(gogoproto.nullable) = false];
 }
 
-// QueryTerraPoolDeltaRequest is the request type for the Query/TerraPoolDelta RPC method.
-message QueryTerraPoolDeltaRequest {}
+// QueryIqPoolDeltaRequest is the request type for the Query/IqPoolDelta RPC method.
+message QueryIqPoolDeltaRequest {}
 
-// QueryTerraPoolDeltaResponse is the response type for the Query/TerraPoolDelta RPC method.
-message QueryTerraPoolDeltaResponse {
-  // terra_pool_delta defines the gap between the TerraPool and the TerraBasePool
-  bytes terra_pool_delta = 1
+// QueryIqPoolDeltaResponse is the response type for the Query/IqPoolDelta RPC method.
+message QueryIqPoolDeltaResponse {
+  // iq_pool_delta defines the gap between the IqPool and the IqBasePool
+  bytes iq_pool_delta = 1
       [(gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (gogoproto.nullable) = false];
 }
 

@@ -2,7 +2,7 @@
 swagger: "2.0"
 info:
   version: "3.0"
-  title: "Terra-Lite for Terra"
+  title: "IQChain-Lite for IQChain"
   description: A REST interface for state queries, transaction generation and broadcasting.
 tags:
   - name: Transactions
@@ -35,7 +35,7 @@ tags:
     description: Wasm modules APIs
 schemes:
   - https
-host: lcd.terra.dev
+host: lcd.iq.dev
 securityDefinitions:
   kms:
     type: basic
@@ -45,7 +45,7 @@ paths:
       description: Information about the connected node
       summary: The properties of the connected node
       tags:
-        - Terra REST
+        - IqChain REST
       produces:
         - application/json
       responses:
@@ -263,8 +263,8 @@ paths:
         - in: query
           name: message.sender
           type: string
-          description: "transaction events with sender: 'GET /txs?message.action=send&message.sender=terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv'"
-          x-example: "terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv"
+          description: "transaction events with sender: 'GET /txs?message.action=send&message.sender=iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv'"
+          x-example: "iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv"
         - in: query
           name: page
           description: Page number
@@ -464,7 +464,7 @@ paths:
           description: Account address in bech32 format
           required: true
           type: string
-          x-example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+          x-example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
       responses:
         200:
           description: Account balances
@@ -490,7 +490,7 @@ paths:
           description: Account address in bech32 format
           required: true
           type: string
-          x-example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+          x-example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
         - in: body
           name: account
           description: The sender and tx information
@@ -535,7 +535,7 @@ paths:
         description: Coin denomination
         required: true
         type: string
-        x-example: uluna
+        x-example: ubiq
     get:
       deprecated: true
       summary: Total supply of a single coin denomination
@@ -566,7 +566,7 @@ paths:
           description: Account address
           required: true
           type: string
-          x-example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+          x-example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
       responses:
         200:
           description: Account information on the blockchain
@@ -586,7 +586,7 @@ paths:
         description: Bech32 AccAddress of Delegator
         required: true
         type: string
-        x-example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+        x-example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
     get:
       deprecated: true
       summary: Get all delegations from a delegator
@@ -647,13 +647,13 @@ paths:
         description: Bech32 AccAddress of Delegator
         required: true
         type: string
-        x-example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+        x-example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
       - in: path
         name: validatorAddr
         description: Bech32 OperatorAddress of validator
         required: true
         type: string
-        x-example: terravaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
+        x-example: iqvaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
     get:
       deprecated: true
       summary: Query the current delegation between a delegator and a validator
@@ -677,7 +677,7 @@ paths:
         description: Bech32 AccAddress of Delegator
         required: true
         type: string
-        x-example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+        x-example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
     get:
       deprecated: true
       summary: Get all unbonding delegations from a delegator
@@ -738,13 +738,13 @@ paths:
         description: Bech32 AccAddress of Delegator
         required: true
         type: string
-        x-example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+        x-example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
       - in: path
         name: validatorAddr
         description: Bech32 OperatorAddress of validator
         required: true
         type: string
-        x-example: terravaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
+        x-example: iqvaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
     get:
       deprecated: true
       summary: Query all unbonding delegations between a delegator and a validator
@@ -801,7 +801,7 @@ paths:
         description: Bech32 AccAddress of Delegator
         required: true
         type: string
-        x-example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+        x-example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
     post:
       deprecated: true
       summary: Submit a redelegation
@@ -846,7 +846,7 @@ paths:
         description: Bech32 AccAddress of Delegator
         required: true
         type: string
-        x-example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+        x-example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
     get:
       deprecated: true
       summary: Query all validators that a delegator is bonded to
@@ -872,13 +872,13 @@ paths:
         description: Bech32 AccAddress of Delegator
         required: true
         type: string
-        x-example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+        x-example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
       - in: path
         name: validatorAddr
         description: Bech32 ValAddress of Delegator
         required: true
         type: string
-        x-example: terravaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
+        x-example: iqvaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
     get:
       deprecated: true
       summary: Query a validator that a delegator is bonded to
@@ -935,7 +935,7 @@ paths:
         description: Bech32 OperatorAddress of validator
         required: true
         type: string
-        x-example: terravaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
+        x-example: iqvaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
     get:
       deprecated: true
       summary: Query the information from a single validator
@@ -959,7 +959,7 @@ paths:
         description: Bech32 OperatorAddress of validator
         required: true
         type: string
-        x-example: terravaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
+        x-example: iqvaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
     get:
       deprecated: true
       summary: Get all delegations from a validator
@@ -985,7 +985,7 @@ paths:
         description: Bech32 OperatorAddress of validator
         required: true
         type: string
-        x-example: terravaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
+        x-example: iqvaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
     get:
       deprecated: true
       summary: Get all unbonding delegations from a validator
@@ -1100,7 +1100,7 @@ paths:
           name: validatorAddr
           required: true
           in: path
-          x-example: terravaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
+          x-example: iqvaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
         - description: ""
           name: UnjailBody
           in: body
@@ -1407,7 +1407,7 @@ paths:
           name: depositor
           required: true
           in: path
-          x-example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+          x-example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
       responses:
         200:
           description: OK
@@ -1509,7 +1509,7 @@ paths:
           name: voter
           required: true
           in: path
-          x-example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+          x-example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
       responses:
         200:
           description: OK
@@ -1633,7 +1633,7 @@ paths:
         description: Bech32 AccAddress of Delegator
         required: true
         type: string
-        x-example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+        x-example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
     get:
       deprecated: true
       summary: Get the total rewards balance from all delegations
@@ -1686,13 +1686,13 @@ paths:
         description: Bech32 AccAddress of Delegator
         required: true
         type: string
-        x-example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+        x-example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
       - in: path
         name: validatorAddr
         description: Bech32 OperatorAddress of validator
         required: true
         type: string
-        x-example: terravaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
+        x-example: iqvaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
     get:
       deprecated: true
       summary: Query a delegation reward
@@ -1747,7 +1747,7 @@ paths:
         description: Bech32 AccAddress of Delegator
         required: true
         type: string
-        x-example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+        x-example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
     get:
       deprecated: true
       summary: Get the rewards withdrawal address
@@ -1802,7 +1802,7 @@ paths:
         description: Bech32 OperatorAddress of validator
         required: true
         type: string
-        x-example: terravaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
+        x-example: iqvaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
     get:
       deprecated: true
       summary: Validator distribution information
@@ -1827,7 +1827,7 @@ paths:
         description: Bech32 OperatorAddress of validator
         required: true
         type: string
-        x-example: terravaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
+        x-example: iqvaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
     get:
       deprecated: true
       summary: Fee distribution outstanding rewards of a single validator
@@ -1854,7 +1854,7 @@ paths:
         description: Bech32 OperatorAddress of validator
         required: true
         type: string
-        x-example: terravaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
+        x-example: iqvaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
     get:
       deprecated: true
       summary: Commission and self-delegation rewards of a single validator
@@ -2030,7 +2030,7 @@ paths:
           description: coin expression want to swap
           type: string
           required: true
-          x-example: 1000000uluna
+          x-example: 1000000ubiq
         - in: query
           name: ask_denom
           description: Then coin denom want to ask
@@ -2044,10 +2044,10 @@ paths:
             $ref: "#/definitions/Coin"
         500:
           description: Internal Server Error
-  /market/terra_pool_delta:
+  /market/iq_pool_delta:
     get:
       deprecated: true
-      summary: Get terra pool delta, is usdr amount used for swap operation from the TerraPool.
+      summary: Get iq pool delta, is usdr amount used for swap operation from the IqChainPool.
       tags:
         - Market
       produces:
@@ -2083,7 +2083,7 @@ paths:
   /oracle/denoms/{denom}/exchange_rate:
     get:
       deprecated: true
-      summary: Get the current effective exchange rate in Luna for the asset
+      summary: Get the current effective exchange rate in BIQ for the asset
       tags:
         - Oracle
       produces:
@@ -2469,11 +2469,11 @@ paths:
             properties:
               trl_year:
                 type: string
-                description: "Tax Rewards per staked Luna over a year of rolling average"
+                description: "Tax Rewards per staked BIQ over a year of rolling average"
                 example: "0.000407428004800011"
               trl_month:
                 type: string
-                description: "Tax Rewards per staked Luna over a month of rolling average"
+                description: "Tax Rewards per staked BIQ over a month of rolling average"
                 example: "0.000366833881714302"
   /wasm/codes:
     post:
@@ -2841,17 +2841,17 @@ definitions:
   Address:
     type: string
     description: bech32 encoded address
-    example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+    example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
   ValidatorAddress:
     type: string
     description: bech32 encoded address
-    example: terravaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
+    example: iqvaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
   Coin:
     type: object
     properties:
       denom:
         type: string
-        example: uluna
+        example: ubiq
       amount:
         type: string
         example: "50"
@@ -3096,11 +3096,11 @@ definitions:
     properties:
       from:
         type: string
-        example: "terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv"
+        example: "iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv"
         description: Sender address or Keybase name to generate a transaction
       memo:
         type: string
-        example: "Sent via Terra Station 🚀"
+        example: "Sent via IqChain Station 🚀"
       chain_id:
         type: string
         example: "Columbus-5"
@@ -3382,7 +3382,7 @@ definitions:
     properties:
       address:
         type: string
-        example: "terravalcons1qsdpq864szmfk8nh82qcg7lyle6k95w07acdqn"
+        example: "iqvalcons1qsdpq864szmfk8nh82qcg7lyle6k95w07acdqn"
       start_height:
         type: string
       index_offset:
@@ -3503,11 +3503,11 @@ definitions:
         $ref: "#/definitions/Coin"
       ask_denom:
         type: string
-        example: "uluna"
+        example: "ubiq"
       receiver:
         type: string
         description: "the `receiver` field can be skipped when the receiver is trader"
-        example: "terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv"
+        example: "iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv"
   MarketParams:
     type: object
     properties:
@@ -3528,7 +3528,7 @@ definitions:
       exchange_rate:
         type: number
         example: "1000.0"
-        description: "exchange rate of Luna in denom currency is to make prevote hash; this field is required to submit prevote in case absence of hash"
+        description: "exchange rate of BIQ in denom currency is to make prevote hash; this field is required to submit prevote in case absence of hash"
       salt:
         type: string
         example: "abcd"
@@ -3547,7 +3547,7 @@ definitions:
       exchange_rate:
         type: number
         example: "1000.0"
-        description: "proof exchange rate of Luna in denom currency was used to make prevote hash; initial prevote does not require this field"
+        description: "proof exchange rate of BIQ in denom currency was used to make prevote hash; initial prevote does not require this field"
       salt:
         type: string
         example: "abcd"
@@ -3562,7 +3562,7 @@ definitions:
       exchange_rates:
         type: string
         example: "1000.0ukrw,1.2uusd,0.99usdr"
-        description: "exchange rates of Luna in denom currencies are to make aggregate prevote hash; this field is required to submit prevote in case absence of hash"
+        description: "exchange rates of BIQ in denom currencies are to make aggregate prevote hash; this field is required to submit prevote in case absence of hash"
       salt:
         type: string
         example: "abcd"
@@ -3579,7 +3579,7 @@ definitions:
       exchange_rates:
         type: string
         example: "1000.0ukrw,1.2uusd,0.99usdr"
-        description: "proof exchange rates of Luna in denom currency were used to make aggregate prevote hash"
+        description: "proof exchange rates of BIQ in denom currency were used to make aggregate prevote hash"
       salt:
         type: string
         example: "abcd"
@@ -3744,7 +3744,7 @@ definitions:
         type: array
         items:
           type: string
-          example: terrapub1addwnpepq2l6pwj8h9fwxdjuge7lazu0sszpkck0nlhjag6q9drffrd93atywdt8ksu
+          example: iqpub1addwnpepq2l6pwj8h9fwxdjuge7lazu0sszpkck0nlhjag6q9drffrd93atywdt8ksu
   StdSignature:
     type: object
     properties:
@@ -3827,7 +3827,7 @@ definitions:
       admin:
         $ref: "#/definitions/Address"
         description: admin address which has contract migration privilege; empty means not migratable
-        example: "terra..."
+        example: "iq..."
   ExecuteContractReq:
     type: object
     properties:
@@ -3860,7 +3860,7 @@ definitions:
       new_admin:
         $ref: "#/definitions/Address"
         description: new contract admin address who has contract migration privilege
-        example: "terra..."
+        example: "iq..."
   ClearContractAdminReq:
     type: object
     properties:
@@ -3948,7 +3948,7 @@ definitions:
     properties:
       denom:
         type: string
-        example: uluna
+        example: ubiq
       tax_cap:
         type: string
         example: "50"

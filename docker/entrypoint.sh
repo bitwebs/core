@@ -1,28 +1,28 @@
 #!/bin/sh
 
 # Default to "data".
-DATADIR="${DATADIR:-/root/.terra/data}"
+DATADIR="${DATADIR:-/root/.iq/data}"
 MONIKER="${MONIKER:-docker-node}"
 ENABLE_LCD="${ENABLE_LCD:-true}"
-MINIMUM_GAS_PRICES=${MINIMUM_GAS_PRICES-0.01133uluna,0.15uusd,0.104938usdr,169.77ukrw,428.571umnt,0.125ueur,0.98ucny,16.37ujpy,0.11ugbp,10.88uinr,0.19ucad,0.14uchf,0.19uaud,0.2usgd,4.62uthb,1.25usek,1.25unok,0.9udkk,2180.0uidr,7.6uphp,1.17uhkd}
+MINIMUM_GAS_PRICES=${MINIMUM_GAS_PRICES-0.01133ubiq,0.15ubusd,0.104938ubsdr,169.77ubkrw,428.571ubmnt,0.125ubeur,0.98ubcny,16.37ubjpy,0.11ubgbp,10.88ubinr,0.19ubcad,0.14ubchf,0.19ubaud,0.2ubsgd,4.62ubthb,1.25ubsek,1.25ubnok,0.9ubdkk,2180.0ubidr,7.6ubphp,1.17ubhkd}
 SNAPSHOT_NAME="${SNAPSHOT_NAME}"
 SNAPSHOT_BASE_URL="${SNAPSHOT_BASE_URL:-https://getsfo.quicksync.io}"
 
 # First sed gets the app.toml moved into place.
 # app.toml updates
-sed 's/minimum-gas-prices = "0uluna"/minimum-gas-prices = "'"$MINIMUM_GAS_PRICES"'"/g' ~/app.toml > ~/.terra/config/app.toml
+sed 's/minimum-gas-prices = "0ubiq"/minimum-gas-prices = "'"$MINIMUM_GAS_PRICES"'"/g' ~/app.toml > ~/.iq/config/app.toml
 
 # Needed to use awk to replace this multiline string.
 if [ "$ENABLE_LCD" = true ] ; then
-  gawk -i inplace '/^# Enable defines if the API server should be enabled./,/^enable = false/{if (/^enable = false/) print "# Enable defines if the API server should be enabled.\nenable = true"; next} 1' ~/.terra/config/app.toml
+  gawk -i inplace '/^# Enable defines if the API server should be enabled./,/^enable = false/{if (/^enable = false/) print "# Enable defines if the API server should be enabled.\nenable = true"; next} 1' ~/.iq/config/app.toml
 fi
 
 # config.toml updates
 
-sed 's/moniker = "moniker"/moniker = "'"$MONIKER"'"/g' ~/config.toml > ~/.terra/config/config.toml
-sed -i 's/laddr = "tcp:\/\/127.0.0.1:26657"/laddr = "tcp:\/\/0.0.0.0:26657"/g' ~/.terra/config/config.toml
+sed 's/moniker = "moniker"/moniker = "'"$MONIKER"'"/g' ~/config.toml > ~/.iq/config/config.toml
+sed -i 's/laddr = "tcp:\/\/127.0.0.1:26657"/laddr = "tcp:\/\/0.0.0.0:26657"/g' ~/.iq/config/config.toml
 
-if [ "$CHAINID" = "columbus-5" ] && [[ ! -z "$SNAPSHOT_NAME" ]] ; then 
+if [ "$CHAINID" = "swartz-1" ] && [[ ! -z "$SNAPSHOT_NAME" ]] ; then 
   # Download the snapshot if data directory is empty.
   res=$(find "$DATADIR" -name "*.db")
   if [ "$res" ]; then

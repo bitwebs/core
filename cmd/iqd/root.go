@@ -30,18 +30,18 @@ import (
 	"github.com/cosmos/cosmos-sdk/x/crisis"
 	genutilcli "github.com/cosmos/cosmos-sdk/x/genutil/client/cli"
 
-	terraapp "github.com/terra-money/core/app"
-	terralegacy "github.com/terra-money/core/app/legacy"
-	"github.com/terra-money/core/app/params"
-	authcustomcli "github.com/terra-money/core/custom/auth/client/cli"
-	core "github.com/terra-money/core/types"
-	wasmconfig "github.com/terra-money/core/x/wasm/config"
+	iqapp "github.com/bitwebs/iq-core/app"
+	iqlegacy "github.com/bitwebs/iq-core/app/legacy"
+	"github.com/bitwebs/iq-core/app/params"
+	authcustomcli "github.com/bitwebs/iq-core/custom/auth/client/cli"
+	core "github.com/bitwebs/iq-core/types"
+	wasmconfig "github.com/bitwebs/iq-core/x/wasm/config"
 )
 
-// NewRootCmd creates a new root command for terrad. It is called once in the
+// NewRootCmd creates a new root command for iqd. It is called once in the
 // main function.
 func NewRootCmd() (*cobra.Command, params.EncodingConfig) {
-	encodingConfig := terraapp.MakeEncodingConfig()
+	encodingConfig := iqapp.MakeEncodingConfig()
 
 	sdkConfig := sdk.GetConfig()
 	sdkConfig.SetCoinType(core.CoinType)
@@ -59,12 +59,12 @@ func NewRootCmd() (*cobra.Command, params.EncodingConfig) {
 		WithLegacyAmino(encodingConfig.Amino).
 		WithInput(os.Stdin).
 		WithAccountRetriever(types.AccountRetriever{}).
-		WithHomeDir(terraapp.DefaultNodeHome).
-		WithViper("TERRA")
+		WithHomeDir(iqapp.DefaultNodeHome).
+		WithViper("IQ")
 
 	rootCmd := &cobra.Command{
-		Use:   "terrad",
-		Short: "Stargate Terra App",
+		Use:   "iqd",
+		Short: "Stargate Iq App",
 		PersistentPreRunE: func(cmd *cobra.Command, _ []string) error {
 			// set the default command outputs
 			cmd.SetOut(cmd.OutOrStdout())
@@ -84,9 +84,9 @@ func NewRootCmd() (*cobra.Command, params.EncodingConfig) {
 				return err
 			}
 
-			terraAppTemplate, terraAppConfig := initAppConfig()
+			iqAppTemplate, iqAppConfig := initAppConfig()
 
-			return server.InterceptConfigsPreRunHandler(cmd, terraAppTemplate, terraAppConfig)
+			return server.InterceptConfigsPreRunHandler(cmd, iqAppTemplate, iqAppConfig)
 		},
 	}
 
@@ -100,26 +100,26 @@ func initRootCmd(rootCmd *cobra.Command, encodingConfig params.EncodingConfig) {
 	// authclient.Codec = encodingConfig.Marshaler
 
 	rootCmd.AddCommand(
-		genutilcli.InitCmd(terraapp.ModuleBasics, terraapp.DefaultNodeHome),
-		genutilcli.CollectGenTxsCmd(banktypes.GenesisBalancesIterator{}, terraapp.DefaultNodeHome),
-		terralegacy.MigrateGenesisCmd(),
-		genutilcli.GenTxCmd(terraapp.ModuleBasics, encodingConfig.TxConfig, banktypes.GenesisBalancesIterator{}, terraapp.DefaultNodeHome),
-		genutilcli.ValidateGenesisCmd(terraapp.ModuleBasics),
-		AddGenesisAccountCmd(terraapp.DefaultNodeHome),
+		genutilcli.InitCmd(iqapp.ModuleBasics, iqapp.DefaultNodeHome),
+		genutilcli.CollectGenTxsCmd(banktypes.GenesisBalancesIterator{}, iqapp.DefaultNodeHome),
+		iqlegacy.MigrateGenesisCmd(),
+		genutilcli.GenTxCmd(iqapp.ModuleBasics, encodingConfig.TxConfig, banktypes.GenesisBalancesIterator{}, iqapp.DefaultNodeHome),
+		genutilcli.ValidateGenesisCmd(iqapp.ModuleBasics),
+		AddGenesisAccountCmd(iqapp.DefaultNodeHome),
 		tmcli.NewCompletionCmd(rootCmd, true),
-		testnetCmd(terraapp.ModuleBasics, banktypes.GenesisBalancesIterator{}),
+		testnetCmd(iqapp.ModuleBasics, banktypes.GenesisBalancesIterator{}),
 		debug.Cmd(),
 	)
 
 	a := appCreator{encodingConfig}
-	server.AddCommands(rootCmd, terraapp.DefaultNodeHome, a.newApp, a.appExport, addModuleInitFlags)
+	server.AddCommands(rootCmd, iqapp.DefaultNodeHome, a.newApp, a.appExport, addModuleInitFlags)
 
 	// add keybase, auxiliary RPC, query, and tx child commands
 	rootCmd.AddCommand(
 		rpc.StatusCommand(),
 		queryCommand(),
 		txCommand(),
-		keys.Commands(terraapp.DefaultNodeHome),
+		keys.Commands(iqapp.DefaultNodeHome),
 	)
 
 	// add rosetta commands
@@ -149,7 +149,7 @@ func queryCommand() *cobra.Command {
 		authcustomcli.GetTxFeesEstimateCommand(),
 	)
 
-	terraapp.ModuleBasics.AddQueryCommands(cmd)
+	iqapp.ModuleBasics.AddQueryCommands(cmd)
 	cmd.PersistentFlags().String(flags.FlagChainID, "", "The network chain ID")
 
 	return cmd
@@ -177,7 +177,7 @@ func txCommand() *cobra.Command {
 		flags.LineBreak,
 	)
 
-	terraapp.ModuleBasics.AddTxCommands(cmd)
+	iqapp.ModuleBasics.AddTxCommands(cmd)
 	cmd.PersistentFlags().String(flags.FlagChainID, "", "The network chain ID")
 
 	return cmd
@@ -221,7 +221,7 @@ func (a appCreator) newApp(logger log.Logger, db dbm.DB, traceStore io.Writer, a
 		panic(err)
 	}
 
-	return terraapp.NewTerraApp(
+	return iqapp.NewIqApp(
 		logger, db, traceStore, true, skipUpgradeHeights,
 		cast.ToString(appOpts.Get(flags.FlagHome)),
 		cast.ToUint(appOpts.Get(server.FlagInvCheckPeriod)),
@@ -252,16 +252,16 @@ func (a appCreator) appExport(
 		return servertypes.ExportedApp{}, errors.New("application home not set")
 	}
 
-	var terraApp *terraapp.TerraApp
+	var iqApp *iqapp.IqApp
 	if height != -1 {
-		terraApp = terraapp.NewTerraApp(logger, db, traceStore, false, map[int64]bool{}, homePath, cast.ToUint(appOpts.Get(server.FlagInvCheckPeriod)), a.encodingConfig, appOpts, wasmconfig.DefaultConfig())
+		iqApp = iqapp.NewIqApp(logger, db, traceStore, false, map[int64]bool{}, homePath, cast.ToUint(appOpts.Get(server.FlagInvCheckPeriod)), a.encodingConfig, appOpts, wasmconfig.DefaultConfig())
 
-		if err := terraApp.LoadHeight(height); err != nil {
+		if err := iqApp.LoadHeight(height); err != nil {
 			return servertypes.ExportedApp{}, err
 		}
 	} else {
-		terraApp = terraapp.NewTerraApp(logger, db, traceStore, true, map[int64]bool{}, homePath, cast.ToUint(appOpts.Get(server.FlagInvCheckPeriod)), a.encodingConfig, appOpts, wasmconfig.DefaultConfig())
+		iqApp = iqapp.NewIqApp(logger, db, traceStore, true, map[int64]bool{}, homePath, cast.ToUint(appOpts.Get(server.FlagInvCheckPeriod)), a.encodingConfig, appOpts, wasmconfig.DefaultConfig())
 	}
 
-	return terraApp.ExportAppStateAndValidators(forZeroHeight, jailAllowedAddrs)
+	return iqApp.ExportAppStateAndValidators(forZeroHeight, jailAllowedAddrs)
 }

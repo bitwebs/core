@@ -26,8 +26,8 @@ import (
 	"github.com/cosmos/cosmos-sdk/x/genutil/types"
 	staking "github.com/cosmos/cosmos-sdk/x/staking/types"
 
-	legacy05 "github.com/terra-money/core/app/legacy/v05"
-	oracletypes "github.com/terra-money/core/x/oracle/types"
+	legacy05 "github.com/bitwebs/iq-core/app/legacy/v05"
+	oracletypes "github.com/bitwebs/iq-core/x/oracle/types"
 )
 
 const (
@@ -44,7 +44,7 @@ func MigrateGenesisCmd() *cobra.Command {
 		Long: `Migrate the source genesis into the target version and print to STDOUT.
 
 Example:
-$ terrad migrate /path/to/genesis.json --chain-id=cosmoshub-4 --genesis-time=2019-04-22T17:00:00Z --initial-height=5000
+$ iqd migrate /path/to/genesis.json --chain-id=cosmoshub-4 --genesis-time=2019-04-22T17:00:00Z --initial-height=5000
 `,
 		Args: cobra.ExactArgs(1),
 		RunE: func(cmd *cobra.Command, args []string) error {
@@ -89,23 +89,23 @@ $ terrad migrate /path/to/genesis.json --chain-id=cosmoshub-4 --genesis-time=201
 			// Register whitelist denom list
 			denomMetadata := make([]banktypes.Metadata, len(oracleGenesis.Params.Whitelist)+1)
 			denomMetadata[0] = banktypes.Metadata{
-				Description: "The native staking token of the Terra Columbus.",
+				Description: "The native staking token of the IQ Swartz.",
 				DenomUnits: []*banktypes.DenomUnit{
-					{Denom: "uluna", Exponent: uint32(0), Aliases: []string{"microluna"}},
-					{Denom: "mluna", Exponent: uint32(3), Aliases: []string{"milliluna"}},
-					{Denom: "luna", Exponent: uint32(6), Aliases: []string{}},
+					{Denom: "ubiq", Exponent: uint32(0), Aliases: []string{"microbiq"}},
+					{Denom: "mbiq", Exponent: uint32(3), Aliases: []string{"millibiq"}},
+					{Denom: "biq", Exponent: uint32(6), Aliases: []string{}},
 				},
-				Base:    "uluna",
-				Display: "luna",
-				Name:    "LUNA",
-				Symbol:  "LUNA",
+				Base:    "ubiq",
+				Display: "bitcoiniq",
+				Name:    "BitcoinIQ",
+				Symbol:  "BIQ",
 			}
 
 			for i, w := range oracleGenesis.Params.Whitelist {
 				base := w.Name
 				display := base[1:]
 				denomMetadata[i+1] = banktypes.Metadata{
-					Description: "The native stable token of the Terra Columbus.",
+					Description: "The native stable token of the IQ Swartz.",
 					DenomUnits: []*banktypes.DenomUnit{
 						{Denom: "u" + display, Exponent: uint32(0), Aliases: []string{"micro" + display}},
 						{Denom: "m" + display, Exponent: uint32(3), Aliases: []string{"milli" + display}},
@@ -113,7 +113,7 @@ $ terrad migrate /path/to/genesis.json --chain-id=cosmoshub-4 --genesis-time=201
 					},
 					Base:    base,
 					Display: display,
-					Name:    fmt.Sprintf("%s TERRA", strings.ToUpper(display)),
+					Name:    fmt.Sprintf("%s BitDollar", strings.ToUpper(display)),
 					Symbol:  fmt.Sprintf("%sT", strings.ToUpper(display[:len(display)-1])),
 				}
 			}

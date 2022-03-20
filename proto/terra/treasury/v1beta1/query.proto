@@ -1,53 +1,53 @@
 syntax = "proto3";
-package terra.treasury.v1beta1;
+package iq.treasury.v1beta1;
 
 import "gogoproto/gogo.proto";
 import "google/api/annotations.proto";
-import "terra/treasury/v1beta1/treasury.proto";
+import "iq/treasury/v1beta1/treasury.proto";
 import "cosmos/base/v1beta1/coin.proto";
 
-option go_package = "github.com/terra-money/core/x/treasury/types";
+option go_package = "github.com/bitwebs/iq-core/x/treasury/types";
 
 // Query defines the gRPC querier service.
 service Query {
   // TaxRate return the current tax rate
   rpc TaxRate(QueryTaxRateRequest) returns (QueryTaxRateResponse) {
-    option (google.api.http).get = "/terra/treasury/v1beta1/tax_rate";
+    option (google.api.http).get = "/iq/treasury/v1beta1/tax_rate";
   }
 
   // TaxCap returns the tax cap of a denom
   rpc TaxCap(QueryTaxCapRequest) returns (QueryTaxCapResponse) {
-    option (google.api.http).get = "/terra/treasury/v1beta1/tax_caps/{denom}";
+    option (google.api.http).get = "/iq/treasury/v1beta1/tax_caps/{denom}";
   }
 
   // TaxCaps returns the all tax caps
   rpc TaxCaps(QueryTaxCapsRequest) returns (QueryTaxCapsResponse) {
-    option (google.api.http).get = "/terra/treasury/v1beta1/tax_caps";
+    option (google.api.http).get = "/iq/treasury/v1beta1/tax_caps";
   }
 
   // RewardWeight return the current reward weight
   rpc RewardWeight(QueryRewardWeightRequest) returns (QueryRewardWeightResponse) {
-    option (google.api.http).get = "/terra/treasury/v1beta1/reward_weight";
+    option (google.api.http).get = "/iq/treasury/v1beta1/reward_weight";
   }
 
   // SeigniorageProceeds return the current seigniorage proceeds
   rpc SeigniorageProceeds(QuerySeigniorageProceedsRequest) returns (QuerySeigniorageProceedsResponse) {
-    option (google.api.http).get = "/terra/treasury/v1beta1/seigniorage_proceeds";
+    option (google.api.http).get = "/iq/treasury/v1beta1/seigniorage_proceeds";
   }
 
   // TaxProceeds return the current tax proceeds
   rpc TaxProceeds(QueryTaxProceedsRequest) returns (QueryTaxProceedsResponse) {
-    option (google.api.http).get = "/terra/treasury/v1beta1/tax_proceeds";
+    option (google.api.http).get = "/iq/treasury/v1beta1/tax_proceeds";
   }
 
   // Indicators return the current trl informations
   rpc Indicators(QueryIndicatorsRequest) returns (QueryIndicatorsResponse) {
-    option (google.api.http).get = "/terra/treasury/v1beta1/indicators";
+    option (google.api.http).get = "/iq/treasury/v1beta1/indicators";
   }
 
   // Params queries all parameters.
   rpc Params(QueryParamsRequest) returns (QueryParamsResponse) {
-    option (google.api.http).get = "/terra/treasury/v1beta1/params";
+    option (google.api.http).get = "/iq/treasury/v1beta1/params";
   }
 }
 

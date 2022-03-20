@@ -93,57 +93,57 @@ import (
 	upgradekeeper "github.com/cosmos/cosmos-sdk/x/upgrade/keeper"
 	upgradetypes "github.com/cosmos/cosmos-sdk/x/upgrade/types"
 
-	terraappparams "github.com/terra-money/core/app/params"
+	iqchainappparams "github.com/bitwebs/iq-core/app/params"
 
-	customauth "github.com/terra-money/core/custom/auth"
-	customante "github.com/terra-money/core/custom/auth/ante"
-	customauthrest "github.com/terra-money/core/custom/auth/client/rest"
-	customauthsim "github.com/terra-money/core/custom/auth/simulation"
-	customauthtx "github.com/terra-money/core/custom/auth/tx"
-	customauthz "github.com/terra-money/core/custom/authz"
-	custombank "github.com/terra-money/core/custom/bank"
-	customcrisis "github.com/terra-money/core/custom/crisis"
-	customdistr "github.com/terra-money/core/custom/distribution"
-	customevidence "github.com/terra-money/core/custom/evidence"
-	customfeegrant "github.com/terra-money/core/custom/feegrant"
-	customgov "github.com/terra-money/core/custom/gov"
-	custommint "github.com/terra-money/core/custom/mint"
-	customparams "github.com/terra-money/core/custom/params"
-	customslashing "github.com/terra-money/core/custom/slashing"
-	customstaking "github.com/terra-money/core/custom/staking"
-	customupgrade "github.com/terra-money/core/custom/upgrade"
+	customauth "github.com/bitwebs/iq-core/custom/auth"
+	customante "github.com/bitwebs/iq-core/custom/auth/ante"
+	customauthrest "github.com/bitwebs/iq-core/custom/auth/client/rest"
+	customauthsim "github.com/bitwebs/iq-core/custom/auth/simulation"
+	customauthtx "github.com/bitwebs/iq-core/custom/auth/tx"
+	customauthz "github.com/bitwebs/iq-core/custom/authz"
+	custombank "github.com/bitwebs/iq-core/custom/bank"
+	customcrisis "github.com/bitwebs/iq-core/custom/crisis"
+	customdistr "github.com/bitwebs/iq-core/custom/distribution"
+	customevidence "github.com/bitwebs/iq-core/custom/evidence"
+	customfeegrant "github.com/bitwebs/iq-core/custom/feegrant"
+	customgov "github.com/bitwebs/iq-core/custom/gov"
+	custommint "github.com/bitwebs/iq-core/custom/mint"
+	customparams "github.com/bitwebs/iq-core/custom/params"
+	customslashing "github.com/bitwebs/iq-core/custom/slashing"
+	customstaking "github.com/bitwebs/iq-core/custom/staking"
+	customupgrade "github.com/bitwebs/iq-core/custom/upgrade"
 
-	"github.com/terra-money/core/x/market"
-	marketkeeper "github.com/terra-money/core/x/market/keeper"
-	markettypes "github.com/terra-money/core/x/market/types"
-	"github.com/terra-money/core/x/oracle"
-	oraclekeeper "github.com/terra-money/core/x/oracle/keeper"
-	oracletypes "github.com/terra-money/core/x/oracle/types"
-	"github.com/terra-money/core/x/treasury"
-	treasurykeeper "github.com/terra-money/core/x/treasury/keeper"
-	treasurytypes "github.com/terra-money/core/x/treasury/types"
-	"github.com/terra-money/core/x/vesting"
-	"github.com/terra-money/core/x/wasm"
-	wasmconfig "github.com/terra-money/core/x/wasm/config"
-	wasmkeeper "github.com/terra-money/core/x/wasm/keeper"
-	wasmtypes "github.com/terra-money/core/x/wasm/types"
+	"github.com/bitwebs/iq-core/x/market"
+	marketkeeper "github.com/bitwebs/iq-core/x/market/keeper"
+	markettypes "github.com/bitwebs/iq-core/x/market/types"
+	"github.com/bitwebs/iq-core/x/oracle"
+	oraclekeeper "github.com/bitwebs/iq-core/x/oracle/keeper"
+	oracletypes "github.com/bitwebs/iq-core/x/oracle/types"
+	"github.com/bitwebs/iq-core/x/treasury"
+	treasurykeeper "github.com/bitwebs/iq-core/x/treasury/keeper"
+	treasurytypes "github.com/bitwebs/iq-core/x/treasury/types"
+	"github.com/bitwebs/iq-core/x/vesting"
+	"github.com/bitwebs/iq-core/x/wasm"
+	wasmconfig "github.com/bitwebs/iq-core/x/wasm/config"
+	wasmkeeper "github.com/bitwebs/iq-core/x/wasm/keeper"
+	wasmtypes "github.com/bitwebs/iq-core/x/wasm/types"
 
-	bankwasm "github.com/terra-money/core/custom/bank/wasm"
-	distrwasm "github.com/terra-money/core/custom/distribution/wasm"
-	govwasm "github.com/terra-money/core/custom/gov/wasm"
-	stakingwasm "github.com/terra-money/core/custom/staking/wasm"
-	marketwasm "github.com/terra-money/core/x/market/wasm"
-	oraclewasm "github.com/terra-money/core/x/oracle/wasm"
-	treasurywasm "github.com/terra-money/core/x/treasury/wasm"
+	bankwasm "github.com/bitwebs/iq-core/custom/bank/wasm"
+	distrwasm "github.com/bitwebs/iq-core/custom/distribution/wasm"
+	govwasm "github.com/bitwebs/iq-core/custom/gov/wasm"
+	stakingwasm "github.com/bitwebs/iq-core/custom/staking/wasm"
+	marketwasm "github.com/bitwebs/iq-core/x/market/wasm"
+	oraclewasm "github.com/bitwebs/iq-core/x/oracle/wasm"
+	treasurywasm "github.com/bitwebs/iq-core/x/treasury/wasm"
 
 	// unnamed import of statik for swagger UI support
-	_ "github.com/terra-money/core/client/docs/statik"
+	_ "github.com/bitwebs/iq-core/client/docs/statik"
 )
 
-const appName = "TerraApp"
+const appName = "BitcoinIQ"
 
 var (
-	// DefaultNodeHome defines default home directories for terrad
+	// DefaultNodeHome defines default home directories for iqd
 	DefaultNodeHome string
 
 	// ModuleBasics = The ModuleBasicManager is in charge of setting up basic,
@@ -205,14 +205,14 @@ var (
 
 // Verify app interface at compile time
 var (
-	_ simapp.App              = (*TerraApp)(nil)
-	_ servertypes.Application = (*TerraApp)(nil)
+	_ simapp.App              = (*IqApp)(nil)
+	_ servertypes.Application = (*IqApp)(nil)
 )
 
-// TerraApp extends an ABCI application, but with most of its parameters exported.
+// IqApp extends an ABCI application, but with most of its parameters exported.
 // They are exported for convenience in creating helper functions, as object
 // capabilities aren't needed for testing.
-type TerraApp struct { // nolint: golint
+type IqApp struct { // nolint: golint
 	*baseapp.BaseApp
 	legacyAmino       *codec.LegacyAmino
 	appCodec          codec.Codec
@@ -267,14 +267,14 @@ func init() {
 		stdlog.Println("Failed to get home dir %2", err)
 	}
 
-	DefaultNodeHome = filepath.Join(userHomeDir, ".terra")
+	DefaultNodeHome = filepath.Join(userHomeDir, ".iqchain")
 }
 
-// NewTerraApp returns a reference to an initialized TerraApp.
-func NewTerraApp(
+// NewIqApp returns a reference to an initialized IqApp.
+func NewIqApp(
 	logger log.Logger, db dbm.DB, traceStore io.Writer, loadLatest bool, skipUpgradeHeights map[int64]bool,
-	homePath string, invCheckPeriod uint, encodingConfig terraappparams.EncodingConfig, appOpts servertypes.AppOptions,
-	wasmConfig *wasmconfig.Config, baseAppOptions ...func(*baseapp.BaseApp)) *TerraApp {
+	homePath string, invCheckPeriod uint, encodingConfig iqchainappparams.EncodingConfig, appOpts servertypes.AppOptions,
+	wasmConfig *wasmconfig.Config, baseAppOptions ...func(*baseapp.BaseApp)) *IqApp {
 
 	appCodec := encodingConfig.Marshaler
 	legacyAmino := encodingConfig.Amino
@@ -296,7 +296,7 @@ func NewTerraApp(
 	tkeys := sdk.NewTransientStoreKeys(paramstypes.TStoreKey)
 	memKeys := sdk.NewMemoryStoreKeys(capabilitytypes.MemStoreKey)
 
-	var app = &TerraApp{
+	var app = &IqApp{
 		BaseApp:           bApp,
 		legacyAmino:       legacyAmino,
 		appCodec:          appCodec,
@@ -382,7 +382,7 @@ func NewTerraApp(
 	// If evidence needs to be handled for the app, set routes in router here and seal
 	app.EvidenceKeeper = *evidenceKeeper
 
-	// Initialize terra module keepers
+	// Initialize iqchain module keepers
 	app.OracleKeeper = oraclekeeper.NewKeeper(
 		appCodec, keys[oracletypes.StoreKey], app.GetSubspace(oracletypes.ModuleName),
 		app.AccountKeeper, app.BankKeeper, app.DistrKeeper, &stakingKeeper, distrtypes.ModuleName,
@@ -580,20 +580,20 @@ func NewTerraApp(
 }
 
 // Name returns the name of the App
-func (app *TerraApp) Name() string { return app.BaseApp.Name() }
+func (app *IqApp) Name() string { return app.BaseApp.Name() }
 
 // BeginBlocker application updates every begin block
-func (app *TerraApp) BeginBlocker(ctx sdk.Context, req abci.RequestBeginBlock) abci.ResponseBeginBlock {
+func (app *IqApp) BeginBlocker(ctx sdk.Context, req abci.RequestBeginBlock) abci.ResponseBeginBlock {
 	return app.mm.BeginBlock(ctx, req)
 }
 
 // EndBlocker application updates every end block
-func (app *TerraApp) EndBlocker(ctx sdk.Context, req abci.RequestEndBlock) abci.ResponseEndBlock {
+func (app *IqApp) EndBlocker(ctx sdk.Context, req abci.RequestEndBlock) abci.ResponseEndBlock {
 	return app.mm.EndBlock(ctx, req)
 }
 
 // InitChainer application update at chain initialization
-func (app *TerraApp) InitChainer(ctx sdk.Context, req abci.RequestInitChain) abci.ResponseInitChain {
+func (app *IqApp) InitChainer(ctx sdk.Context, req abci.RequestInitChain) abci.ResponseInitChain {
 	var genesisState GenesisState
 	if err := tmjson.Unmarshal(req.AppStateBytes, &genesisState); err != nil {
 		panic(err)
@@ -603,12 +603,12 @@ func (app *TerraApp) InitChainer(ctx sdk.Context, req abci.RequestInitChain) abc
 }
 
 // LoadHeight loads a particular height
-func (app *TerraApp) LoadHeight(height int64) error {
+func (app *IqApp) LoadHeight(height int64) error {
 	return app.LoadVersion(height)
 }
 
 // ModuleAccountAddrs returns all the app's module account addresses.
-func (app *TerraApp) ModuleAccountAddrs() map[string]bool {
+func (app *IqApp) ModuleAccountAddrs() map[string]bool {
 	modAccAddrs := make(map[string]bool)
 	for acc := range maccPerms {
 		modAccAddrs[authtypes.NewModuleAddress(acc).String()] = true
@@ -618,7 +618,7 @@ func (app *TerraApp) ModuleAccountAddrs() map[string]bool {
 }
 
 // BlacklistedAccAddrs returns all the app's module account addresses black listed for receiving tokens.
-func (app *TerraApp) BlacklistedAccAddrs() map[string]bool {
+func (app *IqApp) BlacklistedAccAddrs() map[string]bool {
 	blacklistedAddrs := make(map[string]bool)
 	for acc := range maccPerms {
 		blacklistedAddrs[authtypes.NewModuleAddress(acc).String()] = !allowedReceivingModAcc[acc]
@@ -627,11 +627,11 @@ func (app *TerraApp) BlacklistedAccAddrs() map[string]bool {
 	return blacklistedAddrs
 }
 
-// LegacyAmino returns TerraApp's amino codec.
+// LegacyAmino returns IqApp's amino codec.
 //
 // NOTE: This is solely to be used for testing purposes as it may be desirable
 // for modules to register their own custom testing types.
-func (app *TerraApp) LegacyAmino() *codec.LegacyAmino {
+func (app *IqApp) LegacyAmino() *codec.LegacyAmino {
 	return app.legacyAmino
 }
 
@@ -639,52 +639,52 @@ func (app *TerraApp) LegacyAmino() *codec.LegacyAmino {
 //
 // NOTE: This is solely to be used for testing purposes as it may be desirable
 // for modules to register their own custom testing types.
-func (app *TerraApp) AppCodec() codec.Codec {
+func (app *IqApp) AppCodec() codec.Codec {
 	return app.appCodec
 }
 
 // InterfaceRegistry returns Gaia's InterfaceRegistry
-func (app *TerraApp) InterfaceRegistry() codectypes.InterfaceRegistry {
+func (app *IqApp) InterfaceRegistry() codectypes.InterfaceRegistry {
 	return app.interfaceRegistry
 }
 
 // GetKey returns the KVStoreKey for the provided store key.
 //
 // NOTE: This is solely to be used for testing purposes.
-func (app *TerraApp) GetKey(storeKey string) *sdk.KVStoreKey {
+func (app *IqApp) GetKey(storeKey string) *sdk.KVStoreKey {
 	return app.keys[storeKey]
 }
 
 // GetTKey returns the TransientStoreKey for the provided store key.
 //
 // NOTE: This is solely to be used for testing purposes.
-func (app *TerraApp) GetTKey(storeKey string) *sdk.TransientStoreKey {
+func (app *IqApp) GetTKey(storeKey string) *sdk.TransientStoreKey {
 	return app.tkeys[storeKey]
 }
 
 // GetMemKey returns the MemStoreKey for the provided mem key.
 //
 // NOTE: This is solely used for testing purposes.
-func (app *TerraApp) GetMemKey(storeKey string) *sdk.MemoryStoreKey {
+func (app *IqApp) GetMemKey(storeKey string) *sdk.MemoryStoreKey {
 	return app.memKeys[storeKey]
 }
 
 // GetSubspace returns a param subspace for a given module name.
 //
 // NOTE: This is solely to be used for testing purposes.
-func (app *TerraApp) GetSubspace(moduleName string) paramstypes.Subspace {
+func (app *IqApp) GetSubspace(moduleName string) paramstypes.Subspace {
 	subspace, _ := app.ParamsKeeper.GetSubspace(moduleName)
 	return subspace
 }
 
 // SimulationManager implements the SimulationApp interface
-func (app *TerraApp) SimulationManager() *module.SimulationManager {
+func (app *IqApp) SimulationManager() *module.SimulationManager {
 	return app.sm
 }
 
 // RegisterAPIRoutes registers all application module routes with the provided
 // API server.
-func (app *TerraApp) RegisterAPIRoutes(apiSvr *api.Server, apiConfig config.APIConfig) {
+func (app *IqApp) RegisterAPIRoutes(apiSvr *api.Server, apiConfig config.APIConfig) {
 	clientCtx := apiSvr.ClientCtx
 	rpc.RegisterRoutes(clientCtx, apiSvr.Router)
 	// Register legacy tx routes.
@@ -709,13 +709,13 @@ func (app *TerraApp) RegisterAPIRoutes(apiSvr *api.Server, apiConfig config.APIC
 }
 
 // RegisterTxService implements the Application.RegisterTxService method.
-func (app *TerraApp) RegisterTxService(clientCtx client.Context) {
+func (app *IqApp) RegisterTxService(clientCtx client.Context) {
 	authtx.RegisterTxService(app.BaseApp.GRPCQueryRouter(), clientCtx, app.BaseApp.Simulate, app.interfaceRegistry)
 	customauthtx.RegisterTxService(app.BaseApp.GRPCQueryRouter(), clientCtx, app.TreasuryKeeper)
 }
 
 // RegisterTendermintService implements the Application.RegisterTendermintService method.
-func (app *TerraApp) RegisterTendermintService(clientCtx client.Context) {
+func (app *IqApp) RegisterTendermintService(clientCtx client.Context) {
 	tmservice.RegisterTendermintService(app.BaseApp.GRPCQueryRouter(), clientCtx, app.interfaceRegistry)
 }
 

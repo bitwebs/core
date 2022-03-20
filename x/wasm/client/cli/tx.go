@@ -15,9 +15,9 @@ import (
 	"github.com/cosmos/cosmos-sdk/client/tx"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	feeutils "github.com/terra-money/core/custom/auth/client/utils"
-	wasmUtils "github.com/terra-money/core/x/wasm/client/utils"
-	"github.com/terra-money/core/x/wasm/types"
+	feeutils "github.com/bitwebs/iq-core/custom/auth/client/utils"
+	wasmUtils "github.com/bitwebs/iq-core/x/wasm/client/utils"
+	"github.com/bitwebs/iq-core/x/wasm/types"
 )
 
 const (

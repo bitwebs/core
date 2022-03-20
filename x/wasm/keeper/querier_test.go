@@ -1,4 +1,5 @@
 package keeper
+package keeper
 
 import (
 	"encoding/json"
@@ -9,7 +10,7 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/terra-money/core/x/wasm/types"
+	"github.com/bitwebs/iq-core/x/wasm/types"
 
 	"github.com/stretchr/testify/require"
 )

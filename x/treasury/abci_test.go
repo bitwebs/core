@@ -5,9 +5,9 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	core "github.com/terra-money/core/types"
-	"github.com/terra-money/core/x/treasury/keeper"
-	"github.com/terra-money/core/x/treasury/types"
+	core "github.com/bitwebs/iq-core/types"
+	"github.com/bitwebs/iq-core/x/treasury/keeper"
+	"github.com/bitwebs/iq-core/x/treasury/types"
 )
 
 func TestBurnAddress(t *testing.T) {

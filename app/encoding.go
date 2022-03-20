@@ -4,7 +4,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/codec/legacy"
 	"github.com/cosmos/cosmos-sdk/std"
 
-	"github.com/terra-money/core/app/params"
+	"github.com/bitwebs/iq-core/app/params"
 )
 
 var legacyCodecRegistered = false

@@ -4,7 +4,7 @@ import (
 	"context"
 	"strings"
 
-	"github.com/terra-money/core/x/treasury/types"
+	"github.com/bitwebs/iq-core/x/treasury/types"
 
 	"github.com/spf13/cobra"
 

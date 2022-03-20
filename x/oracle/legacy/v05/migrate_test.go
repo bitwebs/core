@@ -10,10 +10,10 @@ import (
 	"github.com/cosmos/cosmos-sdk/client"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/terra-money/core/app"
-	core "github.com/terra-money/core/types"
-	v04oracle "github.com/terra-money/core/x/oracle/legacy/v04"
-	v05oracle "github.com/terra-money/core/x/oracle/legacy/v05"
+	"github.com/bitwebs/iq-core/app"
+	core "github.com/bitwebs/iq-core/types"
+	v04oracle "github.com/bitwebs/iq-core/x/oracle/legacy/v04"
+	v05oracle "github.com/bitwebs/iq-core/x/oracle/legacy/v05"
 )
 
 func TestMigrate(t *testing.T) {

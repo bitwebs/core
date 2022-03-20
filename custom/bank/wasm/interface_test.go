@@ -9,7 +9,7 @@ import (
 
 	wasmvmtypes "github.com/CosmWasm/wasmvm/types"
 
-	core "github.com/terra-money/core/types"
+	core "github.com/bitwebs/iq-core/types"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
@@ -40,11 +40,11 @@ func TestEncoding(t *testing.T) {
 						ToAddress: addrs[1].String(),
 						Amount: []wasmvmtypes.Coin{
 							{
-								Denom:  core.MicroLunaDenom,
+								Denom:  core.MicroBiqDenom,
 								Amount: "12345",
 							},
 							{
-								Denom:  "usdt",
+								Denom:  "usbit",
 								Amount: "54321",
 							},
 						},
@@ -55,8 +55,8 @@ func TestEncoding(t *testing.T) {
 				FromAddress: addrs[0].String(),
 				ToAddress:   addrs[1].String(),
 				Amount: sdk.Coins{
-					sdk.NewInt64Coin(core.MicroLunaDenom, 12345),
-					sdk.NewInt64Coin("usdt", 54321),
+					sdk.NewInt64Coin(core.MicroBiqDenom, 12345),
+					sdk.NewInt64Coin("usbit", 54321),
 				},
 			},
 		},
@@ -68,7 +68,7 @@ func TestEncoding(t *testing.T) {
 						ToAddress: addrs[1].String(),
 						Amount: []wasmvmtypes.Coin{
 							{
-								Denom:  core.MicroLunaDenom,
+								Denom:  core.MicroBiqDenom,
 								Amount: "123.456",
 							},
 						},
@@ -85,7 +85,7 @@ func TestEncoding(t *testing.T) {
 						ToAddress: invalidAddr,
 						Amount: []wasmvmtypes.Coin{
 							{
-								Denom:  core.MicroLunaDenom,
+								Denom:  core.MicroBiqDenom,
 								Amount: "7890",
 							},
 						},
