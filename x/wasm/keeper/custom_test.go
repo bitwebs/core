@@ -67,7 +67,7 @@ type MakerTreasuryQuerymsg struct {
 }
 
 type treasuryQueryMsg struct {
-	TerraQueryWrapper treasuryQueryWrapper `json:"query"`
+	IqQueryWrapper treasuryQueryWrapper `json:"query"`
 }
 
 type treasuryQueryWrapper struct {

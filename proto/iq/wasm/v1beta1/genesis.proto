@@ -1,11 +1,11 @@
 syntax = "proto3";
-package terra.wasm.v1beta1;
+package iq.wasm.v1beta1;
 
 import "gogoproto/gogo.proto";
-import "terra/wasm/v1beta1/wasm.proto";
+import "iq/wasm/v1beta1/wasm.proto";
 import "cosmos/base/v1beta1/coin.proto";
 
-option go_package = "github.com/terra-money/core/x/wasm/types";
+option go_package = "github.com/bitwebs/iq-core/x/wasm/types";
 
 // GenesisState defines the oracle module's genesis state.
 message GenesisState {

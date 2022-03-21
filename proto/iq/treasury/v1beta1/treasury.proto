@@ -1,10 +1,10 @@
 syntax = "proto3";
-package terra.treasury.v1beta1;
+package iq.treasury.v1beta1;
 
 import "gogoproto/gogo.proto";
 import "cosmos/base/v1beta1/coin.proto";
 
-option go_package = "github.com/terra-money/core/x/treasury/types";
+option go_package = "github.com/bitwebs/iq-core/x/treasury/types";
 
 // Params defines the parameters for the oracle module.
 message Params {

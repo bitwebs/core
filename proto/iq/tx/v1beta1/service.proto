@@ -1,5 +1,5 @@
 syntax = "proto3";
-package terra.tx.v1beta1;
+package iq.tx.v1beta1;
 
 import "gogoproto/gogo.proto";
 import "google/api/annotations.proto";
@@ -7,14 +7,14 @@ import "cosmos/base/v1beta1/coin.proto";
 import "cosmos/tx/v1beta1/tx.proto";
 
 option (gogoproto.goproto_registration) = true;
-option go_package                       = "github.com/terra-money/core/custom/auth/tx";
+option go_package                       = "github.com/bitwebs/iq-core/custom/auth/tx";
 
 // Service defines a gRPC service for interacting with transactions.
 service Service {
   // EstimateFee simulates executing a transaction for estimating gas usage.
   rpc ComputeTax(ComputeTaxRequest) returns (ComputeTaxResponse) {
     option (google.api.http) = {
-      post: "/terra/tx/v1beta1/compute_tax"
+      post: "/iq/tx/v1beta1/compute_tax"
       body: "*"
     };
   }

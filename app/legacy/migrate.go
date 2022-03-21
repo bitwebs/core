@@ -76,7 +76,7 @@ $ iqd migrate /path/to/genesis.json --chain-id=cosmoshub-4 --genesis-time=2019-0
 				return errors.Wrap(err, "failed to JSON unmarshal initial genesis state")
 			}
 
-			// Migrate Terra specific state
+			// Migrate Iq specific state
 			newGenState := legacy05.Migrate(initialState, clientCtx)
 
 			var bankGenesis banktypes.GenesisState

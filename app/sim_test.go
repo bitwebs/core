@@ -42,7 +42,7 @@ func BenchmarkFullAppSimulation(b *testing.B) {
 		}
 	}()
 
-	app := terraapp.NewTerraApp(
+	app := terraapp.NewIqApp(
 		logger, db, nil, true, map[int64]bool{},
 		terraapp.DefaultNodeHome, simapp.FlagPeriodValue, terraapp.MakeEncodingConfig(),
 		simapp.EmptyAppOptions{}, wasmconfig.DefaultConfig(), interBlockCacheOpt())
@@ -110,7 +110,7 @@ func TestAppStateDeterminism(t *testing.T) {
 			}
 
 			db := dbm.NewMemDB()
-			app := terraapp.NewTerraApp(
+			app := terraapp.NewIqApp(
 				logger, db, nil, true, map[int64]bool{}, terraapp.DefaultNodeHome,
 				simapp.FlagPeriodValue, terraapp.MakeEncodingConfig(),
 				simapp.EmptyAppOptions{}, wasmconfig.DefaultConfig(), interBlockCacheOpt())

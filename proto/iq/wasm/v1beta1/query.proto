@@ -1,43 +1,43 @@
 syntax = "proto3";
-package terra.wasm.v1beta1;
+package iq.wasm.v1beta1;
 
 import "gogoproto/gogo.proto";
 import "google/api/annotations.proto";
-import "terra/wasm/v1beta1/wasm.proto";
+import "iq/wasm/v1beta1/wasm.proto";
 import "cosmos/base/v1beta1/coin.proto";
 
-option go_package = "github.com/terra-money/core/x/wasm/types";
+option go_package = "github.com/bitwebs/iq-core/x/wasm/types";
 
 // Query defines the gRPC querier service.
 service Query {
   // CodeInfo returns the stored code info
   rpc CodeInfo(QueryCodeInfoRequest) returns (QueryCodeInfoResponse) {
-    option (google.api.http).get = "/terra/wasm/v1beta1/codes/{code_id}";
+    option (google.api.http).get = "/iq/wasm/v1beta1/codes/{code_id}";
   }
 
   // ByteCode returns the stored byte code
   rpc ByteCode(QueryByteCodeRequest) returns (QueryByteCodeResponse) {
-    option (google.api.http).get = "/terra/wasm/v1beta1/codes/{code_id}/byte_code";
+    option (google.api.http).get = "/iq/wasm/v1beta1/codes/{code_id}/byte_code";
   }
 
   // ContractInfo returns the stored contract info
   rpc ContractInfo(QueryContractInfoRequest) returns (QueryContractInfoResponse) {
-    option (google.api.http).get = "/terra/wasm/v1beta1/contracts/{contract_address}";
+    option (google.api.http).get = "/iq/wasm/v1beta1/contracts/{contract_address}";
   }
 
   // ContractStore return smart query result from the contract
   rpc ContractStore(QueryContractStoreRequest) returns (QueryContractStoreResponse) {
-    option (google.api.http).get = "/terra/wasm/v1beta1/contracts/{contract_address}/store";
+    option (google.api.http).get = "/iq/wasm/v1beta1/contracts/{contract_address}/store";
   }
 
   // RawStore return single key from the raw store data of a contract
   rpc RawStore(QueryRawStoreRequest) returns (QueryRawStoreResponse) {
-    option (google.api.http).get = "/terra/wasm/v1beta1/contracts/{contract_address}/store/raw";
+    option (google.api.http).get = "/iq/wasm/v1beta1/contracts/{contract_address}/store/raw";
   }
 
   // Params queries all parameters.
   rpc Params(QueryParamsRequest) returns (QueryParamsResponse) {
-    option (google.api.http).get = "/terra/wasm/v1beta1/params";
+    option (google.api.http).get = "/iq/wasm/v1beta1/params";
   }
 }
 

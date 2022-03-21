@@ -1,5 +1,5 @@
 syntax = "proto3";
-package terra.market.v1beta1;
+package iq.market.v1beta1;
 
 import "gogoproto/gogo.proto";
 

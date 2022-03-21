@@ -1,10 +1,10 @@
 syntax = "proto3";
-package terra.vesting.v1beta1;
+package iq.vesting.v1beta1;
 
 import "gogoproto/gogo.proto";
 import "cosmos/vesting/v1beta1/vesting.proto";
 
-option go_package = "github.com/terra-money/core/x/vesting/types";
+option go_package = "github.com/bitwebs/iq-core/x/vesting/types";
 
 // LazyGradedVestingAccount implements the LazyGradedVestingAccount interface. It vests all
 // coins according to a predefined schedule.
