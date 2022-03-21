@@ -125,6 +125,6 @@ replace (
 	github.com/cosmos/ledger-cosmos-go => github.com/bitwebs/ledger-iq-go v0.0.1-iq
 	github.com/gogo/protobuf => github.com/regen-network/protobuf v1.3.3-alpha.regen.1
 	github.com/tecbot/gorocksdb => github.com/cosmos/gorocksdb v1.2.0
-	github.com/tendermint/tendermint => github.com/bitwebs/tendermint v0.34.14-iq.2
+	github.com/tendermint/tendermint => github.com/bitwebs/tendermint v0.34.14-iq.1
 	google.golang.org/grpc => google.golang.org/grpc v1.33.2
 )
