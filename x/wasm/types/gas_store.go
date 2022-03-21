@@ -16,8 +16,8 @@ var _ types.KVStore = &Store{}
 // KVStore return new gas KVStore which fixed
 // https://github.com/cosmos/cosmos-sdk/issues/10243
 func KVStore(ctx sdk.Context, key sdk.StoreKey) types.KVStore {
-	if (ctx.ChainID() == "bombay-12" && ctx.BlockHeight() < 7_800_000) ||
-		(ctx.ChainID() == "columbus-5" && ctx.BlockHeight() < 6_470_000) {
+	if (ctx.ChainID() == "mcafee-1" && ctx.BlockHeight() < 7_800_000) ||
+		(ctx.ChainID() == "swartz-1" && ctx.BlockHeight() < 6_470_000) {
 		return gaskv.NewStore(ctx.MultiStore().GetKVStore(key), ctx.GasMeter(), stypes.KVGasConfig())
 	}
 

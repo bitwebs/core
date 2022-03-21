@@ -27,10 +27,10 @@ func TestMigrate(t *testing.T) {
 		WithLegacyAmino(encodingConfig.Amino).
 		WithCodec(encodingConfig.Marshaler)
 
-	addr, err := sdk.AccAddressFromBech32("terra1mx72uukvzqtzhc6gde7shrjqfu5srk22v7gmww")
+	addr, err := sdk.AccAddressFromBech32("iq1mx72uukvzqtzhc6gde7shrjqfu5srk22v7gmww")
 	require.NoError(t, err)
 
-	contractAddr, err := sdk.AccAddressFromBech32("terra13vs2znvhdcy948ejsh7p8p22j8l4n4y07062qq")
+	contractAddr, err := sdk.AccAddressFromBech32("iq13vs2znvhdcy948ejsh7p8p22j8l4n4y07062qq")
 	require.NoError(t, err)
 
 	bz, err := base64.StdEncoding.DecodeString("MTIz")
@@ -132,7 +132,7 @@ func TestMigrate(t *testing.T) {
 			"code_info": {
 				"code_hash": "",
 				"code_id": "1",
-				"creator": "terra1mx72uukvzqtzhc6gde7shrjqfu5srk22v7gmww"
+				"creator": "iq1mx72uukvzqtzhc6gde7shrjqfu5srk22v7gmww"
 			}
 		},
 		{
@@ -140,17 +140,17 @@ func TestMigrate(t *testing.T) {
 			"code_info": {
 				"code_hash": "",
 				"code_id": "2",
-				"creator": "terra1mx72uukvzqtzhc6gde7shrjqfu5srk22v7gmww"
+				"creator": "iq1mx72uukvzqtzhc6gde7shrjqfu5srk22v7gmww"
 			}
 		}
 	],
 	"contracts": [
 		{
 			"contract_info": {
-				"address": "terra13vs2znvhdcy948ejsh7p8p22j8l4n4y07062qq",
-				"admin": "terra1mx72uukvzqtzhc6gde7shrjqfu5srk22v7gmww",
+				"address": "iq13vs2znvhdcy948ejsh7p8p22j8l4n4y07062qq",
+				"admin": "iq1mx72uukvzqtzhc6gde7shrjqfu5srk22v7gmww",
 				"code_id": "1",
-				"creator": "terra1mx72uukvzqtzhc6gde7shrjqfu5srk22v7gmww",
+				"creator": "iq1mx72uukvzqtzhc6gde7shrjqfu5srk22v7gmww",
 				"init_msg": {
 					"key": "value"
 				}
@@ -168,10 +168,10 @@ func TestMigrate(t *testing.T) {
 		},
 		{
 			"contract_info": {
-				"address": "terra13vs2znvhdcy948ejsh7p8p22j8l4n4y07062qq",
+				"address": "iq13vs2znvhdcy948ejsh7p8p22j8l4n4y07062qq",
 				"admin": "",
 				"code_id": "2",
-				"creator": "terra1mx72uukvzqtzhc6gde7shrjqfu5srk22v7gmww",
+				"creator": "iq1mx72uukvzqtzhc6gde7shrjqfu5srk22v7gmww",
 				"init_msg": {
 					"key": "value"
 				}

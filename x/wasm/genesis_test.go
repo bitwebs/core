@@ -19,8 +19,8 @@ func TestInitGenesis(t *testing.T) {
 
 	input := keeper.CreateTestInput(t)
 
-	deposit := sdk.NewCoins(sdk.NewInt64Coin(core.MicroLunaDenom, 100000))
-	topUp := sdk.NewCoins(sdk.NewInt64Coin(core.MicroLunaDenom, 5000))
+	deposit := sdk.NewCoins(sdk.NewInt64Coin(core.MicroBiqDenom, 100000))
+	topUp := sdk.NewCoins(sdk.NewInt64Coin(core.MicroBiqDenom, 5000))
 	creator := createFakeFundedAccount(input.Ctx, input.AccKeeper, input.BankKeeper, deposit.Add(deposit...))
 	fred := createFakeFundedAccount(input.Ctx, input.AccKeeper, input.BankKeeper, topUp)
 

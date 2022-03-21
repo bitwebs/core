@@ -273,7 +273,7 @@ func SimulateMsgExecuteContract(
 		}
 
 		spendableCoins = spendableCoins.Sub(fees)
-		spendableCoins = sdk.NewCoins(sdk.NewCoin(core.MicroLunaDenom, spendableCoins.AmountOf(core.MicroLunaDenom)))
+		spendableCoins = sdk.NewCoins(sdk.NewCoin(core.MicroBiqDenom, spendableCoins.AmountOf(core.MicroBiqDenom)))
 		if spendableCoins.Empty() {
 			return simtypes.NoOpMsg(types.ModuleName, types.TypeMsgExecuteContract, "unable to generate deposit"), nil, err
 		}

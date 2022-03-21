@@ -82,7 +82,7 @@ func TestHandleInstantiate(t *testing.T) {
 
 	input := keeper.CreateTestInput(t)
 
-	deposit := sdk.NewCoins(sdk.NewInt64Coin(core.MicroLunaDenom, 100000))
+	deposit := sdk.NewCoins(sdk.NewInt64Coin(core.MicroBiqDenom, 100000))
 	creator := createFakeFundedAccount(input.Ctx, input.AccKeeper, input.BankKeeper, deposit)
 
 	h := wasm.NewHandler(input.WasmKeeper)
@@ -150,8 +150,8 @@ func TestHandleExecute(t *testing.T) {
 
 	input := keeper.CreateTestInput(t)
 
-	deposit := sdk.NewCoins(sdk.NewInt64Coin(core.MicroLunaDenom, 100000))
-	topUp := sdk.NewCoins(sdk.NewInt64Coin(core.MicroLunaDenom, 5000))
+	deposit := sdk.NewCoins(sdk.NewInt64Coin(core.MicroBiqDenom, 100000))
+	topUp := sdk.NewCoins(sdk.NewInt64Coin(core.MicroBiqDenom, 5000))
 	creator := createFakeFundedAccount(input.Ctx, input.AccKeeper, input.BankKeeper, deposit.Add(deposit...))
 	fred := createFakeFundedAccount(input.Ctx, input.AccKeeper, input.BankKeeper, topUp)
 
@@ -245,8 +245,8 @@ func TestHandleExecuteEscrow(t *testing.T) {
 
 	input := keeper.CreateTestInput(t)
 
-	deposit := sdk.NewCoins(sdk.NewInt64Coin(core.MicroLunaDenom, 100000))
-	topUp := sdk.NewCoins(sdk.NewInt64Coin(core.MicroLunaDenom, 5000))
+	deposit := sdk.NewCoins(sdk.NewInt64Coin(core.MicroBiqDenom, 100000))
+	topUp := sdk.NewCoins(sdk.NewInt64Coin(core.MicroBiqDenom, 5000))
 	creator := createFakeFundedAccount(input.Ctx, input.AccKeeper, input.BankKeeper, deposit.Add(deposit...))
 	fred := createFakeFundedAccount(input.Ctx, input.AccKeeper, input.BankKeeper, topUp)
 
@@ -320,8 +320,8 @@ func TestHandleMigrate(t *testing.T) {
 
 	input := keeper.CreateTestInput(t)
 
-	deposit := sdk.NewCoins(sdk.NewInt64Coin(core.MicroLunaDenom, 100000))
-	topUp := sdk.NewCoins(sdk.NewInt64Coin(core.MicroLunaDenom, 5000))
+	deposit := sdk.NewCoins(sdk.NewInt64Coin(core.MicroBiqDenom, 100000))
+	topUp := sdk.NewCoins(sdk.NewInt64Coin(core.MicroBiqDenom, 5000))
 	creator := createFakeFundedAccount(input.Ctx, input.AccKeeper, input.BankKeeper, deposit.Add(deposit...))
 	fred := createFakeFundedAccount(input.Ctx, input.AccKeeper, input.BankKeeper, topUp)
 
@@ -400,8 +400,8 @@ func TestHandleUpdateAdmin(t *testing.T) {
 
 	input := keeper.CreateTestInput(t)
 
-	deposit := sdk.NewCoins(sdk.NewInt64Coin(core.MicroLunaDenom, 100000))
-	topUp := sdk.NewCoins(sdk.NewInt64Coin(core.MicroLunaDenom, 5000))
+	deposit := sdk.NewCoins(sdk.NewInt64Coin(core.MicroBiqDenom, 100000))
+	topUp := sdk.NewCoins(sdk.NewInt64Coin(core.MicroBiqDenom, 5000))
 	creator := createFakeFundedAccount(input.Ctx, input.AccKeeper, input.BankKeeper, deposit.Add(deposit...))
 	fred := createFakeFundedAccount(input.Ctx, input.AccKeeper, input.BankKeeper, topUp)
 
@@ -455,8 +455,8 @@ func TestHandleClearAdmin(t *testing.T) {
 
 	input := keeper.CreateTestInput(t)
 
-	deposit := sdk.NewCoins(sdk.NewInt64Coin(core.MicroLunaDenom, 100000))
-	topUp := sdk.NewCoins(sdk.NewInt64Coin(core.MicroLunaDenom, 5000))
+	deposit := sdk.NewCoins(sdk.NewInt64Coin(core.MicroBiqDenom, 100000))
+	topUp := sdk.NewCoins(sdk.NewInt64Coin(core.MicroBiqDenom, 5000))
 	creator := createFakeFundedAccount(input.Ctx, input.AccKeeper, input.BankKeeper, deposit.Add(deposit...))
 	fred := createFakeFundedAccount(input.Ctx, input.AccKeeper, input.BankKeeper, topUp)
 
