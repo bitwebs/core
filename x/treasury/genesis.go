@@ -34,7 +34,7 @@ func InitGenesis(ctx sdk.Context, keeper keeper.Keeper, data *types.GenesisState
 	for _, epochState := range data.EpochStates {
 		keeper.SetTR(ctx, int64(epochState.Epoch), epochState.TaxReward)
 		keeper.SetSR(ctx, int64(epochState.Epoch), epochState.SeigniorageReward)
-		keeper.SetTSL(ctx, int64(epochState.Epoch), epochState.TotalStakedLuna)
+		keeper.SetTSL(ctx, int64(epochState.Epoch), epochState.TotalStakedBiq)
 	}
 
 	// check if the module account exists
@@ -79,7 +79,7 @@ func ExportGenesis(ctx sdk.Context, keeper keeper.Keeper) (data *types.GenesisSt
 			Epoch:             uint64(e),
 			TaxReward:         keeper.GetTR(ctx, e),
 			SeigniorageReward: keeper.GetSR(ctx, e),
-			TotalStakedLuna:   keeper.GetTSL(ctx, e),
+			TotalStakedBiq:   keeper.GetTSL(ctx, e),
 		})
 	}
 

@@ -31,14 +31,14 @@ func TestOrganizeAggregate(t *testing.T) {
 	staking.EndBlocker(ctx, input.StakingKeeper)
 
 	sdrBallot := types.ExchangeRateBallot{
-		types.NewVoteForTally(sdk.NewDec(17), core.MicroSDRDenom, ValAddrs[0], power),
-		types.NewVoteForTally(sdk.NewDec(10), core.MicroSDRDenom, ValAddrs[1], power),
-		types.NewVoteForTally(sdk.NewDec(6), core.MicroSDRDenom, ValAddrs[2], power),
+		types.NewVoteForTally(sdk.NewDec(17), core.MicroBSDRDenom, ValAddrs[0], power),
+		types.NewVoteForTally(sdk.NewDec(10), core.MicroBSDRDenom, ValAddrs[1], power),
+		types.NewVoteForTally(sdk.NewDec(6), core.MicroBSDRDenom, ValAddrs[2], power),
 	}
 	krwBallot := types.ExchangeRateBallot{
-		types.NewVoteForTally(sdk.NewDec(1000), core.MicroKRWDenom, ValAddrs[0], power),
-		types.NewVoteForTally(sdk.NewDec(1300), core.MicroKRWDenom, ValAddrs[1], power),
-		types.NewVoteForTally(sdk.NewDec(2000), core.MicroKRWDenom, ValAddrs[2], power),
+		types.NewVoteForTally(sdk.NewDec(1000), core.MicroBKRWDenom, ValAddrs[0], power),
+		types.NewVoteForTally(sdk.NewDec(1300), core.MicroBKRWDenom, ValAddrs[1], power),
+		types.NewVoteForTally(sdk.NewDec(2000), core.MicroBKRWDenom, ValAddrs[2], power),
 	}
 
 	for i := range sdrBallot {
@@ -71,11 +71,11 @@ func TestOrganizeAggregate(t *testing.T) {
 	// sort each ballot for comparison
 	sort.Sort(sdrBallot)
 	sort.Sort(krwBallot)
-	sort.Sort(ballotMap[core.MicroSDRDenom])
-	sort.Sort(ballotMap[core.MicroKRWDenom])
+	sort.Sort(ballotMap[core.MicroBSDRDenom])
+	sort.Sort(ballotMap[core.MicroBKRWDenom])
 
-	require.Equal(t, sdrBallot, ballotMap[core.MicroSDRDenom])
-	require.Equal(t, krwBallot, ballotMap[core.MicroKRWDenom])
+	require.Equal(t, sdrBallot, ballotMap[core.MicroBSDRDenom])
+	require.Equal(t, krwBallot, ballotMap[core.MicroBKRWDenom])
 }
 
 func TestClearBallots(t *testing.T) {
@@ -96,14 +96,14 @@ func TestClearBallots(t *testing.T) {
 	staking.EndBlocker(ctx, input.StakingKeeper)
 
 	sdrBallot := types.ExchangeRateBallot{
-		types.NewVoteForTally(sdk.NewDec(17), core.MicroSDRDenom, ValAddrs[0], power),
-		types.NewVoteForTally(sdk.NewDec(10), core.MicroSDRDenom, ValAddrs[1], power),
-		types.NewVoteForTally(sdk.NewDec(6), core.MicroSDRDenom, ValAddrs[2], power),
+		types.NewVoteForTally(sdk.NewDec(17), core.MicroBSDRDenom, ValAddrs[0], power),
+		types.NewVoteForTally(sdk.NewDec(10), core.MicroBSDRDenom, ValAddrs[1], power),
+		types.NewVoteForTally(sdk.NewDec(6), core.MicroBSDRDenom, ValAddrs[2], power),
 	}
 	krwBallot := types.ExchangeRateBallot{
-		types.NewVoteForTally(sdk.NewDec(1000), core.MicroKRWDenom, ValAddrs[0], power),
-		types.NewVoteForTally(sdk.NewDec(1300), core.MicroKRWDenom, ValAddrs[1], power),
-		types.NewVoteForTally(sdk.NewDec(2000), core.MicroKRWDenom, ValAddrs[2], power),
+		types.NewVoteForTally(sdk.NewDec(1000), core.MicroBKRWDenom, ValAddrs[0], power),
+		types.NewVoteForTally(sdk.NewDec(1300), core.MicroBKRWDenom, ValAddrs[1], power),
+		types.NewVoteForTally(sdk.NewDec(2000), core.MicroBKRWDenom, ValAddrs[2], power),
 	}
 
 	for i := range sdrBallot {
@@ -152,37 +152,37 @@ func TestApplyWhitelist(t *testing.T) {
 	// no update
 	input.OracleKeeper.ApplyWhitelist(input.Ctx, types.DenomList{
 		types.Denom{
-			Name:     "uusd",
+			Name:     "ubusd",
 			TobinTax: sdk.OneDec(),
 		},
 		types.Denom{
-			Name:     "ukrw",
+			Name:     "ubkrw",
 			TobinTax: sdk.OneDec(),
 		},
 	}, map[string]sdk.Dec{
-		"uusd": sdk.ZeroDec(),
-		"ukrw": sdk.ZeroDec(),
+		"ubusd": sdk.ZeroDec(),
+		"ubkrw": sdk.ZeroDec(),
 	})
 
-	price, err := input.OracleKeeper.GetTobinTax(input.Ctx, "uusd")
+	price, err := input.OracleKeeper.GetTobinTax(input.Ctx, "ubusd")
 	require.NoError(t, err)
 	require.Equal(t, price, sdk.OneDec())
 
-	price, err = input.OracleKeeper.GetTobinTax(input.Ctx, "ukrw")
+	price, err = input.OracleKeeper.GetTobinTax(input.Ctx, "ubkrw")
 	require.NoError(t, err)
 	require.Equal(t, price, sdk.OneDec())
 
-	metadata, ok := input.BankKeeper.GetDenomMetaData(input.Ctx, "uusd")
+	metadata, ok := input.BankKeeper.GetDenomMetaData(input.Ctx, "ubusd")
 	require.True(t, ok)
-	require.Equal(t, metadata.Base, "uusd")
-	require.Equal(t, metadata.Display, "usd")
+	require.Equal(t, metadata.Base, "ubusd")
+	require.Equal(t, metadata.Display, "busd")
 	require.Equal(t, len(metadata.DenomUnits), 3)
-	require.Equal(t, metadata.Description, "The native stable token of the Terra Columbus.")
+	require.Equal(t, metadata.Description, "The native stable token of the IQ Swartz.")
 
-	metadata, ok = input.BankKeeper.GetDenomMetaData(input.Ctx, "ukrw")
+	metadata, ok = input.BankKeeper.GetDenomMetaData(input.Ctx, "ubkrw")
 	require.True(t, ok)
-	require.Equal(t, metadata.Base, "ukrw")
-	require.Equal(t, metadata.Display, "krw")
+	require.Equal(t, metadata.Base, "ubkrw")
+	require.Equal(t, metadata.Display, "bkrw")
 	require.Equal(t, len(metadata.DenomUnits), 3)
-	require.Equal(t, metadata.Description, "The native stable token of the Terra Columbus.")
+	require.Equal(t, metadata.Description, "The native stable token of the IQ Swartz.")
 }

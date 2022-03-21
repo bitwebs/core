@@ -269,7 +269,7 @@ func TestGenesisAccountValidate(t *testing.T) {
 	pubkey := secp256k1.GenPrivKey().PubKey()
 	addr := sdk.AccAddress(pubkey.Address())
 	baseAcc := authtypes.NewBaseAccount(addr, pubkey, 0, 0)
-	initialVesting := sdk.NewCoins(sdk.NewInt64Coin(core.MicroLunaDenom, 50))
+	initialVesting := sdk.NewCoins(sdk.NewInt64Coin(core.MicroBiqDenom, 50))
 	baseVestingWithCoins := authvestingtypes.NewBaseVestingAccount(baseAcc, initialVesting, 100)
 	tests := []struct {
 		name   string
@@ -293,34 +293,34 @@ func TestGenesisAccountValidate(t *testing.T) {
 		},
 		{
 			"valid continuous vesting account",
-			types.NewLazyGradedVestingAccount(baseAcc, initialVesting, types.VestingSchedules{types.VestingSchedule{core.MicroLunaDenom, types.Schedules{types.Schedule{1554668078, 1654668078, sdk.OneDec()}}}}),
+			types.NewLazyGradedVestingAccount(baseAcc, initialVesting, types.VestingSchedules{types.VestingSchedule{core.MicroBiqDenom, types.Schedules{types.Schedule{1554668078, 1654668078, sdk.OneDec()}}}}),
 			nil,
 		},
 		{
 			"invalid vesting times",
-			types.NewLazyGradedVestingAccount(baseAcc, initialVesting, types.VestingSchedules{types.VestingSchedule{core.MicroLunaDenom, types.Schedules{types.Schedule{1654668078, 1554668078, sdk.OneDec()}}}}),
+			types.NewLazyGradedVestingAccount(baseAcc, initialVesting, types.VestingSchedules{types.VestingSchedule{core.MicroBiqDenom, types.Schedules{types.Schedule{1654668078, 1554668078, sdk.OneDec()}}}}),
 			errors.New("vesting start-time cannot be before end-time"),
 		},
 		{
 			"invalid vesting times 2",
-			types.NewLazyGradedVestingAccount(baseAcc, initialVesting, types.VestingSchedules{types.VestingSchedule{core.MicroLunaDenom, types.Schedules{types.Schedule{-1, 1554668078, sdk.OneDec()}}}}),
+			types.NewLazyGradedVestingAccount(baseAcc, initialVesting, types.VestingSchedules{types.VestingSchedule{core.MicroBiqDenom, types.Schedules{types.Schedule{-1, 1554668078, sdk.OneDec()}}}}),
 			errors.New("vesting start-time cannot be negative"),
 		},
 		{
 			"invalid vesting ratio",
-			types.NewLazyGradedVestingAccount(baseAcc, initialVesting, types.VestingSchedules{types.VestingSchedule{core.MicroLunaDenom, types.Schedules{types.Schedule{1554668078, 1654668078, sdk.ZeroDec()}}}}),
+			types.NewLazyGradedVestingAccount(baseAcc, initialVesting, types.VestingSchedules{types.VestingSchedule{core.MicroBiqDenom, types.Schedules{types.Schedule{1554668078, 1654668078, sdk.ZeroDec()}}}}),
 			errors.New("vesting ratio cannot be smaller than or equal with zero"),
 		},
 		{
 			"invalid vesting sum of ratio",
-			types.NewLazyGradedVestingAccount(baseAcc, initialVesting, types.VestingSchedules{types.VestingSchedule{core.MicroLunaDenom, types.Schedules{types.Schedule{1554668078, 1654668078, sdk.NewDecWithPrec(1, 1)}}}}),
+			types.NewLazyGradedVestingAccount(baseAcc, initialVesting, types.VestingSchedules{types.VestingSchedule{core.MicroBiqDenom, types.Schedules{types.Schedule{1554668078, 1654668078, sdk.NewDecWithPrec(1, 1)}}}}),
 			errors.New("vesting total ratio must be one"),
 		},
 		{
 			"multiple vesting schedule for a denom",
 			types.NewLazyGradedVestingAccount(baseAcc, initialVesting, types.VestingSchedules{
-				{core.MicroLunaDenom, types.Schedules{types.Schedule{1554668078, 1654668078, sdk.OneDec()}}},
-				{core.MicroLunaDenom, types.Schedules{types.Schedule{1554668078, 1654668078, sdk.OneDec()}}},
+				{core.MicroBiqDenom, types.Schedules{types.Schedule{1554668078, 1654668078, sdk.OneDec()}}},
+				{core.MicroBiqDenom, types.Schedules{types.Schedule{1554668078, 1654668078, sdk.OneDec()}}},
 			}),
 			errors.New("cannot have multiple vesting schedules for uluna"),
 		},

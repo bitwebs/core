@@ -24,7 +24,7 @@ var (
 // require invalid vesting account fails validation
 func TestValidateGenesisInvalidAccounts(t *testing.T) {
 	acc1 := authtypes.NewBaseAccountWithAddress(sdk.AccAddress(addr1))
-	coins := sdk.NewCoins(sdk.NewInt64Coin(core.MicroLunaDenom, 150))
+	coins := sdk.NewCoins(sdk.NewInt64Coin(core.MicroBiqDenom, 150))
 	baseVestingAcc := authvesttypes.NewBaseVestingAccount(acc1, coins, 0)
 
 	// invalid delegated vesting
@@ -42,6 +42,6 @@ func TestValidateGenesisInvalidAccounts(t *testing.T) {
 	require.NoError(t, authtypes.ValidateGenAccounts(genAccs))
 
 	// invalid vesting time
-	genAccs[0] = types.NewLazyGradedVestingAccountRaw(baseVestingAcc, types.VestingSchedules{types.VestingSchedule{core.MicroLunaDenom, types.Schedules{types.Schedule{1654668078, 1554668078, sdk.OneDec()}}}})
+	genAccs[0] = types.NewLazyGradedVestingAccountRaw(baseVestingAcc, types.VestingSchedules{types.VestingSchedule{core.MicroBiqDenom, types.Schedules{types.Schedule{1654668078, 1554668078, sdk.OneDec()}}}})
 	require.Error(t, authtypes.ValidateGenAccounts(genAccs))
 }

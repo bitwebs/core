@@ -47,8 +47,8 @@ func EndBlocker(ctx sdk.Context, k keeper.Keeper) {
 		})
 
 		// Clear all exchange rates
-		k.IterateLunaExchangeRates(ctx, func(denom string, _ sdk.Dec) (stop bool) {
-			k.DeleteLunaExchangeRate(ctx, denom)
+		k.IterateBiqExchangeRates(ctx, func(denom string, _ sdk.Dec) (stop bool) {
+			k.DeleteBiqExchangeRate(ctx, denom)
 			return false
 		})
 
@@ -57,16 +57,16 @@ func EndBlocker(ctx sdk.Context, k keeper.Keeper) {
 		// NOTE: **Make abstain votes to have zero vote power**
 		voteMap := k.OrganizeBallotByDenom(ctx, validatorClaimMap)
 
-		if referenceTerra := pickReferenceTerra(ctx, k, voteTargets, voteMap); referenceTerra != "" {
-			// make voteMap of Reference Terra to calculate cross exchange rates
-			ballotRT := voteMap[referenceTerra]
+		if referenceIq := pickReferenceIq(ctx, k, voteTargets, voteMap); referenceIq != "" {
+			// make voteMap of Reference Iq to calculate cross exchange rates
+			ballotRT := voteMap[referenceIq]
 			voteMapRT := ballotRT.ToMap()
 
 			var exchangeRateRT sdk.Dec
 
 			// softfork
-			if (ctx.ChainID() == core.ColumbusChainID && ctx.BlockHeight() < int64(5_701_000)) ||
-				(ctx.ChainID() == core.BombayChainID && ctx.BlockHeight() < int64(7_000_000)) {
+			if (ctx.ChainID() == core.SwartzChainID && ctx.BlockHeight() < int64(5_701_000)) ||
+				(ctx.ChainID() == core.McAfeeChainID && ctx.BlockHeight() < int64(7_000_000)) {
 				exchangeRateRT = ballotRT.WeightedMedian()
 			} else {
 				exchangeRateRT = ballotRT.WeightedMedianWithAssertion()
@@ -76,11 +76,11 @@ func EndBlocker(ctx sdk.Context, k keeper.Keeper) {
 			for denom, ballot := range voteMap {
 
 				// Convert ballot to cross exchange rates
-				if denom != referenceTerra {
+				if denom != referenceIq {
 
 					// softfork
-					if (ctx.ChainID() == core.ColumbusChainID && ctx.BlockHeight() < int64(5_701_000)) ||
-						(ctx.ChainID() == core.BombayChainID && ctx.BlockHeight() < int64(7_000_000)) {
+					if (ctx.ChainID() == core.SwartzChainID && ctx.BlockHeight() < int64(5_701_000)) ||
+						(ctx.ChainID() == core.McAfeeChainID && ctx.BlockHeight() < int64(7_000_000)) {
 						ballot = ballot.ToCrossRate(voteMapRT)
 					} else {
 						ballot = ballot.ToCrossRateWithSort(voteMapRT)
@@ -90,13 +90,13 @@ func EndBlocker(ctx sdk.Context, k keeper.Keeper) {
 				// Get weighted median of cross exchange rates
 				exchangeRate := Tally(ctx, ballot, params.RewardBand, validatorClaimMap)
 
-				// Transform into the original form uluna/stablecoin
-				if denom != referenceTerra {
+				// Transform into the original form ubiq/stablecoin
+				if denom != referenceIq {
 					exchangeRate = exchangeRateRT.Quo(exchangeRate)
 				}
 
 				// Set the exchange rate, emit ABCI event
-				k.SetLunaExchangeRateWithEvent(ctx, denom, exchangeRate)
+				k.SetBiqExchangeRateWithEvent(ctx, denom, exchangeRate)
 			}
 		}
 

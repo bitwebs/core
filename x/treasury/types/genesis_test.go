@@ -36,13 +36,13 @@ func TestGenesisValidation(t *testing.T) {
 			Epoch:             0,
 			TaxReward:         dummyDec,
 			SeigniorageReward: dummyDec,
-			TotalStakedLuna:   dummyInt,
+			TotalStakedBiq:   dummyInt,
 		},
 		{
 			Epoch:             1,
 			TaxReward:         dummyDec,
 			SeigniorageReward: dummyDec,
-			TotalStakedLuna:   dummyInt,
+			TotalStakedBiq:   dummyInt,
 		},
 	}
 

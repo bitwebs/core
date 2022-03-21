@@ -21,8 +21,8 @@ func setup(t *testing.T) (keeper.TestInput, sdk.Handler) {
 
 	params := input.MarketKeeper.GetParams(input.Ctx)
 	input.MarketKeeper.SetParams(input.Ctx, params)
-	input.OracleKeeper.SetLunaExchangeRate(input.Ctx, core.MicroSDRDenom, randomPrice)
-	input.OracleKeeper.SetLunaExchangeRate(input.Ctx, core.MicroKRWDenom, randomPrice)
+	input.OracleKeeper.SetBiqExchangeRate(input.Ctx, core.MicroBSDRDenom, randomPrice)
+	input.OracleKeeper.SetBiqExchangeRate(input.Ctx, core.MicroBKRWDenom, randomPrice)
 	h := NewHandler(input.MarketKeeper)
 
 	return input, h

@@ -10,8 +10,8 @@ import (
 // SettleSeigniorage computes seigniorage and distributes it to oracle and distribution(community-pool) account
 func (k Keeper) SettleSeigniorage(ctx sdk.Context) {
 	// Mint seigniorage for oracle and community pool
-	seigniorageLunaAmt := k.PeekEpochSeigniorage(ctx)
-	if seigniorageLunaAmt.LTE(sdk.ZeroInt()) {
+	seigniorageBiqAmt := k.PeekEpochSeigniorage(ctx)
+	if seigniorageBiqAmt.LTE(sdk.ZeroInt()) {
 		return
 	}
 
@@ -19,7 +19,7 @@ func (k Keeper) SettleSeigniorage(ctx sdk.Context) {
 	rewardWeight := k.GetRewardWeight(ctx)
 
 	// Align seigniorage to usdr
-	seigniorageDecCoin := sdk.NewDecCoin(core.MicroLunaDenom, seigniorageLunaAmt)
+	seigniorageDecCoin := sdk.NewDecCoin(core.MicroBiqDenom, seigniorageBiqAmt)
 
 	// Mint seigniorage
 	seigniorageCoin, _ := seigniorageDecCoin.TruncateDecimal()
@@ -33,7 +33,7 @@ func (k Keeper) SettleSeigniorage(ctx sdk.Context) {
 
 	// Send reward to oracle module
 	burnAmt := rewardWeight.MulInt(seigniorageAmt).TruncateInt()
-	burnCoins := sdk.NewCoins(sdk.NewCoin(core.MicroLunaDenom, burnAmt))
+	burnCoins := sdk.NewCoins(sdk.NewCoin(core.MicroBiqDenom, burnAmt))
 	if burnCoins.IsValid() {
 		if err := k.bankKeeper.BurnCoins(ctx, types.ModuleName, burnCoins); err != nil {
 			panic(err)
@@ -42,7 +42,7 @@ func (k Keeper) SettleSeigniorage(ctx sdk.Context) {
 
 	// Send left to distribution module
 	leftAmt := seigniorageAmt.Sub(burnAmt)
-	leftCoins := sdk.NewCoins(sdk.NewCoin(core.MicroLunaDenom, leftAmt))
+	leftCoins := sdk.NewCoins(sdk.NewCoin(core.MicroBiqDenom, leftAmt))
 	if leftCoins.IsValid() {
 		if err := k.bankKeeper.SendCoinsFromModuleToModule(
 			ctx,

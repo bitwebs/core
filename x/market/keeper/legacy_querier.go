@@ -15,8 +15,8 @@ func NewLegacyQuerier(k Keeper, legacyQuerierCdc *codec.LegacyAmino) sdk.Querier
 		switch path[0] {
 		case types.QuerySwap:
 			return querySwap(ctx, req, k, legacyQuerierCdc)
-		case types.QueryTerraPoolDelta:
-			return queryTerraPoolDelta(ctx, k, legacyQuerierCdc)
+		case types.QueryIqPoolDelta:
+			return queryIqPoolDelta(ctx, k, legacyQuerierCdc)
 		case types.QueryParameters:
 			return queryParameters(ctx, k, legacyQuerierCdc)
 		default:
@@ -45,8 +45,8 @@ func querySwap(ctx sdk.Context, req abci.RequestQuery, k Keeper, legacyQuerierCd
 	return bz, nil
 }
 
-func queryTerraPoolDelta(ctx sdk.Context, k Keeper, legacyQuerierCdc *codec.LegacyAmino) ([]byte, error) {
-	bz, err := codec.MarshalJSONIndent(legacyQuerierCdc, k.GetTerraPoolDelta(ctx))
+func queryIqPoolDelta(ctx sdk.Context, k Keeper, legacyQuerierCdc *codec.LegacyAmino) ([]byte, error) {
+	bz, err := codec.MarshalJSONIndent(legacyQuerierCdc, k.GetIqPoolDelta(ctx))
 	if err != nil {
 		return nil, sdkerrors.Wrap(sdkerrors.ErrJSONMarshal, err.Error())
 	}

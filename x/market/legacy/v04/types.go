@@ -21,7 +21,7 @@ type (
 
 	// GenesisState is the struct representation of the export genesis
 	GenesisState struct {
-		TerraPoolDelta sdk.Dec `json:"terra_pool_delta" yaml:"terra_pool_delta"`
+		IqPoolDelta sdk.Dec `json:"iq_pool_delta" yaml:"iq_pool_delta"`
 		Params         Params  `json:"params" yaml:"params"` // market params
 	}
 )

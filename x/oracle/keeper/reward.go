@@ -20,14 +20,14 @@ func (k Keeper) RewardBallotWinners(
 	ballotWinners map[string]types.Claim,
 ) {
 	// softfork for reward distribution
-	if (ctx.ChainID() == core.ColumbusChainID && ctx.BlockHeight() < int64(5_100_000)) ||
-		(ctx.ChainID() == core.BombayChainID && ctx.BlockHeight() < int64(6_200_000)) {
+	if (ctx.ChainID() == core.SwartzChainID && ctx.BlockHeight() < int64(5_100_000)) ||
+		(ctx.ChainID() == core.McAfeeChainID && ctx.BlockHeight() < int64(6_200_000)) {
 		k.RewardBallotWinnersLegacy(ctx, votePeriod, rewardDistributionWindow, ballotWinners)
 		return
 	}
 
 	rewardDenoms := make([]string, len(voteTargets)+1)
-	rewardDenoms[0] = core.MicroLunaDenom
+	rewardDenoms[0] = core.MicroBiqDenom
 
 	i := 1
 	for denom := range voteTargets {
@@ -113,7 +113,7 @@ func (k Keeper) RewardBallotWinnersLegacy(
 	}
 
 	// rewardCoin  = oraclePool * VotePeriod / RewardDistributionWindow
-	periodRewards := sdk.NewDecFromInt(rewardPool.AmountOf(core.MicroLunaDenom)).
+	periodRewards := sdk.NewDecFromInt(rewardPool.AmountOf(core.MicroBiqDenom)).
 		MulInt64(votePeriod).QuoInt64(rewardDistributionWindow)
 
 	// Dole out rewards
@@ -124,7 +124,7 @@ func (k Keeper) RewardBallotWinnersLegacy(
 
 		// Reflects contribution
 		rewardAmt := periodRewards.QuoInt64(ballotPowerSum).MulInt64(winner.Weight).TruncateInt()
-		rewardCoins = append(rewardCoins, sdk.NewCoin(core.MicroLunaDenom, rewardAmt))
+		rewardCoins = append(rewardCoins, sdk.NewCoin(core.MicroBiqDenom, rewardAmt))
 
 		// In case absence of the validator, we just skip distribution
 		if receiverVal != nil && !rewardCoins.IsZero() {

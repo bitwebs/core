@@ -23,11 +23,11 @@ func TestMsgSwap(t *testing.T) {
 		askDenom    string
 		expectedErr string
 	}{
-		{addrs[0], sdk.NewCoin(core.MicroLunaDenom, sdk.OneInt()), core.MicroSDRDenom, ""},
-		{sdk.AccAddress{}, sdk.NewCoin(core.MicroLunaDenom, sdk.OneInt()), core.MicroSDRDenom, "Invalid trader address (empty address string is not allowed): invalid address"},
-		{addrs[0], sdk.NewCoin(core.MicroLunaDenom, sdk.ZeroInt()), core.MicroSDRDenom, "0uluna: invalid coins"},
-		{addrs[0], sdk.NewCoin(core.MicroLunaDenom, overflowOfferAmt), core.MicroSDRDenom, "100000000000000000000000000000000000000000000000000000000uluna: invalid coins"},
-		{addrs[0], sdk.NewCoin(core.MicroLunaDenom, sdk.OneInt()), core.MicroLunaDenom, "uluna: recursive swap"},
+		{addrs[0], sdk.NewCoin(core.MicroBiqDenom, sdk.OneInt()), core.MicroBSDRDenom, ""},
+		{sdk.AccAddress{}, sdk.NewCoin(core.MicroBiqDenom, sdk.OneInt()), core.MicroBSDRDenom, "Invalid trader address (empty address string is not allowed): invalid address"},
+		{addrs[0], sdk.NewCoin(core.MicroBiqDenom, sdk.ZeroInt()), core.MicroBSDRDenom, "0ubiq: invalid coins"},
+		{addrs[0], sdk.NewCoin(core.MicroBiqDenom, overflowOfferAmt), core.MicroBSDRDenom, "100000000000000000000000000000000000000000000000000000000ubiq: invalid coins"},
+		{addrs[0], sdk.NewCoin(core.MicroBiqDenom, sdk.OneInt()), core.MicroBiqDenom, "ubiq: recursive swap"},
 	}
 
 	for _, tc := range tests {
@@ -55,12 +55,12 @@ func TestMsgSwapSend(t *testing.T) {
 		askDenom    string
 		expectedErr string
 	}{
-		{addrs[0], addrs[0], sdk.NewCoin(core.MicroLunaDenom, sdk.OneInt()), core.MicroSDRDenom, ""},
-		{addrs[0], sdk.AccAddress{}, sdk.NewCoin(core.MicroLunaDenom, sdk.OneInt()), core.MicroSDRDenom, "Invalid to address (empty address string is not allowed): invalid address"},
-		{sdk.AccAddress{}, addrs[0], sdk.NewCoin(core.MicroLunaDenom, sdk.OneInt()), core.MicroSDRDenom, "Invalid from address (empty address string is not allowed): invalid address"},
-		{addrs[0], addrs[0], sdk.NewCoin(core.MicroLunaDenom, sdk.ZeroInt()), core.MicroSDRDenom, "0uluna: invalid coins"},
-		{addrs[0], addrs[0], sdk.NewCoin(core.MicroLunaDenom, overflowOfferAmt), core.MicroSDRDenom, "100000000000000000000000000000000000000000000000000000000uluna: invalid coins"},
-		{addrs[0], addrs[0], sdk.NewCoin(core.MicroLunaDenom, sdk.OneInt()), core.MicroLunaDenom, "uluna: recursive swap"},
+		{addrs[0], addrs[0], sdk.NewCoin(core.MicroBiqDenom, sdk.OneInt()), core.MicroBSDRDenom, ""},
+		{addrs[0], sdk.AccAddress{}, sdk.NewCoin(core.MicroBiqDenom, sdk.OneInt()), core.MicroBSDRDenom, "Invalid to address (empty address string is not allowed): invalid address"},
+		{sdk.AccAddress{}, addrs[0], sdk.NewCoin(core.MicroBiqDenom, sdk.OneInt()), core.MicroBSDRDenom, "Invalid from address (empty address string is not allowed): invalid address"},
+		{addrs[0], addrs[0], sdk.NewCoin(core.MicroBiqDenom, sdk.ZeroInt()), core.MicroBSDRDenom, "0ubiq: invalid coins"},
+		{addrs[0], addrs[0], sdk.NewCoin(core.MicroBiqDenom, overflowOfferAmt), core.MicroBSDRDenom, "100000000000000000000000000000000000000000000000000000000ubiq: invalid coins"},
+		{addrs[0], addrs[0], sdk.NewCoin(core.MicroBiqDenom, sdk.OneInt()), core.MicroBiqDenom, "ubiq: recursive swap"},
 	}
 
 	for _, tc := range tests {

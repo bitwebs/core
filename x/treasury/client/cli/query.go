@@ -50,7 +50,7 @@ func GetCmdQueryTaxRate() *cobra.Command {
 		Long: strings.TrimSpace(`
 Query the stability tax rate of the current epoch.
 
-$ terrad query treasury tax-rate
+$ iqd query treasury tax-rate
 `),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			clientCtx, err := client.GetClientQueryContext(cmd)
@@ -82,7 +82,7 @@ func GetCmdQueryTaxCap() *cobra.Command {
 Query the current stability tax cap of the denom asset. 
 The stability tax levied on a tx is at most tax cap, regardless of the size of the transaction. 
 
-$ terrad query treasury tax-cap ukrw
+$ iqd query treasury tax-cap ukrw
 `),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			clientCtx, err := client.GetClientQueryContext(cmd)
@@ -117,7 +117,7 @@ func GetCmdQueryTaxCaps() *cobra.Command {
 Query the current stability tax caps of the all denom assets. 
 The stability tax levied on a tx is at most tax cap, regardless of the size of the transaction. 
 
-$ terrad query treasury tax-caps
+$ iqd query treasury tax-caps
 `),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			clientCtx, err := client.GetClientQueryContext(cmd)
@@ -148,7 +148,7 @@ func GetCmdQueryRewardWeight() *cobra.Command {
 		Long: strings.TrimSpace(`
 Query the reward rate of the current epoch.
 
-$ terrad query treasury reward-weight
+$ iqd query treasury reward-weight
 `),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			clientCtx, err := client.GetClientQueryContext(cmd)
@@ -179,7 +179,7 @@ func GetCmdQueryTaxProceeds() *cobra.Command {
 		Long: strings.TrimSpace(`
 Query the tax proceeds corresponding to the current epoch. The return value will be sdk.Coins{} of all the taxes collected. 
 
-$ terrad query treasury tax-proceeds
+$ iqd query treasury tax-proceeds
 `),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			clientCtx, err := client.GetClientQueryContext(cmd)
@@ -208,9 +208,9 @@ func GetCmdQuerySeigniorageProceeds() *cobra.Command {
 		Args:  cobra.NoArgs,
 		Short: "Query the seigniorage proceeds for the current epoch",
 		Long: strings.TrimSpace(`
-Query the seigniorage proceeds corresponding to the current epoch. The return value will be in units of 'uluna' coins. 
+Query the seigniorage proceeds corresponding to the current epoch. The return value will be in units of 'ubiq' coins. 
 
-$ terrad query treasury seigniorage-proceeds
+$ iqd query treasury seigniorage-proceeds
 `),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			clientCtx, err := client.GetClientQueryContext(cmd)

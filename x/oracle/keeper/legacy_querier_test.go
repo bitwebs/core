@@ -51,10 +51,10 @@ func TestLegacyQueryExchangeRate(t *testing.T) {
 	querier := NewLegacyQuerier(input.OracleKeeper, input.Cdc)
 
 	rate := sdk.NewDec(1700)
-	input.OracleKeeper.SetLunaExchangeRate(input.Ctx, core.MicroSDRDenom, rate)
+	input.OracleKeeper.SetBiqExchangeRate(input.Ctx, core.MicroBSDRDenom, rate)
 
 	// denom query params
-	queryParams := types.NewQueryExchangeRateParams(core.MicroSDRDenom)
+	queryParams := types.NewQueryExchangeRateParams(core.MicroBSDRDenom)
 	bz, err := input.Cdc.MarshalJSON(queryParams)
 	require.NoError(t, err)
 
@@ -77,8 +77,8 @@ func TestLegacyQueryExchangeRates(t *testing.T) {
 	querier := NewLegacyQuerier(input.OracleKeeper, input.Cdc)
 
 	rate := sdk.NewDec(1700)
-	input.OracleKeeper.SetLunaExchangeRate(input.Ctx, core.MicroSDRDenom, rate)
-	input.OracleKeeper.SetLunaExchangeRate(input.Ctx, core.MicroUSDDenom, rate)
+	input.OracleKeeper.SetBiqExchangeRate(input.Ctx, core.MicroBSDRDenom, rate)
+	input.OracleKeeper.SetBiqExchangeRate(input.Ctx, core.MicroBUSDDenom, rate)
 
 	res, err := querier(input.Ctx, []string{types.QueryExchangeRates}, abci.RequestQuery{})
 	require.NoError(t, err)
@@ -87,8 +87,8 @@ func TestLegacyQueryExchangeRates(t *testing.T) {
 	err2 := input.Cdc.UnmarshalJSON(res, &queriedRate)
 	require.NoError(t, err2)
 	require.Equal(t, sdk.DecCoins{
-		sdk.NewDecCoinFromDec(core.MicroSDRDenom, rate),
-		sdk.NewDecCoinFromDec(core.MicroUSDDenom, rate),
+		sdk.NewDecCoinFromDec(core.MicroBSDRDenom, rate),
+		sdk.NewDecCoinFromDec(core.MicroBUSDDenom, rate),
 	}, queriedRate)
 }
 
@@ -97,17 +97,17 @@ func TestLegacyQueryActives(t *testing.T) {
 	querier := NewLegacyQuerier(input.OracleKeeper, input.Cdc)
 
 	rate := sdk.NewDec(1700)
-	input.OracleKeeper.SetLunaExchangeRate(input.Ctx, core.MicroSDRDenom, rate)
-	input.OracleKeeper.SetLunaExchangeRate(input.Ctx, core.MicroKRWDenom, rate)
-	input.OracleKeeper.SetLunaExchangeRate(input.Ctx, core.MicroUSDDenom, rate)
+	input.OracleKeeper.SetBiqExchangeRate(input.Ctx, core.MicroBSDRDenom, rate)
+	input.OracleKeeper.SetBiqExchangeRate(input.Ctx, core.MicroBKRWDenom, rate)
+	input.OracleKeeper.SetBiqExchangeRate(input.Ctx, core.MicroBUSDDenom, rate)
 
 	res, err := querier(input.Ctx, []string{types.QueryActives}, abci.RequestQuery{})
 	require.NoError(t, err)
 
 	targetDenoms := []string{
-		core.MicroKRWDenom,
-		core.MicroSDRDenom,
-		core.MicroUSDDenom,
+		core.MicroBKRWDenom,
+		core.MicroBSDRDenom,
+		core.MicroBUSDDenom,
 	}
 
 	var denoms []string
@@ -331,10 +331,10 @@ func TestLegacyQueryTobinTaxes(t *testing.T) {
 	input.OracleKeeper.ClearTobinTaxes(input.Ctx)
 
 	tobinTaxes := types.DenomList{{
-		Name:     core.MicroKRWDenom,
+		Name:     core.MicroBKRWDenom,
 		TobinTax: sdk.OneDec(),
 	}, {
-		Name:     core.MicroSDRDenom,
+		Name:     core.MicroBSDRDenom,
 		TobinTax: sdk.NewDecWithPrec(123, 2),
 	}}
 	for _, item := range tobinTaxes {
@@ -359,10 +359,10 @@ func TestLegacyQueryTobinTax(t *testing.T) {
 	input := CreateTestInput(t)
 	querier := NewLegacyQuerier(input.OracleKeeper, input.Cdc)
 
-	denom := types.Denom{Name: core.MicroKRWDenom, TobinTax: sdk.OneDec()}
+	denom := types.Denom{Name: core.MicroBKRWDenom, TobinTax: sdk.OneDec()}
 	input.OracleKeeper.SetTobinTax(input.Ctx, denom.Name, denom.TobinTax)
 
-	queryParams := types.NewQueryTobinTaxParams(core.MicroKRWDenom)
+	queryParams := types.NewQueryTobinTaxParams(core.MicroBKRWDenom)
 	bz, err := input.Cdc.MarshalJSON(queryParams)
 	require.NoError(t, err)
 

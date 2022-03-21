@@ -110,7 +110,7 @@ var (
 	}
 
 	InitTokens = sdk.TokensFromConsensusPower(200, sdk.DefaultPowerReduction)
-	InitCoins  = sdk.NewCoins(sdk.NewCoin(core.MicroLunaDenom, InitTokens))
+	InitCoins  = sdk.NewCoins(sdk.NewCoin(core.MicroBiqDenom, InitTokens))
 )
 
 // TestInput nolint
@@ -181,7 +181,7 @@ func CreateTestInput(t *testing.T) TestInput {
 	accountKeeper := authkeeper.NewAccountKeeper(appCodec, keyAcc, paramsKeeper.Subspace(authtypes.ModuleName), authtypes.ProtoBaseAccount, maccPerms)
 	bankKeeper := bankkeeper.NewBaseKeeper(appCodec, keyBank, accountKeeper, paramsKeeper.Subspace(banktypes.ModuleName), blackListAddrs)
 
-	totalSupply := sdk.NewCoins(sdk.NewCoin(core.MicroLunaDenom, InitTokens.MulRaw(int64(len(Addrs)*10))))
+	totalSupply := sdk.NewCoins(sdk.NewCoin(core.MicroBiqDenom, InitTokens.MulRaw(int64(len(Addrs)*10))))
 	bankKeeper.MintCoins(ctx, faucetAccountName, totalSupply)
 
 	stakingKeeper := stakingkeeper.NewKeeper(
@@ -193,7 +193,7 @@ func CreateTestInput(t *testing.T) TestInput {
 	)
 
 	stakingParams := stakingtypes.DefaultParams()
-	stakingParams.BondDenom = core.MicroLunaDenom
+	stakingParams.BondDenom = core.MicroBiqDenom
 	stakingKeeper.SetParams(ctx, stakingParams)
 
 	distrKeeper := distrkeeper.NewKeeper(
@@ -220,7 +220,7 @@ func CreateTestInput(t *testing.T) TestInput {
 	burnAcc := authtypes.NewEmptyModuleAccount(types.BurnModuleName, authtypes.Burner)
 
 	// + 1 for burn account
-	bankKeeper.SendCoinsFromModuleToModule(ctx, faucetAccountName, stakingtypes.NotBondedPoolName, sdk.NewCoins(sdk.NewCoin(core.MicroLunaDenom, InitTokens.MulRaw(int64(len(Addrs)+1)))))
+	bankKeeper.SendCoinsFromModuleToModule(ctx, faucetAccountName, stakingtypes.NotBondedPoolName, sdk.NewCoins(sdk.NewCoin(core.MicroBiqDenom, InitTokens.MulRaw(int64(len(Addrs)+1)))))
 
 	accountKeeper.SetModuleAccount(ctx, feeCollectorAcc)
 	accountKeeper.SetModuleAccount(ctx, bondPool)
@@ -288,7 +288,7 @@ func CreateTestInput(t *testing.T) TestInput {
 func NewTestMsgCreateValidator(address sdk.ValAddress, pubKey cryptotypes.PubKey, amt sdk.Int) *stakingtypes.MsgCreateValidator {
 	commission := stakingtypes.NewCommissionRates(sdk.ZeroDec(), sdk.ZeroDec(), sdk.ZeroDec())
 	msg, _ := stakingtypes.NewMsgCreateValidator(
-		address, pubKey, sdk.NewCoin(core.MicroLunaDenom, amt),
+		address, pubKey, sdk.NewCoin(core.MicroBiqDenom, amt),
 		stakingtypes.Description{}, commission, sdk.OneInt(),
 	)
 

@@ -51,7 +51,7 @@ func TestLegacyQuerySwap(t *testing.T) {
 	input := CreateTestInput(t)
 
 	price := sdk.NewDecWithPrec(17, 1)
-	input.OracleKeeper.SetLunaExchangeRate(input.Ctx, core.MicroSDRDenom, price)
+	input.OracleKeeper.SetBiqExchangeRate(input.Ctx, core.MicroBSDRDenom, price)
 
 	querier := NewLegacyQuerier(input.MarketKeeper, input.Cdc)
 	var err error
@@ -66,8 +66,8 @@ func TestLegacyQuerySwap(t *testing.T) {
 	require.Error(t, err)
 
 	// recursive query
-	offerCoin := sdk.NewCoin(core.MicroLunaDenom, sdk.NewInt(10))
-	queryParams := types.NewQuerySwapParams(offerCoin, core.MicroLunaDenom)
+	offerCoin := sdk.NewCoin(core.MicroBiqDenom, sdk.NewInt(10))
+	queryParams := types.NewQuerySwapParams(offerCoin, core.MicroBiqDenom)
 	bz, err := input.Cdc.MarshalJSON(queryParams)
 	require.NoError(t, err)
 
@@ -81,8 +81,8 @@ func TestLegacyQuerySwap(t *testing.T) {
 
 	// overflow query
 	overflowAmt, _ := sdk.NewIntFromString("1000000000000000000000000000000000")
-	overflowOfferCoin := sdk.NewCoin(core.MicroLunaDenom, overflowAmt)
-	queryParams = types.NewQuerySwapParams(overflowOfferCoin, core.MicroSDRDenom)
+	overflowOfferCoin := sdk.NewCoin(core.MicroBiqDenom, overflowAmt)
+	queryParams = types.NewQuerySwapParams(overflowOfferCoin, core.MicroBSDRDenom)
 	bz, err = input.Cdc.MarshalJSON(queryParams)
 	require.NoError(t, err)
 
@@ -95,7 +95,7 @@ func TestLegacyQuerySwap(t *testing.T) {
 	require.Error(t, err)
 
 	// valid query
-	queryParams = types.NewQuerySwapParams(offerCoin, core.MicroSDRDenom)
+	queryParams = types.NewQuerySwapParams(offerCoin, core.MicroBSDRDenom)
 	bz, err = input.Cdc.MarshalJSON(queryParams)
 	require.NoError(t, err)
 
@@ -110,7 +110,7 @@ func TestLegacyQuerySwap(t *testing.T) {
 	var swapCoin sdk.Coin
 	err = input.Cdc.UnmarshalJSON(res, &swapCoin)
 	require.NoError(t, err)
-	require.Equal(t, core.MicroSDRDenom, swapCoin.Denom)
+	require.Equal(t, core.MicroBSDRDenom, swapCoin.Denom)
 	require.True(t, sdk.NewInt(17).GTE(swapCoin.Amount))
 	require.True(t, swapCoin.Amount.IsPositive())
 }
@@ -120,7 +120,7 @@ func TestLegacyQueryMintPool(t *testing.T) {
 	input := CreateTestInput(t)
 
 	poolDelta := sdk.NewDecWithPrec(17, 1)
-	input.MarketKeeper.SetTerraPoolDelta(input.Ctx, poolDelta)
+	input.MarketKeeper.SetIqPoolDelta(input.Ctx, poolDelta)
 
 	querier := NewLegacyQuerier(input.MarketKeeper, input.Cdc)
 	query := abci.RequestQuery{
@@ -128,7 +128,7 @@ func TestLegacyQueryMintPool(t *testing.T) {
 		Data: nil,
 	}
 
-	res, errRes := querier(input.Ctx, []string{types.QueryTerraPoolDelta}, query)
+	res, errRes := querier(input.Ctx, []string{types.QueryIqPoolDelta}, query)
 	require.NoError(t, errRes)
 
 	var retPool sdk.Dec

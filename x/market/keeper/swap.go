@@ -13,34 +13,34 @@ import (
 // OfferPool = OfferPool + offerAmt (Fills the swap pool with offerAmt)
 // AskPool = AskPool - askAmt       (Uses askAmt from the swap pool)
 func (k Keeper) ApplySwapToPool(ctx sdk.Context, offerCoin sdk.Coin, askCoin sdk.DecCoin) error {
-	// No delta update in case Terra to Terra swap
-	if offerCoin.Denom != core.MicroLunaDenom && askCoin.Denom != core.MicroLunaDenom {
+	// No delta update in case Iq to Iq swap
+	if offerCoin.Denom != core.MicroBiqDenom && askCoin.Denom != core.MicroBiqDenom {
 		return nil
 	}
 
-	terraPoolDelta := k.GetTerraPoolDelta(ctx)
+	iqPoolDelta := k.GetIqPoolDelta(ctx)
 
-	// In case swapping Terra to Luna, the terra swap pool(offer) must be increased and the luna swap pool(ask) must be decreased
-	if offerCoin.Denom != core.MicroLunaDenom && askCoin.Denom == core.MicroLunaDenom {
-		offerBaseCoin, err := k.ComputeInternalSwap(ctx, sdk.NewDecCoinFromCoin(offerCoin), core.MicroSDRDenom)
+	// In case swapping Iq to Biq, the iq swap pool(offer) must be increased and the biq swap pool(ask) must be decreased
+	if offerCoin.Denom != core.MicroBiqDenom && askCoin.Denom == core.MicroBiqDenom {
+		offerBaseCoin, err := k.ComputeInternalSwap(ctx, sdk.NewDecCoinFromCoin(offerCoin), core.MicroBSDRDenom)
 		if err != nil {
 			return err
 		}
 
-		terraPoolDelta = terraPoolDelta.Add(offerBaseCoin.Amount)
+		iqPoolDelta = iqPoolDelta.Add(offerBaseCoin.Amount)
 	}
 
-	// In case swapping Luna to Terra, the luna swap pool(offer) must be increased and the terra swap pool(ask) must be decreased
-	if offerCoin.Denom == core.MicroLunaDenom && askCoin.Denom != core.MicroLunaDenom {
-		askBaseCoin, err := k.ComputeInternalSwap(ctx, askCoin, core.MicroSDRDenom)
+	// In case swapping Biq to Iq, the biq swap pool(offer) must be increased and the iq swap pool(ask) must be decreased
+	if offerCoin.Denom == core.MicroBiqDenom && askCoin.Denom != core.MicroBiqDenom {
+		askBaseCoin, err := k.ComputeInternalSwap(ctx, askCoin, core.MicroBSDRDenom)
 		if err != nil {
 			return err
 		}
 
-		terraPoolDelta = terraPoolDelta.Sub(askBaseCoin.Amount)
+		iqPoolDelta = iqPoolDelta.Sub(askBaseCoin.Amount)
 	}
 
-	k.SetTerraPoolDelta(ctx, terraPoolDelta)
+	k.SetIqPoolDelta(ctx, iqPoolDelta)
 
 	return nil
 }
@@ -57,7 +57,7 @@ func (k Keeper) ComputeSwap(ctx sdk.Context, offerCoin sdk.Coin, askDenom string
 	}
 
 	// Swap offer coin to base denom for simplicity of swap process
-	baseOfferDecCoin, err := k.ComputeInternalSwap(ctx, sdk.NewDecCoinFromCoin(offerCoin), core.MicroSDRDenom)
+	baseOfferDecCoin, err := k.ComputeInternalSwap(ctx, sdk.NewDecCoinFromCoin(offerCoin), core.MicroBSDRDenom)
 	if err != nil {
 		return sdk.DecCoin{}, sdk.Dec{}, err
 	}
@@ -68,9 +68,9 @@ func (k Keeper) ComputeSwap(ctx sdk.Context, offerCoin sdk.Coin, askDenom string
 		return sdk.DecCoin{}, sdk.Dec{}, err
 	}
 
-	// Terra => Terra swap
+	// Iq => Iq swap
 	// Apply only tobin tax without constant product spread
-	if offerCoin.Denom != core.MicroLunaDenom && askDenom != core.MicroLunaDenom {
+	if offerCoin.Denom != core.MicroBiqDenom && askDenom != core.MicroBiqDenom {
 		var tobinTax sdk.Dec
 		offerTobinTax, err2 := k.OracleKeeper.GetTobinTax(ctx, offerCoin.Denom)
 		if err2 != nil {
@@ -98,20 +98,20 @@ func (k Keeper) ComputeSwap(ctx sdk.Context, offerCoin sdk.Coin, askDenom string
 
 	// constant-product, which by construction is square of base(equilibrium) pool
 	cp := basePool.Mul(basePool)
-	terraPoolDelta := k.GetTerraPoolDelta(ctx)
-	terraPool := basePool.Add(terraPoolDelta)
-	lunaPool := cp.Quo(terraPool)
+	iqPoolDelta := k.GetIqPoolDelta(ctx)
+	iqPool := basePool.Add(iqPoolDelta)
+	biqPool := cp.Quo(iqPool)
 
 	var offerPool sdk.Dec // base denom(usdr) unit
 	var askPool sdk.Dec   // base denom(usdr) unit
-	if offerCoin.Denom != core.MicroLunaDenom {
-		// Terra->Luna swap
-		offerPool = terraPool
-		askPool = lunaPool
+	if offerCoin.Denom != core.MicroBiqDenom {
+		// Iq->Biq swap
+		offerPool = iqPool
+		askPool = biqPool
 	} else {
-		// Luna->Terra swap
-		offerPool = lunaPool
-		askPool = terraPool
+		// Biq->Iq swap
+		offerPool = biqPool
+		askPool = iqPool
 	}
 
 	// Get cp(constant-product) based swap amount
@@ -139,12 +139,12 @@ func (k Keeper) ComputeInternalSwap(ctx sdk.Context, offerCoin sdk.DecCoin, askD
 		return offerCoin, nil
 	}
 
-	offerRate, err := k.OracleKeeper.GetLunaExchangeRate(ctx, offerCoin.Denom)
+	offerRate, err := k.OracleKeeper.GetBiqExchangeRate(ctx, offerCoin.Denom)
 	if err != nil {
 		return sdk.DecCoin{}, sdkerrors.Wrap(types.ErrNoEffectivePrice, offerCoin.Denom)
 	}
 
-	askRate, err := k.OracleKeeper.GetLunaExchangeRate(ctx, askDenom)
+	askRate, err := k.OracleKeeper.GetBiqExchangeRate(ctx, askDenom)
 	if err != nil {
 		return sdk.DecCoin{}, sdkerrors.Wrap(types.ErrNoEffectivePrice, askDenom)
 	}

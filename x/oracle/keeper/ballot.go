@@ -101,7 +101,7 @@ func (k Keeper) ApplyWhitelist(ctx sdk.Context, whitelist types.DenomList, voteT
 				display := base[1:]
 
 				k.bankKeeper.SetDenomMetaData(ctx, banktypes.Metadata{
-					Description: "The native stable token of the Terra Columbus.",
+					Description: "The native stable token of the IQ Swartz.",
 					DenomUnits: []*banktypes.DenomUnit{
 						{Denom: "u" + display, Exponent: uint32(0), Aliases: []string{"micro" + display}},
 						{Denom: "m" + display, Exponent: uint32(3), Aliases: []string{"milli" + display}},
@@ -109,8 +109,8 @@ func (k Keeper) ApplyWhitelist(ctx sdk.Context, whitelist types.DenomList, voteT
 					},
 					Base:    base,
 					Display: display,
-					Name:    fmt.Sprintf("%s TERRA", strings.ToUpper(display)),
-					Symbol:  fmt.Sprintf("%sT", strings.ToUpper(display[:len(display)-1])),
+					Name:    fmt.Sprintf("%s IQ", strings.ToUpper(display)),
+					Symbol:  fmt.Sprintf("%sIQ", strings.ToUpper(display[:len(display)-1])),
 				})
 			}
 		}

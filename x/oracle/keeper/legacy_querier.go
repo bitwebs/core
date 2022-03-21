@@ -54,7 +54,7 @@ func queryExchangeRate(ctx sdk.Context, req abci.RequestQuery, keeper Keeper, le
 		return nil, sdkerrors.Wrap(sdkerrors.ErrJSONUnmarshal, err.Error())
 	}
 
-	rate, err := keeper.GetLunaExchangeRate(ctx, params.Denom)
+	rate, err := keeper.GetBiqExchangeRate(ctx, params.Denom)
 	if err != nil {
 		return nil, sdkerrors.Wrap(types.ErrUnknownDenom, params.Denom)
 	}
@@ -70,7 +70,7 @@ func queryExchangeRate(ctx sdk.Context, req abci.RequestQuery, keeper Keeper, le
 func queryExchangeRates(ctx sdk.Context, keeper Keeper, legacyQuerierCdc *codec.LegacyAmino) ([]byte, error) {
 	var rates sdk.DecCoins
 
-	keeper.IterateLunaExchangeRates(ctx, func(denom string, rate sdk.Dec) (stop bool) {
+	keeper.IterateBiqExchangeRates(ctx, func(denom string, rate sdk.Dec) (stop bool) {
 		rates = append(rates, sdk.NewDecCoinFromDec(denom, rate))
 		return false
 	})
@@ -86,7 +86,7 @@ func queryExchangeRates(ctx sdk.Context, keeper Keeper, legacyQuerierCdc *codec.
 func queryActives(ctx sdk.Context, keeper Keeper, legacyQuerierCdc *codec.LegacyAmino) ([]byte, error) {
 	denoms := []string{}
 
-	keeper.IterateLunaExchangeRates(ctx, func(denom string, rate sdk.Dec) (stop bool) {
+	keeper.IterateBiqExchangeRates(ctx, func(denom string, rate sdk.Dec) (stop bool) {
 		denoms = append(denoms, denom)
 		return false
 	})

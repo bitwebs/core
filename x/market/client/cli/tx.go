@@ -40,11 +40,11 @@ func GetSwapCmd() *cobra.Command {
 		Long: strings.TrimSpace(`
 Swap the offer-coin to the ask-denom currency at the oracle's effective exchange rate. 
 
-$ terrad market swap "1000ukrw" "uusd"
+$ iqd market swap "1000ubkrw" "ubusd"
 
 The to-address can be specified. A default to-address is trader.
 
-$ terrad market swap "1000ukrw" "uusd" "terra1..."
+$ iqd market swap "1000ubkrw" "ubusd" "iq1..."
 `),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			clientCtx, err := client.GetClientTxContext(cmd)

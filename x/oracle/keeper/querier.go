@@ -44,7 +44,7 @@ func (q querier) ExchangeRate(c context.Context, req *types.QueryExchangeRateReq
 	}
 
 	ctx := sdk.UnwrapSDKContext(c)
-	exchangeRate, err := q.GetLunaExchangeRate(ctx, req.Denom)
+	exchangeRate, err := q.GetBiqExchangeRate(ctx, req.Denom)
 	if err != nil {
 		return nil, err
 	}
@@ -57,7 +57,7 @@ func (q querier) ExchangeRates(c context.Context, req *types.QueryExchangeRatesR
 	ctx := sdk.UnwrapSDKContext(c)
 
 	var exchangeRates sdk.DecCoins
-	q.IterateLunaExchangeRates(ctx, func(denom string, rate sdk.Dec) (stop bool) {
+	q.IterateBiqExchangeRates(ctx, func(denom string, rate sdk.Dec) (stop bool) {
 		exchangeRates = append(exchangeRates, sdk.NewDecCoinFromDec(denom, rate))
 		return false
 	})
@@ -105,7 +105,7 @@ func (q querier) Actives(c context.Context, req *types.QueryActivesRequest) (*ty
 	ctx := sdk.UnwrapSDKContext(c)
 
 	denoms := []string{}
-	q.IterateLunaExchangeRates(ctx, func(denom string, rate sdk.Dec) (stop bool) {
+	q.IterateBiqExchangeRates(ctx, func(denom string, rate sdk.Dec) (stop bool) {
 		denoms = append(denoms, denom)
 		return false
 	})

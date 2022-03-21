@@ -45,7 +45,7 @@ func TestQueryTaxCap(t *testing.T) {
 	input := keeper.CreateTestInput(t)
 
 	cap := sdk.NewInt(123) // 0.7%
-	input.TreasuryKeeper.SetTaxCap(input.Ctx, core.MicroSDRDenom, cap)
+	input.TreasuryKeeper.SetTaxCap(input.Ctx, core.MicroBSDRDenom, cap)
 
 	querier := NewWasmQuerier(input.TreasuryKeeper)
 	var err error
@@ -57,7 +57,7 @@ func TestQueryTaxCap(t *testing.T) {
 	// tax rate query
 	bz, err := json.Marshal(CosmosQuery{
 		TaxCap: &types.QueryTaxCapParams{
-			Denom: core.MicroSDRDenom,
+			Denom: core.MicroBSDRDenom,
 		},
 	})
 

@@ -61,10 +61,10 @@ func (k Keeper) StoreCode(ctx sdk.Context, creator sdk.AccAddress, wasmCode []by
 }
 
 // MigrateCode uploads and compiles a WASM contract bytecode for the existing code id.
-// After columbus-5 update, all contract code will be removed from the store
+// After swartz-1 update, all contract code will be removed from the store
 // due to in-compatibility between CosmWasm@v0.10.x and CosmWasm@v0.16.x
-// The migration can be executed by once after columbus-5 update.
-// TODO - remove after columbus-5 update
+// The migration can be executed by once after swartz-1 update.
+// TODO - remove after swartz-1 update
 func (k Keeper) MigrateCode(ctx sdk.Context, codeID uint64, creator sdk.AccAddress, wasmCode []byte) error {
 	codeInfo, err := k.GetCodeInfo(ctx, codeID)
 	if err != nil {

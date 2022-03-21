@@ -36,8 +36,8 @@ func TestTaxCap(t *testing.T) {
 	input := CreateTestInput(t)
 
 	for i := int64(0); i < 10; i++ {
-		input.TreasuryKeeper.SetTaxCap(input.Ctx, core.MicroCNYDenom, sdk.NewInt(i))
-		require.Equal(t, sdk.NewInt(i), input.TreasuryKeeper.GetTaxCap(input.Ctx, core.MicroCNYDenom))
+		input.TreasuryKeeper.SetTaxCap(input.Ctx, core.MicroBCNYDenom, sdk.NewInt(i))
+		require.Equal(t, sdk.NewInt(i), input.TreasuryKeeper.GetTaxCap(input.Ctx, core.MicroBCNYDenom))
 	}
 }
 
@@ -47,17 +47,17 @@ func TestIterateTaxCap(t *testing.T) {
 	cnyCap := sdk.NewInt(123)
 	usdCap := sdk.NewInt(13)
 	krwCap := sdk.NewInt(1300)
-	input.TreasuryKeeper.SetTaxCap(input.Ctx, core.MicroCNYDenom, cnyCap)
-	input.TreasuryKeeper.SetTaxCap(input.Ctx, core.MicroUSDDenom, usdCap)
-	input.TreasuryKeeper.SetTaxCap(input.Ctx, core.MicroKRWDenom, krwCap)
+	input.TreasuryKeeper.SetTaxCap(input.Ctx, core.MicroBCNYDenom, cnyCap)
+	input.TreasuryKeeper.SetTaxCap(input.Ctx, core.MicroBUSDDenom, usdCap)
+	input.TreasuryKeeper.SetTaxCap(input.Ctx, core.MicroBKRWDenom, krwCap)
 
 	input.TreasuryKeeper.IterateTaxCap(input.Ctx, func(denom string, taxCap sdk.Int) bool {
 		switch denom {
-		case core.MicroCNYDenom:
+		case core.MicroBCNYDenom:
 			require.Equal(t, cnyCap, taxCap)
-		case core.MicroUSDDenom:
+		case core.MicroBUSDDenom:
 			require.Equal(t, usdCap, taxCap)
-		case core.MicroKRWDenom:
+		case core.MicroBKRWDenom:
 			require.Equal(t, krwCap, taxCap)
 		}
 
@@ -70,7 +70,7 @@ func TestTaxProceeds(t *testing.T) {
 	input := CreateTestInput(t)
 
 	for i := int64(0); i < 10; i++ {
-		proceeds := sdk.NewCoins(sdk.NewCoin(core.MicroSDRDenom, sdk.NewInt(100+i)))
+		proceeds := sdk.NewCoins(sdk.NewCoin(core.MicroBSDRDenom, sdk.NewInt(100+i)))
 		input.TreasuryKeeper.RecordEpochTaxProceeds(input.Ctx, proceeds)
 		input.TreasuryKeeper.RecordEpochTaxProceeds(input.Ctx, proceeds)
 		input.TreasuryKeeper.RecordEpochTaxProceeds(input.Ctx, proceeds)
@@ -82,19 +82,19 @@ func TestTaxProceeds(t *testing.T) {
 	}
 }
 
-func TestMicroLunaIssuance(t *testing.T) {
+func TestMicroBiqIssuance(t *testing.T) {
 	input := CreateTestInput(t)
 
-	initialSupply := input.BankKeeper.GetSupply(input.Ctx, core.MicroLunaDenom)
-	// See that we can get and set luna issuance
+	initialSupply := input.BankKeeper.GetSupply(input.Ctx, core.MicroBiqDenom)
+	// See that we can get and set biq issuance
 	blocksPerEpoch := core.BlocksPerWeek
 	for i := int64(0); i < 10; i++ {
 		input.Ctx = input.Ctx.WithBlockHeight(i * int64(blocksPerEpoch))
 
 		input.TreasuryKeeper.RecordEpochInitialIssuance(input.Ctx)
-		require.Equal(t, initialSupply.Amount.Add(sdk.NewInt(i)), input.TreasuryKeeper.GetEpochInitialIssuance(input.Ctx).AmountOf(core.MicroLunaDenom))
+		require.Equal(t, initialSupply.Amount.Add(sdk.NewInt(i)), input.TreasuryKeeper.GetEpochInitialIssuance(input.Ctx).AmountOf(core.MicroBiqDenom))
 
-		input.BankKeeper.MintCoins(input.Ctx, faucetAccountName, sdk.NewCoins(sdk.NewCoin(core.MicroLunaDenom, sdk.OneInt())))
+		input.BankKeeper.MintCoins(input.Ctx, faucetAccountName, sdk.NewCoins(sdk.NewCoin(core.MicroBiqDenom, sdk.OneInt())))
 	}
 }
 
@@ -103,16 +103,16 @@ func TestPeekEpochSeigniorage(t *testing.T) {
 
 	for i := int64(0); i < 10; i++ {
 		input.Ctx = input.Ctx.WithBlockHeight(i * int64(core.BlocksPerWeek))
-		faucetBalance := input.BankKeeper.GetBalance(input.Ctx, input.AccountKeeper.GetModuleAddress(faucetAccountName), core.MicroLunaDenom)
+		faucetBalance := input.BankKeeper.GetBalance(input.Ctx, input.AccountKeeper.GetModuleAddress(faucetAccountName), core.MicroBiqDenom)
 
 		input.TreasuryKeeper.RecordEpochInitialIssuance(input.Ctx)
 
 		issueAmount := sdk.NewInt(rand.Int63()%1000000 + 1)
-		err := input.BankKeeper.MintCoins(input.Ctx, faucetAccountName, sdk.NewCoins(sdk.NewCoin(core.MicroLunaDenom, issueAmount)))
+		err := input.BankKeeper.MintCoins(input.Ctx, faucetAccountName, sdk.NewCoins(sdk.NewCoin(core.MicroBiqDenom, issueAmount)))
 		require.NoError(t, err)
 
 		burnAmount := sdk.NewInt(rand.Int63()%(faucetBalance.Amount.Int64()+issueAmount.Int64()) + 1)
-		err = input.BankKeeper.BurnCoins(input.Ctx, faucetAccountName, sdk.NewCoins(sdk.NewCoin(core.MicroLunaDenom, burnAmount)))
+		err = input.BankKeeper.BurnCoins(input.Ctx, faucetAccountName, sdk.NewCoins(sdk.NewCoin(core.MicroBiqDenom, burnAmount)))
 		require.NoError(t, err)
 
 		targetSeigniorage := burnAmount.Sub(issueAmount)

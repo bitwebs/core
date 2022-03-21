@@ -14,32 +14,32 @@ import (
 func TestApplySwapToPool(t *testing.T) {
 	input := CreateTestInput(t)
 
-	lunaPriceInSDR := sdk.NewDecWithPrec(17, 1)
-	input.OracleKeeper.SetLunaExchangeRate(input.Ctx, core.MicroSDRDenom, lunaPriceInSDR)
+	biqPriceInSDR := sdk.NewDecWithPrec(17, 1)
+	input.OracleKeeper.SetBiqExchangeRate(input.Ctx, core.MicroBSDRDenom, biqPriceInSDR)
 
-	offerCoin := sdk.NewCoin(core.MicroLunaDenom, sdk.NewInt(1000))
-	askCoin := sdk.NewDecCoin(core.MicroSDRDenom, sdk.NewInt(1700))
-	oldSDRPoolDelta := input.MarketKeeper.GetTerraPoolDelta(input.Ctx)
+	offerCoin := sdk.NewCoin(core.MicroBiqDenom, sdk.NewInt(1000))
+	askCoin := sdk.NewDecCoin(core.MicroBSDRDenom, sdk.NewInt(1700))
+	oldSDRPoolDelta := input.MarketKeeper.GetIqPoolDelta(input.Ctx)
 	input.MarketKeeper.ApplySwapToPool(input.Ctx, offerCoin, askCoin)
-	newSDRPoolDelta := input.MarketKeeper.GetTerraPoolDelta(input.Ctx)
+	newSDRPoolDelta := input.MarketKeeper.GetIqPoolDelta(input.Ctx)
 	sdrDiff := newSDRPoolDelta.Sub(oldSDRPoolDelta)
 	require.Equal(t, sdk.NewDec(-1700), sdrDiff)
 
 	// reverse swap
-	offerCoin = sdk.NewCoin(core.MicroSDRDenom, sdk.NewInt(1700))
-	askCoin = sdk.NewDecCoin(core.MicroLunaDenom, sdk.NewInt(1000))
-	oldSDRPoolDelta = input.MarketKeeper.GetTerraPoolDelta(input.Ctx)
+	offerCoin = sdk.NewCoin(core.MicroBSDRDenom, sdk.NewInt(1700))
+	askCoin = sdk.NewDecCoin(core.MicroBiqDenom, sdk.NewInt(1000))
+	oldSDRPoolDelta = input.MarketKeeper.GetIqPoolDelta(input.Ctx)
 	input.MarketKeeper.ApplySwapToPool(input.Ctx, offerCoin, askCoin)
-	newSDRPoolDelta = input.MarketKeeper.GetTerraPoolDelta(input.Ctx)
+	newSDRPoolDelta = input.MarketKeeper.GetIqPoolDelta(input.Ctx)
 	sdrDiff = newSDRPoolDelta.Sub(oldSDRPoolDelta)
 	require.Equal(t, sdk.NewDec(1700), sdrDiff)
 
-	// TERRA <> TERRA, no pool changes are expected
-	offerCoin = sdk.NewCoin(core.MicroSDRDenom, sdk.NewInt(1700))
-	askCoin = sdk.NewDecCoin(core.MicroKRWDenom, sdk.NewInt(3400))
-	oldSDRPoolDelta = input.MarketKeeper.GetTerraPoolDelta(input.Ctx)
+	// IQ <> IQ, no pool changes are expected
+	offerCoin = sdk.NewCoin(core.MicroBSDRDenom, sdk.NewInt(1700))
+	askCoin = sdk.NewDecCoin(core.MicroBKRWDenom, sdk.NewInt(3400))
+	oldSDRPoolDelta = input.MarketKeeper.GetIqPoolDelta(input.Ctx)
 	input.MarketKeeper.ApplySwapToPool(input.Ctx, offerCoin, askCoin)
-	newSDRPoolDelta = input.MarketKeeper.GetTerraPoolDelta(input.Ctx)
+	newSDRPoolDelta = input.MarketKeeper.GetIqPoolDelta(input.Ctx)
 	sdrDiff = newSDRPoolDelta.Sub(oldSDRPoolDelta)
 	require.Equal(t, sdk.NewDec(0), sdrDiff)
 }
@@ -47,21 +47,21 @@ func TestComputeSwap(t *testing.T) {
 	input := CreateTestInput(t)
 
 	// Set Oracle Price
-	lunaPriceInSDR := sdk.NewDecWithPrec(17, 1)
-	input.OracleKeeper.SetLunaExchangeRate(input.Ctx, core.MicroSDRDenom, lunaPriceInSDR)
+	biqPriceInSDR := sdk.NewDecWithPrec(17, 1)
+	input.OracleKeeper.SetBiqExchangeRate(input.Ctx, core.MicroBSDRDenom, biqPriceInSDR)
 
 	for i := 0; i < 100; i++ {
-		swapAmountInSDR := lunaPriceInSDR.MulInt64(rand.Int63()%10000 + 2).TruncateInt()
-		offerCoin := sdk.NewCoin(core.MicroSDRDenom, swapAmountInSDR)
-		retCoin, spread, err := input.MarketKeeper.ComputeSwap(input.Ctx, offerCoin, core.MicroLunaDenom)
+		swapAmountInSDR := biqPriceInSDR.MulInt64(rand.Int63()%10000 + 2).TruncateInt()
+		offerCoin := sdk.NewCoin(core.MicroBSDRDenom, swapAmountInSDR)
+		retCoin, spread, err := input.MarketKeeper.ComputeSwap(input.Ctx, offerCoin, core.MicroBiqDenom)
 
 		require.NoError(t, err)
 		require.True(t, spread.GTE(input.MarketKeeper.MinStabilitySpread(input.Ctx)))
-		require.Equal(t, sdk.NewDecFromInt(offerCoin.Amount).Quo(lunaPriceInSDR), retCoin.Amount)
+		require.Equal(t, sdk.NewDecFromInt(offerCoin.Amount).Quo(biqPriceInSDR), retCoin.Amount)
 	}
 
-	offerCoin := sdk.NewCoin(core.MicroSDRDenom, lunaPriceInSDR.QuoInt64(2).TruncateInt())
-	_, _, err := input.MarketKeeper.ComputeSwap(input.Ctx, offerCoin, core.MicroLunaDenom)
+	offerCoin := sdk.NewCoin(core.MicroBSDRDenom, biqPriceInSDR.QuoInt64(2).TruncateInt())
+	_, _, err := input.MarketKeeper.ComputeSwap(input.Ctx, offerCoin, core.MicroBiqDenom)
 	require.Error(t, err)
 }
 
@@ -69,18 +69,18 @@ func TestComputeInternalSwap(t *testing.T) {
 	input := CreateTestInput(t)
 
 	// Set Oracle Price
-	lunaPriceInSDR := sdk.NewDecWithPrec(17, 1)
-	input.OracleKeeper.SetLunaExchangeRate(input.Ctx, core.MicroSDRDenom, lunaPriceInSDR)
+	biqPriceInSDR := sdk.NewDecWithPrec(17, 1)
+	input.OracleKeeper.SetBiqExchangeRate(input.Ctx, core.MicroBSDRDenom, biqPriceInSDR)
 
 	for i := 0; i < 100; i++ {
-		offerCoin := sdk.NewDecCoin(core.MicroSDRDenom, lunaPriceInSDR.MulInt64(rand.Int63()+1).TruncateInt())
-		retCoin, err := input.MarketKeeper.ComputeInternalSwap(input.Ctx, offerCoin, core.MicroLunaDenom)
+		offerCoin := sdk.NewDecCoin(core.MicroBSDRDenom, biqPriceInSDR.MulInt64(rand.Int63()+1).TruncateInt())
+		retCoin, err := input.MarketKeeper.ComputeInternalSwap(input.Ctx, offerCoin, core.MicroBiqDenom)
 		require.NoError(t, err)
-		require.Equal(t, offerCoin.Amount.Quo(lunaPriceInSDR), retCoin.Amount)
+		require.Equal(t, offerCoin.Amount.Quo(biqPriceInSDR), retCoin.Amount)
 	}
 
-	offerCoin := sdk.NewDecCoin(core.MicroSDRDenom, lunaPriceInSDR.QuoInt64(2).TruncateInt())
-	_, err := input.MarketKeeper.ComputeInternalSwap(input.Ctx, offerCoin, core.MicroLunaDenom)
+	offerCoin := sdk.NewDecCoin(core.MicroBSDRDenom, biqPriceInSDR.QuoInt64(2).TruncateInt())
+	_, err := input.MarketKeeper.ComputeInternalSwap(input.Ctx, offerCoin, core.MicroBiqDenom)
 	require.Error(t, err)
 }
 
@@ -88,22 +88,22 @@ func TestIlliquidTobinTaxListParams(t *testing.T) {
 	input := CreateTestInput(t)
 
 	// Set Oracle Price
-	lunaPriceInSDR := sdk.NewDecWithPrec(17, 1)
-	lunaPriceInMNT := sdk.NewDecWithPrec(7652, 1)
-	input.OracleKeeper.SetLunaExchangeRate(input.Ctx, core.MicroSDRDenom, lunaPriceInSDR)
-	input.OracleKeeper.SetLunaExchangeRate(input.Ctx, core.MicroMNTDenom, lunaPriceInMNT)
+	biqPriceInSDR := sdk.NewDecWithPrec(17, 1)
+	biqPriceInMNT := sdk.NewDecWithPrec(7652, 1)
+	input.OracleKeeper.SetBiqExchangeRate(input.Ctx, core.MicroBSDRDenom, biqPriceInSDR)
+	input.OracleKeeper.SetBiqExchangeRate(input.Ctx, core.MicroBMNTDenom, biqPriceInMNT)
 
 	tobinTax := sdk.NewDecWithPrec(25, 4)
 	params := input.MarketKeeper.GetParams(input.Ctx)
 	input.MarketKeeper.SetParams(input.Ctx, params)
 
 	illiquidFactor := sdk.NewDec(2)
-	input.OracleKeeper.SetTobinTax(input.Ctx, core.MicroSDRDenom, tobinTax)
-	input.OracleKeeper.SetTobinTax(input.Ctx, core.MicroMNTDenom, tobinTax.Mul(illiquidFactor))
+	input.OracleKeeper.SetTobinTax(input.Ctx, core.MicroBSDRDenom, tobinTax)
+	input.OracleKeeper.SetTobinTax(input.Ctx, core.MicroBMNTDenom, tobinTax.Mul(illiquidFactor))
 
-	swapAmountInSDR := lunaPriceInSDR.MulInt64(rand.Int63()%10000 + 2).TruncateInt()
-	offerCoin := sdk.NewCoin(core.MicroSDRDenom, swapAmountInSDR)
-	_, spread, err := input.MarketKeeper.ComputeSwap(input.Ctx, offerCoin, core.MicroMNTDenom)
+	swapAmountInSDR := biqPriceInSDR.MulInt64(rand.Int63()%10000 + 2).TruncateInt()
+	offerCoin := sdk.NewCoin(core.MicroBSDRDenom, swapAmountInSDR)
+	_, spread, err := input.MarketKeeper.ComputeSwap(input.Ctx, offerCoin, core.MicroBMNTDenom)
 	require.NoError(t, err)
 	require.Equal(t, tobinTax.Mul(illiquidFactor), spread)
 }

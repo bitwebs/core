@@ -99,13 +99,13 @@ func TestInitializeStaking(t *testing.T) {
 	input := CreateTestInput(t)
 	ctx, accKeeper, bankKeeper, stakingKeeper, keeper := input.Ctx, input.AccKeeper, input.BankKeeper, input.StakingKeeper, input.WasmKeeper
 
-	valAddr := addValidator(ctx, stakingKeeper, accKeeper, bankKeeper, sdk.NewInt64Coin(core.MicroLunaDenom, 1234567))
+	valAddr := addValidator(ctx, stakingKeeper, accKeeper, bankKeeper, sdk.NewInt64Coin(core.MicroBiqDenom, 1234567))
 	ctx = nextBlock(ctx, stakingKeeper)
 	v, found := stakingKeeper.GetValidator(ctx, valAddr)
 	assert.True(t, found)
 	assert.Equal(t, v.GetDelegatorShares(), sdk.NewDec(1234567))
 
-	deposit := sdk.NewCoins(sdk.NewInt64Coin(core.MicroLunaDenom, 500000))
+	deposit := sdk.NewCoins(sdk.NewInt64Coin(core.MicroBiqDenom, 500000))
 	creatorAddr := createFakeFundedAccount(ctx, accKeeper, bankKeeper, deposit)
 
 	// upload staking derivative code
@@ -165,7 +165,7 @@ type InitInfo struct {
 func initializeStaking(t *testing.T, input TestInput) InitInfo {
 	ctx, accKeeper, bankKeeper, stakingKeeper, keeper := input.Ctx, input.AccKeeper, input.BankKeeper, input.StakingKeeper, input.WasmKeeper
 
-	valAddr := addValidator(ctx, stakingKeeper, accKeeper, bankKeeper, sdk.NewInt64Coin(core.MicroLunaDenom, 1000000))
+	valAddr := addValidator(ctx, stakingKeeper, accKeeper, bankKeeper, sdk.NewInt64Coin(core.MicroBiqDenom, 1000000))
 	ctx = nextBlock(ctx, stakingKeeper)
 
 	v, found := stakingKeeper.GetValidator(ctx, valAddr)
@@ -173,7 +173,7 @@ func initializeStaking(t *testing.T, input TestInput) InitInfo {
 	assert.Equal(t, v.GetDelegatorShares(), sdk.NewDec(1000000))
 	assert.Equal(t, v.Status, stakingtypes.Bonded)
 
-	deposit := sdk.NewCoins(sdk.NewInt64Coin(core.MicroLunaDenom, 500000))
+	deposit := sdk.NewCoins(sdk.NewInt64Coin(core.MicroBiqDenom, 500000))
 	creatorAddr := createFakeFundedAccount(ctx, accKeeper, bankKeeper, deposit)
 
 	// upload staking derivative code
@@ -215,14 +215,14 @@ func TestBonding(t *testing.T) {
 	initPower := val.GetDelegatorShares()
 
 	// bob has 160k, putting 80k into the contract
-	full := sdk.NewCoins(sdk.NewInt64Coin(core.MicroLunaDenom, 160000))
-	funds := sdk.NewCoins(sdk.NewInt64Coin(core.MicroLunaDenom, 80000))
+	full := sdk.NewCoins(sdk.NewInt64Coin(core.MicroBiqDenom, 160000))
+	funds := sdk.NewCoins(sdk.NewInt64Coin(core.MicroBiqDenom, 80000))
 	bob := createFakeFundedAccount(ctx, accKeeper, bankKeeper, full)
 
 	// check contract state before
 	assertBalance(t, ctx, keeper, contractAddr, bob, "0")
 	assertClaims(t, ctx, keeper, contractAddr, bob, "0")
-	assertSupply(t, ctx, keeper, contractAddr, "0", sdk.NewInt64Coin(core.MicroLunaDenom, 0))
+	assertSupply(t, ctx, keeper, contractAddr, "0", sdk.NewInt64Coin(core.MicroBiqDenom, 0))
 
 	bond := StakingHandleMsg{
 		Bond: &struct{}{},
@@ -249,7 +249,7 @@ func TestBonding(t *testing.T) {
 	// check we have the desired balance
 	assertBalance(t, ctx, keeper, contractAddr, bob, "80000")
 	assertClaims(t, ctx, keeper, contractAddr, bob, "0")
-	assertSupply(t, ctx, keeper, contractAddr, "80000", sdk.NewInt64Coin(core.MicroLunaDenom, 80000))
+	assertSupply(t, ctx, keeper, contractAddr, "80000", sdk.NewInt64Coin(core.MicroBiqDenom, 80000))
 }
 
 func TestUnbonding(t *testing.T) {
@@ -265,8 +265,8 @@ func TestUnbonding(t *testing.T) {
 	initPower := val.GetDelegatorShares()
 
 	// bob has 160k, putting 80k into the contract
-	full := sdk.NewCoins(sdk.NewInt64Coin(core.MicroLunaDenom, 160000))
-	funds := sdk.NewCoins(sdk.NewInt64Coin(core.MicroLunaDenom, 80000))
+	full := sdk.NewCoins(sdk.NewInt64Coin(core.MicroBiqDenom, 160000))
+	funds := sdk.NewCoins(sdk.NewInt64Coin(core.MicroBiqDenom, 80000))
 	bob := createFakeFundedAccount(ctx, accKeeper, bankKeeper, full)
 
 	bond := StakingHandleMsg{
@@ -316,7 +316,7 @@ func TestUnbonding(t *testing.T) {
 	assertBalance(t, ctx, keeper, contractAddr, bob, "50000")
 	assertBalance(t, ctx, keeper, contractAddr, creatorAddr, "3000")
 	assertClaims(t, ctx, keeper, contractAddr, bob, "27000")
-	assertSupply(t, ctx, keeper, contractAddr, "53000", sdk.NewInt64Coin(core.MicroLunaDenom, 53000))
+	assertSupply(t, ctx, keeper, contractAddr, "53000", sdk.NewInt64Coin(core.MicroBiqDenom, 53000))
 }
 
 func TestReinvest(t *testing.T) {
@@ -333,8 +333,8 @@ func TestReinvest(t *testing.T) {
 	assert.Equal(t, val.Tokens, sdk.NewInt(1000000), "%s", val.Tokens)
 
 	// full is 2x funds, 1x goes to the contract, other stays on his wallet
-	full := sdk.NewCoins(sdk.NewInt64Coin(core.MicroLunaDenom, 400000))
-	funds := sdk.NewCoins(sdk.NewInt64Coin(core.MicroLunaDenom, 200000))
+	full := sdk.NewCoins(sdk.NewInt64Coin(core.MicroBiqDenom, 400000))
+	funds := sdk.NewCoins(sdk.NewInt64Coin(core.MicroBiqDenom, 200000))
 	bob := createFakeFundedAccount(ctx, accKeeper, bankKeeper, full)
 
 	// we will stake 200k to a validator with 1M self-bond
@@ -351,7 +351,7 @@ func TestReinvest(t *testing.T) {
 	ctx = nextBlock(ctx, stakingKeeper)
 
 	// we get 1/6, our share should be 40k minus 10% commission = 36k
-	reward := sdk.NewInt64Coin(core.MicroLunaDenom, 240000)
+	reward := sdk.NewInt64Coin(core.MicroBiqDenom, 240000)
 	setValidatorRewards(ctx, accKeeper, bankKeeper, stakingKeeper, distrKeeper, valAddr, reward)
 
 	// this should withdraw our outstanding 40k of rewards and reinvest them in the same delegation
@@ -386,7 +386,7 @@ func TestReinvest(t *testing.T) {
 	assertBalance(t, ctx, keeper, contractAddr, bob, "200000")
 	assertBalance(t, ctx, keeper, contractAddr, creatorAddr, "0")
 	assertClaims(t, ctx, keeper, contractAddr, bob, "0")
-	assertSupply(t, ctx, keeper, contractAddr, "200000", sdk.NewInt64Coin(core.MicroLunaDenom, 236000))
+	assertSupply(t, ctx, keeper, contractAddr, "200000", sdk.NewInt64Coin(core.MicroBiqDenom, 236000))
 }
 
 func TestQueryStakingInfo(t *testing.T) {
@@ -402,8 +402,8 @@ func TestQueryStakingInfo(t *testing.T) {
 	assert.Equal(t, sdk.NewInt(1000000), val.Tokens)
 
 	// full is 2x funds, 1x goes to the contract, other stays on his wallet
-	full := sdk.NewCoins(sdk.NewInt64Coin(core.MicroLunaDenom, 400000))
-	funds := sdk.NewCoins(sdk.NewInt64Coin(core.MicroLunaDenom, 200000))
+	full := sdk.NewCoins(sdk.NewInt64Coin(core.MicroBiqDenom, 400000))
+	funds := sdk.NewCoins(sdk.NewInt64Coin(core.MicroBiqDenom, 200000))
 	bob := createFakeFundedAccount(ctx, accKeeper, bankKeeper, full)
 
 	// we will stake 200k to a validator with 1M self-bond
@@ -421,7 +421,7 @@ func TestQueryStakingInfo(t *testing.T) {
 	// we get 1/6, our share should be 40k minus 10% commission = 36k
 	setValidatorRewards(ctx, accKeeper, bankKeeper,
 		stakingKeeper, distKeeper, valAddr,
-		sdk.NewInt64Coin(core.MicroLunaDenom, 240000))
+		sdk.NewInt64Coin(core.MicroBiqDenom, 240000))
 
 	// see what the current rewards are
 	origReward := distKeeper.GetValidatorCurrentRewards(ctx, valAddr)
@@ -455,7 +455,7 @@ func TestQueryStakingInfo(t *testing.T) {
 	mustParse(t, res, &reflectRes)
 	var bondedRes wasmvmtypes.BondedDenomResponse
 	mustParse(t, reflectRes.Data, &bondedRes)
-	assert.Equal(t, core.MicroLunaDenom, bondedRes.Denom)
+	assert.Equal(t, core.MicroBiqDenom, bondedRes.Denom)
 
 	// now, let's reflect a smart query into the x/wasm handlers and see if we get the same result
 	reflectValidatorsQuery := ReflectQueryMsg{Chain: &ChainQuery{Request: &wasmvmtypes.QueryRequest{Staking: &wasmvmtypes.StakingQuery{
@@ -560,10 +560,10 @@ func TestQueryStakingInfo(t *testing.T) {
 	require.Equal(t, funds[0].Denom, delInfo2.Amount.Denom)
 	require.Equal(t, funds[0].Amount.String(), delInfo2.Amount.Amount)
 
-	require.Equal(t, wasmvmtypes.NewCoin(200000, core.MicroLunaDenom), delInfo2.CanRedelegate)
+	require.Equal(t, wasmvmtypes.NewCoin(200000, core.MicroBiqDenom), delInfo2.CanRedelegate)
 	require.Len(t, delInfo2.AccumulatedRewards, 1)
 	// see bonding above to see how we calculate 36000 (240000 / 6 - 10% commission)
-	require.Equal(t, wasmvmtypes.NewCoin(36000, core.MicroLunaDenom), delInfo2.AccumulatedRewards[0])
+	require.Equal(t, wasmvmtypes.NewCoin(36000, core.MicroBiqDenom), delInfo2.AccumulatedRewards[0])
 
 	// ensure rewards did not change when querying (neither amount nor period)
 	finalReward := distKeeper.GetValidatorCurrentRewards(ctx, valAddr)

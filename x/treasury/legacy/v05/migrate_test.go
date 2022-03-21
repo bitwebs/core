@@ -30,18 +30,18 @@ func TestMigrate(t *testing.T) {
 		TaxRate:      sdk.NewDecWithPrec(2, 2),
 		RewardWeight: sdk.NewDecWithPrec(5, 2),
 		TaxCaps: map[string]sdk.Int{
-			core.MicroLunaDenom: sdk.NewInt(1),
-			core.MicroSDRDenom:  sdk.NewInt(100),
+			core.MicroBiqDenom: sdk.NewInt(1),
+			core.MicroBSDRDenom:  sdk.NewInt(100),
 		},
 		TaxProceed: sdk.NewCoins(
-			sdk.NewCoin(core.MicroLunaDenom, sdk.NewInt(100)),
-			sdk.NewCoin(core.MicroSDRDenom, sdk.NewInt(1000)),
-			sdk.NewCoin(core.MicroUSDDenom, sdk.NewInt(5000)),
+			sdk.NewCoin(core.MicroBiqDenom, sdk.NewInt(100)),
+			sdk.NewCoin(core.MicroBSDRDenom, sdk.NewInt(1000)),
+			sdk.NewCoin(core.MicroBUSDDenom, sdk.NewInt(5000)),
 		),
 		EpochInitialIssuance: sdk.NewCoins(
-			sdk.NewCoin(core.MicroLunaDenom, sdk.NewInt(100)),
-			sdk.NewCoin(core.MicroSDRDenom, sdk.NewInt(1000)),
-			sdk.NewCoin(core.MicroUSDDenom, sdk.NewInt(5000)),
+			sdk.NewCoin(core.MicroBiqDenom, sdk.NewInt(100)),
+			sdk.NewCoin(core.MicroBSDRDenom, sdk.NewInt(1000)),
+			sdk.NewCoin(core.MicroBUSDDenom, sdk.NewInt(5000)),
 		),
 		CumulativeHeight: 100,
 		TRs: []sdk.Dec{
@@ -63,7 +63,7 @@ func TestMigrate(t *testing.T) {
 			TaxPolicy: v04treasury.PolicyConstraints{
 				RateMin:       sdk.NewDecWithPrec(1, 2),
 				RateMax:       sdk.NewDecWithPrec(10, 2),
-				Cap:           sdk.NewCoin(core.MicroSDRDenom, sdk.NewInt(1000000)),
+				Cap:           sdk.NewCoin(core.MicroBSDRDenom, sdk.NewInt(1000000)),
 				ChangeRateMax: sdk.NewDecWithPrec(5, 3),
 			},
 			RewardPolicy: v04treasury.PolicyConstraints{
@@ -98,15 +98,15 @@ func TestMigrate(t *testing.T) {
 	"epoch_initial_issuance": [
 		{
 			"amount": "100",
-			"denom": "uluna"
+			"denom": "ubiq"
 		},
 		{
 			"amount": "1000",
-			"denom": "usdr"
+			"denom": "ubsdr"
 		},
 		{
 			"amount": "5000",
-			"denom": "uusd"
+			"denom": "ubusd"
 		}
 	],
 	"epoch_states": [
@@ -114,19 +114,19 @@ func TestMigrate(t *testing.T) {
 			"epoch": "0",
 			"seigniorage_reward": "100.000000000000000000",
 			"tax_reward": "100.000000000000000000",
-			"total_staked_luna": "100"
+			"total_staked_biq": "100"
 		},
 		{
 			"epoch": "1",
 			"seigniorage_reward": "200.000000000000000000",
 			"tax_reward": "200.000000000000000000",
-			"total_staked_luna": "200"
+			"total_staked_biq": "200"
 		},
 		{
 			"epoch": "2",
 			"seigniorage_reward": "300.000000000000000000",
 			"tax_reward": "300.000000000000000000",
-			"total_staked_luna": "300"
+			"total_staked_biq": "300"
 		}
 	],
 	"params": {
@@ -144,7 +144,7 @@ func TestMigrate(t *testing.T) {
 		"tax_policy": {
 			"cap": {
 				"amount": "1000000",
-				"denom": "usdr"
+				"denom": "ubsdr"
 			},
 			"change_rate_max": "0.005000000000000000",
 			"rate_max": "0.100000000000000000",
@@ -157,26 +157,26 @@ func TestMigrate(t *testing.T) {
 	"reward_weight": "1.000000000000000000",
 	"tax_caps": [
 		{
-			"denom": "uluna",
+			"denom": "ubiq",
 			"tax_cap": "1"
 		},
 		{
-			"denom": "usdr",
+			"denom": "ubsdr",
 			"tax_cap": "100"
 		}
 	],
 	"tax_proceeds": [
 		{
 			"amount": "100",
-			"denom": "uluna"
+			"denom": "ubiq"
 		},
 		{
 			"amount": "1000",
-			"denom": "usdr"
+			"denom": "ubsdr"
 		},
 		{
 			"amount": "5000",
-			"denom": "uusd"
+			"denom": "ubusd"
 		}
 	],
 	"tax_rate": "0.020000000000000000"

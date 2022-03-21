@@ -67,7 +67,7 @@ func SimulateMsgSwap(
 		}
 
 		var whitelist []string
-		ok.IterateLunaExchangeRates(ctx, func(denom string, ex sdk.Dec) bool {
+		ok.IterateBiqExchangeRates(ctx, func(denom string, ex sdk.Dec) bool {
 			whitelist = append(whitelist, denom)
 			return false
 		})
@@ -80,11 +80,11 @@ func SimulateMsgSwap(
 		}
 
 		if randVal := simtypes.RandIntBetween(r, 0, whitelistLen*2); randVal < whitelistLen {
-			offerDenom = core.MicroLunaDenom
+			offerDenom = core.MicroBiqDenom
 			askDenom = whitelist[randVal]
 		} else {
 			offerDenom = whitelist[randVal-whitelistLen]
-			askDenom = core.MicroLunaDenom
+			askDenom = core.MicroBiqDenom
 		}
 
 		amount := simtypes.RandomAmount(r, spendable.AmountOf(offerDenom).Sub(fees.AmountOf(offerDenom)))
@@ -140,7 +140,7 @@ func SimulateMsgSwapSend(
 		}
 
 		var whitelist []string
-		ok.IterateLunaExchangeRates(ctx, func(denom string, ex sdk.Dec) bool {
+		ok.IterateBiqExchangeRates(ctx, func(denom string, ex sdk.Dec) bool {
 			whitelist = append(whitelist, denom)
 			return false
 		})
@@ -153,11 +153,11 @@ func SimulateMsgSwapSend(
 		}
 
 		if randVal := simtypes.RandIntBetween(r, 0, whitelistLen*2); randVal < whitelistLen {
-			offerDenom = core.MicroLunaDenom
+			offerDenom = core.MicroBiqDenom
 			askDenom = whitelist[randVal]
 		} else {
 			offerDenom = whitelist[randVal-whitelistLen]
-			askDenom = core.MicroLunaDenom
+			askDenom = core.MicroBiqDenom
 		}
 
 		// Check send_enabled status of offer denom

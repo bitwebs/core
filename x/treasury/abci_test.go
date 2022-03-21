@@ -23,7 +23,7 @@ func TestBurnAddress(t *testing.T) {
 func TestEndBlockerIssuanceUpdateWithBurnModule(t *testing.T) {
 	input := keeper.CreateTestInput(t)
 
-	supply := input.BankKeeper.GetSupply(input.Ctx, core.MicroLunaDenom)
+	supply := input.BankKeeper.GetSupply(input.Ctx, core.MicroBiqDenom)
 
 	input.Ctx = input.Ctx.WithBlockHeight(int64(core.BlocksPerWeek) - 1)
 	EndBlocker(input.Ctx, input.TreasuryKeeper)
@@ -31,8 +31,8 @@ func TestEndBlockerIssuanceUpdateWithBurnModule(t *testing.T) {
 	issuance := input.TreasuryKeeper.GetEpochInitialIssuance(input.Ctx)
 	require.Equal(t,
 		// subtract due to burn module account burning
-		supply.Amount.Sub(keeper.InitCoins.AmountOf(core.MicroLunaDenom)),
-		issuance.AmountOf(core.MicroLunaDenom))
+		supply.Amount.Sub(keeper.InitCoins.AmountOf(core.MicroBiqDenom)),
+		issuance.AmountOf(core.MicroBiqDenom))
 }
 
 func TestUpdate(t *testing.T) {

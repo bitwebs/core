@@ -27,7 +27,7 @@ var (
 	DefaultTaxPolicy = PolicyConstraints{
 		RateMin:       sdk.NewDecWithPrec(5, 4),                                             // 0.05%
 		RateMax:       sdk.NewDecWithPrec(1, 2),                                             // 1%
-		Cap:           sdk.NewCoin(core.MicroSDRDenom, sdk.OneInt().MulRaw(core.MicroUnit)), // 1 SDR Tax cap
+		Cap:           sdk.NewCoin(core.MicroBSDRDenom, sdk.OneInt().MulRaw(core.MicroUnit)), // 1 SDR Tax cap
 		ChangeRateMax: sdk.NewDecWithPrec(25, 5),                                            // 0.025%
 	}
 	DefaultRewardPolicy = PolicyConstraints{

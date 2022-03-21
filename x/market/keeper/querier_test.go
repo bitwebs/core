@@ -27,7 +27,7 @@ func TestQuerySwap(t *testing.T) {
 	querier := NewQuerier(input.MarketKeeper)
 
 	price := sdk.NewDecWithPrec(17, 1)
-	input.OracleKeeper.SetLunaExchangeRate(input.Ctx, core.MicroSDRDenom, price)
+	input.OracleKeeper.SetBiqExchangeRate(input.Ctx, core.MicroBSDRDenom, price)
 
 	var err error
 
@@ -36,29 +36,29 @@ func TestQuerySwap(t *testing.T) {
 	require.Error(t, err)
 
 	// empty ask denom cause error
-	_, err = querier.Swap(ctx, &types.QuerySwapRequest{OfferCoin: sdk.Coin{Denom: core.MicroSDRDenom, Amount: sdk.NewInt(100)}.String()})
+	_, err = querier.Swap(ctx, &types.QuerySwapRequest{OfferCoin: sdk.Coin{Denom: core.MicroBSDRDenom, Amount: sdk.NewInt(100)}.String()})
 	require.Error(t, err)
 
 	// empty offer coin cause error
-	_, err = querier.Swap(ctx, &types.QuerySwapRequest{AskDenom: core.MicroSDRDenom})
+	_, err = querier.Swap(ctx, &types.QuerySwapRequest{AskDenom: core.MicroBSDRDenom})
 	require.Error(t, err)
 
 	// recursive query
-	offerCoin := sdk.NewCoin(core.MicroLunaDenom, sdk.NewInt(10)).String()
-	res, err := querier.Swap(ctx, &types.QuerySwapRequest{OfferCoin: offerCoin, AskDenom: core.MicroLunaDenom})
+	offerCoin := sdk.NewCoin(core.MicroBiqDenom, sdk.NewInt(10)).String()
+	res, err := querier.Swap(ctx, &types.QuerySwapRequest{OfferCoin: offerCoin, AskDenom: core.MicroBiqDenom})
 	require.Error(t, err)
 
 	// overflow query
 	overflowAmt, _ := sdk.NewIntFromString("1000000000000000000000000000000000")
-	overflowOfferCoin := sdk.NewCoin(core.MicroLunaDenom, overflowAmt).String()
-	_, err = querier.Swap(ctx, &types.QuerySwapRequest{OfferCoin: overflowOfferCoin, AskDenom: core.MicroSDRDenom})
+	overflowOfferCoin := sdk.NewCoin(core.MicroBiqDenom, overflowAmt).String()
+	_, err = querier.Swap(ctx, &types.QuerySwapRequest{OfferCoin: overflowOfferCoin, AskDenom: core.MicroBSDRDenom})
 	require.Error(t, err)
 
 	// valid query
-	res, err = querier.Swap(ctx, &types.QuerySwapRequest{OfferCoin: offerCoin, AskDenom: core.MicroSDRDenom})
+	res, err = querier.Swap(ctx, &types.QuerySwapRequest{OfferCoin: offerCoin, AskDenom: core.MicroBSDRDenom})
 	require.NoError(t, err)
 
-	require.Equal(t, core.MicroSDRDenom, res.ReturnCoin.Denom)
+	require.Equal(t, core.MicroBSDRDenom, res.ReturnCoin.Denom)
 	require.True(t, sdk.NewInt(17).GTE(res.ReturnCoin.Amount))
 	require.True(t, res.ReturnCoin.Amount.IsPositive())
 }
@@ -70,10 +70,10 @@ func TestQueryMintPoolDelta(t *testing.T) {
 	querier := NewQuerier(input.MarketKeeper)
 
 	poolDelta := sdk.NewDecWithPrec(17, 1)
-	input.MarketKeeper.SetTerraPoolDelta(input.Ctx, poolDelta)
+	input.MarketKeeper.SetIqPoolDelta(input.Ctx, poolDelta)
 
-	res, errRes := querier.TerraPoolDelta(ctx, &types.QueryTerraPoolDeltaRequest{})
+	res, errRes := querier.IqPoolDelta(ctx, &types.QueryIqPoolDeltaRequest{})
 	require.NoError(t, errRes)
 
-	require.Equal(t, poolDelta, res.TerraPoolDelta)
+	require.Equal(t, poolDelta, res.IqPoolDelta)
 }

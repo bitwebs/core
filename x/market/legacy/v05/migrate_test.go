@@ -27,7 +27,7 @@ func TestMigrate(t *testing.T) {
 		WithCodec(encodingConfig.Marshaler)
 
 	marketGenState := v04market.GenesisState{
-		TerraPoolDelta: sdk.ZeroDec(),
+		IqPoolDelta: sdk.ZeroDec(),
 		Params: v04market.Params{
 			BasePool:           sdk.NewDec(1000000),
 			PoolRecoveryPeriod: int64(10000),
@@ -55,7 +55,7 @@ func TestMigrate(t *testing.T) {
 		"min_stability_spread": "0.020000000000000000",
 		"pool_recovery_period": "10000"
 	},
-	"terra_pool_delta": "0.000000000000000000"
+	"iq_pool_delta": "0.000000000000000000"
 }`
 
 	assert.JSONEq(t, expected, string(indentedBz))

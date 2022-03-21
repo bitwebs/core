@@ -58,10 +58,10 @@ func (k Keeper) Logger(ctx sdk.Context) log.Logger {
 	return ctx.Logger().With("module", fmt.Sprintf("x/%s", types.ModuleName))
 }
 
-// GetTerraPoolDelta returns the gap between the TerraPool and the TerraBasePool
-func (k Keeper) GetTerraPoolDelta(ctx sdk.Context) sdk.Dec {
+// GetIqPoolDelta returns the gap between the IqPool and the IqBasePool
+func (k Keeper) GetIqPoolDelta(ctx sdk.Context) sdk.Dec {
 	store := ctx.KVStore(k.storeKey)
-	bz := store.Get(types.TerraPoolDeltaKey)
+	bz := store.Get(types.IqPoolDeltaKey)
 	if bz == nil {
 		return sdk.ZeroDec()
 	}
@@ -71,16 +71,16 @@ func (k Keeper) GetTerraPoolDelta(ctx sdk.Context) sdk.Dec {
 	return dp.Dec
 }
 
-// SetTerraPoolDelta updates TerraPoolDelta which is gap between the TerraPool and the BasePool
-func (k Keeper) SetTerraPoolDelta(ctx sdk.Context, delta sdk.Dec) {
+// SetIqPoolDelta updates IqPoolDelta which is gap between the IqPool and the BasePool
+func (k Keeper) SetIqPoolDelta(ctx sdk.Context, delta sdk.Dec) {
 	store := ctx.KVStore(k.storeKey)
 	bz := k.cdc.MustMarshal(&sdk.DecProto{Dec: delta})
-	store.Set(types.TerraPoolDeltaKey, bz)
+	store.Set(types.IqPoolDeltaKey, bz)
 }
 
-// ReplenishPools replenishes each pool(Terra,Luna) to BasePool
+// ReplenishPools replenishes each pool(Iq,Biq) to BasePool
 func (k Keeper) ReplenishPools(ctx sdk.Context) {
-	poolDelta := k.GetTerraPoolDelta(ctx)
+	poolDelta := k.GetIqPoolDelta(ctx)
 
 	poolRecoveryPeriod := int64(k.PoolRecoveryPeriod(ctx))
 	poolRegressionAmt := poolDelta.QuoInt64(poolRecoveryPeriod)
@@ -89,5 +89,5 @@ func (k Keeper) ReplenishPools(ctx sdk.Context) {
 	// regressionAmt cannot make delta zero
 	poolDelta = poolDelta.Sub(poolRegressionAmt)
 
-	k.SetTerraPoolDelta(ctx, poolDelta)
+	k.SetIqPoolDelta(ctx, poolDelta)
 }

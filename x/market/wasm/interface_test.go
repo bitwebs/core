@@ -48,14 +48,14 @@ func TestEncoding(t *testing.T) {
 				Custom: []byte(
 					fmt.Sprintf(
 						`{"swap": {"trader": "%s", "offer_coin": {"amount": "1234", "denom": "%s"}, "ask_denom": "%s"}}`,
-						addrs[0], core.MicroLunaDenom, core.MicroSDRDenom,
+						addrs[0], core.MicroBiqDenom, core.MicroBSDRDenom,
 					),
 				),
 			},
 			output: &types.MsgSwap{
 				Trader:    addrs[0].String(),
-				OfferCoin: sdk.NewInt64Coin(core.MicroLunaDenom, 1234),
-				AskDenom:  core.MicroSDRDenom,
+				OfferCoin: sdk.NewInt64Coin(core.MicroBiqDenom, 1234),
+				AskDenom:  core.MicroBSDRDenom,
 			},
 		},
 		"simple swap send": {
@@ -64,15 +64,15 @@ func TestEncoding(t *testing.T) {
 				Custom: []byte(
 					fmt.Sprintf(
 						`{"swap_send": {"from_address": "%s", "to_address": "%s", "offer_coin": {"amount": "1234", "denom": "%s"}, "ask_denom": "%s"}}`,
-						addrs[0], addrs[1], core.MicroLunaDenom, core.MicroSDRDenom,
+						addrs[0], addrs[1], core.MicroBiqDenom, core.MicroBSDRDenom,
 					),
 				),
 			},
 			output: &types.MsgSwapSend{
 				FromAddress: addrs[0].String(),
 				ToAddress:   addrs[1].String(),
-				OfferCoin:   sdk.NewInt64Coin(core.MicroLunaDenom, 1234),
-				AskDenom:    core.MicroSDRDenom,
+				OfferCoin:   sdk.NewInt64Coin(core.MicroBiqDenom, 1234),
+				AskDenom:    core.MicroBSDRDenom,
 			},
 		},
 		"invalid swap amount": {
@@ -81,7 +81,7 @@ func TestEncoding(t *testing.T) {
 				Custom: []byte(
 					fmt.Sprintf(
 						`{"swap": {"trader": "%s", "offer_coin": {"amount": "1234.123", "denom": "%s"}, "ask_denom": "%s"}}`,
-						addrs[0], core.MicroLunaDenom, core.MicroSDRDenom,
+						addrs[0], core.MicroBiqDenom, core.MicroBSDRDenom,
 					),
 				),
 			},
@@ -93,7 +93,7 @@ func TestEncoding(t *testing.T) {
 				Custom: []byte(
 					fmt.Sprintf(
 						`{"swap_send": {"to_address": "%s", "offer_coin": {"amount": "1234", "denom": "%s"}, "ask_denom": "%s"}}`,
-						invalidAddr, core.MicroLunaDenom, core.MicroSDRDenom,
+						invalidAddr, core.MicroBiqDenom, core.MicroBSDRDenom,
 					),
 				),
 			},
@@ -120,7 +120,7 @@ func TestQuerySwap(t *testing.T) {
 	input := keeper.CreateTestInput(t)
 
 	price := sdk.NewDecWithPrec(17, 1)
-	input.OracleKeeper.SetLunaExchangeRate(input.Ctx, core.MicroSDRDenom, price)
+	input.OracleKeeper.SetBiqExchangeRate(input.Ctx, core.MicroBSDRDenom, price)
 
 	querier := NewWasmQuerier(input.MarketKeeper)
 	var err error
@@ -130,8 +130,8 @@ func TestQuerySwap(t *testing.T) {
 	require.Error(t, err)
 
 	// recursive query
-	offerCoin := sdk.NewCoin(core.MicroLunaDenom, sdk.NewInt(10))
-	queryParams := types.NewQuerySwapParams(offerCoin, core.MicroLunaDenom)
+	offerCoin := sdk.NewCoin(core.MicroBiqDenom, sdk.NewInt(10))
+	queryParams := types.NewQuerySwapParams(offerCoin, core.MicroBiqDenom)
 	bz, err := json.Marshal(CosmosQuery{
 		Swap: &queryParams,
 	})
@@ -143,8 +143,8 @@ func TestQuerySwap(t *testing.T) {
 
 	// overflow query
 	overflowAmt, _ := sdk.NewIntFromString("1000000000000000000000000000000000")
-	overflowOfferCoin := sdk.NewCoin(core.MicroLunaDenom, overflowAmt)
-	queryParams = types.NewQuerySwapParams(overflowOfferCoin, core.MicroSDRDenom)
+	overflowOfferCoin := sdk.NewCoin(core.MicroBiqDenom, overflowAmt)
+	queryParams = types.NewQuerySwapParams(overflowOfferCoin, core.MicroBSDRDenom)
 	bz, err = json.Marshal(CosmosQuery{
 		Swap: &queryParams,
 	})
@@ -154,7 +154,7 @@ func TestQuerySwap(t *testing.T) {
 	require.Error(t, err)
 
 	// valid query
-	queryParams = types.NewQuerySwapParams(offerCoin, core.MicroSDRDenom)
+	queryParams = types.NewQuerySwapParams(offerCoin, core.MicroBSDRDenom)
 	bz, err = json.Marshal(CosmosQuery{
 		Swap: &queryParams,
 	})
@@ -169,7 +169,7 @@ func TestQuerySwap(t *testing.T) {
 
 	swapAmount, ok := sdk.NewIntFromString(swapResponse.Receive.Amount)
 	require.True(t, ok)
-	require.Equal(t, core.MicroSDRDenom, swapResponse.Receive.Denom)
+	require.Equal(t, core.MicroBSDRDenom, swapResponse.Receive.Denom)
 	require.True(t, sdk.NewInt(17).GTE(swapAmount))
 	require.True(t, swapAmount.IsPositive())
 }

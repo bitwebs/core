@@ -25,8 +25,8 @@ func TestDispatchSubMsgSuccessCase(t *testing.T) {
 	input := CreateTestInput(t)
 	ctx, accKeeper, keeper, bankKeeper := input.Ctx, input.AccKeeper, input.WasmKeeper, input.BankKeeper
 
-	deposit := sdk.NewCoins(sdk.NewInt64Coin(core.MicroLunaDenom, 100000))
-	contractStart := sdk.NewCoins(sdk.NewInt64Coin(core.MicroLunaDenom, 40000))
+	deposit := sdk.NewCoins(sdk.NewInt64Coin(core.MicroBiqDenom, 100000))
+	contractStart := sdk.NewCoins(sdk.NewInt64Coin(core.MicroBiqDenom, 40000))
 
 	creator := createFakeFundedAccount(ctx, accKeeper, bankKeeper, deposit)
 	creatorBalance := deposit.Sub(contractStart)
@@ -50,7 +50,7 @@ func TestDispatchSubMsgSuccessCase(t *testing.T) {
 	checkAccount(t, ctx, accKeeper, bankKeeper, fred, nil)
 
 	// creator can send contract's tokens to fred (using SendMsg)
-	sentCoins := sdk.NewCoins(sdk.NewCoin(core.MicroLunaDenom, sdk.NewInt(15000)))
+	sentCoins := sdk.NewCoins(sdk.NewCoin(core.MicroBiqDenom, sdk.NewInt(15000)))
 	msg := wasmvmtypes.CosmosMsg{
 		Bank: &wasmvmtypes.BankMsg{
 			Send: &wasmvmtypes.SendMsg{
@@ -74,9 +74,9 @@ func TestDispatchSubMsgSuccessCase(t *testing.T) {
 	require.NoError(t, err)
 
 	// fred got coins
-	checkAccount(t, ctx, accKeeper, bankKeeper, fred, sdk.NewCoins(sdk.NewInt64Coin(core.MicroLunaDenom, 15000)))
+	checkAccount(t, ctx, accKeeper, bankKeeper, fred, sdk.NewCoins(sdk.NewInt64Coin(core.MicroBiqDenom, 15000)))
 	// contract lost them
-	checkAccount(t, ctx, accKeeper, bankKeeper, contractAddr, sdk.NewCoins(sdk.NewInt64Coin(core.MicroLunaDenom, 25000)))
+	checkAccount(t, ctx, accKeeper, bankKeeper, contractAddr, sdk.NewCoins(sdk.NewInt64Coin(core.MicroBiqDenom, 25000)))
 	checkAccount(t, ctx, accKeeper, bankKeeper, creator, creatorBalance)
 
 	// query the reflect state to ensure the result was stored
@@ -130,7 +130,7 @@ func TestDispatchSubMsgSuccessCase(t *testing.T) {
 }
 
 func TestDispatchSubMsgErrorHandling(t *testing.T) {
-	fundedDenom := core.MicroLunaDenom
+	fundedDenom := core.MicroBiqDenom
 	fundedAmount := 1_000_000
 	ctxGasLimit := uint64(1_000_000)
 	subGasLimit := uint64(300_000)
@@ -394,8 +394,8 @@ func TestDispatchSubMsgConditionalReplyOn(t *testing.T) {
 	input := CreateTestInput(t)
 	ctx, accKeeper, keeper, bankKeeper := input.Ctx, input.AccKeeper, input.WasmKeeper, input.BankKeeper
 
-	deposit := sdk.NewCoins(sdk.NewInt64Coin(core.MicroLunaDenom, 100000))
-	contractStart := sdk.NewCoins(sdk.NewInt64Coin(core.MicroLunaDenom, 40000))
+	deposit := sdk.NewCoins(sdk.NewInt64Coin(core.MicroBiqDenom, 100000))
+	contractStart := sdk.NewCoins(sdk.NewInt64Coin(core.MicroBiqDenom, 40000))
 
 	creator := createFakeFundedAccount(ctx, accKeeper, bankKeeper, deposit)
 	_, _, fred := keyPubAddr()
@@ -415,7 +415,7 @@ func TestDispatchSubMsgConditionalReplyOn(t *testing.T) {
 			Send: &wasmvmtypes.SendMsg{
 				ToAddress: fred.String(),
 				Amount: []wasmvmtypes.Coin{{
-					Denom:  core.MicroLunaDenom,
+					Denom:  core.MicroBiqDenom,
 					Amount: "1000",
 				}},
 			},

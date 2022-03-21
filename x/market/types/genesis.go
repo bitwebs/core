@@ -8,9 +8,9 @@ import (
 )
 
 // NewGenesisState creates a new GenesisState object
-func NewGenesisState(terraPoolDelta sdk.Dec, params Params) *GenesisState {
+func NewGenesisState(iqPoolDelta sdk.Dec, params Params) *GenesisState {
 	return &GenesisState{
-		TerraPoolDelta: terraPoolDelta,
+		IqPoolDelta: iqPoolDelta,
 		Params:         params,
 	}
 }
@@ -18,7 +18,7 @@ func NewGenesisState(terraPoolDelta sdk.Dec, params Params) *GenesisState {
 // DefaultGenesisState returns raw genesis raw message for testing
 func DefaultGenesisState() *GenesisState {
 	return &GenesisState{
-		TerraPoolDelta: sdk.ZeroDec(),
+		IqPoolDelta: sdk.ZeroDec(),
 		Params:         DefaultParams(),
 	}
 }

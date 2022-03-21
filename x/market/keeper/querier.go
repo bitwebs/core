@@ -54,9 +54,9 @@ func (q querier) Swap(c context.Context, req *types.QuerySwapRequest) (*types.Qu
 	return &types.QuerySwapResponse{ReturnCoin: retCoin}, nil
 }
 
-// TerraPoolDelta queries terra pool delta
-func (q querier) TerraPoolDelta(c context.Context, req *types.QueryTerraPoolDeltaRequest) (*types.QueryTerraPoolDeltaResponse, error) {
+// IqPoolDelta queries iq pool delta
+func (q querier) IqPoolDelta(c context.Context, req *types.QueryIqPoolDeltaRequest) (*types.QueryIqPoolDeltaResponse, error) {
 	ctx := sdk.UnwrapSDKContext(c)
-	terraPoolDelta := q.GetTerraPoolDelta(ctx)
-	return &types.QueryTerraPoolDeltaResponse{TerraPoolDelta: terraPoolDelta}, nil
+	iqPoolDelta := q.GetIqPoolDelta(ctx)
+	return &types.QueryIqPoolDeltaResponse{IqPoolDelta: iqPoolDelta}, nil
 }

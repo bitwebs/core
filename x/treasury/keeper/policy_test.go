@@ -34,7 +34,7 @@ func TestUpdateTaxRate(t *testing.T) {
 	for i := uint64(0); i < windowLong; i++ {
 		input.Ctx = input.Ctx.WithBlockHeight(int64(i * core.BlocksPerWeek))
 
-		taxProceeds := sdk.NewCoins(sdk.NewCoin(core.MicroSDRDenom, sdk.ZeroInt()))
+		taxProceeds := sdk.NewCoins(sdk.NewCoin(core.MicroBSDRDenom, sdk.ZeroInt()))
 		input.TreasuryKeeper.RecordEpochTaxProceeds(input.Ctx, taxProceeds)
 		input.TreasuryKeeper.UpdateIndicators(input.Ctx)
 	}
@@ -46,7 +46,7 @@ func TestUpdateTaxRate(t *testing.T) {
 
 func TestUpdateRewardWeight(t *testing.T) {
 	input := CreateTestInput(t)
-	input.OracleKeeper.SetLunaExchangeRate(input.Ctx, core.MicroSDRDenom, sdk.OneDec())
+	input.OracleKeeper.SetBiqExchangeRate(input.Ctx, core.MicroBSDRDenom, sdk.OneDec())
 	sh := staking.NewHandler(input.StakingKeeper)
 
 	// Create Validators
@@ -68,7 +68,7 @@ func TestUpdateRewardWeight(t *testing.T) {
 	require.Equal(t, types.DefaultRewardWeight.Add(rewardPolicy.ChangeRateMax), rewardWeight)
 
 	// Case 2: huge seigniorage rewards will decrease reward weight by %types.DefaultSeigniorageBurdenTarget
-	input.TreasuryKeeper.SetEpochInitialIssuance(input.Ctx, sdk.NewCoins(sdk.NewCoin(core.MicroLunaDenom, sdk.NewInt(1000000000000))))
+	input.TreasuryKeeper.SetEpochInitialIssuance(input.Ctx, sdk.NewCoins(sdk.NewCoin(core.MicroBiqDenom, sdk.NewInt(1000000000000))))
 	input.TreasuryKeeper.UpdateIndicators(input.Ctx)
 	input.TreasuryKeeper.UpdateRewardPolicy(input.Ctx)
 	rewardWeight = input.TreasuryKeeper.GetRewardWeight(input.Ctx)
@@ -81,25 +81,25 @@ func TestUpdateTaxCap(t *testing.T) {
 		input.Ctx,
 		oracletypes.DenomList{
 			{
-				Name: core.MicroLunaDenom,
+				Name: core.MicroBiqDenom,
 			},
 			{
-				Name: core.MicroSDRDenom,
+				Name: core.MicroBSDRDenom,
 			},
 			{
-				Name: core.MicroKRWDenom,
+				Name: core.MicroBKRWDenom,
 			},
 		},
 	)
 
 	// Create Validators
 	sdrPrice := sdk.NewDecWithPrec(13, 1)
-	input.OracleKeeper.SetLunaExchangeRate(input.Ctx, core.MicroSDRDenom, sdrPrice)
+	input.OracleKeeper.SetBiqExchangeRate(input.Ctx, core.MicroBSDRDenom, sdrPrice)
 	krwPrice := sdk.NewDecWithPrec(153412, 2)
-	input.OracleKeeper.SetLunaExchangeRate(input.Ctx, core.MicroKRWDenom, krwPrice)
+	input.OracleKeeper.SetBiqExchangeRate(input.Ctx, core.MicroBKRWDenom, krwPrice)
 	input.TreasuryKeeper.UpdateTaxCap(input.Ctx)
 
-	krwCap := input.TreasuryKeeper.GetTaxCap(input.Ctx, core.MicroKRWDenom)
+	krwCap := input.TreasuryKeeper.GetTaxCap(input.Ctx, core.MicroBKRWDenom)
 	sdrCapAmt := input.TreasuryKeeper.GetParams(input.Ctx).TaxPolicy.Cap.Amount
 	require.Equal(t, krwCap, krwPrice.Quo(sdrPrice).MulInt(sdrCapAmt).TruncateInt())
 }

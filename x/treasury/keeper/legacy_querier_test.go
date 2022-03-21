@@ -243,7 +243,7 @@ func TestLegacyQueryTaxProceeds(t *testing.T) {
 	querier := NewLegacyQuerier(input.TreasuryKeeper, input.Cdc)
 
 	taxProceeds := sdk.Coins{
-		sdk.NewCoin(core.MicroSDRDenom, sdk.NewInt(1000).MulRaw(core.MicroUnit)),
+		sdk.NewCoin(core.MicroBSDRDenom, sdk.NewInt(1000).MulRaw(core.MicroUnit)),
 	}
 	input.TreasuryKeeper.RecordEpochTaxProceeds(input.Ctx, taxProceeds)
 
@@ -260,7 +260,7 @@ func TestLegacyQuerySeigniorageProceeds(t *testing.T) {
 	input.TreasuryKeeper.RecordEpochInitialIssuance(input.Ctx)
 
 	input.Ctx = input.Ctx.WithBlockHeight(int64(core.BlocksPerWeek))
-	input.BankKeeper.BurnCoins(input.Ctx, faucetAccountName, sdk.NewCoins(sdk.NewCoin(core.MicroLunaDenom, targetSeigniorage)))
+	input.BankKeeper.BurnCoins(input.Ctx, faucetAccountName, sdk.NewCoins(sdk.NewCoin(core.MicroBiqDenom, targetSeigniorage)))
 
 	queriedSeigniorageProceeds := getQueriedSeigniorageProceeds(t, input.Ctx, input.Cdc, querier, input.TreasuryKeeper.GetEpoch(input.Ctx))
 
@@ -283,7 +283,7 @@ func TestLegacyQueryIndicators(t *testing.T) {
 	staking.EndBlocker(input.Ctx.WithBlockHeight(int64(core.BlocksPerWeek)-1), input.StakingKeeper)
 
 	proceedsAmt := sdk.NewInt(1000000000000)
-	taxProceeds := sdk.NewCoins(sdk.NewCoin(core.MicroSDRDenom, proceedsAmt))
+	taxProceeds := sdk.NewCoins(sdk.NewCoin(core.MicroBSDRDenom, proceedsAmt))
 	input.TreasuryKeeper.RecordEpochTaxProceeds(input.Ctx, taxProceeds)
 
 	targetIndicators := types.IndicatorQueryResponse{

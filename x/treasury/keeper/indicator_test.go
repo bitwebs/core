@@ -15,17 +15,17 @@ func TestFeeRewardsForEpoch(t *testing.T) {
 	taxAmount := sdk.NewInt(1000).MulRaw(core.MicroUnit)
 
 	// Set random prices
-	input.OracleKeeper.SetLunaExchangeRate(input.Ctx, core.MicroSDRDenom, sdk.NewDec(1))
-	input.OracleKeeper.SetLunaExchangeRate(input.Ctx, core.MicroKRWDenom, sdk.NewDec(10))
-	input.OracleKeeper.SetLunaExchangeRate(input.Ctx, core.MicroGBPDenom, sdk.NewDec(100))
-	input.OracleKeeper.SetLunaExchangeRate(input.Ctx, core.MicroCNYDenom, sdk.NewDec(1000))
+	input.OracleKeeper.SetBiqExchangeRate(input.Ctx, core.MicroBSDRDenom, sdk.NewDec(1))
+	input.OracleKeeper.SetBiqExchangeRate(input.Ctx, core.MicroBKRWDenom, sdk.NewDec(10))
+	input.OracleKeeper.SetBiqExchangeRate(input.Ctx, core.MicroBGBPDenom, sdk.NewDec(100))
+	input.OracleKeeper.SetBiqExchangeRate(input.Ctx, core.MicroBCNYDenom, sdk.NewDec(1000))
 
 	// Record tax proceeds
 	input.TreasuryKeeper.RecordEpochTaxProceeds(input.Ctx, sdk.Coins{
-		sdk.NewCoin(core.MicroSDRDenom, taxAmount),
-		sdk.NewCoin(core.MicroKRWDenom, taxAmount),
-		sdk.NewCoin(core.MicroGBPDenom, taxAmount),
-		sdk.NewCoin(core.MicroCNYDenom, taxAmount),
+		sdk.NewCoin(core.MicroBSDRDenom, taxAmount),
+		sdk.NewCoin(core.MicroBKRWDenom, taxAmount),
+		sdk.NewCoin(core.MicroBGBPDenom, taxAmount),
+		sdk.NewCoin(core.MicroBCNYDenom, taxAmount),
 	}.Sort())
 
 	// Update Indicators
@@ -46,11 +46,11 @@ func TestSeigniorageRewardsForEpoch(t *testing.T) {
 	input.TreasuryKeeper.RecordEpochInitialIssuance(input.Ctx)
 
 	// Set random prices
-	input.OracleKeeper.SetLunaExchangeRate(input.Ctx, core.MicroSDRDenom, sdrRate)
+	input.OracleKeeper.SetBiqExchangeRate(input.Ctx, core.MicroBSDRDenom, sdrRate)
 	input.Ctx = input.Ctx.WithBlockHeight(int64(core.BlocksPerWeek))
 
 	// Add seigniorage
-	err := input.BankKeeper.BurnCoins(input.Ctx, faucetAccountName, sdk.NewCoins(sdk.NewCoin(core.MicroLunaDenom, amt)))
+	err := input.BankKeeper.BurnCoins(input.Ctx, faucetAccountName, sdk.NewCoins(sdk.NewCoin(core.MicroBiqDenom, amt)))
 	require.NoError(t, err)
 
 	// Update Indicators
@@ -69,23 +69,23 @@ func TestMiningRewardsForEpoch(t *testing.T) {
 	input.TreasuryKeeper.RecordEpochInitialIssuance(input.Ctx)
 
 	// Set random prices
-	input.OracleKeeper.SetLunaExchangeRate(input.Ctx, core.MicroSDRDenom, sdk.NewDec(1))
-	input.OracleKeeper.SetLunaExchangeRate(input.Ctx, core.MicroKRWDenom, sdk.NewDec(10))
-	input.OracleKeeper.SetLunaExchangeRate(input.Ctx, core.MicroGBPDenom, sdk.NewDec(100))
-	input.OracleKeeper.SetLunaExchangeRate(input.Ctx, core.MicroCNYDenom, sdk.NewDec(1000))
+	input.OracleKeeper.SetBiqExchangeRate(input.Ctx, core.MicroBSDRDenom, sdk.NewDec(1))
+	input.OracleKeeper.SetBiqExchangeRate(input.Ctx, core.MicroBKRWDenom, sdk.NewDec(10))
+	input.OracleKeeper.SetBiqExchangeRate(input.Ctx, core.MicroBGBPDenom, sdk.NewDec(100))
+	input.OracleKeeper.SetBiqExchangeRate(input.Ctx, core.MicroBCNYDenom, sdk.NewDec(1000))
 
 	input.Ctx = input.Ctx.WithBlockHeight(int64(core.BlocksPerWeek))
 
 	// Record tax proceeds
 	input.TreasuryKeeper.RecordEpochTaxProceeds(input.Ctx, sdk.Coins{
-		sdk.NewCoin(core.MicroSDRDenom, amt),
-		sdk.NewCoin(core.MicroKRWDenom, amt),
-		sdk.NewCoin(core.MicroGBPDenom, amt),
-		sdk.NewCoin(core.MicroCNYDenom, amt),
+		sdk.NewCoin(core.MicroBSDRDenom, amt),
+		sdk.NewCoin(core.MicroBKRWDenom, amt),
+		sdk.NewCoin(core.MicroBGBPDenom, amt),
+		sdk.NewCoin(core.MicroBCNYDenom, amt),
 	}.Sort())
 
 	// Add seigniorage
-	err := input.BankKeeper.BurnCoins(input.Ctx, faucetAccountName, sdk.NewCoins(sdk.NewCoin(core.MicroLunaDenom, amt)))
+	err := input.BankKeeper.BurnCoins(input.Ctx, faucetAccountName, sdk.NewCoins(sdk.NewCoin(core.MicroBiqDenom, amt)))
 	require.NoError(t, err)
 
 	input.TreasuryKeeper.UpdateIndicators(input.Ctx)

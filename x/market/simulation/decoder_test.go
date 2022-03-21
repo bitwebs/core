@@ -17,11 +17,11 @@ func TestDecodeDistributionStore(t *testing.T) {
 	cdc := keeper.MakeTestCodec(t)
 	dec := NewDecodeStore(cdc)
 
-	terraDelta := sdk.NewDecWithPrec(12, 2)
+	iqDelta := sdk.NewDecWithPrec(12, 2)
 
 	kvPairs := kv.Pairs{
 		Pairs: []kv.Pair{
-			{Key: types.TerraPoolDeltaKey, Value: cdc.MustMarshal(&sdk.DecProto{Dec: terraDelta})},
+			{Key: types.IqPoolDeltaKey, Value: cdc.MustMarshal(&sdk.DecProto{Dec: iqDelta})},
 			{Key: []byte{0x99}, Value: []byte{0x99}},
 		},
 	}
@@ -30,7 +30,7 @@ func TestDecodeDistributionStore(t *testing.T) {
 		name        string
 		expectedLog string
 	}{
-		{"TerraPoolDelta", fmt.Sprintf("%v\n%v", terraDelta, terraDelta)},
+		{"IqPoolDelta", fmt.Sprintf("%v\n%v", iqDelta, iqDelta)},
 		{"other", ""},
 	}
 

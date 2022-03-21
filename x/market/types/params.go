@@ -13,7 +13,7 @@ import (
 
 // Parameter keys
 var (
-	// Terra liquidity pool(usdr unit) made available per ${PoolRecoveryPeriod} (usdr unit)
+	// Iq liquidity pool(ubsdr unit) made available per ${PoolRecoveryPeriod} (ubsdr unit)
 	KeyBasePool = []byte("BasePool")
 	// The period required to recover BasePool
 	KeyPoolRecoveryPeriod = []byte("PoolRecoveryPeriod")
@@ -23,7 +23,7 @@ var (
 
 // Default parameter values
 var (
-	DefaultBasePool           = sdk.NewDec(1000000 * core.MicroUnit) // 1000,000sdr = 1000,000,000,000usdr
+	DefaultBasePool           = sdk.NewDec(1000000 * core.MicroUnit) // 1000,000bsdr = 1000,000,000,000ubsdr
 	DefaultPoolRecoveryPeriod = core.BlocksPerDay                    // 14,400
 	DefaultMinStabilitySpread = sdk.NewDecWithPrec(2, 2)             // 2%
 )

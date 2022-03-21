@@ -50,16 +50,16 @@ func TestQueryTaxCap(t *testing.T) {
 	ctx := sdk.WrapSDKContext(input.Ctx)
 
 	taxCap := sdk.NewInt(1000000000)
-	input.TreasuryKeeper.SetTaxCap(input.Ctx, core.MicroKRWDenom, taxCap)
+	input.TreasuryKeeper.SetTaxCap(input.Ctx, core.MicroBKRWDenom, taxCap)
 
 	querier := NewQuerier(input.TreasuryKeeper)
 	res, err := querier.TaxCap(ctx, &types.QueryTaxCapRequest{
-		Denom: core.MicroKRWDenom,
+		Denom: core.MicroBKRWDenom,
 	})
 	require.NoError(t, err)
 
 	require.Equal(t, taxCap, res.TaxCap)
-	require.Equal(t, input.TreasuryKeeper.GetTaxCap(input.Ctx, core.MicroKRWDenom), res.TaxCap)
+	require.Equal(t, input.TreasuryKeeper.GetTaxCap(input.Ctx, core.MicroBKRWDenom), res.TaxCap)
 }
 
 func TestQueryTaxCaps(t *testing.T) {
@@ -91,7 +91,7 @@ func TestQueryTaxProceeds(t *testing.T) {
 	input := CreateTestInput(t)
 	ctx := sdk.WrapSDKContext(input.Ctx)
 
-	taxProceeds := sdk.NewCoins(sdk.NewCoin(core.MicroLunaDenom, sdk.NewInt(100)), sdk.NewCoin(core.MicroKRWDenom, sdk.NewInt(100)))
+	taxProceeds := sdk.NewCoins(sdk.NewCoin(core.MicroBiqDenom, sdk.NewInt(100)), sdk.NewCoin(core.MicroBKRWDenom, sdk.NewInt(100)))
 	input.TreasuryKeeper.SetEpochTaxProceeds(input.Ctx, taxProceeds)
 
 	querier := NewQuerier(input.TreasuryKeeper)
@@ -111,7 +111,7 @@ func TestQuerySeigniorageProceeds(t *testing.T) {
 	input.TreasuryKeeper.RecordEpochInitialIssuance(input.Ctx)
 
 	input.Ctx = input.Ctx.WithBlockHeight(int64(core.BlocksPerWeek))
-	err := input.BankKeeper.BurnCoins(input.Ctx, faucetAccountName, sdk.NewCoins(sdk.NewCoin(core.MicroLunaDenom, targetSeigniorage)))
+	err := input.BankKeeper.BurnCoins(input.Ctx, faucetAccountName, sdk.NewCoins(sdk.NewCoin(core.MicroBiqDenom, targetSeigniorage)))
 	require.NoError(t, err)
 
 	querier := NewQuerier(input.TreasuryKeeper)
@@ -139,7 +139,7 @@ func TestQueryIndicators(t *testing.T) {
 	staking.EndBlocker(input.Ctx.WithBlockHeight(int64(core.BlocksPerWeek)-1), input.StakingKeeper)
 
 	proceedsAmt := sdk.NewInt(1000000000000)
-	taxProceeds := sdk.NewCoins(sdk.NewCoin(core.MicroSDRDenom, proceedsAmt))
+	taxProceeds := sdk.NewCoins(sdk.NewCoin(core.MicroBSDRDenom, proceedsAmt))
 	input.TreasuryKeeper.RecordEpochTaxProceeds(input.Ctx, taxProceeds)
 
 	targetIndicators := &types.QueryIndicatorsResponse{

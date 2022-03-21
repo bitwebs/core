@@ -54,10 +54,10 @@ func StoreCodeCmd() *cobra.Command {
 		Short: "Upload a wasm binary",
 		Long: `
 Contract developers can use store cmd to upload new wasm binary
-$ terrad tx store ./path-to-binary 
+$ iqd tx store ./path-to-binary 
 
 Or to migrate columbus-4 code to columbus-5 code
-$ terrad tx store ./path-to-binary --migrate-code-id 3
+$ iqd tx store ./path-to-binary --migrate-code-id 3
 `,
 		Args: cobra.ExactArgs(1),
 		RunE: func(cmd *cobra.Command, args []string) error {
@@ -125,11 +125,11 @@ func InstantiateContractCmd() *cobra.Command {
 		Long: `
 Instantiate a wasm contract of the code which has the given id
 
-$ terrad instantiate 1 '{"arbiter": "terra~~"}'
+$ iqd instantiate 1 '{"arbiter": "iq~~"}'
 
 You can also instantiate it with funds
 
-$ terrad instantiate 1 '{"arbiter": "terra~~"}' "1000000uluna"
+$ iqd instantiate 1 '{"arbiter": "iq~~"}' "1000000ubiq"
 `,
 		Args: cobra.RangeArgs(2, 3),
 		RunE: func(cmd *cobra.Command, args []string) error {
@@ -299,7 +299,7 @@ func MigrateContractCmd() *cobra.Command {
 Migrate a contract to new code by calling migrate function of 
 the new code.
 
-$ terrad tx wasm migrate terra... 10 '{"verifier": "terra..."}'
+$ iqd tx wasm migrate iq... 10 '{"verifier": "iq..."}'
 		`),
 		Args: cobra.ExactArgs(3),
 		RunE: func(cmd *cobra.Command, args []string) error {
@@ -354,7 +354,7 @@ func UpdateContractAdminCmd() *cobra.Command {
 		Long: strings.TrimSpace(`
 Update a contract admin to a new address
 
-$ terrad tx wasm update-admin terra... terra...
+$ iqd tx wasm update-admin iq... iq...
 		`),
 		Args: cobra.ExactArgs(2),
 		RunE: func(cmd *cobra.Command, args []string) error {
@@ -400,7 +400,7 @@ func ClearContractAdminCmd() *cobra.Command {
 		Long: strings.TrimSpace(`
 Clear a contract admin to make the contract un-migratable
 
-$ terrad tx wasm clear-admin terra... 
+$ iqd tx wasm clear-admin iq... 
 		`),
 		Args: cobra.ExactArgs(2),
 		RunE: func(cmd *cobra.Command, args []string) error {

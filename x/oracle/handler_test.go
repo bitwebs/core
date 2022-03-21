@@ -27,13 +27,13 @@ func TestOracleFilters(t *testing.T) {
 	// Case 2: Normal MsgAggregateExchangeRatePrevote submission goes through
 	salt := "1"
 
-	hash := types.GetAggregateVoteHash(salt, randomExchangeRate.String()+core.MicroSDRDenom, keeper.ValAddrs[0])
+	hash := types.GetAggregateVoteHash(salt, randomExchangeRate.String()+core.MicroBSDRDenom, keeper.ValAddrs[0])
 	prevoteMsg := types.NewMsgAggregateExchangeRatePrevote(hash, keeper.Addrs[0], keeper.ValAddrs[0])
 	_, err = h(input.Ctx, prevoteMsg)
 	require.NoError(t, err)
 
 	// // Case 3: Normal MsgAggregateExchangeRateVote submission goes through keeper.Addrs
-	voteMsg := types.NewMsgAggregateExchangeRateVote(salt, randomExchangeRate.String()+core.MicroSDRDenom, keeper.Addrs[0], keeper.ValAddrs[0])
+	voteMsg := types.NewMsgAggregateExchangeRateVote(salt, randomExchangeRate.String()+core.MicroBSDRDenom, keeper.Addrs[0], keeper.ValAddrs[0])
 	_, err = h(input.Ctx.WithBlockHeight(1), voteMsg)
 	require.NoError(t, err)
 
@@ -41,7 +41,7 @@ func TestOracleFilters(t *testing.T) {
 	nonValidatorPub := secp256k1.GenPrivKey().PubKey()
 	nonValidatorAddr := nonValidatorPub.Address()
 	salt = "2"
-	hash = types.GetAggregateVoteHash(salt, randomExchangeRate.String()+core.MicroSDRDenom, sdk.ValAddress(nonValidatorAddr))
+	hash = types.GetAggregateVoteHash(salt, randomExchangeRate.String()+core.MicroBSDRDenom, sdk.ValAddress(nonValidatorAddr))
 
 	prevoteMsg = types.NewMsgAggregateExchangeRatePrevote(hash, sdk.AccAddress(nonValidatorAddr), sdk.ValAddress(nonValidatorAddr))
 	_, err = h(input.Ctx, prevoteMsg)
@@ -52,7 +52,7 @@ func TestFeederDelegation(t *testing.T) {
 	input, h := setup(t)
 
 	salt := "1"
-	hash := types.GetAggregateVoteHash(salt, randomExchangeRate.String()+core.MicroSDRDenom, keeper.ValAddrs[0])
+	hash := types.GetAggregateVoteHash(salt, randomExchangeRate.String()+core.MicroBSDRDenom, keeper.ValAddrs[0])
 
 	// Case 1: empty message
 	delegateFeedConsentMsg := types.MsgDelegateFeedConsent{}
@@ -70,12 +70,12 @@ func TestFeederDelegation(t *testing.T) {
 	require.Error(t, err)
 
 	// Case 2.2: Normal Vote - without delegation
-	voteMsg := types.NewMsgAggregateExchangeRateVote(salt, randomExchangeRate.String()+core.MicroSDRDenom, keeper.Addrs[0], keeper.ValAddrs[0])
+	voteMsg := types.NewMsgAggregateExchangeRateVote(salt, randomExchangeRate.String()+core.MicroBSDRDenom, keeper.Addrs[0], keeper.ValAddrs[0])
 	_, err = h(input.Ctx.WithBlockHeight(1), voteMsg)
 	require.NoError(t, err)
 
 	// Case 2.3: Normal Vote - with delegation fails
-	voteMsg = types.NewMsgAggregateExchangeRateVote(salt, randomExchangeRate.String()+core.MicroSDRDenom, keeper.Addrs[1], keeper.ValAddrs[0])
+	voteMsg = types.NewMsgAggregateExchangeRateVote(salt, randomExchangeRate.String()+core.MicroBSDRDenom, keeper.Addrs[1], keeper.ValAddrs[0])
 	_, err = h(input.Ctx.WithBlockHeight(1), voteMsg)
 	require.Error(t, err)
 
@@ -95,12 +95,12 @@ func TestFeederDelegation(t *testing.T) {
 	require.NoError(t, err)
 
 	// Case 4.3: Normal Vote - without delegation fails
-	voteMsg = types.NewMsgAggregateExchangeRateVote(salt, randomExchangeRate.String()+core.MicroSDRDenom, keeper.Addrs[2], keeper.ValAddrs[0])
+	voteMsg = types.NewMsgAggregateExchangeRateVote(salt, randomExchangeRate.String()+core.MicroBSDRDenom, keeper.Addrs[2], keeper.ValAddrs[0])
 	_, err = h(input.Ctx.WithBlockHeight(1), voteMsg)
 	require.Error(t, err)
 
 	// Case 4.4: Normal Vote - with delegation succeeds
-	voteMsg = types.NewMsgAggregateExchangeRateVote(salt, randomExchangeRate.String()+core.MicroSDRDenom, keeper.Addrs[1], keeper.ValAddrs[0])
+	voteMsg = types.NewMsgAggregateExchangeRateVote(salt, randomExchangeRate.String()+core.MicroBSDRDenom, keeper.Addrs[1], keeper.ValAddrs[0])
 	_, err = h(input.Ctx.WithBlockHeight(1), voteMsg)
 	require.NoError(t, err)
 }
@@ -109,10 +109,10 @@ func TestAggregatePrevoteVote(t *testing.T) {
 	input, h := setup(t)
 
 	salt := "1"
-	exchangeRatesStr := fmt.Sprintf("1000.23%s,0.29%s,0.27%s", core.MicroKRWDenom, core.MicroUSDDenom, core.MicroSDRDenom)
-	otherExchangeRateStr := fmt.Sprintf("1000.12%s,0.29%s,0.27%s", core.MicroKRWDenom, core.MicroUSDDenom, core.MicroUSDDenom)
-	unintendedExchageRateStr := fmt.Sprintf("1000.23%s,0.29%s,0.27%s", core.MicroKRWDenom, core.MicroUSDDenom, core.MicroCNYDenom)
-	invalidExchangeRateStr := fmt.Sprintf("1000.23%s,0.29%s,0.27", core.MicroKRWDenom, core.MicroUSDDenom)
+	exchangeRatesStr := fmt.Sprintf("1000.23%s,0.29%s,0.27%s", core.MicroBKRWDenom, core.MicroBUSDDenom, core.MicroBSDRDenom)
+	otherExchangeRateStr := fmt.Sprintf("1000.12%s,0.29%s,0.27%s", core.MicroBKRWDenom, core.MicroBUSDDenom, core.MicroBUSDDenom)
+	unintendedExchageRateStr := fmt.Sprintf("1000.23%s,0.29%s,0.27%s", core.MicroBKRWDenom, core.MicroBUSDDenom, core.MicroBCNYDenom)
+	invalidExchangeRateStr := fmt.Sprintf("1000.23%s,0.29%s,0.27", core.MicroBKRWDenom, core.MicroBUSDDenom)
 
 	hash := types.GetAggregateVoteHash(salt, exchangeRatesStr, keeper.ValAddrs[0])
 

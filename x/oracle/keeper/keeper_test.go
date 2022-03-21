@@ -21,30 +21,30 @@ func TestExchangeRate(t *testing.T) {
 	cnyExchangeRate := sdk.NewDecWithPrec(839, int64(OracleDecPrecision)).MulInt64(core.MicroUnit)
 	gbpExchangeRate := sdk.NewDecWithPrec(4995, int64(OracleDecPrecision)).MulInt64(core.MicroUnit)
 	krwExchangeRate := sdk.NewDecWithPrec(2838, int64(OracleDecPrecision)).MulInt64(core.MicroUnit)
-	lunaExchangeRate := sdk.NewDecWithPrec(3282384, int64(OracleDecPrecision)).MulInt64(core.MicroUnit)
+	biqExchangeRate := sdk.NewDecWithPrec(3282384, int64(OracleDecPrecision)).MulInt64(core.MicroUnit)
 
 	// Set & get rates
-	input.OracleKeeper.SetLunaExchangeRate(input.Ctx, core.MicroCNYDenom, cnyExchangeRate)
-	rate, err := input.OracleKeeper.GetLunaExchangeRate(input.Ctx, core.MicroCNYDenom)
+	input.OracleKeeper.SetBiqExchangeRate(input.Ctx, core.MicroBCNYDenom, cnyExchangeRate)
+	rate, err := input.OracleKeeper.GetBiqExchangeRate(input.Ctx, core.MicroBCNYDenom)
 	require.NoError(t, err)
 	require.Equal(t, cnyExchangeRate, rate)
 
-	input.OracleKeeper.SetLunaExchangeRate(input.Ctx, core.MicroGBPDenom, gbpExchangeRate)
-	rate, err = input.OracleKeeper.GetLunaExchangeRate(input.Ctx, core.MicroGBPDenom)
+	input.OracleKeeper.SetBiqExchangeRate(input.Ctx, core.MicroGBPDenom, gbpExchangeRate)
+	rate, err = input.OracleKeeper.GetBiqExchangeRate(input.Ctx, core.MicroGBPDenom)
 	require.NoError(t, err)
 	require.Equal(t, gbpExchangeRate, rate)
 
-	input.OracleKeeper.SetLunaExchangeRate(input.Ctx, core.MicroKRWDenom, krwExchangeRate)
-	rate, err = input.OracleKeeper.GetLunaExchangeRate(input.Ctx, core.MicroKRWDenom)
+	input.OracleKeeper.SetBiqExchangeRate(input.Ctx, core.MicroBKRWDenom, krwExchangeRate)
+	rate, err = input.OracleKeeper.GetBiqExchangeRate(input.Ctx, core.MicroBKRWDenom)
 	require.NoError(t, err)
 	require.Equal(t, krwExchangeRate, rate)
 
-	input.OracleKeeper.SetLunaExchangeRate(input.Ctx, core.MicroLunaDenom, lunaExchangeRate)
-	rate, _ = input.OracleKeeper.GetLunaExchangeRate(input.Ctx, core.MicroLunaDenom)
+	input.OracleKeeper.SetBiqExchangeRate(input.Ctx, core.MicroBiqDenom, biqExchangeRate)
+	rate, _ = input.OracleKeeper.GetBiqExchangeRate(input.Ctx, core.MicroBiqDenom)
 	require.Equal(t, sdk.OneDec(), rate)
 
-	input.OracleKeeper.DeleteLunaExchangeRate(input.Ctx, core.MicroKRWDenom)
-	_, err = input.OracleKeeper.GetLunaExchangeRate(input.Ctx, core.MicroKRWDenom)
+	input.OracleKeeper.DeleteBiqExchangeRate(input.Ctx, core.MicroBKRWDenom)
+	_, err = input.OracleKeeper.GetBiqExchangeRate(input.Ctx, core.MicroBKRWDenom)
 	require.Error(t, err)
 
 	numExchangeRates := 0
@@ -52,35 +52,35 @@ func TestExchangeRate(t *testing.T) {
 		numExchangeRates = numExchangeRates + 1
 		return false
 	}
-	input.OracleKeeper.IterateLunaExchangeRates(input.Ctx, handler)
+	input.OracleKeeper.IterateBiqExchangeRates(input.Ctx, handler)
 
 	require.True(t, numExchangeRates == 3)
 }
 
-func TestIterateLunaExchangeRates(t *testing.T) {
+func TestIterateBiqExchangeRates(t *testing.T) {
 	input := CreateTestInput(t)
 
 	cnyExchangeRate := sdk.NewDecWithPrec(839, int64(OracleDecPrecision)).MulInt64(core.MicroUnit)
 	gbpExchangeRate := sdk.NewDecWithPrec(4995, int64(OracleDecPrecision)).MulInt64(core.MicroUnit)
 	krwExchangeRate := sdk.NewDecWithPrec(2838, int64(OracleDecPrecision)).MulInt64(core.MicroUnit)
-	lunaExchangeRate := sdk.NewDecWithPrec(3282384, int64(OracleDecPrecision)).MulInt64(core.MicroUnit)
+	biqExchangeRate := sdk.NewDecWithPrec(3282384, int64(OracleDecPrecision)).MulInt64(core.MicroUnit)
 
 	// Set & get rates
-	input.OracleKeeper.SetLunaExchangeRate(input.Ctx, core.MicroCNYDenom, cnyExchangeRate)
-	input.OracleKeeper.SetLunaExchangeRate(input.Ctx, core.MicroGBPDenom, gbpExchangeRate)
-	input.OracleKeeper.SetLunaExchangeRate(input.Ctx, core.MicroKRWDenom, krwExchangeRate)
-	input.OracleKeeper.SetLunaExchangeRate(input.Ctx, core.MicroLunaDenom, lunaExchangeRate)
+	input.OracleKeeper.SetBiqExchangeRate(input.Ctx, core.MicroBCNYDenom, cnyExchangeRate)
+	input.OracleKeeper.SetBiqExchangeRate(input.Ctx, core.MicroBGBPDenom, gbpExchangeRate)
+	input.OracleKeeper.SetBiqExchangeRate(input.Ctx, core.MicroBKRWDenom, krwExchangeRate)
+	input.OracleKeeper.SetBiqExchangeRate(input.Ctx, core.MicroBiqDenom, biqExchangeRate)
 
-	input.OracleKeeper.IterateLunaExchangeRates(input.Ctx, func(denom string, rate sdk.Dec) (stop bool) {
+	input.OracleKeeper.IterateBiqExchangeRates(input.Ctx, func(denom string, rate sdk.Dec) (stop bool) {
 		switch denom {
-		case core.MicroCNYDenom:
+		case core.MicroBCNYDenom:
 			require.Equal(t, cnyExchangeRate, rate)
-		case core.MicroGBPDenom:
+		case core.MicroBGBPDenom:
 			require.Equal(t, gbpExchangeRate, rate)
-		case core.MicroKRWDenom:
+		case core.MicroBKRWDenom:
 			require.Equal(t, krwExchangeRate, rate)
-		case core.MicroLunaDenom:
-			require.Equal(t, lunaExchangeRate, rate)
+		case core.MicroBiqDenom:
+			require.Equal(t, biqExchangeRate, rate)
 		}
 		return false
 	})
@@ -90,14 +90,14 @@ func TestIterateLunaExchangeRates(t *testing.T) {
 func TestRewardPool(t *testing.T) {
 	input := CreateTestInput(t)
 
-	fees := sdk.NewCoins(sdk.NewCoin(core.MicroSDRDenom, sdk.NewInt(1000)))
+	fees := sdk.NewCoins(sdk.NewCoin(core.MicroBSDRDenom, sdk.NewInt(1000)))
 	acc := input.AccountKeeper.GetModuleAccount(input.Ctx, types.ModuleName)
 	err := FundAccount(input, acc.GetAddress(), fees)
 	if err != nil {
 		panic(err) // never occurs
 	}
 
-	KFees := input.OracleKeeper.GetRewardPool(input.Ctx, core.MicroSDRDenom)
+	KFees := input.OracleKeeper.GetRewardPool(input.Ctx, core.MicroBSDRDenom)
 	require.Equal(t, fees[0], KFees)
 }
 
@@ -118,8 +118,8 @@ func TestParams(t *testing.T) {
 	slashWindow := uint64(1000)
 	minValidPerWindow := sdk.NewDecWithPrec(1, 4)
 	whitelist := types.DenomList{
-		{Name: core.MicroSDRDenom, TobinTax: types.DefaultTobinTax},
-		{Name: core.MicroKRWDenom, TobinTax: types.DefaultTobinTax},
+		{Name: core.MicroBSDRDenom, TobinTax: types.DefaultTobinTax},
+		{Name: core.MicroBKRWDenom, TobinTax: types.DefaultTobinTax},
 	}
 
 	// Should really test validateParams, but skipping because obvious
@@ -219,7 +219,7 @@ func TestIterateMissCounters(t *testing.T) {
 func TestAggregatePrevoteAddDelete(t *testing.T) {
 	input := CreateTestInput(t)
 
-	hash := types.GetAggregateVoteHash("salt", "100ukrw,1000uusd", sdk.ValAddress(Addrs[0]))
+	hash := types.GetAggregateVoteHash("salt", "100ubkrw,1000ubusd", sdk.ValAddress(Addrs[0]))
 	aggregatePrevote := types.NewAggregateExchangeRatePrevote(hash, sdk.ValAddress(Addrs[0]), 0)
 	input.OracleKeeper.SetAggregateExchangeRatePrevote(input.Ctx, sdk.ValAddress(Addrs[0]), aggregatePrevote)
 
@@ -235,11 +235,11 @@ func TestAggregatePrevoteAddDelete(t *testing.T) {
 func TestAggregatePrevoteIterate(t *testing.T) {
 	input := CreateTestInput(t)
 
-	hash := types.GetAggregateVoteHash("salt", "100ukrw,1000uusd", sdk.ValAddress(Addrs[0]))
+	hash := types.GetAggregateVoteHash("salt", "100ubkrw,1000ubusd", sdk.ValAddress(Addrs[0]))
 	aggregatePrevote1 := types.NewAggregateExchangeRatePrevote(hash, sdk.ValAddress(Addrs[0]), 0)
 	input.OracleKeeper.SetAggregateExchangeRatePrevote(input.Ctx, sdk.ValAddress(Addrs[0]), aggregatePrevote1)
 
-	hash2 := types.GetAggregateVoteHash("salt", "100ukrw,1000uusd", sdk.ValAddress(Addrs[1]))
+	hash2 := types.GetAggregateVoteHash("salt", "100ubkrw,1000ubusd", sdk.ValAddress(Addrs[1]))
 	aggregatePrevote2 := types.NewAggregateExchangeRatePrevote(hash2, sdk.ValAddress(Addrs[1]), 0)
 	input.OracleKeeper.SetAggregateExchangeRatePrevote(input.Ctx, sdk.ValAddress(Addrs[1]), aggregatePrevote2)
 
@@ -315,10 +315,10 @@ func TestTobinTaxGetSet(t *testing.T) {
 	input := CreateTestInput(t)
 
 	tobinTaxes := map[string]sdk.Dec{
-		core.MicroSDRDenom: sdk.NewDec(1),
-		core.MicroUSDDenom: sdk.NewDecWithPrec(1, 3),
-		core.MicroKRWDenom: sdk.NewDecWithPrec(123, 3),
-		core.MicroMNTDenom: sdk.NewDecWithPrec(1423, 4),
+		core.MicroBSDRDenom: sdk.NewDec(1),
+		core.MicroBUSDDenom: sdk.NewDecWithPrec(1, 3),
+		core.MicroBKRWDenom: sdk.NewDecWithPrec(123, 3),
+		core.MicroBMNTDenom: sdk.NewDecWithPrec(1423, 4),
 	}
 
 	for denom, tobinTax := range tobinTaxes {

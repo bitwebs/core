@@ -46,14 +46,14 @@ func TestEcoding(t *testing.T) {
 					Execute: &wasmvmtypes.ExecuteMsg{
 						ContractAddr: addrs[1].String(),
 						Msg:          []byte("{}"),
-						Funds:        wasmvmtypes.Coins{wasmvmtypes.NewCoin(1234, core.MicroLunaDenom)},
+						Funds:        wasmvmtypes.Coins{wasmvmtypes.NewCoin(1234, core.MicroBiqDenom)},
 					},
 				},
 			},
 			output: &types.MsgExecuteContract{
 				Sender:     addrs[0].String(),
 				Contract:   addrs[1].String(),
-				Coins:      sdk.NewCoins(sdk.NewInt64Coin(core.MicroLunaDenom, 1234)),
+				Coins:      sdk.NewCoins(sdk.NewInt64Coin(core.MicroBiqDenom, 1234)),
 				ExecuteMsg: []byte("{}"),
 			},
 		},
@@ -64,14 +64,14 @@ func TestEcoding(t *testing.T) {
 					Instantiate: &wasmvmtypes.InstantiateMsg{
 						CodeID: 1,
 						Msg:    []byte("{}"),
-						Funds:  wasmvmtypes.Coins{wasmvmtypes.NewCoin(1234, core.MicroLunaDenom)},
+						Funds:  wasmvmtypes.Coins{wasmvmtypes.NewCoin(1234, core.MicroBiqDenom)},
 					},
 				},
 			},
 			output: &types.MsgInstantiateContract{
 				Sender:    addrs[0].String(),
 				CodeID:    1,
-				InitCoins: sdk.NewCoins(sdk.NewInt64Coin(core.MicroLunaDenom, 1234)),
+				InitCoins: sdk.NewCoins(sdk.NewInt64Coin(core.MicroBiqDenom, 1234)),
 				InitMsg:   []byte("{}"),
 			},
 		},
@@ -82,7 +82,7 @@ func TestEcoding(t *testing.T) {
 					Instantiate: &wasmvmtypes.InstantiateMsg{
 						CodeID: 1,
 						Msg:    []byte("{}"),
-						Funds:  wasmvmtypes.Coins{wasmvmtypes.NewCoin(1234, core.MicroLunaDenom)},
+						Funds:  wasmvmtypes.Coins{wasmvmtypes.NewCoin(1234, core.MicroBiqDenom)},
 						Admin:  addrs[0].String(),
 					},
 				},
@@ -90,7 +90,7 @@ func TestEcoding(t *testing.T) {
 			output: &types.MsgInstantiateContract{
 				Sender:    addrs[0].String(),
 				CodeID:    1,
-				InitCoins: sdk.NewCoins(sdk.NewInt64Coin(core.MicroLunaDenom, 1234)),
+				InitCoins: sdk.NewCoins(sdk.NewInt64Coin(core.MicroBiqDenom, 1234)),
 				InitMsg:   []byte("{}"),
 				Admin:     addrs[0].String(),
 			},
@@ -150,7 +150,7 @@ func TestEcoding(t *testing.T) {
 					Execute: &wasmvmtypes.ExecuteMsg{
 						ContractAddr: invalidAddr,
 						Msg:          []byte("{}"),
-						Funds:        wasmvmtypes.Coins{wasmvmtypes.NewCoin(1234, core.MicroLunaDenom)},
+						Funds:        wasmvmtypes.Coins{wasmvmtypes.NewCoin(1234, core.MicroBiqDenom)},
 					},
 				},
 			},

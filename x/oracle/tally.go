@@ -13,8 +13,8 @@ import (
 // CONTRACT: pb must be sorted
 func Tally(ctx sdk.Context, pb types.ExchangeRateBallot, rewardBand sdk.Dec, validatorClaimMap map[string]types.Claim) (weightedMedian sdk.Dec) {
 	// softfork
-	if (ctx.ChainID() == core.ColumbusChainID && ctx.BlockHeight() < int64(5_701_000)) ||
-		(ctx.ChainID() == core.BombayChainID && ctx.BlockHeight() < int64(7_000_000)) {
+	if (ctx.ChainID() == core.SwartzChainID && ctx.BlockHeight() < int64(5_701_000)) ||
+		(ctx.ChainID() == core.McAfeeChainID && ctx.BlockHeight() < int64(7_000_000)) {
 		weightedMedian = pb.WeightedMedian()
 	} else {
 		weightedMedian = pb.WeightedMedianWithAssertion()
@@ -50,12 +50,12 @@ func ballotIsPassing(ballot types.ExchangeRateBallot, thresholdVotes sdk.Int) (s
 	return ballotPower, !ballotPower.IsZero() && ballotPower.GTE(thresholdVotes)
 }
 
-// choose Reference Terra with the highest voter turnout
+// choose Reference Iq with the highest voter turnout
 // If the voting power of the two denominations is the same,
-// select reference Terra in alphabetical order.
-func pickReferenceTerra(ctx sdk.Context, k keeper.Keeper, voteTargets map[string]sdk.Dec, voteMap map[string]types.ExchangeRateBallot) string {
+// select reference Iq in alphabetical order.
+func pickReferenceIq(ctx sdk.Context, k keeper.Keeper, voteTargets map[string]sdk.Dec, voteMap map[string]types.ExchangeRateBallot) string {
 	largestBallotPower := int64(0)
-	referenceTerra := ""
+	referenceIq := ""
 
 	totalBondedPower := sdk.TokensToConsensusPower(k.StakingKeeper.TotalBondedTokens(ctx), k.StakingKeeper.PowerReduction(ctx))
 	voteThreshold := k.VoteThreshold(ctx)
@@ -82,12 +82,12 @@ func pickReferenceTerra(ctx sdk.Context, k keeper.Keeper, voteTargets map[string
 		}
 
 		if ballotPower > largestBallotPower || largestBallotPower == 0 {
-			referenceTerra = denom
+			referenceIq = denom
 			largestBallotPower = ballotPower
-		} else if largestBallotPower == ballotPower && referenceTerra > denom {
-			referenceTerra = denom
+		} else if largestBallotPower == ballotPower && referenceIq > denom {
+			referenceIq = denom
 		}
 	}
 
-	return referenceTerra
+	return referenceIq
 }

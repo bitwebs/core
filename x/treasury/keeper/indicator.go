@@ -12,14 +12,14 @@ func (k Keeper) GetEpoch(ctx sdk.Context) int64 {
 }
 
 //
-// Computes important economic indicators for the stability of Terra currencies.
+// Computes important economic indicators for the stability of Iq currencies.
 //
 // Three important concepts:
 // - MR: Fees + Seigniorage for a given epoch sums to Mining Rewards
 // - SR: Computes the Seigniorage Reward
 // - TR: Computes the Tax Reward
-// - TSL: Total Staked Luna
-// - TRL: Computes the Tax Reward per unit Luna (TR/TSL)
+// - TSL: Total Staked Biq
+// - TRL: Computes the Tax Reward per unit Biq (TR/TSL)
 
 // alignCoins align the coins to the given denom through the market swap
 func (k Keeper) alignCoins(ctx sdk.Context, coins sdk.DecCoins, denom string) (alignedAmt sdk.Dec) {
@@ -43,10 +43,10 @@ func (k Keeper) alignCoins(ctx sdk.Context, coins sdk.DecCoins, denom string) (a
 func (k Keeper) UpdateIndicators(ctx sdk.Context) {
 	epoch := k.GetEpoch(ctx)
 
-	// Compute Total Staked Luna (TSL)
-	totalStakedLuna := k.stakingKeeper.TotalBondedTokens(ctx)
+	// Compute Total Staked Biq (TSL)
+	totalStakedBiq := k.stakingKeeper.TotalBondedTokens(ctx)
 
-	k.SetTSL(ctx, epoch, totalStakedLuna)
+	k.SetTSL(ctx, epoch, totalStakedBiq)
 
 	// Compute Tax Rewards (TR)
 	taxRewards := sdk.NewDecCoinsFromCoins(k.PeekEpochTaxProceeds(ctx)...)
@@ -60,13 +60,13 @@ func (k Keeper) UpdateIndicators(ctx sdk.Context) {
 	// Compute Seigniorage Rewards (SR)
 	seigniorage := k.PeekEpochSeigniorage(ctx)
 	seigniorageRewardsAmt := k.GetRewardWeight(ctx).MulInt(seigniorage)
-	seigniorageRewards := sdk.DecCoins{sdk.NewDecCoinFromDec(core.MicroLunaDenom, seigniorageRewardsAmt)}
+	seigniorageRewards := sdk.DecCoins{sdk.NewDecCoinFromDec(core.MicroBiqDenom, seigniorageRewardsAmt)}
 	SR := k.alignCoins(ctx, seigniorageRewards, core.MicroSDRDenom)
 
 	k.SetSR(ctx, epoch, SR)
 }
 
-// TRL returns Tax Rewards per Luna for the epoch
+// TRL returns Tax Rewards per Biq for the epoch
 func TRL(ctx sdk.Context, epoch int64, k Keeper) sdk.Dec {
 	tr := k.GetTR(ctx, epoch)
 	tsl := k.GetTSL(ctx, epoch)

@@ -124,8 +124,8 @@ func (k Keeper) SetTaxCap(ctx sdk.Context, denom string, cap sdk.Int) {
 
 // GetTaxCap gets the tax cap denominated in integer units of the reference {denom}
 func (k Keeper) GetTaxCap(ctx sdk.Context, denom string) sdk.Int {
-	// return zero tax cap for `uluna`
-	if denom == core.MicroLunaDenom {
+	// return zero tax cap for `ubiq`
+	if denom == core.MicroBiqDenom {
 		return sdk.ZeroInt()
 	}
 
@@ -199,7 +199,7 @@ func (k Keeper) RecordEpochInitialIssuance(ctx sdk.Context) {
 	whitelist := k.oracleKeeper.Whitelist(ctx)
 
 	totalSupply := make(sdk.Coins, len(whitelist)+1)
-	totalSupply[0] = k.bankKeeper.GetSupply(ctx, core.MicroLunaDenom)
+	totalSupply[0] = k.bankKeeper.GetSupply(ctx, core.MicroBiqDenom)
 
 	for i, denom := range whitelist {
 		totalSupply[i+1] = k.bankKeeper.GetSupply(ctx, denom.Name)
@@ -233,8 +233,8 @@ func (k Keeper) GetEpochInitialIssuance(ctx sdk.Context) sdk.Coins {
 
 // PeekEpochSeigniorage returns epoch seigniorage
 func (k Keeper) PeekEpochSeigniorage(ctx sdk.Context) sdk.Int {
-	epochIssuance := k.bankKeeper.GetSupply(ctx, core.MicroLunaDenom).Amount
-	preEpochIssuance := k.GetEpochInitialIssuance(ctx).AmountOf(core.MicroLunaDenom)
+	epochIssuance := k.bankKeeper.GetSupply(ctx, core.MicroBiqDenom).Amount
+	preEpochIssuance := k.GetEpochInitialIssuance(ctx).AmountOf(core.MicroBiqDenom)
 	epochSeigniorage := preEpochIssuance.Sub(epochIssuance)
 
 	if epochSeigniorage.IsNegative() {
@@ -312,7 +312,7 @@ func (k Keeper) ClearSRs(ctx sdk.Context) {
 	}
 }
 
-// GetTSL returns the total staked luna for the epoch
+// GetTSL returns the total staked biq for the epoch
 func (k Keeper) GetTSL(ctx sdk.Context, epoch int64) sdk.Int {
 	store := ctx.KVStore(k.storeKey)
 	bz := store.Get(types.GetTSLKey(epoch))
@@ -327,7 +327,7 @@ func (k Keeper) GetTSL(ctx sdk.Context, epoch int64) sdk.Int {
 	return ip.Int
 }
 
-// SetTSL stores the total staked luna for the epoch
+// SetTSL stores the total staked biq for the epoch
 func (k Keeper) SetTSL(ctx sdk.Context, epoch int64, TSL sdk.Int) {
 	store := ctx.KVStore(k.storeKey)
 
@@ -335,7 +335,7 @@ func (k Keeper) SetTSL(ctx sdk.Context, epoch int64, TSL sdk.Int) {
 	store.Set(types.GetTSLKey(epoch), bz)
 }
 
-// ClearTSLs delete all the total staked luna from the store
+// ClearTSLs delete all the total staked biq from the store
 func (k Keeper) ClearTSLs(ctx sdk.Context) {
 	store := ctx.KVStore(k.storeKey)
 

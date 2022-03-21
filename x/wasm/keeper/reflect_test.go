@@ -88,7 +88,7 @@ func TestReflectReflectContractSend(t *testing.T) {
 	input := CreateTestInput(t)
 	ctx, accKeeper, bankKeeper, keeper := input.Ctx, input.AccKeeper, input.BankKeeper, input.WasmKeeper
 
-	deposit := sdk.NewCoins(sdk.NewInt64Coin(core.MicroLunaDenom, 100000))
+	deposit := sdk.NewCoins(sdk.NewInt64Coin(core.MicroBiqDenom, 100000))
 	creator := createFakeFundedAccount(ctx, accKeeper, bankKeeper, deposit)
 	_, _, bob := keyPubAddr()
 
@@ -107,7 +107,7 @@ func TestReflectReflectContractSend(t *testing.T) {
 	require.Equal(t, uint64(2), escrowID)
 
 	// creator instantiates a contract and gives it tokens
-	reflectStart := sdk.NewCoins(sdk.NewInt64Coin(core.MicroLunaDenom, 40000))
+	reflectStart := sdk.NewCoins(sdk.NewInt64Coin(core.MicroBiqDenom, 40000))
 	reflectAddr, _, err := keeper.InstantiateContract(ctx, reflectID, creator, sdk.AccAddress{}, []byte("{}"), reflectStart)
 	require.NoError(t, err)
 	require.NotEmpty(t, reflectAddr)
@@ -119,13 +119,13 @@ func TestReflectReflectContractSend(t *testing.T) {
 	}
 	initMsgBz, err := json.Marshal(initMsg)
 	require.NoError(t, err)
-	escrowStart := sdk.NewCoins(sdk.NewInt64Coin(core.MicroLunaDenom, 25000))
+	escrowStart := sdk.NewCoins(sdk.NewInt64Coin(core.MicroBiqDenom, 25000))
 	escrowAddr, _, err := keeper.InstantiateContract(ctx, escrowID, creator, sdk.AccAddress{}, initMsgBz, escrowStart)
 	require.NoError(t, err)
 	require.NotEmpty(t, escrowAddr)
 
 	// let's make sure all balances make sense
-	checkAccount(t, ctx, accKeeper, bankKeeper, creator, sdk.NewCoins(sdk.NewInt64Coin(core.MicroLunaDenom, 35000))) // 100k - 40k - 25k
+	checkAccount(t, ctx, accKeeper, bankKeeper, creator, sdk.NewCoins(sdk.NewInt64Coin(core.MicroBiqDenom, 35000))) // 100k - 40k - 25k
 	checkAccount(t, ctx, accKeeper, bankKeeper, reflectAddr, reflectStart)
 	checkAccount(t, ctx, accKeeper, bankKeeper, escrowAddr, escrowStart)
 	checkAccount(t, ctx, accKeeper, bankKeeper, bob, nil)
@@ -141,7 +141,7 @@ func TestReflectReflectContractSend(t *testing.T) {
 				ContractAddr: escrowAddr.String(),
 				Msg:          approveMsg,
 				Funds: []wasmvmtypes.Coin{{
-					Denom:  core.MicroLunaDenom,
+					Denom:  core.MicroBiqDenom,
 					Amount: "14000",
 				}},
 			},
@@ -158,10 +158,10 @@ func TestReflectReflectContractSend(t *testing.T) {
 	require.NoError(t, err)
 
 	// did this work???
-	checkAccount(t, ctx, accKeeper, bankKeeper, creator, sdk.NewCoins(sdk.NewInt64Coin(core.MicroLunaDenom, 35000)))     // same as before
-	checkAccount(t, ctx, accKeeper, bankKeeper, reflectAddr, sdk.NewCoins(sdk.NewInt64Coin(core.MicroLunaDenom, 26000))) // 40k - 14k (from send)
+	checkAccount(t, ctx, accKeeper, bankKeeper, creator, sdk.NewCoins(sdk.NewInt64Coin(core.MicroBiqDenom, 35000)))     // same as before
+	checkAccount(t, ctx, accKeeper, bankKeeper, reflectAddr, sdk.NewCoins(sdk.NewInt64Coin(core.MicroBiqDenom, 26000))) // 40k - 14k (from send)
 	checkAccount(t, ctx, accKeeper, bankKeeper, escrowAddr, sdk.Coins{})                                                 // emptied reserved
-	checkAccount(t, ctx, accKeeper, bankKeeper, bob, sdk.NewCoins(sdk.NewInt64Coin(core.MicroLunaDenom, 39000)))         // all escrow of 25k + 14k
+	checkAccount(t, ctx, accKeeper, bankKeeper, bob, sdk.NewCoins(sdk.NewInt64Coin(core.MicroBiqDenom, 39000)))         // all escrow of 25k + 14k
 
 }
 

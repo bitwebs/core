@@ -22,8 +22,8 @@ func TestMarketFilters(t *testing.T) {
 	require.Error(t, err)
 
 	// Case 2: Normal MsgSwap submission goes through
-	offerCoin := sdk.NewCoin(core.MicroLunaDenom, sdk.NewInt(10))
-	prevoteMsg := types.NewMsgSwap(keeper.Addrs[0], offerCoin, core.MicroSDRDenom)
+	offerCoin := sdk.NewCoin(core.MicroBiqDenom, sdk.NewInt(10))
+	prevoteMsg := types.NewMsgSwap(keeper.Addrs[0], offerCoin, core.MicroBSDRDenom)
 	_, err = h(input.Ctx, prevoteMsg)
 	require.NoError(t, err)
 }
@@ -35,38 +35,38 @@ func TestSwapMsg(t *testing.T) {
 	params.MinStabilitySpread = sdk.ZeroDec()
 	input.MarketKeeper.SetParams(input.Ctx, params)
 
-	beforeTerraPoolDelta := input.MarketKeeper.GetTerraPoolDelta(input.Ctx)
+	beforeIqPoolDelta := input.MarketKeeper.GetIqPoolDelta(input.Ctx)
 
 	amt := sdk.NewInt(10)
-	offerCoin := sdk.NewCoin(core.MicroLunaDenom, amt)
-	swapMsg := types.NewMsgSwap(keeper.Addrs[0], offerCoin, core.MicroSDRDenom)
+	offerCoin := sdk.NewCoin(core.MicroBiqDenom, amt)
+	swapMsg := types.NewMsgSwap(keeper.Addrs[0], offerCoin, core.MicroBSDRDenom)
 	_, err := h(input.Ctx, swapMsg)
 	require.NoError(t, err)
 
-	afterTerraPoolDelta := input.MarketKeeper.GetTerraPoolDelta(input.Ctx)
-	diff := beforeTerraPoolDelta.Sub(afterTerraPoolDelta)
+	afterIqPoolDelta := input.MarketKeeper.GetIqPoolDelta(input.Ctx)
+	diff := beforeIqPoolDelta.Sub(afterIqPoolDelta)
 
 	// calculate estimation
 	basePool := input.MarketKeeper.GetParams(input.Ctx).BasePool
-	price, _ := input.OracleKeeper.GetLunaExchangeRate(input.Ctx, core.MicroSDRDenom)
+	price, _ := input.OracleKeeper.GetBiqExchangeRate(input.Ctx, core.MicroBSDRDenom)
 	cp := basePool.Mul(basePool)
 
-	terraPool := basePool.Add(beforeTerraPoolDelta)
-	lunaPool := cp.Quo(terraPool)
-	estmiatedDiff := terraPool.Sub(cp.Quo(lunaPool.Add(price.MulInt(amt))))
+	iqPool := basePool.Add(beforeIqPoolDelta)
+	biqPool := cp.Quo(iqPool)
+	estmiatedDiff := iqPool.Sub(cp.Quo(biqPool.Add(price.MulInt(amt))))
 	require.True(t, estmiatedDiff.Sub(diff.Abs()).LTE(sdk.NewDecWithPrec(1, 6)))
 
 	// invalid recursive swap
-	swapMsg = types.NewMsgSwap(keeper.Addrs[0], offerCoin, core.MicroLunaDenom)
+	swapMsg = types.NewMsgSwap(keeper.Addrs[0], offerCoin, core.MicroBiqDenom)
 
 	_, err = h(input.Ctx, swapMsg)
 	require.Error(t, err)
 
 	// valid zero tobin tax test
-	input.OracleKeeper.SetTobinTax(input.Ctx, core.MicroKRWDenom, sdk.ZeroDec())
-	input.OracleKeeper.SetTobinTax(input.Ctx, core.MicroSDRDenom, sdk.ZeroDec())
-	offerCoin = sdk.NewCoin(core.MicroSDRDenom, amt)
-	swapMsg = types.NewMsgSwap(keeper.Addrs[0], offerCoin, core.MicroKRWDenom)
+	input.OracleKeeper.SetTobinTax(input.Ctx, core.MicroBKWRDenom, sdk.ZeroDec())
+	input.OracleKeeper.SetTobinTax(input.Ctx, core.MicroBSDRDenom, sdk.ZeroDec())
+	offerCoin = sdk.NewCoin(core.MicroBSDRDenom, amt)
+	swapMsg = types.NewMsgSwap(keeper.Addrs[0], offerCoin, core.MicroBKWRDenom)
 	_, err = h(input.Ctx, swapMsg)
 	require.NoError(t, err)
 }
@@ -75,16 +75,16 @@ func TestSwapSendMsg(t *testing.T) {
 	input, h := setup(t)
 
 	amt := sdk.NewInt(10)
-	offerCoin := sdk.NewCoin(core.MicroLunaDenom, amt)
-	retCoin, spread, err := input.MarketKeeper.ComputeSwap(input.Ctx, offerCoin, core.MicroSDRDenom)
+	offerCoin := sdk.NewCoin(core.MicroBiqDenom, amt)
+	retCoin, spread, err := input.MarketKeeper.ComputeSwap(input.Ctx, offerCoin, core.MicroBSDRDenom)
 	require.NoError(t, err)
 
 	expectedAmt := retCoin.Amount.Mul(sdk.OneDec().Sub(spread)).TruncateInt()
 
-	swapSendMsg := types.NewMsgSwapSend(keeper.Addrs[0], keeper.Addrs[1], offerCoin, core.MicroSDRDenom)
+	swapSendMsg := types.NewMsgSwapSend(keeper.Addrs[0], keeper.Addrs[1], offerCoin, core.MicroBSDRDenom)
 	_, err = h(input.Ctx, swapSendMsg)
 	require.NoError(t, err)
 
-	balance := input.BankKeeper.GetBalance(input.Ctx, keeper.Addrs[1], core.MicroSDRDenom)
+	balance := input.BankKeeper.GetBalance(input.Ctx, keeper.Addrs[1], core.MicroBSDRDenom)
 	require.Equal(t, expectedAmt, balance.Amount)
 }

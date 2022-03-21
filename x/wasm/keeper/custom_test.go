@@ -111,8 +111,8 @@ func TestInstantiateMaker(t *testing.T) {
 	input := CreateTestInput(t)
 
 	ctx, keeper, oracleKeeper := input.Ctx, input.WasmKeeper, input.OracleKeeper
-	lunaPriceInSDR := sdk.NewDecWithPrec(17, 1)
-	oracleKeeper.SetLunaExchangeRate(input.Ctx, core.MicroSDRDenom, lunaPriceInSDR)
+	biqPriceInSDR := sdk.NewDecWithPrec(17, 1)
+	oracleKeeper.SetBiqExchangeRate(input.Ctx, core.MicroBSDRDenom, biqPriceInSDR)
 
 	_, _, creatorAddr := keyPubAddr()
 
@@ -125,8 +125,8 @@ func TestInstantiateMaker(t *testing.T) {
 
 	// valid instantiate
 	initMsg := MakerInitMsg{
-		OfferDenom: core.MicroSDRDenom,
-		AskDenom:   core.MicroLunaDenom,
+		OfferDenom: core.MicroBSDRDenom,
+		AskDenom:   core.MicroBiqDenom,
 	}
 
 	initBz, err := json.Marshal(&initMsg)
@@ -147,14 +147,14 @@ func TestMarketQuerier(t *testing.T) {
 	swapQueryMsg := bindingsTesterSwapQueryMsg{
 		Swap: swapQueryMsg{
 			OfferCoin: wasmvmtypes.Coin{
-				Denom:  core.MicroSDRDenom,
+				Denom:  core.MicroBSDRDenom,
 				Amount: offerCoin.Amount.String(),
 			},
-			AskDenom: core.MicroLunaDenom,
+			AskDenom: core.MicroBiqDenom,
 		},
 	}
 
-	retCoin, spread, err := marketKeeper.ComputeSwap(input.Ctx, offerCoin, core.MicroLunaDenom)
+	retCoin, spread, err := marketKeeper.ComputeSwap(input.Ctx, offerCoin, core.MicroBiqDenom)
 	retAmount := retCoin.Amount.Mul(sdk.OneDec().Sub(spread)).TruncateInt()
 
 	bz, err := json.Marshal(swapQueryMsg)
@@ -167,7 +167,7 @@ func TestMarketQuerier(t *testing.T) {
 	err = json.Unmarshal(res, &swapResponse)
 	require.NoError(t, err)
 	require.Equal(t, wasmvmtypes.Coin{
-		Denom:  core.MicroLunaDenom,
+		Denom:  core.MicroBiqDenom,
 		Amount: retAmount.String(),
 	}, swapResponse.Receive)
 }
@@ -195,10 +195,10 @@ func TestTreasuryQuerier(t *testing.T) {
 	require.NoError(t, err)
 	require.Equal(t, taxRate, taxRateDec)
 
-	taxCap := treasuryKeeper.GetTaxCap(ctx, core.MicroSDRDenom)
+	taxCap := treasuryKeeper.GetTaxCap(ctx, core.MicroBSDRDenom)
 	taxCapQueryMsg := bindingsTesterTaxCapQueryMsg{
 		TaxCap: taxCapQueryMsg{
-			Denom: core.MicroSDRDenom,
+			Denom: core.MicroBSDRDenom,
 		},
 	}
 
@@ -221,14 +221,14 @@ func TestExchangeRatesQuerier(t *testing.T) {
 
 	exchangeRateQueryMsg := bindingsTesterExchangeRatesQueryMsg{
 		ExchangeRates: exchangeRatesQueryMsg{
-			BaseDenom: core.MicroLunaDenom,
+			BaseDenom: core.MicroBiqDenom,
 			QuoteDenoms: []string{
-				core.MicroKRWDenom,
+				core.MicroBKRWDenom,
 			},
 		},
 	}
 
-	KRWExchangeRate, err := oracleKeeper.GetLunaExchangeRate(ctx, core.MicroKRWDenom)
+	KRWExchangeRate, err := oracleKeeper.GetBiqExchangeRate(ctx, core.MicroBKRWDenom)
 	require.NoError(t, err)
 
 	bz, err := json.Marshal(exchangeRateQueryMsg)
@@ -282,8 +282,8 @@ func TestBuyMsg(t *testing.T) {
 
 	ctx, keeper, accKeeper, bankKeeper := input.Ctx, input.WasmKeeper, input.AccKeeper, input.BankKeeper
 
-	retCoin, spread, err := input.MarketKeeper.ComputeSwap(input.Ctx, offerCoin, core.MicroLunaDenom)
-	expectedRetCoins := sdk.NewCoins(sdk.NewCoin(core.MicroLunaDenom, retCoin.Amount.Mul(sdk.OneDec().Sub(spread)).TruncateInt()))
+	retCoin, spread, err := input.MarketKeeper.ComputeSwap(input.Ctx, offerCoin, core.MicroBiqDenom)
+	expectedRetCoins := sdk.NewCoins(sdk.NewCoin(core.MicroBiqDenom, retCoin.Amount.Mul(sdk.OneDec().Sub(spread)).TruncateInt()))
 
 	// buy without limit
 	buyMsg := MakerHandleMsg{
@@ -311,8 +311,8 @@ func TestBuyAndSendMsg(t *testing.T) {
 	ctx, keeper, accKeeper, bankKeeper, treasuryKeeper := input.Ctx, input.WasmKeeper, input.AccKeeper, input.BankKeeper, input.TreasuryKeeper
 	treasuryKeeper.SetTaxRate(ctx, sdk.ZeroDec())
 
-	retCoin, spread, err := input.MarketKeeper.ComputeSwap(input.Ctx, offerCoin, core.MicroLunaDenom)
-	expectedRetCoins := sdk.NewCoins(sdk.NewCoin(core.MicroLunaDenom, retCoin.Amount.Mul(sdk.OneDec().Sub(spread)).TruncateInt()))
+	retCoin, spread, err := input.MarketKeeper.ComputeSwap(input.Ctx, offerCoin, core.MicroBiqDenom)
+	expectedRetCoins := sdk.NewCoins(sdk.NewCoin(core.MicroBiqDenom, retCoin.Amount.Mul(sdk.OneDec().Sub(spread)).TruncateInt()))
 
 	// buy without limit
 	buyMsg := MakerHandleMsg{
@@ -337,12 +337,12 @@ func TestSellMsg(t *testing.T) {
 	ctx, keeper, accKeeper, bankKeeper := input.Ctx, input.WasmKeeper, input.AccKeeper, input.BankKeeper
 
 	sellAmount := sdk.NewInt(rand.Int63()%10000 + 2)
-	sellCoin := sdk.NewCoin(core.MicroLunaDenom, sellAmount)
+	sellCoin := sdk.NewCoin(core.MicroBiqDenom, sellAmount)
 	err := FundAccount(input, creatorAddr, sdk.NewCoins(sellCoin))
 	require.NoError(t, err)
 
-	retCoin, spread, err := input.MarketKeeper.ComputeSwap(input.Ctx, sellCoin, core.MicroSDRDenom)
-	expectedRetCoins := sdk.NewCoins(sdk.NewCoin(core.MicroSDRDenom, retCoin.Amount.Mul(sdk.OneDec().Sub(spread)).TruncateInt()))
+	retCoin, spread, err := input.MarketKeeper.ComputeSwap(input.Ctx, sellCoin, core.MicroBSDRDenom)
+	expectedRetCoins := sdk.NewCoins(sdk.NewCoin(core.MicroBSDRDenom, retCoin.Amount.Mul(sdk.OneDec().Sub(spread)).TruncateInt()))
 
 	// sell without limit
 	sellMsg := MakerHandleMsg{
@@ -370,7 +370,7 @@ func TestSendMsg(t *testing.T) {
 	// Check tax charging
 	ctx, keeper, accKeeper, bankKeeper, treasuryKeeper := input.Ctx, input.WasmKeeper, input.AccKeeper, input.BankKeeper, input.TreasuryKeeper
 	taxRate := treasuryKeeper.GetTaxRate(ctx)
-	taxCap := treasuryKeeper.GetTaxCap(ctx, core.MicroSDRDenom)
+	taxCap := treasuryKeeper.GetTaxCap(ctx, core.MicroBSDRDenom)
 
 	sendMsg := MakerHandleMsg{
 		Send: &sendPayload{
@@ -397,11 +397,11 @@ func setupMakerContract(t *testing.T) (input TestInput, creatorAddr, makerAddr s
 
 	ctx, keeper, accKeeper, bankKeeper, oracleKeeper := input.Ctx, input.WasmKeeper, input.AccKeeper, input.BankKeeper, input.OracleKeeper
 
-	lunaPriceInSDR := sdk.NewDecWithPrec(17, 1)
-	oracleKeeper.SetLunaExchangeRate(input.Ctx, core.MicroSDRDenom, lunaPriceInSDR)
+	biqPriceInSDR := sdk.NewDecWithPrec(17, 1)
+	oracleKeeper.SetBiqExchangeRate(input.Ctx, core.MicroBSDRDenom, biqPriceInSDR)
 
-	swapAmountInSDR := lunaPriceInSDR.MulInt64(rand.Int63()%10000 + 2).TruncateInt()
-	initCoin = sdk.NewCoin(core.MicroSDRDenom, swapAmountInSDR)
+	swapAmountInSDR := biqPriceInSDR.MulInt64(rand.Int63()%10000 + 2).TruncateInt()
+	initCoin = sdk.NewCoin(core.MicroBSDRDenom, swapAmountInSDR)
 
 	creatorAddr = createFakeFundedAccount(ctx, accKeeper, bankKeeper, sdk.NewCoins(initCoin))
 
@@ -413,8 +413,8 @@ func setupMakerContract(t *testing.T) (input TestInput, creatorAddr, makerAddr s
 	require.Equal(t, uint64(1), makerID)
 
 	initMsg := MakerInitMsg{
-		OfferDenom: core.MicroSDRDenom,
-		AskDenom:   core.MicroLunaDenom,
+		OfferDenom: core.MicroBSDRDenom,
+		AskDenom:   core.MicroBiqDenom,
 	}
 
 	initBz, err := json.Marshal(&initMsg)
@@ -430,15 +430,15 @@ func setupBindingsTesterContract(t *testing.T) (input TestInput, creatorAddr, bi
 
 	ctx, keeper, accKeeper, bankKeeper, oracleKeeper := input.Ctx, input.WasmKeeper, input.AccKeeper, input.BankKeeper, input.OracleKeeper
 
-	lunaPriceInSDR := sdk.NewDecWithPrec(17, 1)
-	lunaPriceInUSD := sdk.NewDecWithPrec(15, 1)
-	lunaPriceInKRW := sdk.NewDec(1300)
-	oracleKeeper.SetLunaExchangeRate(input.Ctx, core.MicroSDRDenom, lunaPriceInSDR)
-	oracleKeeper.SetLunaExchangeRate(input.Ctx, core.MicroUSDDenom, lunaPriceInUSD)
-	oracleKeeper.SetLunaExchangeRate(input.Ctx, core.MicroKRWDenom, lunaPriceInKRW)
+	biqPriceInSDR := sdk.NewDecWithPrec(17, 1)
+	biqPriceInUSD := sdk.NewDecWithPrec(15, 1)
+	biqPriceInKRW := sdk.NewDec(1300)
+	oracleKeeper.SetBiqExchangeRate(input.Ctx, core.MicroBSDRDenom, biqPriceInSDR)
+	oracleKeeper.SetBiqExchangeRate(input.Ctx, core.MicroBUSDDenom, biqPriceInUSD)
+	oracleKeeper.SetBiqExchangeRate(input.Ctx, core.MicroBKRWDenom, biqPriceInKRW)
 
-	swapAmountInSDR := lunaPriceInSDR.MulInt64(rand.Int63()%10000 + 2).TruncateInt()
-	initCoin = sdk.NewCoin(core.MicroSDRDenom, swapAmountInSDR)
+	swapAmountInSDR := biqPriceInSDR.MulInt64(rand.Int63()%10000 + 2).TruncateInt()
+	initCoin = sdk.NewCoin(core.MicroBSDRDenom, swapAmountInSDR)
 
 	creatorAddr = createFakeFundedAccount(ctx, accKeeper, bankKeeper, sdk.NewCoins(initCoin))
 

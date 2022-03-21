@@ -21,8 +21,8 @@ func TestDecodeDistributionStore(t *testing.T) {
 	taxRate := sdk.NewDecWithPrec(123, 2)
 	rewardWeight := sdk.NewDecWithPrec(532, 2)
 	taxCap := sdk.NewInt(1600)
-	taxProceeds := sdk.NewCoins(sdk.NewInt64Coin(core.MicroKRWDenom, 123124), sdk.NewInt64Coin(core.MicroSDRDenom, 123124))
-	epochInitialIssuance := sdk.NewCoins(sdk.NewInt64Coin(core.MicroKRWDenom, 645352342))
+	taxProceeds := sdk.NewCoins(sdk.NewInt64Coin(core.MicroBKRWDenom, 123124), sdk.NewInt64Coin(core.MicroBSDRDenom, 123124))
+	epochInitialIssuance := sdk.NewCoins(sdk.NewInt64Coin(core.MicroBKRWDenom, 645352342))
 
 	TR := sdk.NewDecWithPrec(123, 2)
 	SR := sdk.NewDecWithPrec(43523, 4)
