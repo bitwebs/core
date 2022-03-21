@@ -23,9 +23,9 @@ type AppModuleBasic struct {
 // DefaultGenesis returns default genesis state as raw bytes for the gov
 // module.
 func (am AppModuleBasic) DefaultGenesis(cdc codec.JSONCodec) json.RawMessage {
-	// customize to set default genesis state deposit denom to uluna
+	// customize to set default genesis state deposit denom to ubiq
 	defaultGenesisState := types.DefaultGenesisState()
-	defaultGenesisState.Params.MintDenom = core.MicroLunaDenom
+	defaultGenesisState.Params.MintDenom = core.MicroBiqDenom
 
 	return cdc.MustMarshalJSON(defaultGenesisState)
 }

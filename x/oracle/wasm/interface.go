@@ -63,15 +63,15 @@ func (querier WasmQuerier) QueryCustom(ctx sdk.Context, data json.RawMessage) ([
 
 	if params.ExchangeRates != nil {
 		// LUNA / BASE_DENOM
-		baseDenomExchangeRate, err := querier.keeper.GetLunaExchangeRate(ctx, params.ExchangeRates.BaseDenom)
+		baseDenomExchangeRate, err := querier.keeper.GetBiqExchangeRate(ctx, params.ExchangeRates.BaseDenom)
 		if err != nil {
 			return nil, err
 		}
 
 		var items []ExchangeRateItem
 		for _, quoteDenom := range params.ExchangeRates.QuoteDenoms {
-			// LUNA / QUOTE_DENOM
-			quoteDenomExchangeRate, err := querier.keeper.GetLunaExchangeRate(ctx, quoteDenom)
+			// BIQ / QUOTE_DENOM
+			quoteDenomExchangeRate, err := querier.keeper.GetBiqExchangeRate(ctx, quoteDenom)
 			if err != nil {
 				continue
 			}

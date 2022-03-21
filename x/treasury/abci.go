@@ -23,7 +23,7 @@ func EndBlocker(ctx sdk.Context, k keeper.Keeper) {
 		return
 	}
 
-	// Update luna issuance after finish all works
+	// Update biq issuance after finish all works
 	defer k.RecordEpochInitialIssuance(ctx)
 
 	// Compute & Update internal indicators for the current epoch

@@ -47,7 +47,7 @@ func Migrate(
 			Epoch:             uint64(i - cumulativeEpochs),
 			TaxReward:         treasuryGenState.TRs[i],
 			SeigniorageReward: treasuryGenState.SRs[i],
-			TotalStakedLuna:   treasuryGenState.TSLs[i],
+			TotalStakedBiq:   treasuryGenState.TSLs[i],
 		}
 	}
 

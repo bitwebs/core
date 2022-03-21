@@ -27,14 +27,14 @@ func TestSettle(t *testing.T) {
 	require.Equal(t, burnAmt, input.TreasuryKeeper.PeekEpochSeigniorage(input.Ctx))
 
 	input.TreasuryKeeper.SettleSeigniorage(input.Ctx)
-	lunaSupply := input.BankKeeper.GetSupply(input.Ctx, core.MicroBiqDenom)
+	biqSupply := input.BankKeeper.GetSupply(input.Ctx, core.MicroBiqDenom)
 	feePool := input.DistrKeeper.GetFeePool(input.Ctx)
 
 	// Reward weight portion of seigniorage burned
 	rewardWeight := input.TreasuryKeeper.GetRewardWeight(input.Ctx)
 	communityPoolAmt := burnAmt.Sub(rewardWeight.MulInt(burnAmt).TruncateInt())
 
-	require.Equal(t, lunaSupply.Amount, initialBiqSupply.Amount.Sub(burnAmt).Add(communityPoolAmt))
+	require.Equal(t, biqSupply.Amount, initialBiqSupply.Amount.Sub(burnAmt).Add(communityPoolAmt))
 	require.Equal(t, communityPoolAmt, feePool.CommunityPool.AmountOf(core.MicroBiqDenom).TruncateInt())
 }
 
@@ -57,10 +57,10 @@ func TestOneRewardWeightSettle(t *testing.T) {
 	require.Equal(t, burnAmt, input.TreasuryKeeper.PeekEpochSeigniorage(input.Ctx))
 
 	input.TreasuryKeeper.SettleSeigniorage(input.Ctx)
-	lunaSupply := input.BankKeeper.GetSupply(input.Ctx, core.MicroBiqDenom)
+	biqSupply := input.BankKeeper.GetSupply(input.Ctx, core.MicroBiqDenom)
 	feePool := input.DistrKeeper.GetFeePool(input.Ctx)
 
 	// Reward weight portion of seigniorage burned
-	require.Equal(t, lunaSupply.Amount, initialBiqSupply.Amount.Sub(burnAmt))
+	require.Equal(t, biqSupply.Amount, initialBiqSupply.Amount.Sub(burnAmt))
 	require.Equal(t, sdk.ZeroInt(), feePool.CommunityPool.AmountOf(core.MicroBiqDenom).TruncateInt())
 }

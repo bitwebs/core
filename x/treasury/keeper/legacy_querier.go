@@ -40,7 +40,7 @@ func NewLegacyQuerier(k Keeper, legacyQuerierCdc *codec.LegacyAmino) sdk.Querier
 }
 
 func queryIndicators(ctx sdk.Context, k Keeper, legacyQuerierCdc *codec.LegacyAmino) ([]byte, error) {
-	// Compute Total Staked Luna (TSL)
+	// Compute Total Staked Biq (TSL)
 	TSL := k.stakingKeeper.TotalBondedTokens(ctx)
 
 	// Compute Tax Rewards (TR)

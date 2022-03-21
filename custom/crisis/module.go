@@ -32,7 +32,7 @@ func (AppModuleBasic) RegisterLegacyAminoCodec(cdc *codec.LegacyAmino) {
 func (am AppModuleBasic) DefaultGenesis(cdc codec.JSONCodec) json.RawMessage {
 	// customize to set default genesis state deposit denom to uluna
 	defaultGenesisState := types.DefaultGenesisState()
-	defaultGenesisState.ConstantFee.Denom = core.MicroLunaDenom
+	defaultGenesisState.ConstantFee.Denom = core.MicroBiqDenom
 
 	return cdc.MustMarshalJSON(defaultGenesisState)
 }

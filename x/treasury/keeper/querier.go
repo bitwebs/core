@@ -90,7 +90,7 @@ func (q querier) TaxProceeds(c context.Context, req *types.QueryTaxProceedsReque
 func (q querier) Indicators(c context.Context, req *types.QueryIndicatorsRequest) (*types.QueryIndicatorsResponse, error) {
 	ctx := sdk.UnwrapSDKContext(c)
 
-	// Compute Total Staked Luna (TSL)
+	// Compute Total Staked Biq (TSL)
 	TSL := q.stakingKeeper.TotalBondedTokens(ctx)
 
 	// Compute Tax Rewards (TR)

@@ -52,10 +52,10 @@ func NewDecodeStore(cdc codec.Codec) func(kvA, kvB kv.Pair) string {
 			cdc.MustUnmarshal(kvB.Value, &SeigniorageRateB)
 			return fmt.Sprintf("%v\n%v", SeigniorageRateA, SeigniorageRateB)
 		case bytes.Equal(kvA.Key[:1], types.TSLKey):
-			var TotalStakedLunaA, TotalStakedLunaB sdk.IntProto
-			cdc.MustUnmarshal(kvA.Value, &TotalStakedLunaA)
-			cdc.MustUnmarshal(kvB.Value, &TotalStakedLunaB)
-			return fmt.Sprintf("%v\n%v", TotalStakedLunaA, TotalStakedLunaB)
+			var TotalStakedBiqA, TotalStakedBiqB sdk.IntProto
+			cdc.MustUnmarshal(kvA.Value, &TotalStakedBiqA)
+			cdc.MustUnmarshal(kvB.Value, &TotalStakedBiqB)
+			return fmt.Sprintf("%v\n%v", TotalStakedBiqA, TotalStakedBiqB)
 		default:
 			panic(fmt.Sprintf("invalid oracle key prefix %X", kvA.Key[:1]))
 		}

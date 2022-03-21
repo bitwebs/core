@@ -14,7 +14,7 @@ import (
 )
 
 // RandomGenesisBalances returns a slice of account balances. Each account has
-// a balance of simState.InitialStake for sdk.DefaultBondDenom and core.MicroLunaDenom.
+// a balance of simState.InitialStake for sdk.DefaultBondDenom and core.MicroBiqDenom.
 func RandomGenesisBalances(simState *module.SimulationState) []types.Balance {
 	genesisBalances := []types.Balance{}
 
@@ -23,7 +23,7 @@ func RandomGenesisBalances(simState *module.SimulationState) []types.Balance {
 			Address: acc.Address.String(),
 			Coins: sdk.NewCoins(
 				sdk.NewCoin(sdk.DefaultBondDenom, sdk.NewInt(simState.InitialStake)),
-				sdk.NewCoin(core.MicroLunaDenom, sdk.NewInt(simState.InitialStake)),
+				sdk.NewCoin(core.MicroBiqDenom, sdk.NewInt(simState.InitialStake)),
 			),
 		})
 	}
@@ -47,10 +47,10 @@ func RandomizedGenState(simState *module.SimulationState) {
 
 	numAccs := int64(len(simState.Accounts))
 	totalSupply := sdk.NewInt(simState.InitialStake * (numAccs + simState.NumBonded))
-	totalLunaSupply := sdk.NewInt(simState.InitialStake * numAccs)
+	totalBiqSupply := sdk.NewInt(simState.InitialStake * numAccs)
 	supply := sdk.NewCoins(
 		sdk.NewCoin(sdk.DefaultBondDenom, totalSupply),
-		sdk.NewCoin(core.MicroLunaDenom, totalLunaSupply),
+		sdk.NewCoin(core.MicroBiqDenom, totalBiqSupply),
 	)
 
 	bankGenesis := types.GenesisState{

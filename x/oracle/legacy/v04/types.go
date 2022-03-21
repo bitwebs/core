@@ -28,7 +28,7 @@ type (
 		TobinTaxes                    map[string]sdk.Dec             `json:"tobin_taxes" yaml:"tobin_taxes"`
 	}
 
-	// ExchangeRatePrevote - struct to store a validator's prevote on the rate of Luna in the denom asset
+	// ExchangeRatePrevote - struct to store a validator's prevote on the rate of Biq in the denom asset
 	ExchangeRatePrevote struct {
 		Hash        VoteHash       `json:"hash"`  // Vote hex hash to protect centralize data source problem
 		Denom       string         `json:"denom"` // Ticker name of target fiat currency
@@ -36,27 +36,27 @@ type (
 		SubmitBlock int64          `json:"submit_block"`
 	}
 
-	// ExchangeRateVote - struct to store a validator's vote on the rate of Luna in the denom asset
+	// ExchangeRateVote - struct to store a validator's vote on the rate of Biq in the denom asset
 	ExchangeRateVote struct {
-		ExchangeRate sdk.Dec        `json:"exchange_rate"` // ExchangeRate of Luna in target fiat currency
+		ExchangeRate sdk.Dec        `json:"exchange_rate"` // ExchangeRate of Biq in target fiat currency
 		Denom        string         `json:"denom"`         // Ticker name of target fiat currency
 		Voter        sdk.ValAddress `json:"voter"`         // voter val address of validator
 	}
 
-	// AggregateExchangeRatePrevote - struct to store a validator's aggregate prevote on the rate of Luna in the denom asset
+	// AggregateExchangeRatePrevote - struct to store a validator's aggregate prevote on the rate of Biq in the denom asset
 	AggregateExchangeRatePrevote struct {
 		Hash        VoteHash       `json:"hash"`  // Vote hex hash to protect centralize data source problem
 		Voter       sdk.ValAddress `json:"voter"` // Voter val address
 		SubmitBlock int64          `json:"submit_block"`
 	}
 
-	// AggregateExchangeRateVote - struct to store a validator's aggregate vote on the rate of Luna in the denom asset
+	// AggregateExchangeRateVote - struct to store a validator's aggregate vote on the rate of Biq in the denom asset
 	AggregateExchangeRateVote struct {
-		ExchangeRateTuples ExchangeRateTuples `json:"exchange_rate_tuples"` // ExchangeRates of Luna in target fiat currencies
+		ExchangeRateTuples ExchangeRateTuples `json:"exchange_rate_tuples"` // ExchangeRates of Biq in target fiat currencies
 		Voter              sdk.ValAddress     `json:"voter"`                // voter val address of validator
 	}
 
-	// ExchangeRateTuple - struct to represent a exchange rate of Luna in the denom asset
+	// ExchangeRateTuple - struct to represent a exchange rate of Biq in the denom asset
 	ExchangeRateTuple struct {
 		Denom        string  `json:"denom"`
 		ExchangeRate sdk.Dec `json:"exchange_rate"`

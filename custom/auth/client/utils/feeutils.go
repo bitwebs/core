@@ -265,7 +265,7 @@ func computeTax(clientCtx client.Context, taxRate sdk.Dec, principal sdk.Coins) 
 
 	for _, coin := range principal {
 
-		if coin.Denom == core.MicroLunaDenom {
+		if coin.Denom == core.MicroBiqDenom {
 			continue
 		}
 
