@@ -46,7 +46,7 @@ func TestMigrate(t *testing.T) {
 				Authorization: v04msgauth.SendAuthorization{
 					SpendLimit: sdk.Coins{
 						{
-							Denom:  core.MicroUSDDenom,
+							Denom:  core.MicroBUSDDenom,
 							Amount: sdk.NewInt(100),
 						},
 					},

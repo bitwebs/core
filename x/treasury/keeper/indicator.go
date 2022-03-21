@@ -50,7 +50,7 @@ func (k Keeper) UpdateIndicators(ctx sdk.Context) {
 
 	// Compute Tax Rewards (TR)
 	taxRewards := sdk.NewDecCoinsFromCoins(k.PeekEpochTaxProceeds(ctx)...)
-	TR := k.alignCoins(ctx, taxRewards, core.MicroSDRDenom)
+	TR := k.alignCoins(ctx, taxRewards, core.MicroBSDRDenom)
 
 	k.SetTR(ctx, epoch, TR)
 
@@ -61,7 +61,7 @@ func (k Keeper) UpdateIndicators(ctx sdk.Context) {
 	seigniorage := k.PeekEpochSeigniorage(ctx)
 	seigniorageRewardsAmt := k.GetRewardWeight(ctx).MulInt(seigniorage)
 	seigniorageRewards := sdk.DecCoins{sdk.NewDecCoinFromDec(core.MicroBiqDenom, seigniorageRewardsAmt)}
-	SR := k.alignCoins(ctx, seigniorageRewards, core.MicroSDRDenom)
+	SR := k.alignCoins(ctx, seigniorageRewards, core.MicroBSDRDenom)
 
 	k.SetSR(ctx, epoch, SR)
 }

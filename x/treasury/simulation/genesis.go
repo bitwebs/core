@@ -30,7 +30,7 @@ func GenTaxPolicy(r *rand.Rand) types.PolicyConstraints {
 	return types.PolicyConstraints{
 		RateMin:       sdk.NewDecWithPrec(int64(r.Intn(5)+1), 3),
 		RateMax:       sdk.NewDecWithPrec(6, 3).Add(sdk.NewDecWithPrec(int64(r.Intn(5)+1), 3)),
-		Cap:           sdk.NewInt64Coin(core.MicroSDRDenom, 1000000),
+		Cap:           sdk.NewInt64Coin(core.MicroBSDRDenom, 1000000),
 		ChangeRateMax: sdk.NewDecWithPrec(25, 5).Add(sdk.NewDecWithPrec(int64(r.Intn(75)), 5)),
 	}
 }
