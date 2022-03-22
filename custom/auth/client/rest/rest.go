@@ -7,7 +7,7 @@ import (
 	clientrest "github.com/cosmos/cosmos-sdk/client/rest"
 )
 
-// RegisterTxRoutes registers registers terra custom transaction routes on the provided router.
+// RegisterTxRoutes registers registers iq custom transaction routes on the provided router.
 func RegisterTxRoutes(clientCtx client.Context, rtr *mux.Router) {
 	r := clientrest.WithHTTPDeprecationHeaders(rtr)
 	r.HandleFunc("/txs/estimate_fee", EstimateTxFeeRequestHandlerFn(clientCtx)).Methods("POST")

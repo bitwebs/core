@@ -21,7 +21,7 @@ func GetTxFeesEstimateCommand() *cobra.Command {
 		Long: strings.TrimSpace(`
 Estimate fees for the given stdTx
 
-$ terrad tx estimate-fee [file] --gas-adjustment 1.4 --gas-prices 0.015ubiq
+$ iqd tx estimate-fee [file] --gas-adjustment 1.4 --gas-prices 0.015ubiq
 `),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			clientCtx, err := client.GetClientTxContext(cmd)
