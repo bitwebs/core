@@ -129,7 +129,7 @@ build-linux-with-shared-library:
 	docker rm temp
 
 install: go.sum 
-	go install -mod=readonly $(BUILD_FLAGS) ./cmd/iqd
+	go install $(BUILD_FLAGS) ./cmd/iqd
 
 update-swagger-docs: statik
 	$(BINDIR)/statik -src=client/docs/swagger-ui -dest=client/docs -f -m
