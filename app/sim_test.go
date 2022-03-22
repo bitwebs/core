@@ -6,7 +6,7 @@ import (
 	"os"
 	"testing"
 
-	terraapp "github.com/bitwebs/iq-core/app"
+	iqapp "github.com/bitwebs/iq-core/app"
 	"github.com/bitwebs/iq-core/app/helpers"
 	wasmconfig "github.com/bitwebs/iq-core/x/wasm/config"
 
@@ -42,9 +42,9 @@ func BenchmarkFullAppSimulation(b *testing.B) {
 		}
 	}()
 
-	app := terraapp.NewIqApp(
+	app := iqapp.NewIqApp(
 		logger, db, nil, true, map[int64]bool{},
-		terraapp.DefaultNodeHome, simapp.FlagPeriodValue, terraapp.MakeEncodingConfig(),
+		iqapp.DefaultNodeHome, simapp.FlagPeriodValue, iqapp.MakeEncodingConfig(),
 		simapp.EmptyAppOptions{}, wasmconfig.DefaultConfig(), interBlockCacheOpt())
 
 	// Run randomized simulation:w
@@ -110,9 +110,9 @@ func TestAppStateDeterminism(t *testing.T) {
 			}
 
 			db := dbm.NewMemDB()
-			app := terraapp.NewIqApp(
-				logger, db, nil, true, map[int64]bool{}, terraapp.DefaultNodeHome,
-				simapp.FlagPeriodValue, terraapp.MakeEncodingConfig(),
+			app := iqapp.NewIqApp(
+				logger, db, nil, true, map[int64]bool{}, iqapp.DefaultNodeHome,
+				simapp.FlagPeriodValue, iqapp.MakeEncodingConfig(),
 				simapp.EmptyAppOptions{}, wasmconfig.DefaultConfig(), interBlockCacheOpt())
 
 			fmt.Printf(
