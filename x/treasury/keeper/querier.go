@@ -95,7 +95,7 @@ func (q querier) Indicators(c context.Context, req *types.QueryIndicatorsRequest
 
 	// Compute Tax Rewards (TR)
 	taxRewards := sdk.NewDecCoinsFromCoins(q.PeekEpochTaxProceeds(ctx)...)
-	TR := q.alignCoins(ctx, taxRewards, core.MicroSDRDenom)
+	TR := q.alignCoins(ctx, taxRewards, core.MicroBSDRDenom)
 
 	epoch := q.GetEpoch(ctx)
 	var res types.QueryIndicatorsResponse

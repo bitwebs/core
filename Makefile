@@ -110,7 +110,7 @@ build: go.sum
 ifeq ($(OS),Windows_NT)
 	exit 1
 else
-	go build -mod=readonly $(BUILD_FLAGS) -o build/iqd ./cmd/iqd
+	go build $(BUILD_FLAGS) -o build/iqd ./cmd/iqd
 endif
 
 build-linux:
