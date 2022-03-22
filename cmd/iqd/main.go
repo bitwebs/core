@@ -6,7 +6,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/server"
 	svrcmd "github.com/cosmos/cosmos-sdk/server/cmd"
 
-	terraapp "github.com/bitwebs/iq-core/app"
+	iqapp "github.com/bitwebs/iq-core/app"
 )
 
 func main() {
