@@ -170,7 +170,7 @@ paths:
                       proposer_address:
                         type: string
                         description: bech32 encoded address
-                        example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+                        example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
                       version:
                         type: object
                         properties:
@@ -258,7 +258,7 @@ paths:
                       proposer_address:
                         type: string
                         description: bech32 encoded address
-                        example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+                        example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
                       version:
                         type: object
                         properties:
@@ -420,7 +420,7 @@ paths:
                       proposer_address:
                         type: string
                         description: bech32 encoded address
-                        example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+                        example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
                       version:
                         type: object
                         properties:
@@ -508,7 +508,7 @@ paths:
                       proposer_address:
                         type: string
                         description: bech32 encoded address
-                        example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+                        example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
                       version:
                         type: object
                         properties:
@@ -614,7 +614,7 @@ paths:
                     address:
                       type: string
                       description: bech32 encoded address
-                      example: terravaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
+                      example: iqvaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
                     pub_key:
                       type: object
                       properties:
@@ -660,7 +660,7 @@ paths:
                     address:
                       type: string
                       description: bech32 encoded address
-                      example: terravaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
+                      example: iqvaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
                     pub_key:
                       type: object
                       properties:
@@ -728,7 +728,7 @@ paths:
                           properties:
                             denom:
                               type: string
-                              example: uluna
+                              example: ubiq
                             amount:
                               type: string
                               example: '50'
@@ -802,8 +802,8 @@ paths:
           type: string
           description: >-
             transaction events with sender: 'GET
-            /txs?message.action=send&message.sender=terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv'
-          x-example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+            /txs?message.action=send&message.sender=iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv'
+          x-example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
         - in: query
           name: page
           description: Page number
@@ -876,7 +876,7 @@ paths:
                                 properties:
                                   denom:
                                     type: string
-                                    example: uluna
+                                    example: ubiq
                                   amount:
                                     type: string
                                     example: '50'
@@ -968,7 +968,7 @@ paths:
                           properties:
                             denom:
                               type: string
-                              example: uluna
+                              example: ubiq
                             amount:
                               type: string
                               example: '50'
@@ -1010,7 +1010,7 @@ paths:
               fee_granter:
                 type: string
                 description: bech32 encoded address
-                example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+                example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
                 required: false
       responses:
         '200':
@@ -1133,7 +1133,7 @@ paths:
                           properties:
                             denom:
                               type: string
-                              example: uluna
+                              example: ubiq
                             amount:
                               type: string
                               example: '50'
@@ -1170,7 +1170,7 @@ paths:
               fee_granter:
                 type: string
                 description: bech32 encoded address
-                example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+                example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
                 required: false
       responses:
         '200':
@@ -1232,7 +1232,7 @@ paths:
                       properties:
                         denom:
                           type: string
-                          example: uluna
+                          example: ubiq
                         amount:
                           type: string
                           example: '50'
@@ -1288,7 +1288,7 @@ paths:
                 properties:
                   from:
                     type: string
-                    example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+                    example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
                     description: Sender address or Keybase name to generate a transaction
                   memo:
                     type: string
@@ -1315,7 +1315,7 @@ paths:
                       properties:
                         denom:
                           type: string
-                          example: uluna
+                          example: ubiq
                         amount:
                           type: string
                           example: '50'
@@ -1344,7 +1344,7 @@ paths:
                   properties:
                     denom:
                       type: string
-                      example: uluna
+                      example: ubiq
                     amount:
                       type: string
                       example: '50'
@@ -1366,7 +1366,7 @@ paths:
           description: Account address in bech32 format
           required: true
           type: string
-          x-example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+          x-example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
       responses:
         '200':
           description: Account balances
@@ -1377,7 +1377,7 @@ paths:
               properties:
                 denom:
                   type: string
-                  example: uluna
+                  example: ubiq
                 amount:
                   type: string
                   example: '50'
@@ -1399,7 +1399,7 @@ paths:
           description: Account address in bech32 format
           required: true
           type: string
-          x-example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+          x-example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
         - in: body
           name: account
           description: The sender and tx information
@@ -1412,7 +1412,7 @@ paths:
                 properties:
                   from:
                     type: string
-                    example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+                    example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
                     description: Sender address or Keybase name to generate a transaction
                   memo:
                     type: string
@@ -1439,7 +1439,7 @@ paths:
                       properties:
                         denom:
                           type: string
-                          example: uluna
+                          example: ubiq
                         amount:
                           type: string
                           example: '50'
@@ -1456,7 +1456,7 @@ paths:
                   properties:
                     denom:
                       type: string
-                      example: uluna
+                      example: ubiq
                     amount:
                       type: string
                       example: '50'
@@ -1482,7 +1482,7 @@ paths:
                       properties:
                         denom:
                           type: string
-                          example: uluna
+                          example: ubiq
                         amount:
                           type: string
                           example: '50'
@@ -1535,7 +1535,7 @@ paths:
                   properties:
                     denom:
                       type: string
-                      example: uluna
+                      example: ubiq
                     amount:
                       type: string
                       example: '50'
@@ -1548,7 +1548,7 @@ paths:
         description: Coin denomination
         required: true
         type: string
-        x-example: uluna
+        x-example: ubiq
     get:
       deprecated: true
       summary: Total supply of a single coin denomination
@@ -1579,7 +1579,7 @@ paths:
           description: Account address
           required: true
           type: string
-          x-example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+          x-example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
       responses:
         '200':
           description: Account information on the blockchain
@@ -1633,7 +1633,7 @@ paths:
                               properties:
                                 denom:
                                   type: string
-                                  example: uluna
+                                  example: ubiq
                                 amount:
                                   type: string
                                   example: '50'
@@ -1644,7 +1644,7 @@ paths:
                               properties:
                                 denom:
                                   type: string
-                                  example: uluna
+                                  example: ubiq
                                 amount:
                                   type: string
                                   example: '50'
@@ -1655,7 +1655,7 @@ paths:
                               properties:
                                 denom:
                                   type: string
-                                  example: uluna
+                                  example: ubiq
                                 amount:
                                   type: string
                                   example: '50'
@@ -1693,7 +1693,7 @@ paths:
         description: Bech32 AccAddress of Delegator
         required: true
         type: string
-        x-example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+        x-example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
     get:
       deprecated: true
       summary: Get all delegations from a delegator
@@ -1723,7 +1723,7 @@ paths:
                   properties:
                     denom:
                       type: string
-                      example: uluna
+                      example: ubiq
                     amount:
                       type: string
                       example: '50'
@@ -1746,7 +1746,7 @@ paths:
                 properties:
                   from:
                     type: string
-                    example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+                    example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
                     description: Sender address or Keybase name to generate a transaction
                   memo:
                     type: string
@@ -1773,7 +1773,7 @@ paths:
                       properties:
                         denom:
                           type: string
-                          example: uluna
+                          example: ubiq
                         amount:
                           type: string
                           example: '50'
@@ -1786,17 +1786,17 @@ paths:
               delegator_address:
                 type: string
                 description: bech32 encoded address
-                example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+                example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
               validator_address:
                 type: string
                 description: bech32 encoded address
-                example: terravaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
+                example: iqvaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
               amount:
                 type: object
                 properties:
                   denom:
                     type: string
-                    example: uluna
+                    example: ubiq
                   amount:
                     type: string
                     example: '50'
@@ -1828,7 +1828,7 @@ paths:
                       properties:
                         denom:
                           type: string
-                          example: uluna
+                          example: ubiq
                         amount:
                           type: string
                           example: '50'
@@ -1869,13 +1869,13 @@ paths:
         description: Bech32 AccAddress of Delegator
         required: true
         type: string
-        x-example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+        x-example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
       - in: path
         name: validatorAddr
         description: Bech32 OperatorAddress of validator
         required: true
         type: string
-        x-example: terravaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
+        x-example: iqvaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
     get:
       deprecated: true
       summary: Query the current delegation between a delegator and a validator
@@ -1903,7 +1903,7 @@ paths:
                 properties:
                   denom:
                     type: string
-                    example: uluna
+                    example: ubiq
                   amount:
                     type: string
                     example: '50'
@@ -1918,7 +1918,7 @@ paths:
         description: Bech32 AccAddress of Delegator
         required: true
         type: string
-        x-example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+        x-example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
     get:
       deprecated: true
       summary: Get all unbonding delegations from a delegator
@@ -1970,7 +1970,7 @@ paths:
                 properties:
                   from:
                     type: string
-                    example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+                    example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
                     description: Sender address or Keybase name to generate a transaction
                   memo:
                     type: string
@@ -1997,7 +1997,7 @@ paths:
                       properties:
                         denom:
                           type: string
-                          example: uluna
+                          example: ubiq
                         amount:
                           type: string
                           example: '50'
@@ -2010,17 +2010,17 @@ paths:
               delegator_address:
                 type: string
                 description: bech32 encoded address
-                example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+                example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
               validator_address:
                 type: string
                 description: bech32 encoded address
-                example: terravaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
+                example: iqvaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
               amount:
                 type: object
                 properties:
                   denom:
                     type: string
-                    example: uluna
+                    example: ubiq
                   amount:
                     type: string
                     example: '50'
@@ -2052,7 +2052,7 @@ paths:
                       properties:
                         denom:
                           type: string
-                          example: uluna
+                          example: ubiq
                         amount:
                           type: string
                           example: '50'
@@ -2093,13 +2093,13 @@ paths:
         description: Bech32 AccAddress of Delegator
         required: true
         type: string
-        x-example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+        x-example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
       - in: path
         name: validatorAddr
         description: Bech32 OperatorAddress of validator
         required: true
         type: string
-        x-example: terravaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
+        x-example: iqvaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
     get:
       deprecated: true
       summary: Query all unbonding delegations between a delegator and a validator
@@ -2196,7 +2196,7 @@ paths:
         description: Bech32 AccAddress of Delegator
         required: true
         type: string
-        x-example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+        x-example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
     post:
       deprecated: true
       summary: Submit a redelegation
@@ -2212,7 +2212,7 @@ paths:
                 properties:
                   from:
                     type: string
-                    example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+                    example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
                     description: Sender address or Keybase name to generate a transaction
                   memo:
                     type: string
@@ -2239,7 +2239,7 @@ paths:
                       properties:
                         denom:
                           type: string
-                          example: uluna
+                          example: ubiq
                         amount:
                           type: string
                           example: '50'
@@ -2252,15 +2252,15 @@ paths:
               delegator_address:
                 type: string
                 description: bech32 encoded address
-                example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+                example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
               validator_src_address:
                 type: string
                 description: bech32 encoded address
-                example: terravaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
+                example: iqvaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
               validator_dst_address:
                 type: string
                 description: bech32 encoded address
-                example: terravaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
+                example: iqvaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
               amount:
                 type: array
                 items:
@@ -2268,7 +2268,7 @@ paths:
                   properties:
                     denom:
                       type: string
-                      example: uluna
+                      example: ubiq
                     amount:
                       type: string
                       example: '50'
@@ -2300,7 +2300,7 @@ paths:
                       properties:
                         denom:
                           type: string
-                          example: uluna
+                          example: ubiq
                         amount:
                           type: string
                           example: '50'
@@ -2339,7 +2339,7 @@ paths:
         description: Bech32 AccAddress of Delegator
         required: true
         type: string
-        x-example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+        x-example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
     get:
       deprecated: true
       summary: Query all validators that a delegator is bonded to
@@ -2358,7 +2358,7 @@ paths:
                 operator_address:
                   type: string
                   description: bech32 encoded address
-                  example: terravaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
+                  example: iqvaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
                 consensus_pubkey:
                   type: object
                   properties:
@@ -2425,13 +2425,13 @@ paths:
         description: Bech32 AccAddress of Delegator
         required: true
         type: string
-        x-example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+        x-example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
       - in: path
         name: validatorAddr
         description: Bech32 ValAddress of Delegator
         required: true
         type: string
-        x-example: terravaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
+        x-example: iqvaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
     get:
       deprecated: true
       summary: Query a validator that a delegator is bonded to
@@ -2448,7 +2448,7 @@ paths:
               operator_address:
                 type: string
                 description: bech32 encoded address
-                example: terravaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
+                example: iqvaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
               consensus_pubkey:
                 type: object
                 properties:
@@ -2547,7 +2547,7 @@ paths:
                 operator_address:
                   type: string
                   description: bech32 encoded address
-                  example: terravaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
+                  example: iqvaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
                 consensus_pubkey:
                   type: object
                   properties:
@@ -2612,7 +2612,7 @@ paths:
         description: Bech32 OperatorAddress of validator
         required: true
         type: string
-        x-example: terravaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
+        x-example: iqvaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
     get:
       deprecated: true
       summary: Query the information from a single validator
@@ -2629,7 +2629,7 @@ paths:
               operator_address:
                 type: string
                 description: bech32 encoded address
-                example: terravaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
+                example: iqvaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
               consensus_pubkey:
                 type: object
                 properties:
@@ -2696,7 +2696,7 @@ paths:
         description: Bech32 OperatorAddress of validator
         required: true
         type: string
-        x-example: terravaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
+        x-example: iqvaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
     get:
       deprecated: true
       summary: Get all delegations from a validator
@@ -2726,7 +2726,7 @@ paths:
                   properties:
                     denom:
                       type: string
-                      example: uluna
+                      example: ubiq
                     amount:
                       type: string
                       example: '50'
@@ -2741,7 +2741,7 @@ paths:
         description: Bech32 OperatorAddress of validator
         required: true
         type: string
-        x-example: terravaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
+        x-example: iqvaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
     get:
       deprecated: true
       summary: Get all unbonding delegations from a validator
@@ -2856,7 +2856,7 @@ paths:
               properties:
                 address:
                   type: string
-                  example: terravalcons1qsdpq864szmfk8nh82qcg7lyle6k95w07acdqn
+                  example: iqvalcons1qsdpq864szmfk8nh82qcg7lyle6k95w07acdqn
                 start_height:
                   type: string
                 index_offset:
@@ -2886,7 +2886,7 @@ paths:
           name: validatorAddr
           required: true
           in: path
-          x-example: terravaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
+          x-example: iqvaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
         - description: ''
           name: UnjailBody
           in: body
@@ -2913,7 +2913,7 @@ paths:
                           properties:
                             denom:
                               type: string
-                              example: uluna
+                              example: ubiq
                             amount:
                               type: string
                               example: '50'
@@ -2963,7 +2963,7 @@ paths:
                       properties:
                         denom:
                           type: string
-                          example: uluna
+                          example: ubiq
                         amount:
                           type: string
                           example: '50'
@@ -3047,7 +3047,7 @@ paths:
                 properties:
                   from:
                     type: string
-                    example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+                    example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
                     description: Sender address or Keybase name to generate a transaction
                   memo:
                     type: string
@@ -3074,7 +3074,7 @@ paths:
                       properties:
                         denom:
                           type: string
-                          example: uluna
+                          example: ubiq
                         amount:
                           type: string
                           example: '50'
@@ -3094,7 +3094,7 @@ paths:
               proposer:
                 type: string
                 description: bech32 encoded address
-                example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+                example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
               initial_deposit:
                 type: array
                 items:
@@ -3102,7 +3102,7 @@ paths:
                   properties:
                     denom:
                       type: string
-                      example: uluna
+                      example: ubiq
                     amount:
                       type: string
                       example: '50'
@@ -3128,7 +3128,7 @@ paths:
                       properties:
                         denom:
                           type: string
-                          example: uluna
+                          example: ubiq
                         amount:
                           type: string
                           example: '50'
@@ -3234,7 +3234,7 @@ paths:
                     properties:
                       denom:
                         type: string
-                        example: uluna
+                        example: ubiq
                       amount:
                         type: string
                         example: '50'
@@ -3276,7 +3276,7 @@ paths:
                 properties:
                   from:
                     type: string
-                    example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+                    example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
                     description: Sender address or Keybase name to generate a transaction
                   memo:
                     type: string
@@ -3303,7 +3303,7 @@ paths:
                       properties:
                         denom:
                           type: string
-                          example: uluna
+                          example: ubiq
                         amount:
                           type: string
                           example: '50'
@@ -3322,7 +3322,7 @@ paths:
               proposer:
                 type: string
                 description: bech32 encoded address
-                example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+                example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
               deposit:
                 type: array
                 items:
@@ -3330,7 +3330,7 @@ paths:
                   properties:
                     denom:
                       type: string
-                      example: uluna
+                      example: ubiq
                     amount:
                       type: string
                       example: '50'
@@ -3372,7 +3372,7 @@ paths:
                       properties:
                         denom:
                           type: string
-                          example: uluna
+                          example: ubiq
                         amount:
                           type: string
                           example: '50'
@@ -3465,7 +3465,7 @@ paths:
                   properties:
                     denom:
                       type: string
-                      example: uluna
+                      example: ubiq
                     amount:
                       type: string
                       example: '50'
@@ -3540,7 +3540,7 @@ paths:
                     properties:
                       denom:
                         type: string
-                        example: uluna
+                        example: ubiq
                       amount:
                         type: string
                         example: '50'
@@ -3549,7 +3549,7 @@ paths:
                 depositor:
                   type: string
                   description: bech32 encoded address
-                  example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+                  example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
         '400':
           description: Invalid proposal id
         '500':
@@ -3583,7 +3583,7 @@ paths:
                 properties:
                   from:
                     type: string
-                    example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+                    example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
                     description: Sender address or Keybase name to generate a transaction
                   memo:
                     type: string
@@ -3610,7 +3610,7 @@ paths:
                       properties:
                         denom:
                           type: string
-                          example: uluna
+                          example: ubiq
                         amount:
                           type: string
                           example: '50'
@@ -3623,7 +3623,7 @@ paths:
               depositor:
                 type: string
                 description: bech32 encoded address
-                example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+                example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
               amount:
                 type: array
                 items:
@@ -3631,7 +3631,7 @@ paths:
                   properties:
                     denom:
                       type: string
-                      example: uluna
+                      example: ubiq
                     amount:
                       type: string
                       example: '50'
@@ -3657,7 +3657,7 @@ paths:
                       properties:
                         denom:
                           type: string
-                          example: uluna
+                          example: ubiq
                         amount:
                           type: string
                           example: '50'
@@ -3712,7 +3712,7 @@ paths:
           name: depositor
           required: true
           in: path
-          x-example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+          x-example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
       responses:
         '200':
           description: OK
@@ -3726,7 +3726,7 @@ paths:
                   properties:
                     denom:
                       type: string
-                      example: uluna
+                      example: ubiq
                     amount:
                       type: string
                       example: '50'
@@ -3735,7 +3735,7 @@ paths:
               depositor:
                 type: string
                 description: bech32 encoded address
-                example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+                example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
         '400':
           description: Invalid proposal id or depositor address
         '404':
@@ -3833,7 +3833,7 @@ paths:
                 properties:
                   from:
                     type: string
-                    example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+                    example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
                     description: Sender address or Keybase name to generate a transaction
                   memo:
                     type: string
@@ -3860,7 +3860,7 @@ paths:
                       properties:
                         denom:
                           type: string
-                          example: uluna
+                          example: ubiq
                         amount:
                           type: string
                           example: '50'
@@ -3873,7 +3873,7 @@ paths:
               voter:
                 type: string
                 description: bech32 encoded address
-                example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+                example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
               option:
                 type: string
                 example: 'yes'
@@ -3899,7 +3899,7 @@ paths:
                       properties:
                         denom:
                           type: string
-                          example: uluna
+                          example: ubiq
                         amount:
                           type: string
                           example: '50'
@@ -3954,7 +3954,7 @@ paths:
           name: voter
           required: true
           in: path
-          x-example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+          x-example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
       responses:
         '200':
           description: OK
@@ -4064,7 +4064,7 @@ paths:
                   properties:
                     denom:
                       type: string
-                      example: uluna
+                      example: ubiq
                     amount:
                       type: string
                       example: '50'
@@ -4138,7 +4138,7 @@ paths:
         description: Bech32 AccAddress of Delegator
         required: true
         type: string
-        x-example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+        x-example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
     get:
       deprecated: true
       summary: Get the total rewards balance from all delegations
@@ -4163,7 +4163,7 @@ paths:
                     validator_address:
                       type: string
                       description: bech32 encoded address
-                      example: terravaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
+                      example: iqvaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
                     reward:
                       type: array
                       items:
@@ -4171,7 +4171,7 @@ paths:
                         properties:
                           denom:
                             type: string
-                            example: uluna
+                            example: ubiq
                           amount:
                             type: string
                             example: '50'
@@ -4182,7 +4182,7 @@ paths:
                   properties:
                     denom:
                       type: string
-                      example: uluna
+                      example: ubiq
                     amount:
                       type: string
                       example: '50'
@@ -4210,7 +4210,7 @@ paths:
                 properties:
                   from:
                     type: string
-                    example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+                    example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
                     description: Sender address or Keybase name to generate a transaction
                   memo:
                     type: string
@@ -4237,7 +4237,7 @@ paths:
                       properties:
                         denom:
                           type: string
-                          example: uluna
+                          example: ubiq
                         amount:
                           type: string
                           example: '50'
@@ -4269,7 +4269,7 @@ paths:
                       properties:
                         denom:
                           type: string
-                          example: uluna
+                          example: ubiq
                         amount:
                           type: string
                           example: '50'
@@ -4310,13 +4310,13 @@ paths:
         description: Bech32 AccAddress of Delegator
         required: true
         type: string
-        x-example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+        x-example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
       - in: path
         name: validatorAddr
         description: Bech32 OperatorAddress of validator
         required: true
         type: string
-        x-example: terravaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
+        x-example: iqvaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
     get:
       deprecated: true
       summary: Query a delegation reward
@@ -4335,7 +4335,7 @@ paths:
               properties:
                 denom:
                   type: string
-                  example: uluna
+                  example: ubiq
                 amount:
                   type: string
                   example: '50'
@@ -4363,7 +4363,7 @@ paths:
                 properties:
                   from:
                     type: string
-                    example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+                    example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
                     description: Sender address or Keybase name to generate a transaction
                   memo:
                     type: string
@@ -4390,7 +4390,7 @@ paths:
                       properties:
                         denom:
                           type: string
-                          example: uluna
+                          example: ubiq
                         amount:
                           type: string
                           example: '50'
@@ -4422,7 +4422,7 @@ paths:
                       properties:
                         denom:
                           type: string
-                          example: uluna
+                          example: ubiq
                         amount:
                           type: string
                           example: '50'
@@ -4463,7 +4463,7 @@ paths:
         description: Bech32 AccAddress of Delegator
         required: true
         type: string
-        x-example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+        x-example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
     get:
       deprecated: true
       summary: Get the rewards withdrawal address
@@ -4480,7 +4480,7 @@ paths:
           schema:
             type: string
             description: bech32 encoded address
-            example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+            example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
         '400':
           description: Invalid delegator address
         '500':
@@ -4505,7 +4505,7 @@ paths:
                 properties:
                   from:
                     type: string
-                    example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+                    example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
                     description: Sender address or Keybase name to generate a transaction
                   memo:
                     type: string
@@ -4532,7 +4532,7 @@ paths:
                       properties:
                         denom:
                           type: string
-                          example: uluna
+                          example: ubiq
                         amount:
                           type: string
                           example: '50'
@@ -4545,7 +4545,7 @@ paths:
               withdraw_address:
                 type: string
                 description: bech32 encoded address
-                example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+                example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
       responses:
         '200':
           description: OK
@@ -4568,7 +4568,7 @@ paths:
                       properties:
                         denom:
                           type: string
-                          example: uluna
+                          example: ubiq
                         amount:
                           type: string
                           example: '50'
@@ -4609,7 +4609,7 @@ paths:
         description: Bech32 OperatorAddress of validator
         required: true
         type: string
-        x-example: terravaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
+        x-example: iqvaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
     get:
       deprecated: true
       summary: Validator distribution information
@@ -4627,7 +4627,7 @@ paths:
               operator_address:
                 type: string
                 description: bech32 encoded address
-                example: terravaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
+                example: iqvaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
               self_bond_rewards:
                 type: array
                 items:
@@ -4635,7 +4635,7 @@ paths:
                   properties:
                     denom:
                       type: string
-                      example: uluna
+                      example: ubiq
                     amount:
                       type: string
                       example: '50'
@@ -4649,7 +4649,7 @@ paths:
                       properties:
                         denom:
                           type: string
-                          example: uluna
+                          example: ubiq
                         amount:
                           type: string
                           example: '50'
@@ -4664,7 +4664,7 @@ paths:
         description: Bech32 OperatorAddress of validator
         required: true
         type: string
-        x-example: terravaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
+        x-example: iqvaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
     get:
       deprecated: true
       summary: Fee distribution outstanding rewards of a single validator
@@ -4685,7 +4685,7 @@ paths:
                   properties:
                     denom:
                       type: string
-                      example: uluna
+                      example: ubiq
                     amount:
                       type: string
                       example: '50'
@@ -4698,7 +4698,7 @@ paths:
         description: Bech32 OperatorAddress of validator
         required: true
         type: string
-        x-example: terravaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
+        x-example: iqvaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
     get:
       deprecated: true
       summary: Commission and self-delegation rewards of a single validator
@@ -4717,7 +4717,7 @@ paths:
               properties:
                 denom:
                   type: string
-                  example: uluna
+                  example: ubiq
                 amount:
                   type: string
                   example: '50'
@@ -4745,7 +4745,7 @@ paths:
                 properties:
                   from:
                     type: string
-                    example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+                    example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
                     description: Sender address or Keybase name to generate a transaction
                   memo:
                     type: string
@@ -4772,7 +4772,7 @@ paths:
                       properties:
                         denom:
                           type: string
-                          example: uluna
+                          example: ubiq
                         amount:
                           type: string
                           example: '50'
@@ -4804,7 +4804,7 @@ paths:
                       properties:
                         denom:
                           type: string
-                          example: uluna
+                          example: ubiq
                         amount:
                           type: string
                           example: '50'
@@ -4856,7 +4856,7 @@ paths:
               properties:
                 denom:
                   type: string
-                  example: uluna
+                  example: ubiq
                 amount:
                   type: string
                   example: '50'
@@ -4963,7 +4963,7 @@ paths:
                 properties:
                   from:
                     type: string
-                    example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+                    example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
                     description: Sender address or Keybase name to generate a transaction
                   memo:
                     type: string
@@ -4990,7 +4990,7 @@ paths:
                       properties:
                         denom:
                           type: string
-                          example: uluna
+                          example: ubiq
                         amount:
                           type: string
                           example: '50'
@@ -5005,19 +5005,19 @@ paths:
                 properties:
                   denom:
                     type: string
-                    example: uluna
+                    example: ubiq
                   amount:
                     type: string
                     example: '50'
               ask_denom:
                 type: string
-                example: uluna
+                example: ubiq
               receiver:
                 type: string
                 description: >-
                   the `receiver` field can be skipped when the receiver is
                   trader
-                example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+                example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
       responses:
         '200':
           description: OK
@@ -5040,7 +5040,7 @@ paths:
                       properties:
                         denom:
                           type: string
-                          example: uluna
+                          example: ubiq
                         amount:
                           type: string
                           example: '50'
@@ -5083,7 +5083,7 @@ paths:
           description: coin expression want to swap
           type: string
           required: true
-          x-example: 1000000uluna
+          x-example: 1000000ubiq
         - in: query
           name: ask_denom
           description: Then coin denom want to ask
@@ -5098,17 +5098,17 @@ paths:
             properties:
               denom:
                 type: string
-                example: uluna
+                example: ubiq
               amount:
                 type: string
                 example: '50'
         '500':
           description: Internal Server Error
-  /market/terra_pool_delta:
+  /market/iq_pool_delta:
     get:
       deprecated: true
       summary: >-
-        Get terra pool delta, is usdr amount used for swap operation from the
+        Get iq pool delta, is usdr amount used for swap operation from the
         IQPool.
       tags:
         - Market
@@ -5248,7 +5248,7 @@ paths:
                 properties:
                   from:
                     type: string
-                    example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+                    example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
                     description: Sender address or Keybase name to generate a transaction
                   memo:
                     type: string
@@ -5275,7 +5275,7 @@ paths:
                       properties:
                         denom:
                           type: string
-                          example: uluna
+                          example: ubiq
                         amount:
                           type: string
                           example: '50'
@@ -5288,7 +5288,7 @@ paths:
               feeder:
                 type: string
                 description: bech32 encoded address
-                example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+                example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
       responses:
         '200':
           description: OK
@@ -5311,7 +5311,7 @@ paths:
                       properties:
                         denom:
                           type: string
-                          example: uluna
+                          example: ubiq
                         amount:
                           type: string
                           example: '50'
@@ -5362,7 +5362,7 @@ paths:
           schema:
             type: string
             description: bech32 encoded address
-            example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+            example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
         '400':
           description: Bad Request
         '500':
@@ -5418,7 +5418,7 @@ paths:
                 properties:
                   from:
                     type: string
-                    example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+                    example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
                     description: Sender address or Keybase name to generate a transaction
                   memo:
                     type: string
@@ -5445,7 +5445,7 @@ paths:
                       properties:
                         denom:
                           type: string
-                          example: uluna
+                          example: ubiq
                         amount:
                           type: string
                           example: '50'
@@ -5494,7 +5494,7 @@ paths:
                       properties:
                         denom:
                           type: string
-                          example: uluna
+                          example: ubiq
                         amount:
                           type: string
                           example: '50'
@@ -5553,7 +5553,7 @@ paths:
               voter:
                 type: string
                 description: bech32 encoded address
-                example: terravaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
+                example: iqvaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
               submit_block:
                 type: number
                 example: '1'
@@ -5587,7 +5587,7 @@ paths:
                 properties:
                   from:
                     type: string
-                    example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+                    example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
                     description: Sender address or Keybase name to generate a transaction
                   memo:
                     type: string
@@ -5614,7 +5614,7 @@ paths:
                       properties:
                         denom:
                           type: string
-                          example: uluna
+                          example: ubiq
                         amount:
                           type: string
                           example: '50'
@@ -5658,7 +5658,7 @@ paths:
                       properties:
                         denom:
                           type: string
-                          example: uluna
+                          example: ubiq
                         amount:
                           type: string
                           example: '50'
@@ -5725,7 +5725,7 @@ paths:
               voter:
                 type: string
                 description: bech32 encoded address
-                example: terravaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
+                example: iqvaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
         '400':
           description: Bad Request
         '500':
@@ -5817,7 +5817,7 @@ paths:
               properties:
                 denom:
                   type: string
-                  example: uluna
+                  example: ubiq
                 tax_cap:
                   type: string
                   example: '50'
@@ -5859,7 +5859,7 @@ paths:
               properties:
                 denom:
                   type: string
-                  example: uluna
+                  example: ubiq
                 amount:
                   type: string
                   example: '50'
@@ -5913,7 +5913,7 @@ paths:
                     properties:
                       denom:
                         type: string
-                        example: uluna
+                        example: ubiq
                       amount:
                         type: string
                         example: '50'
@@ -5940,7 +5940,7 @@ paths:
                     properties:
                       denom:
                         type: string
-                        example: uluna
+                        example: ubiq
                       amount:
                         type: string
                         example: '50'
@@ -6009,7 +6009,7 @@ paths:
                 properties:
                   from:
                     type: string
-                    example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+                    example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
                     description: Sender address or Keybase name to generate a transaction
                   memo:
                     type: string
@@ -6036,7 +6036,7 @@ paths:
                       properties:
                         denom:
                           type: string
-                          example: uluna
+                          example: ubiq
                         amount:
                           type: string
                           example: '50'
@@ -6071,7 +6071,7 @@ paths:
                       properties:
                         denom:
                           type: string
-                          example: uluna
+                          example: ubiq
                         amount:
                           type: string
                           example: '50'
@@ -6127,7 +6127,7 @@ paths:
                 properties:
                   from:
                     type: string
-                    example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+                    example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
                     description: Sender address or Keybase name to generate a transaction
                   memo:
                     type: string
@@ -6154,7 +6154,7 @@ paths:
                       properties:
                         denom:
                           type: string
-                          example: uluna
+                          example: ubiq
                         amount:
                           type: string
                           example: '50'
@@ -6171,7 +6171,7 @@ paths:
                   properties:
                     denom:
                       type: string
-                      example: uluna
+                      example: ubiq
                     amount:
                       type: string
                       example: '50'
@@ -6182,7 +6182,7 @@ paths:
               admin:
                 type: string
                 description: bech32 encoded address
-                example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+                example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
       responses:
         '200':
           description: OK
@@ -6205,7 +6205,7 @@ paths:
                       properties:
                         denom:
                           type: string
-                          example: uluna
+                          example: ubiq
                         amount:
                           type: string
                           example: '50'
@@ -6284,7 +6284,7 @@ paths:
                 properties:
                   from:
                     type: string
-                    example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+                    example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
                     description: Sender address or Keybase name to generate a transaction
                   memo:
                     type: string
@@ -6311,7 +6311,7 @@ paths:
                       properties:
                         denom:
                           type: string
-                          example: uluna
+                          example: ubiq
                         amount:
                           type: string
                           example: '50'
@@ -6346,7 +6346,7 @@ paths:
                       properties:
                         denom:
                           type: string
-                          example: uluna
+                          example: ubiq
                         amount:
                           type: string
                           example: '50'
@@ -6402,7 +6402,7 @@ paths:
                 properties:
                   from:
                     type: string
-                    example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+                    example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
                     description: Sender address or Keybase name to generate a transaction
                   memo:
                     type: string
@@ -6429,7 +6429,7 @@ paths:
                       properties:
                         denom:
                           type: string
-                          example: uluna
+                          example: ubiq
                         amount:
                           type: string
                           example: '50'
@@ -6446,7 +6446,7 @@ paths:
                   properties:
                     denom:
                       type: string
-                      example: uluna
+                      example: ubiq
                     amount:
                       type: string
                       example: '50'
@@ -6475,7 +6475,7 @@ paths:
                       properties:
                         denom:
                           type: string
-                          example: uluna
+                          example: ubiq
                         amount:
                           type: string
                           example: '50'
@@ -6531,15 +6531,15 @@ paths:
               address:
                 type: string
                 description: bech32 encoded address
-                example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+                example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
               creator:
                 type: string
                 description: bech32 encoded address
-                example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+                example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
               admin:
                 type: string
                 description: bech32 encoded address
-                example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+                example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
               init_msg:
                 type: string
   '/wasm/contracts/{contractAddress}/migrate':
@@ -6566,7 +6566,7 @@ paths:
                 properties:
                   from:
                     type: string
-                    example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+                    example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
                     description: Sender address or Keybase name to generate a transaction
                   memo:
                     type: string
@@ -6593,7 +6593,7 @@ paths:
                       properties:
                         denom:
                           type: string
-                          example: uluna
+                          example: ubiq
                         amount:
                           type: string
                           example: '50'
@@ -6632,7 +6632,7 @@ paths:
                       properties:
                         denom:
                           type: string
-                          example: uluna
+                          example: ubiq
                         amount:
                           type: string
                           example: '50'
@@ -6688,7 +6688,7 @@ paths:
                 properties:
                   from:
                     type: string
-                    example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+                    example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
                     description: Sender address or Keybase name to generate a transaction
                   memo:
                     type: string
@@ -6715,7 +6715,7 @@ paths:
                       properties:
                         denom:
                           type: string
-                          example: uluna
+                          example: ubiq
                         amount:
                           type: string
                           example: '50'
@@ -6728,7 +6728,7 @@ paths:
               new_admin:
                 type: string
                 description: bech32 encoded address
-                example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+                example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
       responses:
         '200':
           description: OK
@@ -6751,7 +6751,7 @@ paths:
                       properties:
                         denom:
                           type: string
-                          example: uluna
+                          example: ubiq
                         amount:
                           type: string
                           example: '50'
@@ -6807,7 +6807,7 @@ paths:
                 properties:
                   from:
                     type: string
-                    example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+                    example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
                     description: Sender address or Keybase name to generate a transaction
                   memo:
                     type: string
@@ -6834,7 +6834,7 @@ paths:
                       properties:
                         denom:
                           type: string
-                          example: uluna
+                          example: ubiq
                         amount:
                           type: string
                           example: '50'
@@ -6866,7 +6866,7 @@ paths:
                       properties:
                         denom:
                           type: string
-                          example: uluna
+                          example: ubiq
                         amount:
                           type: string
                           example: '50'
@@ -25767,7 +25767,7 @@ paths:
           format: int64
       tags:
         - Query
-  /terra/tx/v1beta1/compute_tax:
+  /iq/tx/v1beta1/compute_tax:
     post:
       summary: EstimateFee simulates executing a transaction for estimating gas usage.
       operationId: ComputeTax
@@ -25992,10 +25992,10 @@ paths:
           in: body
           required: true
           schema:
-            $ref: '#/definitions/terra.tx.v1beta1.ComputeTaxRequest'
+            $ref: '#/definitions/iq.tx.v1beta1.ComputeTaxRequest'
       tags:
         - Service
-  /terra/market/v1beta1/params:
+  /iq/market/v1beta1/params:
     get:
       summary: Params queries all parameters.
       operationId: MarketParams
@@ -26045,7 +26045,7 @@ paths:
                       format: byte
       tags:
         - Query
-  /terra/market/v1beta1/swap:
+  /iq/market/v1beta1/swap:
     get:
       summary: Swap returns simulated swap amount.
       operationId: Swap
@@ -26092,7 +26092,7 @@ paths:
                       format: byte
       parameters:
         - name: offer_coin
-          description: offer_coin defines the coin being offered (i.e. 1000000uluna).
+          description: offer_coin defines the coin being offered (i.e. 1000000ubiq).
           in: query
           required: false
           type: string
@@ -26103,9 +26103,9 @@ paths:
           type: string
       tags:
         - Query
-  /terra/market/v1beta1/terra_pool_delta:
+  /iq/market/v1beta1/iq_pool_delta:
     get:
-      summary: IQPoolDelta returns terra_pool_delta amount.
+      summary: IQPoolDelta returns iq_pool_delta amount.
       operationId: IQPoolDelta
       responses:
         '200':
@@ -26113,11 +26113,11 @@ paths:
           schema:
             type: object
             properties:
-              terra_pool_delta:
+              iq_pool_delta:
                 type: string
                 format: byte
                 title: >-
-                  terra_pool_delta defines the gap between the IQPool and the
+                  iq_pool_delta defines the gap between the IQPool and the
                   IQBasePool
             description: >-
               QueryIQPoolDeltaResponse is the response type for the
@@ -26146,7 +26146,7 @@ paths:
                       format: byte
       tags:
         - Query
-  /terra/oracle/v1beta1/denoms/actives:
+  /iq/oracle/v1beta1/denoms/actives:
     get:
       summary: Actives returns all active denoms
       operationId: Actives
@@ -26190,7 +26190,7 @@ paths:
                       format: byte
       tags:
         - Query
-  /terra/oracle/v1beta1/denoms/exchange_rates:
+  /iq/oracle/v1beta1/denoms/exchange_rates:
     get:
       summary: ExchangeRates returns exchange rates of all denoms
       operationId: ExchangeRates
@@ -26248,7 +26248,7 @@ paths:
                       format: byte
       tags:
         - Query
-  /terra/oracle/v1beta1/denoms/tobin_taxes:
+  /iq/oracle/v1beta1/denoms/tobin_taxes:
     get:
       summary: TobinTaxes returns tobin taxes of all denoms
       operationId: TobinTaxes
@@ -26298,7 +26298,7 @@ paths:
                       format: byte
       tags:
         - Query
-  /terra/oracle/v1beta1/denoms/vote_targets:
+  /iq/oracle/v1beta1/denoms/vote_targets:
     get:
       summary: VoteTargets returns all vote target denoms
       operationId: VoteTargets
@@ -26344,7 +26344,7 @@ paths:
                       format: byte
       tags:
         - Query
-  '/terra/oracle/v1beta1/denoms/{denom}/exchange_rate':
+  '/iq/oracle/v1beta1/denoms/{denom}/exchange_rate':
     get:
       summary: ExchangeRate returns exchange rate of a denom
       operationId: ExchangeRate
@@ -26392,7 +26392,7 @@ paths:
           type: string
       tags:
         - Query
-  '/terra/oracle/v1beta1/denoms/{denom}/tobin_tax':
+  '/iq/oracle/v1beta1/denoms/{denom}/tobin_tax':
     get:
       summary: TobinTax returns tobin tax of a denom
       operationId: TobinTax
@@ -26438,7 +26438,7 @@ paths:
           type: string
       tags:
         - Query
-  /terra/oracle/v1beta1/params:
+  /iq/oracle/v1beta1/params:
     get:
       summary: Params queries all parameters.
       operationId: OracleParams
@@ -26506,7 +26506,7 @@ paths:
                       format: byte
       tags:
         - Query
-  '/terra/oracle/v1beta1/valdiators/{validator_addr}/aggregate_vote':
+  '/iq/oracle/v1beta1/valdiators/{validator_addr}/aggregate_vote':
     get:
       summary: AggregateVote returns an aggregate vote of a validator
       operationId: AggregateVote
@@ -26574,7 +26574,7 @@ paths:
           type: string
       tags:
         - Query
-  /terra/oracle/v1beta1/validators/aggregate_prevotes:
+  /iq/oracle/v1beta1/validators/aggregate_prevotes:
     get:
       summary: AggregatePrevotes returns aggregate prevotes of all validators
       operationId: AggregatePrevotes
@@ -26634,7 +26634,7 @@ paths:
                       format: byte
       tags:
         - Query
-  /terra/oracle/v1beta1/validators/aggregate_votes:
+  /iq/oracle/v1beta1/validators/aggregate_votes:
     get:
       summary: AggregateVotes returns aggregate votes of all validators
       operationId: AggregateVotes
@@ -26698,7 +26698,7 @@ paths:
                       format: byte
       tags:
         - Query
-  '/terra/oracle/v1beta1/validators/{validator_addr}/aggregate_prevote':
+  '/iq/oracle/v1beta1/validators/{validator_addr}/aggregate_prevote':
     get:
       summary: AggregatePrevote returns an aggregate prevote of a validator
       operationId: AggregatePrevote
@@ -26759,7 +26759,7 @@ paths:
           type: string
       tags:
         - Query
-  '/terra/oracle/v1beta1/validators/{validator_addr}/feeder':
+  '/iq/oracle/v1beta1/validators/{validator_addr}/feeder':
     get:
       summary: FeederDelegation returns feeder delegation of a validator
       operationId: FeederDelegation
@@ -26805,7 +26805,7 @@ paths:
           type: string
       tags:
         - Query
-  '/terra/oracle/v1beta1/validators/{validator_addr}/miss':
+  '/iq/oracle/v1beta1/validators/{validator_addr}/miss':
     get:
       summary: MissCounter returns oracle miss counter of a validator
       operationId: MissCounter
@@ -26852,7 +26852,7 @@ paths:
           type: string
       tags:
         - Query
-  /terra/treasury/v1beta1/indicators:
+  /iq/treasury/v1beta1/indicators:
     get:
       summary: Indicators return the current trl informations
       operationId: Indicators
@@ -26893,7 +26893,7 @@ paths:
                       format: byte
       tags:
         - Query
-  /terra/treasury/v1beta1/params:
+  /iq/treasury/v1beta1/params:
     get:
       summary: Params queries all parameters.
       operationId: TreasuryParams
@@ -27003,7 +27003,7 @@ paths:
                       format: byte
       tags:
         - Query
-  /terra/treasury/v1beta1/reward_weight:
+  /iq/treasury/v1beta1/reward_weight:
     get:
       summary: RewardWeight return the current reward weight
       operationId: RewardWeight
@@ -27042,7 +27042,7 @@ paths:
                       format: byte
       tags:
         - Query
-  /terra/treasury/v1beta1/seigniorage_proceeds:
+  /iq/treasury/v1beta1/seigniorage_proceeds:
     get:
       summary: SeigniorageProceeds return the current seigniorage proceeds
       operationId: SeigniorageProceeds
@@ -27081,7 +27081,7 @@ paths:
                       format: byte
       tags:
         - Query
-  /terra/treasury/v1beta1/tax_caps:
+  /iq/treasury/v1beta1/tax_caps:
     get:
       summary: TaxCaps returns the all tax caps
       operationId: TaxCaps
@@ -27130,7 +27130,7 @@ paths:
                       format: byte
       tags:
         - Query
-  '/terra/treasury/v1beta1/tax_caps/{denom}':
+  '/iq/treasury/v1beta1/tax_caps/{denom}':
     get:
       summary: TaxCap returns the tax cap of a denom
       operationId: TaxCap
@@ -27175,7 +27175,7 @@ paths:
           type: string
       tags:
         - Query
-  /terra/treasury/v1beta1/tax_proceeds:
+  /iq/treasury/v1beta1/tax_proceeds:
     get:
       summary: TaxProceeds return the current tax proceeds
       operationId: TaxProceeds
@@ -27229,7 +27229,7 @@ paths:
                       format: byte
       tags:
         - Query
-  /terra/treasury/v1beta1/tax_rate:
+  /iq/treasury/v1beta1/tax_rate:
     get:
       summary: TaxRate return the current tax rate
       operationId: TaxRate
@@ -27268,7 +27268,7 @@ paths:
                       format: byte
       tags:
         - Query
-  '/terra/wasm/v1beta1/codes/{code_id}':
+  '/iq/wasm/v1beta1/codes/{code_id}':
     get:
       summary: CodeInfo returns the stored code info
       operationId: CodeInfo
@@ -27327,7 +27327,7 @@ paths:
           format: uint64
       tags:
         - Query
-  '/terra/wasm/v1beta1/codes/{code_id}/byte_code':
+  '/iq/wasm/v1beta1/codes/{code_id}/byte_code':
     get:
       summary: ByteCode returns the stored byte code
       operationId: ByteCode
@@ -27374,7 +27374,7 @@ paths:
           format: uint64
       tags:
         - Query
-  '/terra/wasm/v1beta1/contracts/{contract_address}':
+  '/iq/wasm/v1beta1/contracts/{contract_address}':
     get:
       summary: ContractInfo returns the stored contract info
       operationId: ContractInfo
@@ -27439,7 +27439,7 @@ paths:
           type: string
       tags:
         - Query
-  '/terra/wasm/v1beta1/contracts/{contract_address}/store':
+  '/iq/wasm/v1beta1/contracts/{contract_address}/store':
     get:
       summary: ContractStore return smart query result from the contract
       operationId: ContractStore
@@ -27489,7 +27489,7 @@ paths:
           format: byte
       tags:
         - Query
-  '/terra/wasm/v1beta1/contracts/{contract_address}/store/raw':
+  '/iq/wasm/v1beta1/contracts/{contract_address}/store/raw':
     get:
       summary: RawStore return single key from the raw store data of a contract
       operationId: RawStore
@@ -27540,7 +27540,7 @@ paths:
           format: byte
       tags:
         - Query
-  /terra/wasm/v1beta1/params:
+  /iq/wasm/v1beta1/params:
     get:
       summary: Params queries all parameters.
       operationId: WasmParams
@@ -37228,17 +37228,17 @@ definitions:
   Address:
     type: string
     description: bech32 encoded address
-    example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+    example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
   ValidatorAddress:
     type: string
     description: bech32 encoded address
-    example: terravaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
+    example: iqvaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
   Coin:
     type: object
     properties:
       denom:
         type: string
-        example: uluna
+        example: ubiq
       amount:
         type: string
         example: '50'
@@ -37282,7 +37282,7 @@ definitions:
                   properties:
                     denom:
                       type: string
-                      example: uluna
+                      example: ubiq
                     amount:
                       type: string
                       example: '50'
@@ -37378,7 +37378,7 @@ definitions:
                         properties:
                           denom:
                             type: string
-                            example: uluna
+                            example: ubiq
                           amount:
                             type: string
                             example: '50'
@@ -37445,7 +37445,7 @@ definitions:
               properties:
                 denom:
                   type: string
-                  example: uluna
+                  example: ubiq
                 amount:
                   type: string
                   example: '50'
@@ -37548,7 +37548,7 @@ definitions:
       proposer_address:
         type: string
         description: bech32 encoded address
-        example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+        example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
       version:
         type: object
         properties:
@@ -37621,7 +37621,7 @@ definitions:
           proposer_address:
             type: string
             description: bech32 encoded address
-            example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+            example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
           version:
             type: object
             properties:
@@ -37764,7 +37764,7 @@ definitions:
               proposer_address:
                 type: string
                 description: bech32 encoded address
-                example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+                example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
               version:
                 type: object
                 properties:
@@ -37852,7 +37852,7 @@ definitions:
               proposer_address:
                 type: string
                 description: bech32 encoded address
-                example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+                example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
               version:
                 type: object
                 properties:
@@ -37935,7 +37935,7 @@ definitions:
       validator_address:
         type: string
         description: bech32 encoded address
-        example: terravaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
+        example: iqvaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
       reward:
         type: array
         items:
@@ -37943,7 +37943,7 @@ definitions:
           properties:
             denom:
               type: string
-              example: uluna
+              example: ubiq
             amount:
               type: string
               example: '50'
@@ -37958,7 +37958,7 @@ definitions:
             validator_address:
               type: string
               description: bech32 encoded address
-              example: terravaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
+              example: iqvaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
             reward:
               type: array
               items:
@@ -37966,7 +37966,7 @@ definitions:
                 properties:
                   denom:
                     type: string
-                    example: uluna
+                    example: ubiq
                   amount:
                     type: string
                     example: '50'
@@ -37977,7 +37977,7 @@ definitions:
           properties:
             denom:
               type: string
-              example: uluna
+              example: ubiq
             amount:
               type: string
               example: '50'
@@ -37986,7 +37986,7 @@ definitions:
     properties:
       from:
         type: string
-        example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+        example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
         description: Sender address or Keybase name to generate a transaction
       memo:
         type: string
@@ -38013,7 +38013,7 @@ definitions:
           properties:
             denom:
               type: string
-              example: uluna
+              example: ubiq
             amount:
               type: string
               example: '50'
@@ -38029,7 +38029,7 @@ definitions:
       address:
         type: string
         description: bech32 encoded address
-        example: terravaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
+        example: iqvaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
       pub_key:
         type: object
         properties:
@@ -38086,7 +38086,7 @@ definitions:
           properties:
             denom:
               type: string
-              example: uluna
+              example: ubiq
             amount:
               type: string
               example: '50'
@@ -38115,7 +38115,7 @@ definitions:
           properties:
             denom:
               type: string
-              example: uluna
+              example: ubiq
             amount:
               type: string
               example: '50'
@@ -38124,7 +38124,7 @@ definitions:
       depositor:
         type: string
         description: bech32 encoded address
-        example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+        example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
   TallyResult:
     type: object
     properties:
@@ -38179,7 +38179,7 @@ definitions:
       operator_address:
         type: string
         description: bech32 encoded address
-        example: terravaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
+        example: iqvaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
       consensus_pubkey:
         type: object
         properties:
@@ -38252,7 +38252,7 @@ definitions:
         properties:
           denom:
             type: string
-            example: uluna
+            example: ubiq
           amount:
             type: string
             example: '50'
@@ -38330,7 +38330,7 @@ definitions:
       operator_address:
         type: string
         description: bech32 encoded address
-        example: terravaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
+        example: iqvaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
       self_bond_rewards:
         type: array
         items:
@@ -38338,7 +38338,7 @@ definitions:
           properties:
             denom:
               type: string
-              example: uluna
+              example: ubiq
             amount:
               type: string
               example: '50'
@@ -38352,7 +38352,7 @@ definitions:
               properties:
                 denom:
                   type: string
-                  example: uluna
+                  example: ubiq
                 amount:
                   type: string
                   example: '50'
@@ -38368,7 +38368,7 @@ definitions:
     properties:
       address:
         type: string
-        example: terravalcons1qsdpq864szmfk8nh82qcg7lyle6k95w07acdqn
+        example: iqvalcons1qsdpq864szmfk8nh82qcg7lyle6k95w07acdqn
       start_height:
         type: string
       index_offset:
@@ -38401,7 +38401,7 @@ definitions:
           properties:
             denom:
               type: string
-              example: uluna
+              example: ubiq
             amount:
               type: string
               example: '50'
@@ -38454,7 +38454,7 @@ definitions:
           properties:
             denom:
               type: string
-              example: uluna
+              example: ubiq
             amount:
               type: string
               example: '50'
@@ -38465,7 +38465,7 @@ definitions:
           properties:
             denom:
               type: string
-              example: uluna
+              example: ubiq
             amount:
               type: string
               example: '50'
@@ -38476,7 +38476,7 @@ definitions:
           properties:
             denom:
               type: string
-              example: uluna
+              example: ubiq
             amount:
               type: string
               example: '50'
@@ -38539,7 +38539,7 @@ definitions:
               properties:
                 denom:
                   type: string
-                  example: uluna
+                  example: ubiq
                 amount:
                   type: string
                   example: '50'
@@ -38550,7 +38550,7 @@ definitions:
               properties:
                 denom:
                   type: string
-                  example: uluna
+                  example: ubiq
                 amount:
                   type: string
                   example: '50'
@@ -38561,7 +38561,7 @@ definitions:
               properties:
                 denom:
                   type: string
-                  example: uluna
+                  example: ubiq
                 amount:
                   type: string
                   example: '50'
@@ -38620,7 +38620,7 @@ definitions:
                   properties:
                     denom:
                       type: string
-                      example: uluna
+                      example: ubiq
                     amount:
                       type: string
                       example: '50'
@@ -38631,7 +38631,7 @@ definitions:
                   properties:
                     denom:
                       type: string
-                      example: uluna
+                      example: ubiq
                     amount:
                       type: string
                       example: '50'
@@ -38642,7 +38642,7 @@ definitions:
                   properties:
                     denom:
                       type: string
-                      example: uluna
+                      example: ubiq
                     amount:
                       type: string
                       example: '50'
@@ -38683,7 +38683,7 @@ definitions:
         properties:
           from:
             type: string
-            example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+            example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
             description: Sender address or Keybase name to generate a transaction
           memo:
             type: string
@@ -38710,7 +38710,7 @@ definitions:
               properties:
                 denom:
                   type: string
-                  example: uluna
+                  example: ubiq
                 amount:
                   type: string
                   example: '50'
@@ -38725,17 +38725,17 @@ definitions:
         properties:
           denom:
             type: string
-            example: uluna
+            example: ubiq
           amount:
             type: string
             example: '50'
       ask_denom:
         type: string
-        example: uluna
+        example: ubiq
       receiver:
         type: string
         description: the `receiver` field can be skipped when the receiver is trader
-        example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+        example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
   MarketParams:
     type: object
     properties:
@@ -38756,7 +38756,7 @@ definitions:
         properties:
           from:
             type: string
-            example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+            example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
             description: Sender address or Keybase name to generate a transaction
           memo:
             type: string
@@ -38783,7 +38783,7 @@ definitions:
               properties:
                 denom:
                   type: string
-                  example: uluna
+                  example: ubiq
                 amount:
                   type: string
                   example: '50'
@@ -38812,7 +38812,7 @@ definitions:
       validator:
         type: string
         description: bech32 encoded address
-        example: terravaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
+        example: iqvaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
   VoteReq:
     type: object
     properties:
@@ -38821,7 +38821,7 @@ definitions:
         properties:
           from:
             type: string
-            example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+            example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
             description: Sender address or Keybase name to generate a transaction
           memo:
             type: string
@@ -38848,7 +38848,7 @@ definitions:
               properties:
                 denom:
                   type: string
-                  example: uluna
+                  example: ubiq
                 amount:
                   type: string
                   example: '50'
@@ -38873,7 +38873,7 @@ definitions:
       validator:
         type: string
         description: bech32 encoded address
-        example: terravaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
+        example: iqvaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
   AggregatePrevoteReq:
     type: object
     properties:
@@ -38882,7 +38882,7 @@ definitions:
         properties:
           from:
             type: string
-            example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+            example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
             description: Sender address or Keybase name to generate a transaction
           memo:
             type: string
@@ -38909,7 +38909,7 @@ definitions:
               properties:
                 denom:
                   type: string
-                  example: uluna
+                  example: ubiq
                 amount:
                   type: string
                   example: '50'
@@ -38944,7 +38944,7 @@ definitions:
         properties:
           from:
             type: string
-            example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+            example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
             description: Sender address or Keybase name to generate a transaction
           memo:
             type: string
@@ -38971,7 +38971,7 @@ definitions:
               properties:
                 denom:
                   type: string
-                  example: uluna
+                  example: ubiq
                 amount:
                   type: string
                   example: '50'
@@ -39001,7 +39001,7 @@ definitions:
         properties:
           from:
             type: string
-            example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+            example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
             description: Sender address or Keybase name to generate a transaction
           memo:
             type: string
@@ -39028,7 +39028,7 @@ definitions:
               properties:
                 denom:
                   type: string
-                  example: uluna
+                  example: ubiq
                 amount:
                   type: string
                   example: '50'
@@ -39041,7 +39041,7 @@ definitions:
       feeder:
         type: string
         description: bech32 encoded address
-        example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+        example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
   ExchangeRateVote:
     type: object
     properties:
@@ -39054,7 +39054,7 @@ definitions:
       voter:
         type: string
         description: bech32 encoded address
-        example: terravaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
+        example: iqvaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
   ExchangeRatePrevote:
     type: object
     properties:
@@ -39067,7 +39067,7 @@ definitions:
       voter:
         type: string
         description: bech32 encoded address
-        example: terravaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
+        example: iqvaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
       submit_block:
         type: number
         example: '1'
@@ -39080,7 +39080,7 @@ definitions:
       voter:
         type: string
         description: bech32 encoded address
-        example: terravaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
+        example: iqvaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
       submit_block:
         type: number
         example: '1'
@@ -39101,7 +39101,7 @@ definitions:
       voter:
         type: string
         description: bech32 encoded address
-        example: terravaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
+        example: iqvaloper1wg2mlrxdmnnkkykgqg4znky86nyrtc45q7a85l
   OracleParams:
     type: object
     properties:
@@ -39135,7 +39135,7 @@ definitions:
         properties:
           denom:
             type: string
-            example: uluna
+            example: ubiq
           amount:
             type: string
             example: '50'
@@ -39165,7 +39165,7 @@ definitions:
             properties:
               denom:
                 type: string
-                example: uluna
+                example: ubiq
               amount:
                 type: string
                 example: '50'
@@ -39192,7 +39192,7 @@ definitions:
             properties:
               denom:
                 type: string
-                example: uluna
+                example: ubiq
               amount:
                 type: string
                 example: '50'
@@ -39268,7 +39268,7 @@ definitions:
         items:
           type: string
           example: >-
-            terrapub1addwnpepq2l6pwj8h9fwxdjuge7lazu0sszpkck0nlhjag6q9drffrd93atywdt8ksu
+            iqpub1addwnpepq2l6pwj8h9fwxdjuge7lazu0sszpkck0nlhjag6q9drffrd93atywdt8ksu
   StdSignature:
     type: object
     properties:
@@ -39300,7 +39300,7 @@ definitions:
               properties:
                 denom:
                   type: string
-                  example: uluna
+                  example: ubiq
                 amount:
                   type: string
                   example: '50'
@@ -39319,15 +39319,15 @@ definitions:
       address:
         type: string
         description: bech32 encoded address
-        example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+        example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
       creator:
         type: string
         description: bech32 encoded address
-        example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+        example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
       admin:
         type: string
         description: bech32 encoded address
-        example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+        example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
       init_msg:
         type: string
   StoreCodeReq:
@@ -39338,7 +39338,7 @@ definitions:
         properties:
           from:
             type: string
-            example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+            example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
             description: Sender address or Keybase name to generate a transaction
           memo:
             type: string
@@ -39365,7 +39365,7 @@ definitions:
               properties:
                 denom:
                   type: string
-                  example: uluna
+                  example: ubiq
                 amount:
                   type: string
                   example: '50'
@@ -39386,7 +39386,7 @@ definitions:
         properties:
           from:
             type: string
-            example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+            example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
             description: Sender address or Keybase name to generate a transaction
           memo:
             type: string
@@ -39413,7 +39413,7 @@ definitions:
               properties:
                 denom:
                   type: string
-                  example: uluna
+                  example: ubiq
                 amount:
                   type: string
                   example: '50'
@@ -39434,7 +39434,7 @@ definitions:
         properties:
           from:
             type: string
-            example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+            example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
             description: Sender address or Keybase name to generate a transaction
           memo:
             type: string
@@ -39461,7 +39461,7 @@ definitions:
               properties:
                 denom:
                   type: string
-                  example: uluna
+                  example: ubiq
                 amount:
                   type: string
                   example: '50'
@@ -39478,7 +39478,7 @@ definitions:
           properties:
             denom:
               type: string
-              example: uluna
+              example: ubiq
             amount:
               type: string
               example: '50'
@@ -39489,7 +39489,7 @@ definitions:
       admin:
         type: string
         description: bech32 encoded address
-        example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+        example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
   ExecuteContractReq:
     type: object
     properties:
@@ -39498,7 +39498,7 @@ definitions:
         properties:
           from:
             type: string
-            example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+            example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
             description: Sender address or Keybase name to generate a transaction
           memo:
             type: string
@@ -39525,7 +39525,7 @@ definitions:
               properties:
                 denom:
                   type: string
-                  example: uluna
+                  example: ubiq
                 amount:
                   type: string
                   example: '50'
@@ -39542,7 +39542,7 @@ definitions:
           properties:
             denom:
               type: string
-              example: uluna
+              example: ubiq
             amount:
               type: string
               example: '50'
@@ -39557,7 +39557,7 @@ definitions:
         properties:
           from:
             type: string
-            example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+            example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
             description: Sender address or Keybase name to generate a transaction
           memo:
             type: string
@@ -39584,7 +39584,7 @@ definitions:
               properties:
                 denom:
                   type: string
-                  example: uluna
+                  example: ubiq
                 amount:
                   type: string
                   example: '50'
@@ -39609,7 +39609,7 @@ definitions:
         properties:
           from:
             type: string
-            example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+            example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
             description: Sender address or Keybase name to generate a transaction
           memo:
             type: string
@@ -39636,7 +39636,7 @@ definitions:
               properties:
                 denom:
                   type: string
-                  example: uluna
+                  example: ubiq
                 amount:
                   type: string
                   example: '50'
@@ -39649,7 +39649,7 @@ definitions:
       new_admin:
         type: string
         description: bech32 encoded address
-        example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+        example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
   ClearContractAdminReq:
     type: object
     properties:
@@ -39658,7 +39658,7 @@ definitions:
         properties:
           from:
             type: string
-            example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+            example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
             description: Sender address or Keybase name to generate a transaction
           memo:
             type: string
@@ -39685,7 +39685,7 @@ definitions:
               properties:
                 denom:
                   type: string
-                  example: uluna
+                  example: ubiq
                 amount:
                   type: string
                   example: '50'
@@ -39723,7 +39723,7 @@ definitions:
               properties:
                 denom:
                   type: string
-                  example: uluna
+                  example: ubiq
                 amount:
                   type: string
                   example: '50'
@@ -39764,7 +39764,7 @@ definitions:
                   properties:
                     denom:
                       type: string
-                      example: uluna
+                      example: ubiq
                     amount:
                       type: string
                       example: '50'
@@ -39782,7 +39782,7 @@ definitions:
         properties:
           from:
             type: string
-            example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+            example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
             description: Sender address or Keybase name to generate a transaction
           memo:
             type: string
@@ -39809,7 +39809,7 @@ definitions:
               properties:
                 denom:
                   type: string
-                  example: uluna
+                  example: ubiq
                 amount:
                   type: string
                   example: '50'
@@ -39830,7 +39830,7 @@ definitions:
           properties:
             denom:
               type: string
-              example: uluna
+              example: ubiq
             amount:
               type: string
               example: '50'
@@ -39845,7 +39845,7 @@ definitions:
         properties:
           from:
             type: string
-            example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+            example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
             description: Sender address or Keybase name to generate a transaction
           memo:
             type: string
@@ -39872,7 +39872,7 @@ definitions:
               properties:
                 denom:
                   type: string
-                  example: uluna
+                  example: ubiq
                 amount:
                   type: string
                   example: '50'
@@ -39893,7 +39893,7 @@ definitions:
         properties:
           from:
             type: string
-            example: terra1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
+            example: iq1wg2mlrxdmnnkkykgqg4znky86nyrtc45q336yv
             description: Sender address or Keybase name to generate a transaction
           memo:
             type: string
@@ -39920,7 +39920,7 @@ definitions:
               properties:
                 denom:
                   type: string
-                  example: uluna
+                  example: ubiq
                 amount:
                   type: string
                   example: '50'
@@ -39939,7 +39939,7 @@ definitions:
     properties:
       denom:
         type: string
-        example: uluna
+        example: ubiq
       tax_cap:
         type: string
         example: '50'
@@ -55311,7 +55311,7 @@ definitions:
       Query/UpgradedConsensusState
 
       RPC method.
-  terra.tx.v1beta1.ComputeTaxRequest:
+  iq.tx.v1beta1.ComputeTaxRequest:
     type: object
     properties:
       tx:
@@ -55326,7 +55326,7 @@ definitions:
     description: |-
       ComputeTaxRequest is the request type for the Service.ComputeTax
       RPC method.
-  terra.tx.v1beta1.ComputeTaxResponse:
+  iq.tx.v1beta1.ComputeTaxResponse:
     type: object
     properties:
       tax_amount:
@@ -55347,7 +55347,7 @@ definitions:
     description: |-
       ComputeTaxResponse is the response type for the Service.ComputeTax
       RPC method.
-  terra.market.v1beta1.Params:
+  iq.market.v1beta1.Params:
     type: object
     properties:
       base_pool:
@@ -55360,7 +55360,7 @@ definitions:
         type: string
         format: byte
     description: Params defines the parameters for the market module.
-  terra.market.v1beta1.QueryParamsResponse:
+  iq.market.v1beta1.QueryParamsResponse:
     type: object
     properties:
       params:
@@ -55377,7 +55377,7 @@ definitions:
             type: string
             format: byte
     description: QueryParamsResponse is the response type for the Query/Params RPC method.
-  terra.market.v1beta1.QuerySwapResponse:
+  iq.market.v1beta1.QuerySwapResponse:
     type: object
     properties:
       return_coin:
@@ -55391,19 +55391,19 @@ definitions:
           amount:
             type: string
     description: QuerySwapResponse is the response type for the Query/Swap RPC method.
-  terra.market.v1beta1.QueryIQPoolDeltaResponse:
+  iq.market.v1beta1.QueryIQPoolDeltaResponse:
     type: object
     properties:
-      terra_pool_delta:
+      iq_pool_delta:
         type: string
         format: byte
         title: >-
-          terra_pool_delta defines the gap between the IQPool and the
+          iq_pool_delta defines the gap between the IQPool and the
           IQBasePool
     description: >-
       QueryIQPoolDeltaResponse is the response type for the
       Query/IQPoolDelta RPC method.
-  terra.oracle.v1beta1.AggregateExchangeRatePrevote:
+  iq.oracle.v1beta1.AggregateExchangeRatePrevote:
     type: object
     properties:
       hash:
@@ -55420,7 +55420,7 @@ definitions:
 
       which is formatted as hex string in SHA256("{salt}:{exchange
       rate}{denom},...,{exchange rate}{denom}:{voter}")
-  terra.oracle.v1beta1.AggregateExchangeRateVote:
+  iq.oracle.v1beta1.AggregateExchangeRateVote:
     type: object
     properties:
       exchange_rate_tuples:
@@ -55440,7 +55440,7 @@ definitions:
     description: |-
       MsgAggregateExchangeRateVote - struct for voting on
       the exchange rates of BIQ denominated in various IQ assets.
-  terra.oracle.v1beta1.Denom:
+  iq.oracle.v1beta1.Denom:
     type: object
     properties:
       name:
@@ -55448,7 +55448,7 @@ definitions:
       tobin_tax:
         type: string
     title: Denom - the object to hold configurations of each denom
-  terra.oracle.v1beta1.ExchangeRateTuple:
+  iq.oracle.v1beta1.ExchangeRateTuple:
     type: object
     properties:
       denom:
@@ -55458,7 +55458,7 @@ definitions:
     title: >-
       ExchangeRateTuple - struct to store interpreted exchange rates data to
       store
-  terra.oracle.v1beta1.Params:
+  iq.oracle.v1beta1.Params:
     type: object
     properties:
       vote_period:
@@ -55489,7 +55489,7 @@ definitions:
       min_valid_per_window:
         type: string
     description: Params defines the parameters for the oracle module.
-  terra.oracle.v1beta1.QueryActivesResponse:
+  iq.oracle.v1beta1.QueryActivesResponse:
     type: object
     properties:
       actives:
@@ -55502,7 +55502,7 @@ definitions:
     description: |-
       QueryActivesResponse is response type for the
       Query/Actives RPC method.
-  terra.oracle.v1beta1.QueryAggregatePrevoteResponse:
+  iq.oracle.v1beta1.QueryAggregatePrevoteResponse:
     type: object
     properties:
       aggregate_prevote:
@@ -55526,7 +55526,7 @@ definitions:
     description: |-
       QueryAggregatePrevoteResponse is response type for the
       Query/AggregatePrevote RPC method.
-  terra.oracle.v1beta1.QueryAggregatePrevotesResponse:
+  iq.oracle.v1beta1.QueryAggregatePrevotesResponse:
     type: object
     properties:
       aggregate_prevotes:
@@ -55555,7 +55555,7 @@ definitions:
     description: |-
       QueryAggregatePrevotesResponse is response type for the
       Query/AggregatePrevotes RPC method.
-  terra.oracle.v1beta1.QueryAggregateVoteResponse:
+  iq.oracle.v1beta1.QueryAggregateVoteResponse:
     type: object
     properties:
       aggregate_vote:
@@ -55584,7 +55584,7 @@ definitions:
     description: |-
       QueryAggregateVoteResponse is response type for the
       Query/AggregateVote RPC method.
-  terra.oracle.v1beta1.QueryAggregateVotesResponse:
+  iq.oracle.v1beta1.QueryAggregateVotesResponse:
     type: object
     properties:
       aggregate_votes:
@@ -55615,7 +55615,7 @@ definitions:
     description: |-
       QueryAggregateVotesResponse is response type for the
       Query/AggregateVotes RPC method.
-  terra.oracle.v1beta1.QueryExchangeRateResponse:
+  iq.oracle.v1beta1.QueryExchangeRateResponse:
     type: object
     properties:
       exchange_rate:
@@ -55626,7 +55626,7 @@ definitions:
     description: |-
       QueryExchangeRateResponse is response type for the
       Query/ExchangeRate RPC method.
-  terra.oracle.v1beta1.QueryExchangeRatesResponse:
+  iq.oracle.v1beta1.QueryExchangeRatesResponse:
     type: object
     properties:
       exchange_rates:
@@ -55649,7 +55649,7 @@ definitions:
     description: |-
       QueryExchangeRatesResponse is response type for the
       Query/ExchangeRates RPC method.
-  terra.oracle.v1beta1.QueryFeederDelegationResponse:
+  iq.oracle.v1beta1.QueryFeederDelegationResponse:
     type: object
     properties:
       feeder_addr:
@@ -55658,7 +55658,7 @@ definitions:
     description: |-
       QueryFeederDelegationResponse is response type for the
       Query/FeederDelegation RPC method.
-  terra.oracle.v1beta1.QueryMissCounterResponse:
+  iq.oracle.v1beta1.QueryMissCounterResponse:
     type: object
     properties:
       miss_counter:
@@ -55668,7 +55668,7 @@ definitions:
     description: |-
       QueryMissCounterResponse is response type for the
       Query/MissCounter RPC method.
-  terra.oracle.v1beta1.QueryParamsResponse:
+  iq.oracle.v1beta1.QueryParamsResponse:
     type: object
     properties:
       params:
@@ -55703,7 +55703,7 @@ definitions:
           min_valid_per_window:
             type: string
     description: QueryParamsResponse is the response type for the Query/Params RPC method.
-  terra.oracle.v1beta1.QueryTobinTaxResponse:
+  iq.oracle.v1beta1.QueryTobinTaxResponse:
     type: object
     properties:
       tobin_tax:
@@ -55712,7 +55712,7 @@ definitions:
     description: |-
       QueryTobinTaxResponse is response type for the
       Query/TobinTax RPC method.
-  terra.oracle.v1beta1.QueryTobinTaxesResponse:
+  iq.oracle.v1beta1.QueryTobinTaxesResponse:
     type: object
     properties:
       tobin_taxes:
@@ -55729,7 +55729,7 @@ definitions:
     description: |-
       QueryTobinTaxesResponse is response type for the
       Query/TobinTaxes RPC method.
-  terra.oracle.v1beta1.QueryVoteTargetsResponse:
+  iq.oracle.v1beta1.QueryVoteTargetsResponse:
     type: object
     properties:
       vote_targets:
@@ -55742,7 +55742,7 @@ definitions:
     description: |-
       QueryVoteTargetsResponse is response type for the
       Query/VoteTargets RPC method.
-  terra.treasury.v1beta1.Params:
+  iq.treasury.v1beta1.Params:
     type: object
     properties:
       tax_policy:
@@ -55813,7 +55813,7 @@ definitions:
         type: string
         format: uint64
     description: Params defines the parameters for the oracle module.
-  terra.treasury.v1beta1.PolicyConstraints:
+  iq.treasury.v1beta1.PolicyConstraints:
     type: object
     properties:
       rate_min:
@@ -55837,7 +55837,7 @@ definitions:
     title: >-
       PolicyConstraints - defines policy constraints can be applied in tax &
       reward policies
-  terra.treasury.v1beta1.QueryIndicatorsResponse:
+  iq.treasury.v1beta1.QueryIndicatorsResponse:
     type: object
     properties:
       trl_year:
@@ -55847,7 +55847,7 @@ definitions:
     description: |-
       QueryIndicatorsResponse is response type for the
       Query/Indicators RPC method.
-  terra.treasury.v1beta1.QueryParamsResponse:
+  iq.treasury.v1beta1.QueryParamsResponse:
     type: object
     properties:
       params:
@@ -55922,7 +55922,7 @@ definitions:
             type: string
             format: uint64
     description: QueryParamsResponse is the response type for the Query/Params RPC method.
-  terra.treasury.v1beta1.QueryRewardWeightResponse:
+  iq.treasury.v1beta1.QueryRewardWeightResponse:
     type: object
     properties:
       reward_weight:
@@ -55930,7 +55930,7 @@ definitions:
     description: |-
       QueryRewardWeightResponse is response type for the
       Query/RewardWeight RPC method.
-  terra.treasury.v1beta1.QuerySeigniorageProceedsResponse:
+  iq.treasury.v1beta1.QuerySeigniorageProceedsResponse:
     type: object
     properties:
       seigniorage_proceeds:
@@ -55938,7 +55938,7 @@ definitions:
     description: |-
       QuerySeigniorageProceedsResponse is response type for the
       Query/SeigniorageProceeds RPC method.
-  terra.treasury.v1beta1.QueryTaxCapResponse:
+  iq.treasury.v1beta1.QueryTaxCapResponse:
     type: object
     properties:
       tax_cap:
@@ -55946,7 +55946,7 @@ definitions:
     description: |-
       QueryTaxCapResponse is response type for the
       Query/TaxCap RPC method.
-  terra.treasury.v1beta1.QueryTaxCapsResponse:
+  iq.treasury.v1beta1.QueryTaxCapsResponse:
     type: object
     properties:
       tax_caps:
@@ -55964,7 +55964,7 @@ definitions:
     description: |-
       QueryTaxCapsResponse is response type for the
       Query/TaxCaps RPC method.
-  terra.treasury.v1beta1.QueryTaxCapsResponseItem:
+  iq.treasury.v1beta1.QueryTaxCapsResponseItem:
     type: object
     properties:
       denom:
@@ -55974,7 +55974,7 @@ definitions:
     description: |-
       QueryTaxCapsResponseItem is response item type for the
       Query/TaxCaps RPC method.
-  terra.treasury.v1beta1.QueryTaxProceedsResponse:
+  iq.treasury.v1beta1.QueryTaxProceedsResponse:
     type: object
     properties:
       tax_proceeds:
@@ -55994,7 +55994,7 @@ definitions:
     description: |-
       QueryTaxProceedsResponse is response type for the
       Query/TaxProceeds RPC method.
-  terra.treasury.v1beta1.QueryTaxRateResponse:
+  iq.treasury.v1beta1.QueryTaxRateResponse:
     type: object
     properties:
       tax_rate:
@@ -56002,7 +56002,7 @@ definitions:
     description: |-
       QueryTaxRateResponse is response type for the
       Query/TaxRate RPC method.
-  terra.wasm.v1beta1.CodeInfo:
+  iq.wasm.v1beta1.CodeInfo:
     type: object
     properties:
       code_id:
@@ -56017,7 +56017,7 @@ definitions:
         type: string
         title: Creator address who initially stored the code
     title: CodeInfo is data for the uploaded contract WASM code
-  terra.wasm.v1beta1.ContractInfo:
+  iq.wasm.v1beta1.ContractInfo:
     type: object
     properties:
       address:
@@ -56038,7 +56038,7 @@ definitions:
         format: byte
         title: InitMsg is the raw message used when instantiating a contract
     title: ContractInfo stores a WASM contract instance
-  terra.wasm.v1beta1.Params:
+  iq.wasm.v1beta1.Params:
     type: object
     properties:
       max_contract_size:
@@ -56051,7 +56051,7 @@ definitions:
         type: string
         format: uint64
     description: Params defines the parameters for the wasm module.
-  terra.wasm.v1beta1.QueryByteCodeResponse:
+  iq.wasm.v1beta1.QueryByteCodeResponse:
     type: object
     properties:
       byte_code:
@@ -56060,7 +56060,7 @@ definitions:
     description: |-
       QueryByteCodeResponse is response type for the
       QueryyByteCode RPC method.
-  terra.wasm.v1beta1.QueryCodeInfoResponse:
+  iq.wasm.v1beta1.QueryCodeInfoResponse:
     type: object
     properties:
       code_info:
@@ -56081,7 +56081,7 @@ definitions:
     description: |-
       QueryCodeInfoResponse is response type for the
       QueryyCodeInfo RPC method.
-  terra.wasm.v1beta1.QueryContractInfoResponse:
+  iq.wasm.v1beta1.QueryContractInfoResponse:
     type: object
     properties:
       contract_info:
@@ -56108,7 +56108,7 @@ definitions:
     description: |-
       QueryContractInfoResponse is response type for the
       Query/ContractInfo RPC method.
-  terra.wasm.v1beta1.QueryContractStoreResponse:
+  iq.wasm.v1beta1.QueryContractStoreResponse:
     type: object
     properties:
       query_result:
@@ -56117,7 +56117,7 @@ definitions:
     description: |-
       QueryContractStoreResponse is response type for the
       Query/ContractStore RPC method.
-  terra.wasm.v1beta1.QueryParamsResponse:
+  iq.wasm.v1beta1.QueryParamsResponse:
     type: object
     properties:
       params:
@@ -56134,7 +56134,7 @@ definitions:
             type: string
             format: uint64
     description: QueryParamsResponse is the response type for the Query/Params RPC method.
-  terra.wasm.v1beta1.QueryRawStoreResponse:
+  iq.wasm.v1beta1.QueryRawStoreResponse:
     type: object
     properties:
       data:
