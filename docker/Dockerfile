@@ -1,4 +1,4 @@
-ARG version=v0.0.1-boom
+ARG version=v0.0.1-oracle
 
 FROM bitwebs/iq-core:${version}
 
