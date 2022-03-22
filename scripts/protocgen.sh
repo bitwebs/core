@@ -26,7 +26,7 @@ Mgoogle/protobuf/any.proto=github.com/cosmos/cosmos-sdk/codec/types:. \
 done
 
 # command to generate docs using protoc-gen-doc
-buf protoc \
+buf alpha protoc \
 -I "proto" \
 -I "third_party/proto" \
 --doc_out=./docs/core \
