@@ -17,7 +17,7 @@ const (
 	MicroBSDRDenom        = assets.MicroBSDRDenom
 	MicroBCNYDenom        = assets.MicroBCNYDenom
 	MicroBJPYDenom        = assets.MicroBJPYDenom
-	MicroBEURDenom        = assets.MicroEURDenom
+	MicroBEURDenom        = assets.MicroBEURDenom
 	MicroBGBPDenom        = assets.MicroBGBPDenom
 	MicroBMNTDenom        = assets.MicroBMNTDenom
 	MicroUnit            = assets.MicroUnit
